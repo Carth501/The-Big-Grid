@@ -1,0 +1,27 @@
+Add 1 to A
+[
+	{
+		"id": "A",
+		"deltas": [1]
+	}
+]
+
+Subtract 1 from A, then add 1 to B
+[
+	{
+		"id": "A",
+		"deltas": [-1]
+	},
+	{
+		"id": "B",
+		"deltas": [1]
+	}
+]
+
+Remove 2 from A, then add 6 back, net change +4
+[
+	{
+		"id": "A",
+		"deltas": [-2, 6]
+	}
+]

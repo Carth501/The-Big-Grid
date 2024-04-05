@@ -1,0 +1,12 @@
+{
+	"A": {
+		"default_max": 20,
+		"max_increase_increment": 10,
+		"max_increase_base_cost": {"A": 10, "B": 12}
+	},
+	"B": {
+		"default_max": 10,
+		"max_increase_increment": 10,
+		"max_increase_base_cost": {"B": 10, "C": 20}
+	}
+}

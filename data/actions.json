@@ -1,0 +1,54 @@
+{
+	"increment_A": {
+		"changes":[
+			{
+				"id": "A",
+				"deltas": [1]
+			}
+		]
+	},
+	"trade_A_for_B": {
+		"changes":[
+			{
+				"id": "A",
+				"deltas": [-2]
+			},
+			{
+				"id": "B",
+				"deltas": [1]
+			}
+		]
+	},
+	"trade_A_and_B_for_C": {
+		"changes":[
+			{
+				"id": "A",
+				"deltas": [-2]
+			},
+			{
+				"id": "B",
+				"deltas": [-2]
+			},
+			{
+				"id": "C",
+				"deltas": [1]
+			}
+		]
+	},
+	"eff_trade_A_and_B_for_C": {
+		"changes":[
+			{
+				"id": "A",
+				"deltas": [-2]
+			},
+			{
+				"id": "B",
+				"deltas": [-1]
+			},
+			{
+				"id": "C",
+				"deltas": [2]
+			}
+		]
+	}
+}

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwfhk26w1rt00"]
+
+[ext_resource type="Script" path="res://scripts/resource_pile.gd" id="1_i1vlx"]
+
+[node name="BigGrid" type="Control" node_paths=PackedStringArray("resource_grid")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1vlx")
+resource_grid = NodePath("ScrollContainer/MarginContainer/GridContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 72
+theme_override_constants/v_separation = 72
+columns = 5

@@ -1,0 +1,39 @@
+[
+	{
+		"id": "enable_A_B_trade_C",
+		"effects": {
+			"cost": {
+				"A": -10,
+				"B": -6
+			},
+			"actions": [
+				"trade_A_and_B_for_C"
+			]
+		}
+	},
+	{
+		"id": "enable_auto_actions",
+		"effects": {
+			"cost": {
+				"A": -2,
+				"B": -10,
+				"C": -5
+			},
+			"capabilities": [
+				"auto_actions"
+			]
+		}
+	},
+	{
+		"id": "more_efficient_C",
+		"effects": {
+			"cost": {
+				"C": -2,
+				"B": -3
+			},
+			"actions": [
+				"eff_trade_A_and_B_for_C"
+			]
+		}
+	},
+]

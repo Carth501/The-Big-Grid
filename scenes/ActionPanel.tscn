@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy8q14olyp3e6"]
+
+[ext_resource type="Script" path="res://scripts/ActionPanel.gd" id="1_827t6"]
+
+[node name="ActionPanel" type="Control" node_paths=PackedStringArray("button_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_827t6")
+starting_actions = Array[String](["increment_A", "trade_A_for_B"])
+button_container = NodePath("ScrollContainer/MarginContainer/ButtonContainer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ButtonContainer" type="HFlowContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2

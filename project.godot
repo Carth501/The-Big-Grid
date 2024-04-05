@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="The Big Grid"
+run/main_scene="res://scenes/Game.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+NameTranslatorSingle="*res://scripts/singletons/name_translator.gd"
+ActionsSingle="*res://scripts/singletons/actions.gd"
+ActionTranslatorSingle="*res://scripts/singletons/action_translator.gd"
+DevelopmentsSingle="*res://scripts/singletons/developments.gd"
+DevelopmentTranslatorSingle="*res://scripts/singletons/development_translator.gd"
+ResourceDefsSingle="*res://scripts/singletons/resource_defs.gd"
+
+[display]
+
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")

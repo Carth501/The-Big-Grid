@@ -1,0 +1,14 @@
+{
+	"enable_A_B_trade_C": {
+		"label": "Enable trade A B for C",
+		"description": "Open resource C for production."
+		},
+	"enable_auto_actions": {
+		"label": "Enable Auto Actions",
+		"description": "Program actions to automatically trigger on conditions."
+	},
+	"more_efficient_C": {
+		"label": "Efficient Trade for C",
+		"description": "Add a more efficient trade to generate C."
+	}
+}

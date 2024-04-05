@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7robvmy3qjic"]
+
+[ext_resource type="PackedScene" uid="uid://cwfhk26w1rt00" path="res://scenes/BigGrid.tscn" id="1_rrftn"]
+[ext_resource type="PackedScene" uid="uid://cy8q14olyp3e6" path="res://scenes/ActionPanel.tscn" id="2_gvwxs"]
+[ext_resource type="Script" path="res://scripts/development_panel.gd" id="3_xa1gi"]
+[ext_resource type="PackedScene" uid="uid://dwhyt3dk3edv2" path="res://scenes/resource_popup.tscn" id="4_vfxuo"]
+
+[node name="Game" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 800
+
+[node name="BigGrid" parent="HSplitContainer" node_paths=PackedStringArray("_resource_popup") instance=ExtResource("1_rrftn")]
+layout_mode = 2
+_resource_popup = NodePath("../../ResourcePopup")
+
+[node name="ActionPanel" parent="HSplitContainer" instance=ExtResource("2_gvwxs")]
+layout_mode = 2
+
+[node name="DevelopmentPanel" type="Panel" parent="." node_paths=PackedStringArray("resources", "_action_panel", "development_list")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_xa1gi")
+resources = NodePath("../HSplitContainer/BigGrid")
+_action_panel = NodePath("../HSplitContainer/ActionPanel")
+development_list = NodePath("MarginContainer/HFlowContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="DevelopmentPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HFlowContainer" type="HFlowContainer" parent="DevelopmentPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="ToggleDevButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 128.0
+grow_vertical = 0
+text = "Development"
+
+[node name="ResourcePopup" parent="." node_paths=PackedStringArray("resources") instance=ExtResource("4_vfxuo")]
+visible = false
+layout_mode = 1
+resources = NodePath("../HSplitContainer/BigGrid")
+
+[connection signal="attempt_action" from="HSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="apply_changes"]
+[connection signal="pressed" from="ToggleDevButton" to="DevelopmentPanel" method="toggle_dev_panel"]
