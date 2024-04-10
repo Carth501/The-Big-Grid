@@ -6,15 +6,16 @@ var v_max := 20
 var max_increment := 10
 var max_upgrade_count := 0
 var max_increase_base_cost : Dictionary
-@export var name_label : Label
-@export var value_label : Label
-@export var max_label : Label
+@export var name_label : RichTextLabel
+@export var value_label : RichTextLabel
+@export var max_label : RichTextLabel
 var _resource_popup : resource_popup
 
 func set_id(new_id: String):
 	id = new_id
 	if(NameTranslatorSingle.translation_data.has(id)):
-		name_label.text = NameTranslatorSingle.translation_data[id]
+		var resource_name = NameTranslatorSingle.translation_data[id]
+		name_label.text = str("[center]", resource_name, "[center]")
 	else:
 		name_label.text = str("missing ", id)
 	if(ResourceDefsSingle.data.has(id)):
@@ -39,10 +40,10 @@ func apply_deltas(deltas: Array):
 	update_value()
 
 func update_value():
-	value_label.text = str(value)
+	value_label.text = str("[center]", value, "[center]")
 	
 func update_max():
-	max_label.text = str(v_max)
+	max_label.text = str("[center]", v_max, "[center]")
 
 func set_resource_popup(popup : resource_popup):
 	_resource_popup = popup

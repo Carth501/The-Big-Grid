@@ -4,7 +4,7 @@ var resources := {}
 @export var resource_grid : GridContainer
 @export var _resource_popup : resource_popup
 var resource_bins := {}
-@onready var resource_pack = preload("res://scenes/resource.tscn")
+@onready var resource_pack = preload("res://scenes/Resource_Stack.tscn")
 
 func _ready():
 	add_resource("A")
