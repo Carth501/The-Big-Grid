@@ -62,14 +62,20 @@ func deltas_remain_positive(deltas : Array) -> bool:
 			return false
 	return true
 
-func set_filter(list : Array):
-	filter_list = list
+func set_filter(change : Array):
+	var filter = []
+	for resource_change in change:
+		filter.append(resource_change.id)
+		if(resources.has(resource_change.id)):
+			resources[resource_change.id].set_delta(resource_change.deltas)
+	filter_list = filter
 	handle_visibility()
 
 func clear_filter():
 	filter_list = []
 	for resource_bucket in resources:
 		resources[resource_bucket].visible = true
+		resources[resource_bucket].clear_delta()
 
 func handle_visibility():
 	for resource_bucket in resources:

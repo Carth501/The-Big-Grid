@@ -9,6 +9,7 @@ var max_increase_base_cost : Dictionary
 @export var name_label : RichTextLabel
 @export var value_label : RichTextLabel
 @export var max_label : RichTextLabel
+@export var delta_label : RichTextLabel
 var _resource_popup : resource_popup
 
 func set_id(new_id: String):
@@ -53,3 +54,15 @@ func open_popup():
 		push_error("missing resource popup")
 	_resource_popup.visible = true
 	_resource_popup.set_resource(self)
+
+func set_delta(deltas : Array):
+	var deltas_string = "[center]"
+	for delta in deltas:
+		if(delta > 0):
+			deltas_string += "+"
+		deltas_string += str(delta)
+	deltas_string += "[center]"
+	delta_label.text = deltas_string
+
+func clear_delta():
+	delta_label.text = ""
