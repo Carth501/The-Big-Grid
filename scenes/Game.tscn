@@ -75,4 +75,6 @@ layout_mode = 1
 resources = NodePath("../HSplitContainer/BigGrid")
 
 [connection signal="attempt_action" from="HSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="apply_changes"]
+[connection signal="declare_filter" from="HSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="set_filter"]
+[connection signal="end_filter" from="HSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="clear_filter"]
 [connection signal="pressed" from="ToggleDevButton" to="DevelopmentPanel" method="toggle_dev_panel"]
