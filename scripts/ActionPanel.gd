@@ -29,7 +29,7 @@ func build_action_button(id : String):
 		return
 	new_button.change_label(ActionTranslatorSingle.data[id])
 	action_ids.append(id)
-	new_button.declare_filter.connect(set_filter)
+	new_button.declare_changes.connect(set_filter)
 	new_button.end_filter.connect(unset_filter)
 
 func push_action(changes: Variant):
