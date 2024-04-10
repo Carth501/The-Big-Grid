@@ -3,8 +3,8 @@ class_name resource_pile extends Control
 var resources := {}
 @export var resource_grid : GridContainer
 @export var _resource_popup : resource_popup
-var resource_bins := {}
 @onready var resource_pack = preload("res://scenes/Resource_Stack.tscn")
+var filter_list = []
 
 func _ready():
 	add_resource("A")
@@ -61,3 +61,20 @@ func deltas_remain_positive(deltas : Array) -> bool:
 		if(net <= 0):
 			return false
 	return true
+
+func set_filter(list : Array):
+	filter_list = list
+	handle_visibility()
+
+func clear_filter():
+	filter_list = []
+	for resource_bucket in resources:
+		resources[resource_bucket].visible = true
+
+func handle_visibility():
+	for resource_bucket in resources:
+		if(resources.has(resource_bucket)):
+			if(filter_list.has(resource_bucket)):
+				resources[resource_bucket].visible = true
+			else:
+				resources[resource_bucket].visible = false

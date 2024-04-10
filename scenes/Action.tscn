@@ -7,4 +7,6 @@ offset_right = 64.0
 offset_bottom = 64.0
 script = ExtResource("1_2pt23")
 
+[connection signal="mouse_entered" from="." to="." method="set_filter"]
+[connection signal="mouse_exited" from="." to="." method="unset_filter"]
 [connection signal="pressed" from="." to="." method="actuate"]
