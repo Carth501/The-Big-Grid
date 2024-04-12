@@ -51,6 +51,4 @@ theme_override_constants/v_separation = 8
 
 [connection signal="attempt_action" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="apply_changes"]
 [connection signal="declare_filter" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="set_primary_filter"]
-[connection signal="declare_focus" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="set_secondary_filter"]
 [connection signal="end_filter" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="clear_primary_filter"]
-[connection signal="end_focus" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="clear_secondary_filter"]

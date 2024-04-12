@@ -2,7 +2,7 @@
 	"enable_A_B_trade_C": {
 		"label": "Enable trade A B for C",
 		"description": "Open resource C for production."
-		},
+	},
 	"enable_auto_actions": {
 		"label": "Enable Auto Actions",
 		"description": "Program actions to automatically trigger on conditions."
@@ -10,5 +10,13 @@
 	"more_efficient_C": {
 		"label": "Efficient Trade for C",
 		"description": "Add a more efficient trade to generate C."
+	},
+	"enable_galop_process": {
+		"label": "Enable the GALop process",
+		"description": "Produce D and A for a bit of C"
+	},
+	"enable_aduia_process": {
+		"label": "Enable the ADUIA Process",
+		"description": "Decomposes D into A and B"
 	}
 }

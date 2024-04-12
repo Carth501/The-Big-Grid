@@ -1,54 +1,71 @@
 {
 	"increment_A": {
-		"changes":[
-			{
-				"id": "A",
+		"changes": {
+			"A":{
 				"deltas": [1]
 			}
-		]
+		}
 	},
 	"trade_A_for_B": {
-		"changes":[
-			{
-				"id": "A",
+		"changes":{
+			"A":{
 				"deltas": [-2]
 			},
-			{
-				"id": "B",
+			"B":{
 				"deltas": [1]
-			}
-		]
+			},
+		}
 	},
 	"trade_A_and_B_for_C": {
-		"changes":[
-			{
-				"id": "A",
+		"changes":{
+			"A":{
 				"deltas": [-2]
 			},
-			{
-				"id": "B",
+			"B":{
 				"deltas": [-2]
 			},
-			{
-				"id": "C",
+			"C":{
 				"deltas": [1]
-			}
-		]
+			},
+		}
 	},
 	"eff_trade_A_and_B_for_C": {
-		"changes":[
-			{
-				"id": "A",
+		"changes":{
+			"A":{
 				"deltas": [-2]
 			},
-			{
-				"id": "B",
+			"B":{
 				"deltas": [-1]
 			},
-			{
-				"id": "C",
+			"C":{
 				"deltas": [2]
-			}
-		]
+			},
+		}
+	},
+	"galop_process": {
+		"changes":{
+			"A":{
+				"deltas": [1]
+			},
+			"C":{
+				"deltas": [-4]
+			},
+			"D":{
+				"deltas": [1]
+			},
+		}
+	},
+	"aduia_process": {
+		"changes":{
+			"A":{
+				"deltas": [12]
+			},
+			"B":{
+				"deltas": [8]
+			},
+			"C":{
+				"deltas": [-1]
+			},
+		}
 	}
 }
