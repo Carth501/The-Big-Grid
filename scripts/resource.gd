@@ -56,6 +56,9 @@ func open_popup():
 	_resource_popup.set_resource(self)
 
 func set_delta(deltas : Array):
+	if(deltas.size() == 0):
+		delta_label.text = ""
+		return
 	var deltas_string = "[center]"
 	for delta in deltas:
 		if(delta > 0):
