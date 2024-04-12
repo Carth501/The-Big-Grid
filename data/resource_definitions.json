@@ -5,8 +5,18 @@
 		"max_increase_base_cost": {"A": 10, "B": 12}
 	},
 	"B": {
-		"default_max": 10,
-		"max_increase_increment": 10,
-		"max_increase_base_cost": {"B": 10, "C": 20}
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {"B": 4, "C": 8}
+	},
+	"C": {
+		"default_max": 15,
+		"max_increase_increment": 5,
+		"max_increase_base_cost": {"A": 9, "C": 13, "D": 5}
+	},
+	"D": {
+		"default_max": 2,
+		"max_increase_increment": 1,
+		"max_increase_base_cost": {"B": 10, "D": 2}
 	}
 }

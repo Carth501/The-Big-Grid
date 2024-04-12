@@ -36,4 +36,29 @@
 			]
 		}
 	},
+	{
+		"id": "enable_galop_process",
+		"effects": {
+			"cost": {
+				"A": -11,
+				"B": -3,
+				"C": -2
+			},
+			"actions": [
+				"galop_process"
+			]
+		}
+	},
+	{
+		"id": "enable_aduia_process",
+		"effects": {
+			"cost": {
+				"D": -1,
+				"B": -3,
+			},
+			"actions": [
+				"aduia_process"
+			]
+		}
+	}
 ]

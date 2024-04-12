@@ -50,5 +50,37 @@
 				"deltas": [2]
 			}
 		]
+	},
+	"galop_process": {
+		"changes":[
+			{
+				"id": "A",
+				"deltas": [1]
+			},
+			{
+				"id": "C",
+				"deltas": [-4]
+			},
+			{
+				"id": "D",
+				"deltas": [1]
+			}
+		]
+	},
+	"aduia_process": {
+		"changes":[
+			{
+				"id": "A",
+				"deltas": [12]
+			},
+			{
+				"id": "B",
+				"deltas": [8]
+			},
+			{
+				"id": "D",
+				"deltas": [-1]
+			}
+		]
 	}
 }
