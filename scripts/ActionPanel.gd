@@ -8,6 +8,7 @@ signal end_focus
 
 @export var starting_actions : Array[String]
 @export var button_container : Control
+@export var action_menu : Action_Menu
 @onready var action_package := preload("res://scenes/Action.tscn")
 var action_ids := []
 
@@ -22,8 +23,9 @@ func build_action_button(id : String):
 		push_error(str("id ", id, " not found"))
 		return
 	var action_definition = ActionsSingle.data[id]
-	var new_button : action = action_package.instantiate()
+	var new_button : Action = action_package.instantiate()
 	new_button.set_change(action_definition.changes)
+	new_button.set_id(id)
 	button_container.add_child(new_button)
 	new_button.attempt.connect(push_action)
 	if(!ActionTranslatorSingle.data.has(id)):
@@ -35,7 +37,17 @@ func build_action_button(id : String):
 	new_button.end_filter.connect(unset_filter)
 	new_button.declare_focus.connect(announce_focus)
 	new_button.end_focus.connect(unset_focus)
-	
+	new_button.open_action_menu.connect(open_action_menu)
+
+func open_action_menu(action : Action):
+	print("Attempting to open action menu")
+	action_menu.visible = true
+	action_menu.set_action(action.id)
+	button_container.visible = false
+
+func close_action_menu():
+	action_menu.visible = false
+	button_container.visible = true
 
 func push_action(changes: Variant):
 	print(changes)

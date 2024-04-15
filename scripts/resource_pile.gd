@@ -39,14 +39,13 @@ func apply_changes(changes: Variant):
 		target.apply_deltas(changes[change].deltas)
 
 func attempt_purchase(costs : Dictionary) -> bool:
-	var cost_resources = costs.keys()
-	for r in cost_resources:
+	for r in costs:
 		var target = get_resource(r)
-		if(target == null || !target.test_deltas([costs[r]])):
+		if(target == null || !target.test_deltas(costs[r].deltas)):
 			return false
-	for r in cost_resources:
+	for r in costs:
 		var target = get_resource(r)
-		target.apply_deltas([costs[r]])
+		target.apply_deltas(costs[r].deltas)
 	return true
 
 func calculate_net_delta(deltas : Array) -> int:

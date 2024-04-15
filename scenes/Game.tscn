@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=5 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="PackedScene" uid="uid://cwfhk26w1rt00" path="res://scenes/BigGrid.tscn" id="1_rrftn"]
 [ext_resource type="PackedScene" uid="uid://cy8q14olyp3e6" path="res://scenes/ActionPanel.tscn" id="2_gvwxs"]
 [ext_resource type="Script" path="res://scripts/development_panel.gd" id="3_xa1gi"]
+[ext_resource type="Script" path="res://scripts/Machine_Factory.gd" id="4_e1gh5"]
 
 [node name="Game" type="ColorRect"]
 anchors_preset = 15
@@ -31,6 +32,10 @@ split_offset = 300
 [node name="ActionPanel" parent="HSplitContainer/VSplitContainer" instance=ExtResource("2_gvwxs")]
 layout_mode = 2
 
+[node name="ActionMenu" parent="HSplitContainer/VSplitContainer/ActionPanel" index="2" node_paths=PackedStringArray("resources", "machine_factory")]
+resources = NodePath("../../../BigGrid")
+machine_factory = NodePath("../../../../MachineFactory")
+
 [node name="DevelopmentPanel" type="Panel" parent="HSplitContainer/VSplitContainer" node_paths=PackedStringArray("resources", "_action_panel", "development_list")]
 clip_contents = true
 layout_mode = 2
@@ -49,8 +54,14 @@ grow_vertical = 2
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 
+[node name="MachineFactory" type="Node" parent="." node_paths=PackedStringArray("resources")]
+script = ExtResource("4_e1gh5")
+resources = NodePath("../HSplitContainer/BigGrid")
+
 [connection signal="attempt_action" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="apply_changes"]
 [connection signal="declare_filter" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="set_primary_filter"]
 [connection signal="declare_focus" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="set_secondary_filter"]
 [connection signal="end_filter" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="clear_primary_filter"]
 [connection signal="end_focus" from="HSplitContainer/VSplitContainer/ActionPanel" to="HSplitContainer/BigGrid" method="clear_secondary_filter"]
+
+[editable path="HSplitContainer/VSplitContainer/ActionPanel"]

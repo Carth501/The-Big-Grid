@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd5pvuohxousc"]
+
+[ext_resource type="PackedScene" uid="uid://rwjt2gpwatnx" path="res://scenes/Condition.tscn" id="1_em8um"]
+
+[node name="ConditionBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Condition" parent="." instance=ExtResource("1_em8um")]
+layout_mode = 0
+offset_top = 0.0
+offset_bottom = 40.0
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 4.0
+offset_right = 199.0
+offset_bottom = 35.0
+item_count = 2
+popup/item_0/text = "&"
+popup/item_0/id = 0
+popup/item_1/text = "or"
+popup/item_1/id = 1
