@@ -3,8 +3,12 @@
 		"id": "enable_A_B_trade_C",
 		"effects": {
 			"cost": {
-				"A": -10,
-				"B": -6
+				"A": {
+					"deltas": [-10]
+				},
+				"B": {
+					"deltas": [-6]
+				}
 			},
 			"actions": [
 				"trade_A_and_B_for_C"
@@ -15,9 +19,15 @@
 		"id": "enable_auto_actions",
 		"effects": {
 			"cost": {
-				"A": -2,
-				"B": -10,
-				"C": -5
+				"A": {
+					"deltas": [-2]
+				},
+				"B": {
+					"deltas": [-10]
+				},
+				"C": {
+					"deltas": [-5]
+				}
 			},
 			"capabilities": [
 				"auto_actions"
@@ -28,8 +38,12 @@
 		"id": "more_efficient_C",
 		"effects": {
 			"cost": {
-				"C": -2,
-				"B": -3
+				"C": {
+					"deltas": [-2]
+				},
+				"B": {
+					"deltas": [-3]
+				}
 			},
 			"actions": [
 				"eff_trade_A_and_B_for_C"
@@ -40,9 +54,15 @@
 		"id": "enable_galop_process",
 		"effects": {
 			"cost": {
-				"A": -11,
-				"B": -3,
-				"C": -2
+				"A": {
+					"deltas": [-11]
+				},
+				"B": {
+					"deltas": [-3]
+				},
+				"C": {
+					"deltas": [-2]
+				}
 			},
 			"actions": [
 				"galop_process"
@@ -53,8 +73,12 @@
 		"id": "enable_aduia_process",
 		"effects": {
 			"cost": {
-				"D": -1,
-				"B": -3,
+				"D": {
+					"deltas": [-1]
+				},
+				"B": {
+					"deltas": [-3]
+				}
 			},
 			"actions": [
 				"aduia_process"

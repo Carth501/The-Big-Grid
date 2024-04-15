@@ -4,6 +4,11 @@
 			"A":{
 				"deltas": [1]
 			}
+		},
+		"automation_cost": {
+			"A": {
+				"deltas": [-2]
+			}
 		}
 	},
 	"trade_A_for_B": {

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ActionPanel.gd" id="1_827t6"]
 [ext_resource type="PackedScene" uid="uid://djco5wn11qoj2" path="res://scenes/ActionMenu.tscn" id="2_nd3qr"]
 
-[node name="ActionPanel" type="Control" node_paths=PackedStringArray("button_container", "action_menu")]
+[node name="ActionPanel" type="Control" node_paths=PackedStringArray("button_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_827t6")
 starting_actions = Array[String](["increment_A", "trade_A_for_B"])
 button_container = NodePath("ButtonContainer")
-action_menu = NodePath("ActionMenu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -37,7 +36,3 @@ visible = false
 layout_mode = 1
 
 [connection signal="close" from="ActionMenu" to="." method="close_action_menu"]
-[connection signal="declare_changes" from="ActionMenu" to="." method="set_filter"]
-[connection signal="declare_focus" from="ActionMenu" to="." method="announce_focus"]
-[connection signal="end_filter" from="ActionMenu" to="." method="unset_filter"]
-[connection signal="end_focus" from="ActionMenu" to="." method="unset_focus"]
