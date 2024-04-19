@@ -1,10 +1,10 @@
 extends Node
 
-var translation_data : Dictionary
-@export var en_file_json = "res://data/resource_names_en.json"
+var data : Dictionary
+@export var en_file_json = "res://data/supply_names_en.json"
 
 func _ready():
-	translation_data = load_json_file(en_file_json)
+	data = load_json_file(en_file_json)
 
 func load_json_file(filePath: String):
 	if FileAccess.file_exists(filePath):

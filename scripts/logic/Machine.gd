@@ -2,17 +2,15 @@ class_name Machine extends Node
 
 var action_id : String
 var action_changes : Dictionary
-var resources : resource_pile
+var supply_collection : Supply_Collection
 var timer : Timer
 
 func set_id(id : String):
 	action_id = id
+	action_changes = ActionsSingle.data[action_id].changes
 
-func set_changes(changes : Dictionary):
-	action_changes = changes
-
-func set_resource_pile(pile : resource_pile):
-	resources = pile
+func set_supply_collection(new_collection : Supply_Collection):
+	supply_collection = new_collection
 
 func _ready():
 	timer = Timer.new()
@@ -22,4 +20,4 @@ func _ready():
 	timer.start()
 
 func apply_changes():
-	resources.apply_changes(action_changes)
+	supply_collection.apply_changes(action_changes)
