@@ -1,7 +1,7 @@
 extends Node
 
 var data : Dictionary
-@export var data_path = "res://data/resource_definitions.json"
+@export var data_path = "res://data/supply_definitions.json"
 
 func _ready():
 	data = load_json_file(data_path)

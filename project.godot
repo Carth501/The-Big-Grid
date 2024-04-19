@@ -17,12 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-NameTranslatorSingle="*res://scripts/singletons/name_translator.gd"
 ActionsSingle="*res://scripts/singletons/actions.gd"
 ActionTranslatorSingle="*res://scripts/singletons/action_translator.gd"
 DevelopmentsSingle="*res://scripts/singletons/developments.gd"
 DevelopmentTranslatorSingle="*res://scripts/singletons/development_translator.gd"
-ResourceDefsSingle="*res://scripts/singletons/resource_defs.gd"
+SupplyDefsSingle="*res://scripts/singletons/supply_defs.gd"
+SupplyTranslatorSingle="*res://scripts/singletons/supply_translator.gd"
 
 [display]
 
