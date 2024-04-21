@@ -12,6 +12,15 @@ var max_increase_base_cost : Dictionary
 
 func set_id(new_id : String):
 	id = new_id
+	var definition = SupplyDefsSingle.data[id]
+	if(definition.has("default_value")):
+		value = definition.default_value
+	if(definition.has("default_max")):
+		v_max = definition.default_max
+	if(definition.has("max_increase_increment")):
+		max_increment = definition.max_increase_increment
+	if(definition.has("max_increase_base_cost")):
+		max_increase_base_cost = definition.max_increase_base_cost
 
 func test_deltas(deltas: Array) -> bool:
 	var dummy_value = value

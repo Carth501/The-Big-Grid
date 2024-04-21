@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/display/SupplyDisplay.gd" id="1_4pac3"]
 
-[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("name_label", "value_label", "max_label", "delta_label")]
+[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("name_label", "value_label", "max_label", "delta_label", "supply_button")]
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -11,6 +11,7 @@ name_label = NodePath("Button/Name")
 value_label = NodePath("Button/Count")
 max_label = NodePath("Button/Max")
 delta_label = NodePath("Button/Delta")
+supply_button = NodePath("Button")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

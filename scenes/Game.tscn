@@ -12,7 +12,7 @@
 script = ExtResource("1_kvsp4")
 supply_collection = NodePath("Logic/SupplyCollection")
 action_manager = NodePath("Logic/ActionManager")
-starting_supply_ids = Array[String](["A", "B", "C", "D", "E"])
+starting_supply_ids = Array[String](["A"])
 starting_action_ids = Array[String](["increment_A", "trade_A_for_B"])
 
 [node name="Display" type="ColorRect" parent="."]

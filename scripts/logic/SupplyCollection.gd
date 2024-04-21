@@ -15,22 +15,20 @@ func add_supply(id: String):
 	supply.set_id(id)
 	new_supply.emit(id)
 
-func apply_changes(changes: Variant):
+func apply_changes(id: String):
+	var changes = ActionsSingle.data[id].changes
 	var valid = true
-	for change in changes:
-		var target = get_supply(change)
-		var positive_change = deltas_remain_positive(changes[change].deltas)
-		var missing_input = target == null && !positive_change
-		var supply_sufficient = target.test_deltas(changes[change].deltas)
-		if( missing_input || !supply_sufficient):
-			valid = false
-	if(!valid):
-		return
 	for change in changes:
 		var target = get_supply(change)
 		if(target == null):
 			add_supply(change)
 			target = get_supply(change)
+		if(!target.test_deltas(changes[change].deltas)):
+			valid = false
+	if(!valid):
+		return
+	for change in changes:
+		var target = get_supply(change)
 		target.apply_change(changes[change].deltas)
 
 func attempt_purchase(costs : Dictionary) -> bool:

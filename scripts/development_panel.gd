@@ -3,7 +3,7 @@ class_name development_panel extends Panel
 signal attempt_development
 
 var previous_developments := []
-@export var _action_panel : action_panel
+@export var _action_panel : Control
 @export var development_list : HFlowContainer
 @onready var development_package := preload("res://scenes/DevelopmentButton.tscn")
 
