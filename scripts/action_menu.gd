@@ -7,7 +7,6 @@ signal declare_focus(change : Dictionary)
 signal end_focus
 
 @export var action_name_label : Label
-@export var resources : resource_pile
 @export var purchase_machines_button : Button
 @export var machine_factory : Machine_Factory
 var action_machine_editors : Array
