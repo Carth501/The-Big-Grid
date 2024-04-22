@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=9 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
 [ext_resource type="Script" path="res://scripts/ActionPanel.gd" id="3_n23ff"]
 [ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="4_e1gh5"]
+[ext_resource type="Script" path="res://scripts/DevelopmentDisplay.gd" id="4_p32ci"]
 [ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="5_vwwhk"]
 [ext_resource type="Script" path="res://scripts/ActionManager.gd" id="6_fgv5p"]
 [ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="7_ce23n"]
@@ -111,8 +112,10 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer"]
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
 layout_mode = 2
+script = ExtResource("4_p32ci")
+development_handler = NodePath("../../../../../../../Logic/DevelopmentHandler")
 
 [node name="Logic" type="Node" parent="."]
 
@@ -134,3 +137,4 @@ supply_collection = NodePath("../SupplyCollection")
 
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
+[connection signal="complete_development" from="Logic/DevelopmentHandler" to="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer/HFlowContainer" method="disable_dev"]
