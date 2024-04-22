@@ -2,6 +2,7 @@ class_name Action_Panel extends Control
 
 @onready var action_package := preload("res://scenes/display/ActionButton.tscn")
 @export var action_manager : Action_Manager
+@export var filter_foreman : Filter_Foreman
 var action_ids := []
 
 func build_action_button(id : String):
@@ -23,20 +24,20 @@ func build_action_button(id : String):
 	action_ids.append(id)
 	new_button.declare_changes.connect(set_filter)
 	new_button.end_filter.connect(unset_filter)
-	new_button.declare_focus.connect(announce_focus)
+	new_button.declare_focus.connect(set_focus)
 	new_button.end_focus.connect(unset_focus)
 
 func push_action(id : String):
 	action_manager.apply_action(id)
 
 func set_filter(id : String):
-	pass
+	filter_foreman.set_primary_filter(id)
 
 func unset_filter():
-	pass
+	filter_foreman.clear_primary_filter()
 
-func announce_focus(id : String):
-	pass
+func set_focus(id : String):
+	filter_foreman.set_secondary_filter(id)
 
 func unset_focus():
-	pass
+	filter_foreman.clear_secondary_filter()

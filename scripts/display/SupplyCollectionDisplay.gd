@@ -9,3 +9,23 @@ func _on_supply_collection_new_supply(id : String):
 	add_child(new_supply_display)
 	new_supply_display.setup(id, supply_collection)
 	supply_display_catalogue[id] = new_supply_display
+
+func filter(new_filter : Dictionary):
+	print(str("filter ", new_filter))
+	if(new_filter == {}):
+		print("empty filter")
+		for supply_display_id in supply_display_catalogue:
+			var supply_display = supply_display_catalogue[supply_display_id]
+			supply_display.set_active(true)
+			supply_display.clear_delta_display()
+	else:
+		for supply_display_id in supply_display_catalogue:
+			var supply_display = supply_display_catalogue[supply_display_id]
+			if(new_filter.has(supply_display_id)):
+				supply_display.set_active(true)
+				var deltas = new_filter[supply_display_id].deltas
+				supply_display.set_delta_display(deltas)
+			else:
+				supply_display.set_active(false)
+				supply_display.clear_delta_display()
+		

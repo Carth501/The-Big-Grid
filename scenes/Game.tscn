@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=10 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
-[ext_resource type="Script" path="res://scripts/ActionPanel.gd" id="3_n23ff"]
+[ext_resource type="Script" path="res://scripts/display/ActionPanel.gd" id="3_n23ff"]
 [ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="4_e1gh5"]
-[ext_resource type="Script" path="res://scripts/DevelopmentDisplay.gd" id="4_p32ci"]
+[ext_resource type="Script" path="res://scripts/display/DevelopmentDisplay.gd" id="4_p32ci"]
 [ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="5_vwwhk"]
-[ext_resource type="Script" path="res://scripts/ActionManager.gd" id="6_fgv5p"]
+[ext_resource type="Script" path="res://scripts/logic/ActionManager.gd" id="6_fgv5p"]
 [ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="7_ce23n"]
+[ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="9_iev5w"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager")]
 script = ExtResource("1_kvsp4")
@@ -85,10 +86,11 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer" node_paths=PackedStringArray("action_manager")]
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer" node_paths=PackedStringArray("action_manager", "filter_foreman")]
 layout_mode = 2
 script = ExtResource("3_n23ff")
 action_manager = NodePath("../../../../../../../Logic/ActionManager")
+filter_foreman = NodePath("../../../../../../../Logic/FilterForeman")
 
 [node name="DevBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit"]
 clip_contents = true
@@ -135,6 +137,9 @@ script = ExtResource("7_ce23n")
 action_manager = NodePath("../ActionManager")
 supply_collection = NodePath("../SupplyCollection")
 
+[node name="FilterForeman" parent="Logic" instance=ExtResource("9_iev5w")]
+
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
 [connection signal="complete_development" from="Logic/DevelopmentHandler" to="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer/HFlowContainer" method="disable_dev"]
+[connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]

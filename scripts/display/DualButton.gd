@@ -13,3 +13,6 @@ func _on_Button_gui_input(event):
 				left_click.emit()
 			MOUSE_BUTTON_RIGHT:
 				right_click.emit()
+	elif event is InputEventKey and event.keycode == KEY_SPACE and event.pressed:
+		left_click.emit()
+		
