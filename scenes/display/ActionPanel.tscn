@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy8q14olyp3e6"]
 
-[ext_resource type="Script" path="res://scripts/ActionPanel.gd" id="1_qijeb"]
+[ext_resource type="Script" path="res://scripts/display/ActionPanel.gd" id="1_qijeb"]
 
 [node name="ActionPanel" type="Control"]
 layout_mode = 3

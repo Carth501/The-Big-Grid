@@ -27,8 +27,14 @@ func set_value_display(value):
 func set_max_display(value):
 	max_label.text = center(str("%.2f" % value))
 
-func set_delta_display(value):
-	delta_label.text = center(str("%.2f" % value))
+func set_delta_display(values : Array):
+	var value_string = ""
+	for value in values:
+		value_string += str("%+.1f" % value)
+	delta_label.text = center(value_string)
+
+func clear_delta_display():
+	delta_label.text = ""
 
 func center(text : String) -> String:
 	return str("[center]", text, "[/center]")
