@@ -38,7 +38,7 @@ func attempt_purchase(costs : Dictionary) -> bool:
 			return false
 	for r in costs:
 		var target = get_supply(r)
-		target.apply_deltas(costs[r].deltas)
+		target.apply_change(costs[r].deltas)
 	return true
 
 func calculate_net_delta(deltas : Array) -> int:
