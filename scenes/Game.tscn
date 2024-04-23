@@ -114,10 +114,11 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler", "filter_foreman")]
 layout_mode = 2
 script = ExtResource("4_p32ci")
 development_handler = NodePath("../../../../../../../Logic/DevelopmentHandler")
+filter_foreman = NodePath("../../../../../../../Logic/FilterForeman")
 
 [node name="Logic" type="Node" parent="."]
 
