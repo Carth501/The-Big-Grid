@@ -31,13 +31,13 @@ func push_action(id : String):
 	action_manager.apply_action(id)
 
 func set_filter(id : String):
-	filter_foreman.set_primary_filter(id)
+	filter_foreman.set_action_primary_filter(id)
 
 func unset_filter():
 	filter_foreman.clear_primary_filter()
 
 func set_focus(id : String):
-	filter_foreman.set_secondary_filter(id)
+	filter_foreman.set_action_secondary_filter(id)
 
 func unset_focus():
 	filter_foreman.clear_secondary_filter()

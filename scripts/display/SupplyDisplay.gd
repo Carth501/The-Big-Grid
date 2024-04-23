@@ -22,10 +22,10 @@ func set_name_display(id : String):
 
 func set_value_display(value):
 	set_active(true)
-	value_label.text = center(str("%.2f" % value))
+	value_label.text = center(str("%.1f" % value))
 
 func set_max_display(value):
-	max_label.text = center(str("%.2f" % value))
+	max_label.text = center(str("%.1f" % value))
 
 func set_delta_display(values : Array):
 	var value_string = ""
