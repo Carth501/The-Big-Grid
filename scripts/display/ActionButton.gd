@@ -32,3 +32,10 @@ func gain_focus():
 
 func lose_focus():
 	end_focus.emit()
+
+func connect_logic(action : Action):
+	action.update_availability.connect(set_enabled)
+	set_enabled(action.available)
+
+func set_enabled(setting : bool):
+	disabled = !setting

@@ -8,25 +8,23 @@ func get_supply(id: String) -> Supply:
 		return null
 	return supplies[id]
 
+func get_or_create_supply(id : String) -> Supply:
+	if(!supplies.has(id)):
+		add_supply(id)
+	return supplies[id]
+
 func add_supply(id: String):
-	var supply := Supply.new()
-	add_child(supply)
-	supplies[id] = supply
-	supply.set_id(id)
-	new_supply.emit(id)
+	if(!supplies.has(id)):
+		var supply := Supply.new()
+		add_child(supply)
+		supplies[id] = supply
+		supply.set_id(id)
+		new_supply.emit(id)
 
 func apply_changes(id: String):
-	var changes = ActionsSingle.data[id].changes
-	var valid = true
-	for change in changes:
-		var target = get_supply(change)
-		if(target == null):
-			add_supply(change)
-			target = get_supply(change)
-		if(!target.test_deltas(changes[change].deltas)):
-			valid = false
-	if(!valid):
+	if(!test_action_changes(id)):
 		return
+	var changes = ActionsSingle.data[id].changes
 	for change in changes:
 		var target = get_supply(change)
 		target.apply_change(changes[change].deltas)
@@ -52,5 +50,16 @@ func deltas_remain_positive(deltas : Array) -> bool:
 	for delta in deltas:
 		net += delta
 		if(net <= 0):
+			return false
+	return true
+
+func test_action_changes(id: String):
+	var changes = ActionsSingle.data[id].changes
+	for supply_id in changes:
+		var target = get_supply(supply_id)
+		if(target == null):
+			add_supply(supply_id)
+			target = get_supply(supply_id)
+		if(!target.test_deltas(changes[supply_id].deltas)):
 			return false
 	return true

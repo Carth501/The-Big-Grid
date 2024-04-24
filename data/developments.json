@@ -31,7 +31,7 @@
 	"more_efficient_C": {
 		"cost": {
 			"C": {
-				"deltas": [-2]
+				"deltas": [-3]
 			},
 			"B": {
 				"deltas": [-3]
@@ -50,7 +50,7 @@
 				"deltas": [-3]
 			},
 			"C": {
-				"deltas": [-2]
+				"deltas": [-5]
 			}
 		},
 		"actions": [

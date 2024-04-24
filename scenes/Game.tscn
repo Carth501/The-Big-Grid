@@ -142,5 +142,4 @@ supply_collection = NodePath("../SupplyCollection")
 
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
-[connection signal="complete_development" from="Logic/DevelopmentHandler" to="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer/HFlowContainer" method="disable_dev"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]

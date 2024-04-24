@@ -1,28 +1,23 @@
 class_name Development_Handler extends Node
 
-signal complete_development(id : String)
-
 @export var action_manager : Action_Manager
 @export var supply_collection : Supply_Collection
-var previous_developments : Array = []
-var full_development_list : Dictionary
+var full_development_catalog : Dictionary
 
 func _ready():
-	full_development_list = DevelopmentsSingle.data
+	for id in DevelopmentsSingle.data:
+		build_development(id)
 
-func get_development_options() -> Array[String]:
-	var dev_options_list : Array[String] = []
-	for dev in full_development_list:
-		if(!previous_developments.has(dev)):
-			dev_options_list.append(dev)
-	return dev_options_list
+func build_development(id : String):
+	var development = Development.new()
+	development.setup(id, supply_collection)
+	full_development_catalog[id] = development
 
 func attempt_development(id : String):
-	var candidate = DevelopmentsSingle.data[id]
-	var success = supply_collection.attempt_purchase(candidate.cost)
+	var candidate : Development = full_development_catalog[id]
+	var success = supply_collection.attempt_purchase(candidate.changes)
 	if(success):
-		complete_development.emit(id)
-		previous_developments.append(id)
-		if(candidate.has("actions")):
-			for action_id in candidate.actions:
+		candidate.set_complete()
+		if(candidate.action_unlocks != null):
+			for action_id in candidate.action_unlocks:
 				action_manager.create_action(action_id)
