@@ -2,6 +2,7 @@ class_name Supply extends Node
 
 signal update_value(value : float)
 signal update_max(v_max : float)
+signal update_active
 
 var id := ""
 var value := 0.0
@@ -9,6 +10,7 @@ var v_max := 20.0
 var max_increment := 10.0
 var max_upgrade_count := 0
 var max_increase_base_cost : Dictionary
+var active := false
 
 func set_id(new_id : String):
 	id = new_id
@@ -34,3 +36,8 @@ func apply_change(deltas: Array):
 	for delta in deltas:
 		value += delta
 	update_value.emit(value)
+
+func activate():
+	print(str("activating ", id))
+	update_active.emit()
+	active = true

@@ -13,6 +13,7 @@ func setup(new_id : String, supply_collection : Supply_Collection):
 		var supply = supply_collection.get_or_create_supply(supply_id)
 		supplies[supply_id] = supply
 		supply.update_value.connect(process_availability)
+		supply.activate()
 	process_availability()
 
 func process_availability(_value = 1):
