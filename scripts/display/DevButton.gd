@@ -13,9 +13,14 @@ func set_id(new_id : String):
 func connect_to_logic(dev : Development):
 	disabled = dev.completed
 	dev.complete.connect(disable)
+	dev.update_availability.connect(set_enabled)
+	set_enabled(dev.available)
 
 func disable():
 	disabled = true
+
+func set_enabled(setting):
+	disabled = !setting
 
 func trigger():
 	attempt.emit(id)
