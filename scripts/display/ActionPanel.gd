@@ -7,7 +7,6 @@ class_name Action_Panel extends Control
 var action_ids := []
 
 func build_action_button(id : String):
-	print(id)
 	if(action_ids.has(id)):
 		push_error(str("action button already exists for ", id))
 		return

@@ -14,11 +14,12 @@ func get_or_create_supply(id : String) -> Supply:
 	return supplies[id]
 
 func add_supply(id: String):
-	var supply := Supply.new()
-	add_child(supply)
-	supplies[id] = supply
-	supply.set_id(id)
-	new_supply.emit(id)
+	if(!supplies.has(id)):
+		var supply := Supply.new()
+		add_child(supply)
+		supplies[id] = supply
+		supply.set_id(id)
+		new_supply.emit(id)
 
 func apply_changes(id: String):
 	if(!test_action_changes(id)):

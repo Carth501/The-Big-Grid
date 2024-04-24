@@ -10,11 +10,17 @@ var id : String
 func set_id(new_id : String):
 	id = new_id
 
+func connect_to_logic(dev : Development):
+	disabled = dev.completed
+	dev.complete.connect(disable)
+
+func disable():
+	disabled = true
+
 func trigger():
 	attempt.emit(id)
 
 func set_filter():
-	print(str("set_filter ", id))
 	declare_filter.emit(id)
 
 func unset_filter():

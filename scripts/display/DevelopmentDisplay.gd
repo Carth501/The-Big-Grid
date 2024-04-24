@@ -8,13 +8,15 @@ var dev_buttons : Dictionary
 func _ready():
 	if(!development_handler.is_node_ready()):
 		await development_handler.ready
-	var dev_options_list = development_handler.get_development_options()
+	var dev_options_list = development_handler.full_development_catalog
 	for option in dev_options_list:
 		var new_dev_button : Dev_Button = dev_button_prefab.instantiate()
 		add_child(new_dev_button)
 		new_dev_button.set_id(option)
 		new_dev_button.text = DevelopmentTranslatorSingle.data[option].label
 		dev_buttons[option] = new_dev_button
+		var dev_logic = development_handler.full_development_catalog[option]
+		new_dev_button.connect_to_logic(dev_logic)
 		new_dev_button.attempt.connect(attempt_development)
 		new_dev_button.declare_filter.connect(set_filter)
 		new_dev_button.end_filter.connect(unset_filter)
@@ -23,9 +25,6 @@ func _ready():
 
 func attempt_development(id : String):
 	development_handler.attempt_development(id)
-
-func disable_dev(id : String):
-	dev_buttons[id].disabled = true
 
 func set_filter(id : String):
 	filter_foreman.set_dev_primary_filter(id)

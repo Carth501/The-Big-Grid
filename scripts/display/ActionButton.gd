@@ -39,5 +39,3 @@ func connect_logic(action : Action):
 
 func set_enabled(setting : bool):
 	disabled = !setting
-	if(!setting):
-		release_focus()
