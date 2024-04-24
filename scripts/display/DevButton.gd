@@ -6,33 +6,40 @@ signal end_filter
 signal declare_focus(id : String)
 signal end_focus
 var id : String
+var complete := false
 
 func set_id(new_id : String):
 	id = new_id
 
 func connect_to_logic(dev : Development):
+	dev.complete.connect(finish)
 	disabled = dev.completed
-	dev.complete.connect(disable)
 	dev.update_availability.connect(set_enabled)
 	set_enabled(dev.available)
 
-func disable():
+func finish():
 	disabled = true
+	release_focus()
+	complete = true
+	unset_filter()
 
 func set_enabled(setting):
 	disabled = !setting
 
 func trigger():
-	attempt.emit(id)
+	if(!complete):
+		attempt.emit(id)
 
 func set_filter():
-	declare_filter.emit(id)
+	if(!complete):
+		declare_filter.emit(id)
 
 func unset_filter():
 	end_filter.emit()
 
 func gain_focus():
-	declare_focus.emit(id)
+	if(!complete):
+		declare_focus.emit(id)
 
 func lose_focus():
 	end_focus.emit()
