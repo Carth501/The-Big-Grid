@@ -26,4 +26,3 @@ func filter(new_filter : Dictionary):
 			else:
 				supply_display.show_supply(false)
 				supply_display.clear_delta_display()
-		

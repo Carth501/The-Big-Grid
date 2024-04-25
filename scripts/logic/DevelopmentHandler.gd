@@ -2,6 +2,7 @@ class_name Development_Handler extends Node
 
 @export var action_manager : Action_Manager
 @export var supply_collection : Supply_Collection
+@export var filter_foreman : Filter_Foreman
 var full_development_catalog : Dictionary
 
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 func build_development(id : String):
 	var development = Development.new()
 	development.setup(id, supply_collection)
+	development.set_filter_foreman(filter_foreman)
 	full_development_catalog[id] = development
 
 func attempt_development(id : String):

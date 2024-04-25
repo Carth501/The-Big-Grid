@@ -1,10 +1,13 @@
 class_name Action extends Node
 
 signal update_availability(availability : bool)
+signal open_menu(id : String)
+
 var id : String
 var changes : Dictionary
 var available := true
 var supplies : Dictionary
+var filter_foreman : Filter_Foreman
 
 func setup(new_id : String, supply_collection : Supply_Collection):
 	id = new_id
@@ -15,6 +18,12 @@ func setup(new_id : String, supply_collection : Supply_Collection):
 		supply.update_value.connect(process_availability)
 		supply.activate()
 	process_availability()
+
+func get_translation_text() -> String:
+	return ActionTranslatorSingle.data[id]
+
+func set_filter_foreman(new_filter_foreman : Filter_Foreman):
+	filter_foreman = new_filter_foreman
 
 func process_availability(_value = 1):
 	var new_availability = test_supplies()
@@ -30,3 +39,18 @@ func test_supplies():
 		if(!test):
 			return false
 	return true
+
+func open():
+	open_menu.emit(id)
+
+func set_filter():
+	filter_foreman.set_primary_filter(changes)
+
+func unset_filter():
+	filter_foreman.clear_primary_filter()
+
+func gain_focus():
+	filter_foreman.set_secondary_filter(changes)
+
+func lose_focus():
+	filter_foreman.clear_primary_filter()

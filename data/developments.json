@@ -1,6 +1,6 @@
 {
 	"enable_A_B_trade_C": {
-		"cost": {
+		"changes": {
 			"A": {
 				"deltas": [-10]
 			},
@@ -13,7 +13,7 @@
 		]
 	},
 	"enable_auto_actions": {
-		"cost": {
+		"changes": {
 			"A": {
 				"deltas": [-2]
 			},
@@ -29,7 +29,7 @@
 		]
 	},
 	"more_efficient_C": {
-		"cost": {
+		"changes": {
 			"C": {
 				"deltas": [-3]
 			},
@@ -42,7 +42,7 @@
 		]
 	},
 	"enable_galop_process": {
-		"cost": {
+		"changes": {
 			"A": {
 				"deltas": [-11]
 			},
@@ -58,7 +58,7 @@
 		]
 	},
 	"enable_aduia_process": {
-		"cost": {
+		"changes": {
 			"D": {
 				"deltas": [-1]
 			},

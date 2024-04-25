@@ -5,20 +5,12 @@ signal update_filter(filter : Dictionary)
 var primary_filter : Dictionary
 var secondary_filter : Dictionary
 
-func set_action_primary_filter(id : String):
-	primary_filter = action_dereference(id)
+func set_primary_filter(filter : Dictionary):
+	primary_filter = filter
 	choose_filter()
 	
-func set_action_secondary_filter(id : String):
-	secondary_filter = action_dereference(id)
-	choose_filter()
-
-func set_dev_primary_filter(id : String):
-	primary_filter = dev_dereference(id)
-	choose_filter()
-	
-func set_dev_secondary_filter(id : String):
-	secondary_filter = dev_dereference(id)
+func set_secondary_filter(filter : Dictionary):
+	secondary_filter = filter
 	choose_filter()
 
 func clear_primary_filter():
@@ -39,9 +31,3 @@ func choose_filter():
 
 func apply_filter(filter : Dictionary):
 	update_filter.emit(filter)
-
-func action_dereference(id : String) -> Dictionary:
-	return ActionsSingle.data[id].changes
-
-func dev_dereference(id : String) -> Dictionary:
-	return DevelopmentsSingle.data[id].cost

@@ -1,41 +1,38 @@
 class_name Action_Button extends Dual_Button
 
 signal attempt(id : String)
-signal open_action_menu(id : String)
-signal declare_changes(id : String)
-signal end_filter
-signal declare_focus(id : String)
-signal end_focus
 
 var id : String
+var action : Action
 
 func set_id(new_id : String):
 	id = new_id
+
+func connect_logic(new_action : Action):
+	new_action.update_availability.connect(set_enabled)
+	set_enabled(new_action.available)
+	action = new_action
 
 func actuate():
 	attempt.emit(id)
 
 func open_menu():
-	open_action_menu.emit(self)
+	action.open()
 
 func change_label(new_text : String):
 	text = new_text
 
-func set_filter():
-	declare_changes.emit(id)
-
-func unset_filter():
-	end_filter.emit()
-
-func gain_focus():
-	declare_focus.emit(id)
-
-func lose_focus():
-	end_focus.emit()
-
-func connect_logic(action : Action):
-	action.update_availability.connect(set_enabled)
-	set_enabled(action.available)
-
 func set_enabled(setting : bool):
 	disabled = !setting
+
+func set_filter():
+	action.set_filter()
+
+func unset_filter():
+	action.unset_filter()
+
+func gain_focus():
+	action.gain_focus()
+
+func lose_focus():
+	action.lose_focus()
