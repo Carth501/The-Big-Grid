@@ -9,10 +9,11 @@ var available := true
 var completed := false
 var supplies : Dictionary
 var action_unlocks : Array
+var filter_foreman : Filter_Foreman
 
 func setup(new_id : String, supply_collection : Supply_Collection):
 	id = new_id
-	changes = DevelopmentsSingle.data[id].cost
+	changes = DevelopmentsSingle.data[id].changes
 	if(DevelopmentsSingle.data[id].has("actions")):
 		action_unlocks = DevelopmentsSingle.data[id].actions
 	for supply_id in changes:
@@ -20,6 +21,9 @@ func setup(new_id : String, supply_collection : Supply_Collection):
 		supplies[supply_id] = supply
 		supply.update_value.connect(process_availability)
 	process_availability()
+
+func set_filter_foreman(new_filter_foreman : Filter_Foreman):
+	filter_foreman = new_filter_foreman
 
 func process_availability(_value = 1):
 	var new_availability = test_supplies()
@@ -39,4 +43,15 @@ func test_supplies():
 func set_complete():
 	complete.emit()
 	completed = true
-	
+
+func set_filter():
+	filter_foreman.set_primary_filter(changes)
+
+func unset_filter():
+	filter_foreman.clear_primary_filter()
+
+func gain_focus():
+	filter_foreman.set_secondary_filter(changes)
+
+func lose_focus():
+	filter_foreman.clear_primary_filter()

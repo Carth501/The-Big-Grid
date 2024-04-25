@@ -29,14 +29,14 @@ func apply_changes(id: String):
 		var target = get_supply(change)
 		target.apply_change(changes[change].deltas)
 
-func attempt_purchase(costs : Dictionary) -> bool:
-	for r in costs:
+func attempt_purchase(changes : Dictionary) -> bool:
+	for r in changes:
 		var target = get_supply(r)
-		if(target == null || !target.test_deltas(costs[r].deltas)):
+		if(target == null || !target.test_deltas(changes[r].deltas)):
 			return false
-	for r in costs:
+	for r in changes:
 		var target = get_supply(r)
-		target.apply_change(costs[r].deltas)
+		target.apply_change(changes[r].deltas)
 	return true
 
 func calculate_net_delta(deltas : Array) -> int:

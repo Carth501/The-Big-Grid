@@ -38,6 +38,5 @@ func apply_change(deltas: Array):
 	update_value.emit(value)
 
 func activate():
-	print(str("activating ", id))
 	update_active.emit()
 	active = true
