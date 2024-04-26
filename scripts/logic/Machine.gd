@@ -1,14 +1,10 @@
 class_name Machine extends Node
 
-var action_id : String
-var supply_collection : Supply_Collection
+var action : Action
 var timer : Timer
 
-func set_id(id : String):
-	action_id = id
-
-func set_supply_collection(new_collection : Supply_Collection):
-	supply_collection = new_collection
+func set_action(new_action : Action):
+	action = new_action
 
 func _ready():
 	timer = Timer.new()
@@ -18,4 +14,4 @@ func _ready():
 	timer.start()
 
 func apply_changes():
-	supply_collection.apply_changes(action_id)
+	action.apply()

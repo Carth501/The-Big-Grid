@@ -21,10 +21,9 @@ func add_supply(id: String):
 		supply.set_id(id)
 		new_supply.emit(id)
 
-func apply_changes(id: String):
-	if(!test_action_changes(id)):
+func apply_changes(changes : Dictionary):
+	if(!test_action_changes(changes)):
 		return
-	var changes = ActionsSingle.data[id].changes
 	for change in changes:
 		var target = get_supply(change)
 		target.apply_change(changes[change].deltas)
@@ -53,8 +52,7 @@ func deltas_remain_positive(deltas : Array) -> bool:
 			return false
 	return true
 
-func test_action_changes(id: String):
-	var changes = ActionsSingle.data[id].changes
+func test_action_changes(changes : Dictionary):
 	for supply_id in changes:
 		var target = get_supply(supply_id)
 		if(target == null):

@@ -8,16 +8,21 @@ var changes : Dictionary
 var available := true
 var supplies : Dictionary
 var filter_foreman : Filter_Foreman
+var supply_collection : Supply_Collection
 
-func setup(new_id : String, supply_collection : Supply_Collection):
+func setup(new_id : String, new_supply_collection : Supply_Collection):
 	id = new_id
 	changes = ActionsSingle.data[id].changes
+	supply_collection = new_supply_collection
 	for supply_id in changes:
 		var supply = supply_collection.get_or_create_supply(supply_id)
 		supplies[supply_id] = supply
 		supply.update_value.connect(process_availability)
 		supply.activate()
 	process_availability()
+
+func apply():
+	supply_collection.apply_changes(changes)
 
 func get_translation_text() -> String:
 	return ActionTranslatorSingle.data[id]

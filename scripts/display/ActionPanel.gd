@@ -15,7 +15,6 @@ func build_action_button(id : String):
 	var new_button : Action_Button = action_package.instantiate()
 	new_button.set_id(id)
 	add_child(new_button)
-	new_button.attempt.connect(push_action)
 	if(!ActionTranslatorSingle.data.has(id)):
 		push_error(str("id ", id, " translation not found"))
 		return
@@ -23,6 +22,3 @@ func build_action_button(id : String):
 	action_ids.append(id)
 	var action_logic = action_manager.full_action_list[id]
 	new_button.connect_logic(action_logic)
-
-func push_action(id : String):
-	action_manager.apply_action(id)

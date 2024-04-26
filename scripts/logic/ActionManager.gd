@@ -16,8 +16,5 @@ func create_action(id : String):
 	new_action.emit(id)
 	new_action_logic.open_menu.connect(open_action_menu)
 
-func apply_action(id : String):
-	supply_collection.apply_changes(id)
-
 func open_action_menu(id : String):
 	open_menu.emit(full_action_list[id])

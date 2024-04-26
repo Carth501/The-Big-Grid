@@ -1,7 +1,5 @@
 class_name Action_Button extends Dual_Button
 
-signal attempt(id : String)
-
 var id : String
 var action : Action
 
@@ -14,7 +12,7 @@ func connect_logic(new_action : Action):
 	action = new_action
 
 func actuate():
-	attempt.emit(id)
+	action.apply()
 
 func open_menu():
 	action.open()
@@ -35,5 +33,4 @@ func gain_focus():
 	action.gain_focus()
 
 func lose_focus():
-	print("losing focus")
 	action.lose_focus()
