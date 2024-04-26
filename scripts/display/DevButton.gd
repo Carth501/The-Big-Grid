@@ -20,6 +20,7 @@ func finish():
 	release_focus()
 	complete = true
 	unset_filter()
+	visible = false
 
 func set_enabled(setting):
 	if(!complete):

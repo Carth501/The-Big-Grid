@@ -7,8 +7,12 @@ class_name Supply_Display extends Control
 @export var supply_button : Button
 var supply : Supply
 var active := false
+var showing := true
+var static_position := true
 
-func setup(id : String, supply_collection : Supply_Collection):
+func setup(id : String, 
+supply_collection : Supply_Collection, 
+options_overseer : Options_Overseer):
 	set_name_display(id)
 	supply = supply_collection.get_supply(id)
 	# don't use the function for updating value, because it should start hidden.
@@ -20,6 +24,7 @@ func setup(id : String, supply_collection : Supply_Collection):
 	active = supply.active
 	if(!active):
 		supply.update_active.connect(set_active)
+	options_overseer.update_keep_positions.connect(set_static_position)
 
 func set_name_display(id : String):
 	name_label.text = center(SupplyTranslatorSingle.data[id])
@@ -48,4 +53,18 @@ func set_active():
 
 func show_supply(setting : bool):
 	if(active):
-		supply_button.visible = setting
+		showing = setting
+		if(static_position):
+			supply_button.visible = showing
+		else:
+			visible = showing
+
+func set_static_position(setting : bool):
+	static_position = setting
+	if(!showing):
+		if(static_position):
+			visible = true
+			supply_button.visible = false
+		else:
+			visible = false
+			supply_button.visible = true
