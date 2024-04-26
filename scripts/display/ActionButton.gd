@@ -35,4 +35,5 @@ func gain_focus():
 	action.gain_focus()
 
 func lose_focus():
+	print("losing focus")
 	action.lose_focus()

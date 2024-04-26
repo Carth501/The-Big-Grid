@@ -53,4 +53,4 @@ func gain_focus():
 	filter_foreman.set_secondary_filter(changes)
 
 func lose_focus():
-	filter_foreman.clear_primary_filter()
+	filter_foreman.clear_secondary_filter()
