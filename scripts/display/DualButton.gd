@@ -13,6 +13,7 @@ func _handle_input(event):
 				left_click.emit()
 			MOUSE_BUTTON_RIGHT:
 				right_click.emit()
-	elif event is InputEventKey and event.keycode == KEY_SPACE and event.pressed:
+	elif event.is_action_pressed("space"):
 		left_click.emit()
-		
+	elif event.is_action_pressed("cancel"):
+		release_focus()

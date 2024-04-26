@@ -75,7 +75,6 @@ action_menu_container = NodePath("ActionMenuScrollContainer")
 action_menu = NodePath("ActionMenuScrollContainer/MarginContainer/ActionMenu")
 
 [node name="ActionScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,6 +98,7 @@ action_manager = NodePath("../../../../../../../Logic/ActionManager")
 supply_collection = NodePath("../../../../../../../Logic/SupplyCollection")
 
 [node name="ActionMenuScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
