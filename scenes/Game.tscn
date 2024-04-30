@@ -180,10 +180,11 @@ supply_collection = NodePath("../SupplyCollection")
 [node name="SupplyCollection" type="Node" parent="Logic"]
 script = ExtResource("5_vwwhk")
 
-[node name="ActionManager" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "filter_foreman")]
+[node name="ActionManager" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "filter_foreman", "machine_factory")]
 script = ExtResource("6_fgv5p")
 supply_collection = NodePath("../SupplyCollection")
 filter_foreman = NodePath("../FilterForeman")
+machine_factory = NodePath("../MachineFactory")
 
 [node name="DevelopmentHandler" type="Node" parent="Logic" node_paths=PackedStringArray("action_manager", "supply_collection", "filter_foreman")]
 script = ExtResource("7_ce23n")

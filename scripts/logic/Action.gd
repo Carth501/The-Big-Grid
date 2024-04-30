@@ -2,18 +2,30 @@ class_name Action extends Node
 
 signal update_availability(availability : bool)
 signal open_menu(id : String)
+signal new_machine(machine : Machine)
 
 var id : String
 var changes : Dictionary
 var available := true
 var supplies : Dictionary
+var automation_cost : Dictionary
 var filter_foreman : Filter_Foreman
 var supply_collection : Supply_Collection
+var machine_factory : Machine_Factory
 
-func setup(new_id : String, new_supply_collection : Supply_Collection):
-	id = new_id
+func setup(package : Dictionary):
+	if(!package.has("id")):
+		push_error("action setup without ID")
+	if(!package.has("supply_collection")):
+		push_error("action setup without supply_collection")
+	if(!package.has("machine_factory")):
+		push_error("action setup without machine_factory")
+	id = package["id"]
 	changes = ActionsSingle.data[id].changes
-	supply_collection = new_supply_collection
+	if(ActionsSingle.data[id].has("automation_cost")):
+		automation_cost = ActionsSingle.data[id].automation_cost
+	supply_collection = package["supply_collection"]
+	machine_factory = package["machine_factory"]
 	for supply_id in changes:
 		var supply = supply_collection.get_or_create_supply(supply_id)
 		supplies[supply_id] = supply
@@ -45,6 +57,15 @@ func test_supplies():
 			return false
 	return true
 
+func attempt_machine_purchase():
+	if(automation_cost == null || automation_cost == {}):
+		return
+	var cost = calculate_machine_cost()
+	var success = supply_collection.attempt_purchase(cost)
+	if(success):
+		var machine = machine_factory.build_machine(self)
+		new_machine.emit(machine)
+
 func open():
 	open_menu.emit(id)
 
@@ -59,3 +80,15 @@ func gain_focus():
 
 func lose_focus():
 	filter_foreman.clear_secondary_filter()
+
+func calculate_machine_cost() -> Dictionary:
+	if(automation_cost == null || automation_cost == {}):
+		return {}
+	var count := machine_factory.get_machine_count_by_id(id)
+	var cost = automation_cost.duplicate(true)
+	for supply in cost:
+		var supply_deltas = cost[supply].deltas
+		for index in range(supply_deltas.size()):
+			supply_deltas[index] *= count
+	return cost
+	
