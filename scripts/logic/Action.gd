@@ -81,10 +81,16 @@ func gain_focus():
 func lose_focus():
 	filter_foreman.clear_secondary_filter()
 
+func set_machine_purchase_filter():
+	filter_foreman.set_primary_filter(calculate_machine_cost())
+
+func gain_machine_purchase_focus():
+	filter_foreman.set_secondary_filter(calculate_machine_cost())
+
 func calculate_machine_cost() -> Dictionary:
 	if(automation_cost == null || automation_cost == {}):
 		return {}
-	var count := machine_factory.get_machine_count_by_id(id)
+	var count := machine_factory.get_machine_count_by_id(id) + 1
 	var cost = automation_cost.duplicate(true)
 	for supply in cost:
 		var supply_deltas = cost[supply].deltas

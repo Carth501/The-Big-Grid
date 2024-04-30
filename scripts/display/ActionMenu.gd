@@ -27,3 +27,9 @@ func gain_focus():
 
 func lose_focus():
 	action.lose_focus()
+
+func set_filter_machine():
+	action.set_machine_purchase_filter()
+
+func gain_focus_machine():
+	action.gain_machine_purchase_focus()
