@@ -13,7 +13,8 @@ action_name_label = NodePath("ActionNameLabel")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 29.0
+offset_left = 20.0
+offset_right = 120.0
 offset_bottom = 31.0
 grow_horizontal = 2
 text = "Action Name
@@ -23,13 +24,8 @@ vertical_alignment = 1
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -520.0
-offset_right = -500.0
+offset_right = 20.0
 offset_bottom = 31.0
-grow_horizontal = 0
 text = "X"
 
 [node name="PurchaseMachineButton" type="Button" parent="."]
@@ -48,3 +44,4 @@ offset_right = 236.0
 offset_bottom = 186.0
 
 [connection signal="pressed" from="CloseButton" to="." method="close"]
+[connection signal="pressed" from="PurchaseMachineButton" to="." method="attempt_machine_purchase"]
