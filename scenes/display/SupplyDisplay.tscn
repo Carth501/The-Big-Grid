@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://did1s0tb5cpq1"]
+[gd_scene load_steps=3 format=3 uid="uid://did1s0tb5cpq1"]
 
 [ext_resource type="Script" path="res://scripts/display/SupplyDisplay.gd" id="1_4pac3"]
+[ext_resource type="Script" path="res://scripts/display/SupplyChangeFeedback.gd" id="2_1xhgp"]
 
-[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("name_label", "value_label", "max_label", "delta_label", "supply_button")]
+[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("name_label", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback")]
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -12,6 +13,7 @@ value_label = NodePath("Button/Count")
 max_label = NodePath("Button/Max")
 delta_label = NodePath("Button/Delta")
 supply_button = NodePath("Button")
+supply_change_feedback = NodePath("Button/SupplyChangeFeedback")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -68,3 +70,10 @@ grow_vertical = 0
 mouse_filter = 2
 bbcode_enabled = true
 fit_content = true
+
+[node name="SupplyChangeFeedback" type="Control" parent="Button"]
+anchors_preset = 0
+offset_left = 112.0
+offset_right = 152.0
+offset_bottom = 40.0
+script = ExtResource("2_1xhgp")
