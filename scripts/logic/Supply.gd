@@ -1,6 +1,7 @@
 class_name Supply extends Node
 
 signal update_value(value : float)
+signal new_delta(value : float)
 signal update_max(v_max : float)
 signal update_active
 
@@ -35,6 +36,7 @@ func test_deltas(deltas: Array) -> bool:
 func apply_change(deltas: Array):
 	for delta in deltas:
 		value += delta
+		new_delta.emit(delta)
 	update_value.emit(value)
 
 func activate():

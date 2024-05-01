@@ -5,6 +5,7 @@ class_name Supply_Display extends Control
 @export var max_label : RichTextLabel
 @export var delta_label : RichTextLabel
 @export var supply_button : Button
+@export var supply_change_feedback : Supply_Change_Feedback
 var supply : Supply
 var active := false
 var showing := true
@@ -18,6 +19,7 @@ options_overseer : Options_Overseer):
 	# don't use the function for updating value, because it should start hidden.
 	value_label.text = center(str("%.2f" % supply.value)) 
 	supply.update_value.connect(set_value_display)
+	supply.new_delta.connect(add_new_delta)
 	set_max_display(supply.v_max)
 	supply.update_max.connect(set_max_display)
 	supply_button.visible = false
@@ -29,8 +31,11 @@ options_overseer : Options_Overseer):
 func set_name_display(id : String):
 	name_label.text = center(SupplyTranslatorSingle.data[id])
 
-func set_value_display(value):
+func set_value_display(value : float):
 	value_label.text = center(str("%.1f" % value))
+
+func add_new_delta(value : float):
+	supply_change_feedback.new_delta(value)
 
 func set_max_display(value):
 	max_label.text = center(str("%.1f" % value))
