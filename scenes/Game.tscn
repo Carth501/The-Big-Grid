@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=14 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/display/DevelopmentDisplay.gd" id="4_p32ci"]
 [ext_resource type="PackedScene" uid="uid://l4e311vb2rjt" path="res://scenes/display/ActionMenu.tscn" id="5_rdn8f"]
 [ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="5_vwwhk"]
+[ext_resource type="PackedScene" uid="uid://cxnswwxbpknq4" path="res://scenes/display/SupplyMenu.tscn" id="6_2gdos"]
 [ext_resource type="Script" path="res://scripts/logic/ActionManager.gd" id="6_fgv5p"]
 [ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="7_ce23n"]
 [ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="9_iev5w"]
@@ -92,7 +93,7 @@ alignment = 2
 layout_mode = 2
 split_offset = 300
 
-[node name="ActionBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu_container", "action_menu")]
+[node name="ActionBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu_container", "action_menu", "supply_menu_container", "supply_menu")]
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
@@ -100,6 +101,8 @@ script = ExtResource("3_y50x7")
 actions_display = NodePath("ActionScrollContainer")
 action_menu_container = NodePath("ActionMenuScrollContainer")
 action_menu = NodePath("ActionMenuScrollContainer/MarginContainer/ActionMenu")
+supply_menu_container = NodePath("SupplyMenuScrollContainer")
+supply_menu = NodePath("SupplyMenuScrollContainer/MarginContainer/SupplyMenu")
 
 [node name="ActionScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
 layout_mode = 1
@@ -142,6 +145,26 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="ActionMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer" instance=ExtResource("5_rdn8f")]
+layout_mode = 2
+
+[node name="SupplyMenuScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="SupplyMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer" instance=ExtResource("6_2gdos")]
 layout_mode = 2
 
 [node name="DevBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit"]
@@ -199,7 +222,9 @@ script = ExtResource("12_oy6by")
 
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
+[connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
+[connection signal="open_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_supply_menu"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]

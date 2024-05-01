@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://did1s0tb5cpq1"]
+[gd_scene load_steps=4 format=3 uid="uid://did1s0tb5cpq1"]
 
 [ext_resource type="Script" path="res://scripts/display/SupplyDisplay.gd" id="1_4pac3"]
 [ext_resource type="Script" path="res://scripts/display/SupplyChangeFeedback.gd" id="2_1xhgp"]
+[ext_resource type="Script" path="res://scripts/display/DualButton.gd" id="2_475cn"]
 
 [node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("name_label", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback")]
 custom_minimum_size = Vector2(128, 64)
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_475cn")
 
 [node name="Name" type="RichTextLabel" parent="Button"]
 layout_mode = 0
@@ -77,3 +79,5 @@ offset_left = 112.0
 offset_right = 152.0
 offset_bottom = 40.0
 script = ExtResource("2_1xhgp")
+
+[connection signal="right_click" from="Button" to="." method="open_menu"]

@@ -1,6 +1,7 @@
 class_name Supply_Collection extends Node
 
 signal new_supply(id : String)
+signal open_supply(supply : Supply)
 var supplies := {}
 
 func get_supply(id: String) -> Supply:
@@ -19,7 +20,9 @@ func add_supply(id: String):
 		add_child(supply)
 		supplies[id] = supply
 		supply.set_id(id)
+		supply.set_collection(self)
 		new_supply.emit(id)
+		supply.open_menu.connect(open_supply_menu)
 
 func apply_changes(changes : Dictionary):
 	if(!test_action_changes(changes)):
@@ -61,3 +64,7 @@ func test_action_changes(changes : Dictionary):
 		if(!target.test_deltas(changes[supply_id].deltas)):
 			return false
 	return true
+
+func open_supply_menu(supply : Supply):
+	print("attempted open_supply_menu")
+	open_supply.emit(supply)
