@@ -16,10 +16,10 @@
 		"max_increase_increment": 8,
 		"max_increase_base_cost": {
 			"B": {
-				"deltas": [-12]
+				"deltas": [-8]
 			},
 			"C": {
-				"deltas": [-8]
+				"deltas": [-5]
 			}
 		}
 	},
@@ -32,7 +32,7 @@
 				"deltas": [-9]
 			},
 			"C": {
-				"deltas": [-13]
+				"deltas": [-5]
 			},
 			"D": {
 				"deltas": [-5]
@@ -44,10 +44,10 @@
 		"max_increase_increment": 1,
 		"max_increase_base_cost": {
 			"B": {
-				"deltas": [-10]
+				"deltas": [-12]
 			},
-			"D": {
-				"deltas": [-2]
+			"C": {
+				"deltas": [-4]
 			}
 		}
 	}
