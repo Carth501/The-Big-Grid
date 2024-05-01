@@ -87,4 +87,5 @@ offset_bottom = 106.0
 step = 0.1
 custom_arrow_step = 1.0
 
+[connection signal="pressed" from="Close" to="." method="close"]
 [connection signal="pressed" from="MaxControls/UpgradeMaxButton" to="." method="attempt_max_upgrade"]

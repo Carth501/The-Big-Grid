@@ -20,6 +20,7 @@ func add_supply(id: String):
 		add_child(supply)
 		supplies[id] = supply
 		supply.set_id(id)
+		supply.set_collection(self)
 		new_supply.emit(id)
 		supply.open_menu.connect(open_supply_menu)
 
