@@ -4,6 +4,7 @@ signal update_value(value : float)
 signal new_delta(value : float)
 signal update_max(v_max : float)
 signal update_active
+signal open_menu(supply)
 
 var id := ""
 var value := 0.0
@@ -42,3 +43,9 @@ func apply_change(deltas: Array):
 func activate():
 	update_active.emit()
 	active = true
+
+func open():
+	open_menu.emit(self)
+
+func attempt_upgrade_max():
+	pass

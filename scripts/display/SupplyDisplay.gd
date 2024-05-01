@@ -73,3 +73,6 @@ func set_static_position(setting : bool):
 		else:
 			visible = false
 			supply_button.visible = true
+
+func open_menu():
+	supply.open()
