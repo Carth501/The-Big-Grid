@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/display/SupplyChangeFeedback.gd" id="2_1xhgp"]
 [ext_resource type="Script" path="res://scripts/display/DualButton.gd" id="2_475cn"]
 
-[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("name_label", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback")]
+[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("name_label", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain")]
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -15,6 +15,7 @@ max_label = NodePath("Button/Max")
 delta_label = NodePath("Button/Delta")
 supply_button = NodePath("Button")
 supply_change_feedback = NodePath("Button/SupplyChangeFeedback")
+supply_curtain = NodePath("Button/SupplyCurtain")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -79,5 +80,13 @@ offset_left = 112.0
 offset_right = 152.0
 offset_bottom = 40.0
 script = ExtResource("2_1xhgp")
+
+[node name="SupplyCurtain" type="Panel" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="right_click" from="Button" to="." method="open_menu"]

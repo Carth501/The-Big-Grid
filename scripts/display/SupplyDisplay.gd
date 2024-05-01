@@ -6,8 +6,8 @@ class_name Supply_Display extends Control
 @export var delta_label : RichTextLabel
 @export var supply_button : Button
 @export var supply_change_feedback : Supply_Change_Feedback
+@export var supply_curtain : Panel
 var supply : Supply
-var active := false
 var showing := true
 var static_position := true
 
@@ -22,9 +22,9 @@ options_overseer : Options_Overseer):
 	supply.new_delta.connect(add_new_delta)
 	set_max_display(supply.v_max)
 	supply.update_max.connect(set_max_display)
-	supply_button.visible = false
-	active = supply.active
-	if(!active):
+	if(supply.active):
+		set_active()
+	else:
 		supply.update_active.connect(set_active)
 	options_overseer.update_keep_positions.connect(set_static_position)
 
@@ -53,16 +53,14 @@ func center(text : String) -> String:
 	return str("[center]", text, "[/center]")
 
 func set_active():
-	active = true
-	show_supply(true)
+	supply_curtain.visible = false
 
 func show_supply(setting : bool):
-	if(active):
-		showing = setting
-		if(static_position):
-			supply_button.visible = showing
-		else:
-			visible = showing
+	showing = setting
+	if(static_position):
+		supply_button.visible = showing
+	else:
+		visible = showing
 
 func set_static_position(setting : bool):
 	static_position = setting
