@@ -200,8 +200,9 @@ development_handler = NodePath("../../../../../../../Logic/DevelopmentHandler")
 script = ExtResource("4_e1gh5")
 supply_collection = NodePath("../SupplyCollection")
 
-[node name="SupplyCollection" type="Node" parent="Logic"]
+[node name="SupplyCollection" type="Node" parent="Logic" node_paths=PackedStringArray("filter_foreman")]
 script = ExtResource("5_vwwhk")
+filter_foreman = NodePath("../FilterForeman")
 
 [node name="ActionManager" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "filter_foreman", "machine_factory")]
 script = ExtResource("6_fgv5p")

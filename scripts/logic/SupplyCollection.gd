@@ -3,6 +3,7 @@ class_name Supply_Collection extends Node
 signal new_supply(id : String)
 signal open_supply(supply : Supply)
 var supplies := {}
+@export var filter_foreman : Filter_Foreman
 
 func get_supply(id: String) -> Supply:
 	if(!supplies.has(id)):
@@ -21,6 +22,7 @@ func add_supply(id: String):
 		supplies[id] = supply
 		supply.set_id(id)
 		supply.set_collection(self)
+		supply.set_filter_foreman(filter_foreman)
 		new_supply.emit(id)
 		supply.open_menu.connect(open_supply_menu)
 

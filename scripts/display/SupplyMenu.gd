@@ -26,3 +26,15 @@ func update_supply_name(current_name : String):
 
 func attempt_max_upgrade():
 	supply.attempt_upgrade_max()
+
+func upgrade_enter():
+	supply.set_upgrade_hover()
+
+func upgrade_exit():
+	supply.unset_upgrade_hover()
+
+func upgrade_focus():
+	supply.set_upgrade_focus()
+
+func upgrade_unfocus():
+	supply.unset_upgrade_focus()

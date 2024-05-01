@@ -14,6 +14,7 @@ var max_upgrade_count := 0
 var max_increase_base_cost : Dictionary
 var active := false
 var supply_collection : Supply_Collection
+var filter_foreman : Filter_Foreman
 
 func set_id(new_id : String):
 	id = new_id
@@ -29,6 +30,9 @@ func set_id(new_id : String):
 
 func set_collection(collection : Supply_Collection):
 	supply_collection = collection
+
+func set_filter_foreman(foreman : Filter_Foreman):
+	filter_foreman = foreman
 
 func test_deltas(deltas: Array) -> bool:
 	var dummy_value = value
@@ -68,3 +72,15 @@ func calculate_upgrade_cost() -> Dictionary:
 		for index in range(supply_deltas.size()):
 			supply_deltas[index] *= count
 	return cost
+
+func set_upgrade_hover():
+	filter_foreman.set_primary_filter(calculate_upgrade_cost())
+
+func unset_upgrade_hover():
+	filter_foreman.clear_primary_filter()
+
+func set_upgrade_focus():
+	filter_foreman.set_secondary_filter(calculate_upgrade_cost())
+
+func unset_upgrade_focus():
+	filter_foreman.clear_secondary_filter()
