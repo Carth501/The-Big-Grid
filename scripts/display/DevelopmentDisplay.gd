@@ -12,7 +12,6 @@ func _ready():
 		var new_dev_button : Dev_Button = dev_button_prefab.instantiate()
 		add_child(new_dev_button)
 		new_dev_button.set_id(option)
-		new_dev_button.text = DevelopmentTranslatorSingle.data[option].label
 		dev_buttons[option] = new_dev_button
 		var dev_logic = development_handler.full_development_catalog[option]
 		new_dev_button.connect_to_logic(dev_logic)

@@ -13,7 +13,13 @@ func connect_to_logic(dev : Development):
 	disabled = dev.completed
 	dev.update_availability.connect(set_enabled)
 	set_enabled(dev.available)
+	set_strings(dev.translated_strings)
+	dev.update_translations.connect(set_strings)
 	development = dev
+
+func set_strings(new_strings : Dictionary):
+	print(new_strings)
+	text = new_strings.label
 
 func finish():
 	disabled = true

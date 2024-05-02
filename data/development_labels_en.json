@@ -1,22 +1,48 @@
 {
 	"enable_A_B_trade_C": {
-		"label": "Enable trade A B for C",
-		"description": "Open resource C for production."
+		"label": {
+			"text": "Enable trade %s, %s for %s", 
+			"supplies": ["A", "B", "C"]
+			},
+		"description": {
+			"text": "Open resource %s for production.",
+			"supplies": ["C"]
+			}
 	},
 	"enable_auto_actions": {
-		"label": "Enable Auto Actions",
-		"description": "Program actions to automatically trigger on conditions."
+		"label": {
+			"text": "Enable Auto Actions"
+			},
+		"description": {
+			"text": "Program actions to automatically trigger on conditions."
+			}
 	},
 	"more_efficient_C": {
-		"label": "Efficient Trade for C",
-		"description": "Add a more efficient trade to generate C."
+		"label": {
+			"text": "Efficient Trade for %s", 
+			"supplies": ["C"]
+			},
+		"description": {
+			"text": "Add a more efficient trade %s and %s to generate %s.", 
+			"supplies": ["A", "B", "C"]
+			},
 	},
 	"enable_galop_process": {
-		"label": "Enable the GALop process",
-		"description": "Produce D and A for a bit of C"
+		"label": {
+			"text": "Enable the GALop process"
+			},
+		"description": {
+			"text": "Produce %s and %s for a bit of %s",
+			"supplies": ["D", "A", "C"]
+			},
 	},
 	"enable_aduia_process": {
-		"label": "Enable the ADUIA Process",
-		"description": "Decomposes D into A and B"
+		"label": {
+			"text": "Enable the ADUIA Process"
+			},
+		"description": {
+			"text": "Decomposes %s into %s and %s",
+			"supplies": ["D", "A", "B"]
+			},
 	}
 }
