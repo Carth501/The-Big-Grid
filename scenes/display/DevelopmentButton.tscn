@@ -2,14 +2,28 @@
 
 [ext_resource type="Script" path="res://scripts/display/DevButton.gd" id="1_gj3uw"]
 
-[node name="DevelopmentButton" type="Button"]
+[node name="DevelopmentButton" type="Button" node_paths=PackedStringArray("description_popup", "description")]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
 script = ExtResource("1_gj3uw")
+description_popup = NodePath("DescriptionPopup")
+description = NodePath("DescriptionPopup/Label")
+
+[node name="DescriptionPopup" type="PanelContainer" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+offset_right = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="DescriptionPopup"]
+layout_mode = 2
+text = "THIS IS A TEST"
 
 [connection signal="focus_entered" from="." to="." method="gain_focus"]
 [connection signal="focus_exited" from="." to="." method="lose_focus"]
-[connection signal="mouse_entered" from="." to="." method="set_filter"]
-[connection signal="mouse_exited" from="." to="." method="unset_filter"]
+[connection signal="mouse_entered" from="." to="." method="set_hover"]
+[connection signal="mouse_exited" from="." to="." method="unset_hover"]
 [connection signal="pressed" from="." to="." method="trigger"]
