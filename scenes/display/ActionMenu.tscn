@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://l4e311vb2rjt"]
+[gd_scene load_steps=2 format=3 uid="uid://l4e311vb2rjt"]
 
 [ext_resource type="Script" path="res://scripts/display/ActionMenu.gd" id="1_gfqu7"]
-[ext_resource type="PackedScene" uid="uid://dof4bc0xrdtbm" path="res://scenes/ActionMachineEditor.tscn" id="1_psa7d"]
 
-[node name="ActionMenu" type="Control" node_paths=PackedStringArray("action_name_label")]
+[node name="ActionMenu" type="Control" node_paths=PackedStringArray("action_name_label", "action_machine_container")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_gfqu7")
 action_name_label = NodePath("ActionNameLabel")
+action_machine_container = NodePath("ActionMachineContainer")
 
 [node name="ActionNameLabel" type="Label" parent="."]
 layout_mode = 1
@@ -36,12 +36,11 @@ offset_right = 236.0
 offset_bottom = 65.0
 text = "Purchase Machine"
 
-[node name="ActionMachineEditor" parent="." instance=ExtResource("1_psa7d")]
+[node name="ActionMachineContainer" type="FlowContainer" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 70.0
-offset_right = 236.0
-offset_bottom = 186.0
+offset_top = 77.0
+offset_right = 40.0
+offset_bottom = 117.0
 
 [connection signal="pressed" from="CloseButton" to="." method="close"]
 [connection signal="focus_entered" from="PurchaseMachineButton" to="." method="gain_focus_machine"]

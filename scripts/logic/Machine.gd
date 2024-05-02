@@ -15,3 +15,6 @@ func _ready():
 
 func apply_changes():
 	action.apply()
+
+func set_interval(interval : float):
+	timer.wait_time = interval
