@@ -18,7 +18,6 @@ func build_action_button(id : String):
 	if(!ActionTranslatorSingle.data.has(id)):
 		push_error(str("id ", id, " translation not found"))
 		return
-	new_button.change_label(ActionTranslatorSingle.data[id])
 	action_ids.append(id)
 	var action_logic = action_manager.full_action_list[id]
 	new_button.connect_logic(action_logic)
