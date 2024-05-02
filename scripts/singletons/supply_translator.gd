@@ -1,6 +1,9 @@
 extends Node
 
+signal new_override(String)
+
 var data : Dictionary
+var overrides : Dictionary = {}
 @export var en_file_json = "res://data/supply_names_en.json"
 
 func _ready():
@@ -17,3 +20,14 @@ func load_json_file(filePath: String):
 			push_error("error reading the translation file")
 	else:
 		push_error("translation file does not exist")
+
+func get_supply_name(id) -> String:
+	if(overrides.has(id) && overrides[id] != ""):
+		return overrides[id]
+	else:
+		return data[id]
+
+func set_name_override(id, new_name):
+	print(str("set_name_override ", id, " ", new_name))
+	overrides[id] = new_name
+	new_override.emit(id)

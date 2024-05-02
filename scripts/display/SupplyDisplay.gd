@@ -29,7 +29,13 @@ options_overseer : Options_Overseer):
 	options_overseer.update_keep_positions.connect(set_static_position)
 
 func set_name_display(id : String):
-	name_label.text = center(SupplyTranslatorSingle.data[id])
+	name_label.text = center(SupplyTranslatorSingle.get_supply_name(id))
+	SupplyTranslatorSingle.new_override.connect(update_supply_name)
+
+func update_supply_name(id : String):
+	if(id == supply.id):
+		print(str("update name to ", SupplyTranslatorSingle.get_supply_name(id)))
+		name_label.text = center(SupplyTranslatorSingle.get_supply_name(id))
 
 func set_value_display(value : float):
 	value_label.text = center(str("%.1f" % value))

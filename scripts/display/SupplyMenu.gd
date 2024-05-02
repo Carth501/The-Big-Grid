@@ -17,12 +17,11 @@ func close():
 	close_supply_menu.emit()
 
 func change_supply_name(new_name : String):
-	pass
-	#set_supply_name.emit(new_name)
+	supply.set_name_override(new_name)
 
 func update_supply_name(current_name : String):
-	pass
-	#supply_name.text = current_name
+	if(supply_name.text != current_name):
+		supply_name.text = current_name
 
 func attempt_max_upgrade():
 	supply.attempt_upgrade_max()
