@@ -7,9 +7,11 @@ func set_id(new_id : String):
 	id = new_id
 
 func connect_logic(new_action : Action):
-	new_action.update_availability.connect(set_enabled)
-	set_enabled(new_action.available)
 	action = new_action
+	action.update_availability.connect(set_enabled)
+	action.update_action_name.connect(change_label)
+	change_label(action.get_translation_text())
+	set_enabled(action.available)
 
 func actuate():
 	action.apply()

@@ -3,6 +3,7 @@ class_name Action extends Node
 signal update_availability(availability : bool)
 signal open_menu(id : String)
 signal new_machine(machine : Machine)
+signal update_action_name(new_name : String)
 
 var id : String
 var changes : Dictionary
@@ -12,6 +13,8 @@ var automation_cost : Dictionary
 var filter_foreman : Filter_Foreman
 var supply_collection : Supply_Collection
 var machine_factory : Machine_Factory
+var translation_data : Dictionary
+var translated_action_name : String
 
 func setup(package : Dictionary):
 	if(!package.has("id")):
@@ -32,12 +35,31 @@ func setup(package : Dictionary):
 		supply.update_value.connect(process_availability)
 		supply.activate()
 	process_availability()
+	translation_data = ActionTranslatorSingle.data[id]
+	write_translation_text()
+	SupplyTranslatorSingle.new_override.connect(decide_if_name_update_needed)
+	print(translated_action_name)
 
 func apply():
 	supply_collection.apply_changes(changes)
 
+func decide_if_name_update_needed(id : String):
+	if(translation_data.has("supplies") && translation_data.supplies.has(id)):
+		write_translation_text()
+		update_action_name.emit(translated_action_name)
+
 func get_translation_text() -> String:
-	return ActionTranslatorSingle.data[id]
+	return translated_action_name
+
+func write_translation_text():
+	if(translation_data.has("supplies")):
+		print(translation_data.supplies)
+		var supply_ids : Array = translation_data.supplies
+		var supply_names = SupplyTranslatorSingle.get_supply_names(supply_ids)
+		var translated_name = translation_data.name % supply_names
+		translated_action_name = translated_name
+	else:
+		translated_action_name = translation_data.name
 
 func set_filter_foreman(new_filter_foreman : Filter_Foreman):
 	filter_foreman = new_filter_foreman

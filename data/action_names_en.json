@@ -1,8 +1,8 @@
 {
-	"increment_A": "Increment A",
-	"trade_A_for_B": "Trade A for B",
-	"trade_A_and_B_for_C": "Trade A and B for C",
-	"eff_trade_A_and_B_for_C": "Efficient A and B for C",
-	"galop_process": "GALop Process",
-	"aduia_process": "ADUIA Process"
+	"increment_A": {"name": "Increment %s", "supplies": ["A"]},
+	"trade_A_for_B": {"name": "Trade %s of %s", "supplies": ["A", "B"]},
+	"trade_A_and_B_for_C": {"name": "Trade %s and %s for %s", "supplies": ["A", "B", "C"]},
+	"eff_trade_A_and_B_for_C": {"name": "Efficient %s and %s for %s", "supplies": ["A", "B", "C"]},
+	"galop_process": {"name": "GALop Process"},
+	"aduia_process": {"name": "ADUIA Process"}
 }

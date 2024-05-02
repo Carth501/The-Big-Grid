@@ -8,7 +8,11 @@ var action : Action
 
 func set_action(new_action : Action):
 	action = new_action
-	action_name_label.text = action.get_translation_text()
+	set_label_text(action.get_translation_text())
+	action.update_action_name.connect(set_label_text)
+
+func set_label_text(action_name : String):
+	action_name_label.text = action_name
 
 func attempt_machine_purchase():
 	action.attempt_machine_purchase()
