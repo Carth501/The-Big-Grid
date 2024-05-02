@@ -84,3 +84,6 @@ func set_upgrade_focus():
 
 func unset_upgrade_focus():
 	filter_foreman.clear_secondary_filter()
+
+func set_name_override(new_name : String):
+	SupplyTranslatorSingle.set_name_override(id, new_name)
