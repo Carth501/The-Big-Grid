@@ -38,7 +38,6 @@ func setup(package : Dictionary):
 	translation_data = ActionTranslatorSingle.data[id]
 	write_translation_text()
 	SupplyTranslatorSingle.new_override.connect(decide_if_name_update_needed)
-	print(translated_action_name)
 
 func apply():
 	supply_collection.apply_changes(changes)
@@ -53,7 +52,6 @@ func get_translation_text() -> String:
 
 func write_translation_text():
 	if(translation_data.has("supplies")):
-		print(translation_data.supplies)
 		var supply_ids : Array = translation_data.supplies
 		var supply_names = SupplyTranslatorSingle.get_supply_names(supply_ids)
 		var translated_name = translation_data.name % supply_names

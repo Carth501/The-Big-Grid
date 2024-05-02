@@ -37,6 +37,5 @@ func get_supply_names(ids : Array) -> Array:
 	return list
 
 func set_name_override(id, new_name):
-	print(str("set_name_override ", id, " ", new_name))
 	overrides[id] = new_name
 	new_override.emit(id)
