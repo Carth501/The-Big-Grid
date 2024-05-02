@@ -68,5 +68,4 @@ func test_action_changes(changes : Dictionary):
 	return true
 
 func open_supply_menu(supply : Supply):
-	print("attempted open_supply_menu")
 	open_supply.emit(supply)

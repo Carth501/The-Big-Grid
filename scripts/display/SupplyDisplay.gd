@@ -34,7 +34,6 @@ func set_name_display(id : String):
 
 func update_supply_name(id : String):
 	if(id == supply.id):
-		print(str("update name to ", SupplyTranslatorSingle.get_supply_name(id)))
 		name_label.text = center(SupplyTranslatorSingle.get_supply_name(id))
 
 func set_value_display(value : float):
