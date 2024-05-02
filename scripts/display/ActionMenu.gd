@@ -4,12 +4,33 @@ signal close_action_menu
 
 var action : Action
 @export var action_name_label : Label
-@onready var machine_editor_prefab := preload("res://scenes/ActionMachineEditor.tscn")
+@export var machine_factory : Machine_Factory
+@onready var machine_editor_prefab := preload("res://scenes/display/ActionMachineEditor.tscn")
+@export var action_machine_container : FlowContainer
+var idle_machine_editors : Array[Action_Machine_Editor] = []
+var active_machine_editors : Array[Action_Machine_Editor] = []
 
 func set_action(new_action : Action):
 	action = new_action
 	set_label_text(action.get_translation_text())
 	action.update_action_name.connect(set_label_text)
+	var machines = machine_factory.get_machines_by_id(action.id)
+	for machine in machines:
+		activate_machine_editor(machine)
+
+func activate_machine_editor(new_machine : Machine):
+	var editor = get_idle_machine_editor()
+	editor.visible = true
+	active_machine_editors.append(editor)
+	editor.set_machine(new_machine)
+
+func get_idle_machine_editor() -> Action_Machine_Editor:
+	if(idle_machine_editors.size() > 0):
+		return idle_machine_editors.pop_front()
+	else:
+		var new_machine = machine_editor_prefab.instantiate()
+		action_machine_container.add_child(new_machine)
+		return new_machine
 
 func set_label_text(action_name : String):
 	action_name_label.text = action_name
@@ -18,7 +39,15 @@ func attempt_machine_purchase():
 	action.attempt_machine_purchase()
 
 func close():
+	action.update_action_name.disconnect(set_label_text)
 	close_action_menu.emit()
+	cleanup()
+
+func cleanup():
+	for editor in active_machine_editors:
+		idle_machine_editors.append(editor)
+		editor.visible = false
+	active_machine_editors.clear()
 
 func set_filter():
 	action.set_filter()
