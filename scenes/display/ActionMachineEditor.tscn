@@ -1,42 +1,27 @@
 [gd_scene load_steps=3 format=3 uid="uid://dof4bc0xrdtbm"]
 
-[ext_resource type="Script" path="res://scripts/action_machine_editor.gd" id="1_4twft"]
+[ext_resource type="Script" path="res://scripts/display/ActionMachineEditor.gd" id="1_x85dw"]
 [ext_resource type="PackedScene" uid="uid://dd5pvuohxousc" path="res://scenes/ConditionBar.tscn" id="2_ymkdc"]
 
-[node name="ActionMachineEditor" type="Panel" node_paths=PackedStringArray("op_rate_field", "max_label", "condition_list_container")]
+[node name="ActionMachineEditor" type="Panel" node_paths=PackedStringArray("op_rate_field", "condition_list_container")]
 custom_minimum_size = Vector2(0, 30)
 offset_right = 232.0
 offset_bottom = 116.0
-script = ExtResource("1_4twft")
+script = ExtResource("1_x85dw")
 op_rate_field = NodePath("OperationRateField")
-max_label = NodePath("MaxRateLabel")
 condition_list_container = NodePath("ConditionList")
 
 [node name="OperationRateField" type="SpinBox" parent="."]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 85.0625
-offset_bottom = 34.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 144.0
+offset_bottom = 35.0
+min_value = 0.1
 max_value = 1.0
 step = 0.1
-
-[node name="OpRateUnitLabel" type="Label" parent="."]
-layout_mode = 2
-offset_left = 86.0
-offset_top = 7.0
-offset_right = 131.0
-offset_bottom = 30.0
-text = "Ops/s  Max: "
-
-[node name="MaxRateLabel" type="Label" parent="."]
-layout_mode = 2
-offset_left = 182.0
-offset_top = 7.0
-offset_right = 226.0
-offset_bottom = 30.0
-text = "1.0
-"
+value = 0.1
+suffix = "Ops/s"
 
 [node name="AddConditionButton" type="Button" parent="."]
 layout_mode = 2
@@ -57,3 +42,5 @@ theme_override_constants/separation = 45
 
 [node name="ConditionBar" parent="ConditionList" instance=ExtResource("2_ymkdc")]
 layout_mode = 2
+
+[connection signal="value_changed" from="OperationRateField" to="." method="set_frequency"]

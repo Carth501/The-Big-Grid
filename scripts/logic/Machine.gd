@@ -18,3 +18,10 @@ func apply_changes():
 
 func set_interval(interval : float):
 	timer.wait_time = interval
+
+func get_frequency() -> float:
+	return 1/timer.wait_time
+
+func set_frequency(value : float):
+	if(value <= 1 && value > 0):
+		timer.wait_time = 1/value
