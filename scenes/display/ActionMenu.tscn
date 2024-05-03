@@ -4,7 +4,11 @@
 
 [node name="ActionMenu" type="Control" node_paths=PackedStringArray("action_name_label", "action_machine_container")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_gfqu7")
 action_name_label = NodePath("ActionNameLabel")
 action_machine_container = NodePath("ActionMachineContainer")
@@ -37,10 +41,14 @@ offset_bottom = 65.0
 text = "Purchase Machine"
 
 [node name="ActionMachineContainer" type="FlowContainer" parent="."]
-layout_mode = 0
-offset_top = 77.0
-offset_right = 40.0
-offset_bottom = 117.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 240
 
 [connection signal="pressed" from="CloseButton" to="." method="close"]
 [connection signal="focus_entered" from="PurchaseMachineButton" to="." method="gain_focus_machine"]

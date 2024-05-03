@@ -8,3 +8,7 @@ var machine : Machine
 
 func set_machine(new_machine : Machine):
 	machine = new_machine
+	op_rate_field.value = machine.get_frequency()
+
+func set_frequency(value : float):
+	machine.set_frequency(value)
