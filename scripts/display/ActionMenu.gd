@@ -17,6 +17,7 @@ func set_action(new_action : Action):
 	var machines = machine_factory.get_machines_by_id(action.id)
 	for machine in machines:
 		activate_machine_editor(machine)
+	action.new_machine.connect(activate_machine_editor)
 
 func activate_machine_editor(new_machine : Machine):
 	var editor = get_idle_machine_editor()
