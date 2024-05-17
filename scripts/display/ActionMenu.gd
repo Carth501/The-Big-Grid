@@ -41,6 +41,7 @@ func attempt_machine_purchase():
 
 func close():
 	action.update_action_name.disconnect(set_label_text)
+	action.new_machine.disconnect(activate_machine_editor)
 	close_action_menu.emit()
 	cleanup()
 

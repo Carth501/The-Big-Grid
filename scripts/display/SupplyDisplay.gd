@@ -17,7 +17,7 @@ options_overseer : Options_Overseer):
 	set_name_display(id)
 	supply = supply_collection.get_supply(id)
 	# don't use the function for updating value, because it should start hidden.
-	value_label.text = center(str("%.2f" % supply.value)) 
+	value_label.text = center(str("%.1f" % supply.value)) 
 	supply.update_value.connect(set_value_display)
 	supply.new_delta.connect(add_new_delta)
 	set_max_display(supply.v_max)

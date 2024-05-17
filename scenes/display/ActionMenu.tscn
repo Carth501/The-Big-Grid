@@ -42,13 +42,13 @@ text = "Purchase Machine"
 
 [node name="ActionMachineContainer" type="FlowContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 190.0
+offset_top = 80.0
+offset_bottom = 80.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/h_separation = 240
+theme_override_constants/v_separation = 100
 
 [connection signal="pressed" from="CloseButton" to="." method="close"]
 [connection signal="focus_entered" from="PurchaseMachineButton" to="." method="gain_focus_machine"]
