@@ -1,9 +1,10 @@
-[gd_scene format=3 uid="uid://rwjt2gpwatnx"]
+[gd_scene load_steps=2 format=3 uid="uid://rwjt2gpwatnx"]
+
+[ext_resource type="Texture2D" uid="uid://e5wkivd7v4mr" path="res://textures/Rock.png" id="1_midjv"]
 
 [node name="Condition" type="Panel"]
-offset_top = 72.0
 offset_right = 134.0
-offset_bottom = 112.0
+offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -11,6 +12,9 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 36.0
 offset_bottom = 36.0
+icon = ExtResource("1_midjv")
+clip_text = true
+expand_icon = true
 
 [node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 0
