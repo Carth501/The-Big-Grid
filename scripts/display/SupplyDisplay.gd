@@ -1,6 +1,6 @@
 class_name Supply_Display extends Control
 
-@export var name_label : RichTextLabel
+@export var supply_icon_display : Supply_Icon_Display
 @export var value_label : RichTextLabel
 @export var max_label : RichTextLabel
 @export var delta_label : RichTextLabel
@@ -14,7 +14,6 @@ var static_position := true
 func setup(id : String, 
 supply_collection : Supply_Collection, 
 options_overseer : Options_Overseer):
-	set_name_display(id)
 	supply = supply_collection.get_supply(id)
 	# don't use the function for updating value, because it should start hidden.
 	value_label.text = center(str("%.1f" % supply.value)) 
@@ -27,14 +26,11 @@ options_overseer : Options_Overseer):
 	else:
 		supply.update_active.connect(set_active)
 	options_overseer.update_keep_positions.connect(set_static_position)
+	set_icon_display(supply)
 
-func set_name_display(id : String):
-	name_label.text = center(SupplyTranslatorSingle.get_supply_name(id))
-	SupplyTranslatorSingle.new_override.connect(update_supply_name)
-
-func update_supply_name(id : String):
-	if(id == supply.id):
-		name_label.text = center(SupplyTranslatorSingle.get_supply_name(id))
+func set_icon_display(supply : Supply):
+	supply_icon_display.set_image_by_path(supply.supply_icon_path)
+	supply_icon_display.set_supply_name(supply.get_translation())
 
 func set_value_display(value : float):
 	value_label.text = center(str("%.1f" % value))

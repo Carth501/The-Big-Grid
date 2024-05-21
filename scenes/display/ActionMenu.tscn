@@ -47,8 +47,8 @@ anchor_right = 1.0
 offset_top = 80.0
 offset_bottom = 80.0
 grow_horizontal = 2
-theme_override_constants/h_separation = 240
-theme_override_constants/v_separation = 100
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
 
 [connection signal="pressed" from="CloseButton" to="." method="close"]
 [connection signal="focus_entered" from="PurchaseMachineButton" to="." method="gain_focus_machine"]

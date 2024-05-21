@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dd5pvuohxousc" path="res://scenes/ConditionBar.tscn" id="2_ymkdc"]
 
 [node name="ActionMachineEditor" type="Panel" node_paths=PackedStringArray("op_rate_field", "condition_list_container")]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(232, 116)
 offset_right = 232.0
 offset_bottom = 116.0
 script = ExtResource("1_x85dw")
