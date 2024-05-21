@@ -15,6 +15,9 @@ var max_increase_base_cost : Dictionary
 var active := false
 var supply_collection : Supply_Collection
 var filter_foreman : Filter_Foreman
+var supply_icon_path : String
+var upgrade_hover := true
+var upgrade_focus := false
 
 func set_id(new_id : String):
 	id = new_id
@@ -27,6 +30,8 @@ func set_id(new_id : String):
 		max_increment = definition.max_increase_increment
 	if(definition.has("max_increase_base_cost")):
 		max_increase_base_cost = definition.max_increase_base_cost
+	if(definition.has("icon_path")):
+		supply_icon_path = definition.icon_path
 
 func set_collection(collection : Supply_Collection):
 	supply_collection = collection
@@ -61,6 +66,10 @@ func attempt_upgrade_max():
 		max_upgrade_count += 1
 		v_max += max_increment
 		update_max.emit(v_max)
+		if(upgrade_hover):
+			filter_foreman.set_primary_filter(calculate_upgrade_cost())
+		if(upgrade_focus):
+			filter_foreman.set_secondary_filter(calculate_upgrade_cost())
 
 func calculate_upgrade_cost() -> Dictionary:
 	if(max_increase_base_cost == null || max_increase_base_cost == {}):
@@ -75,15 +84,22 @@ func calculate_upgrade_cost() -> Dictionary:
 
 func set_upgrade_hover():
 	filter_foreman.set_primary_filter(calculate_upgrade_cost())
+	upgrade_hover = true
 
 func unset_upgrade_hover():
 	filter_foreman.clear_primary_filter()
+	upgrade_hover = false
 
 func set_upgrade_focus():
 	filter_foreman.set_secondary_filter(calculate_upgrade_cost())
+	upgrade_focus = true
 
 func unset_upgrade_focus():
 	filter_foreman.clear_secondary_filter()
+	upgrade_focus = false
 
 func set_name_override(new_name : String):
 	SupplyTranslatorSingle.set_name_override(id, new_name)
+
+func get_translation() -> String:
+	return SupplyTranslatorSingle.data[id]

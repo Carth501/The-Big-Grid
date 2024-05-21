@@ -1,54 +1,43 @@
 {
-	"A": {
+	"coal": {
 		"default_max": 20,
 		"max_increase_increment": 10,
 		"max_increase_base_cost": {
-			"A": {
+			"iron_ingot": {
 				"deltas": [-10]
-			},
-			"B": {
-				"deltas": [-5]
 			}
-		}
+		},
+		"icon_path": "res://textures/Supply_Icons/Coal.svg"
 	},
-	"B": {
+	"hematite": {
 		"default_max": 8,
 		"max_increase_increment": 8,
 		"max_increase_base_cost": {
-			"B": {
-				"deltas": [-8]
-			},
-			"C": {
-				"deltas": [-5]
+			"iron_ingot": {
+				"deltas": [-6]
 			}
-		}
+		},
+		"icon_path": "res://textures/Supply_Icons/Hematite.svg"
 	},
-	"C": {
-		"default_value": 2,
+	"magnitite": {
+		"default_value": 0,
 		"default_max": 15,
 		"max_increase_increment": 5,
 		"max_increase_base_cost": {
-			"A": {
+			"iron_ingot": {
 				"deltas": [-9]
-			},
-			"C": {
-				"deltas": [-5]
-			},
-			"D": {
-				"deltas": [-5]
 			}
-		}
+		},
+		"icon_path": "res://textures/Supply_Icons/Magnitite.svg"
 	},
-	"D": {
-		"default_max": 2,
-		"max_increase_increment": 1,
+	"iron_ingot": {
+		"default_max": 24,
+		"max_increase_increment": 10,
 		"max_increase_base_cost": {
-			"B": {
-				"deltas": [-12]
-			},
-			"C": {
-				"deltas": [-4]
+			"iron_ingot": {
+				"deltas": [-8]
 			}
-		}
+		},
+		"icon_path": "res://textures/Supply_Icons/Iron Ingot.svg"
 	}
 }

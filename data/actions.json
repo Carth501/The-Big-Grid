@@ -1,76 +1,74 @@
 {
-	"increment_A": {
+	"extract_coal": {
 		"changes": {
-			"A":{
+			"coal":{
 				"deltas": [1]
 			}
 		},
 		"automation_cost": {
-			"A": {
-				"deltas": [-2]
+			"iron_ingot": {
+				"deltas": [-10]
 			}
 		}
 	},
-	"trade_A_for_B": {
+	"extract_hematite": {
 		"changes":{
-			"A":{
-				"deltas": [-2]
-			},
-			"B":{
-				"deltas": [1]
-			},
-		}
-	},
-	"trade_A_and_B_for_C": {
-		"changes":{
-			"A":{
-				"deltas": [-2]
-			},
-			"B":{
-				"deltas": [-2]
-			},
-			"C":{
-				"deltas": [1]
-			},
-		}
-	},
-	"eff_trade_A_and_B_for_C": {
-		"changes":{
-			"A":{
-				"deltas": [-2]
-			},
-			"B":{
-				"deltas": [-1]
-			},
-			"C":{
+			"hematite":{
 				"deltas": [2]
-			},
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-15]
+			}
 		}
 	},
-	"galop_process": {
+	"extract_magnitite": {
 		"changes":{
-			"A":{
+			"magnitite":{
 				"deltas": [1]
-			},
-			"C":{
-				"deltas": [-4]
-			},
-			"D":{
-				"deltas": [1]
-			},
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-6]
+			}
 		}
 	},
-	"aduia_process": {
+	"refine_hematite": {
 		"changes":{
-			"A":{
-				"deltas": [12]
-			},
-			"B":{
-				"deltas": [8]
-			},
-			"C":{
+			"coal":{
 				"deltas": [-1]
 			},
+			"hematite":{
+				"deltas": [-3]
+			},
+			"iron_ingot":{
+				"deltas": [1]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-20]
+			}
+		}
+	},
+	"refine_magnitite": {
+		"changes":{
+			"coal":{
+				"deltas": [-2]
+			},
+			"magnitite":{
+				"deltas": [-2]
+			},
+			"iron_ingot":{
+				"deltas": [1]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-14]
+			}
 		}
 	}
 }

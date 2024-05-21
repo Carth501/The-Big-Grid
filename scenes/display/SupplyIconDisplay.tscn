@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qkoq5nu3bew"]
+
+[ext_resource type="Script" path="res://scripts/display/SupplyIconDisplay.gd" id="1_8gr0y"]
+[ext_resource type="Texture2D" uid="uid://cu7psdpr28cow" path="res://textures/Supply_Icons/Magnitite.svg" id="2_e4cc6"]
+
+[node name="SupplyIconDisplay" type="Control" node_paths=PackedStringArray("texture_rect", "panel_container", "label")]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_8gr0y")
+texture_rect = NodePath("ColorRect/TextureRect")
+panel_container = NodePath("PanelContainer")
+label = NodePath("PanelContainer/Label")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 36.0
+offset_bottom = 36.0
+mouse_filter = 1
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 34.0
+texture = ExtResource("2_e4cc6")
+expand_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 36.0
+offset_right = 40.0
+offset_bottom = 76.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="ColorRect" to="." method="show_label"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="hide_label"]

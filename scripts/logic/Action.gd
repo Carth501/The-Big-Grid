@@ -15,6 +15,8 @@ var supply_collection : Supply_Collection
 var machine_factory : Machine_Factory
 var string_data : Dictionary
 var translated_action_name : String
+var automation_hover := true
+var automation_focus := false
 
 func setup(package : Dictionary):
 	if(!package.has("id")):
@@ -85,6 +87,11 @@ func attempt_machine_purchase():
 	if(success):
 		var machine = machine_factory.build_machine(self)
 		new_machine.emit(machine)
+		cost = calculate_machine_cost()
+		if(automation_hover):
+			filter_foreman.set_primary_filter(cost)
+		if(automation_focus):
+			filter_foreman.set_secondary_filter(cost)
 
 func open():
 	open_menu.emit(id)
@@ -94,18 +101,22 @@ func set_filter():
 
 func unset_filter():
 	filter_foreman.clear_primary_filter()
+	automation_hover = false
 
 func gain_focus():
 	filter_foreman.set_secondary_filter(changes)
 
 func lose_focus():
 	filter_foreman.clear_secondary_filter()
+	automation_focus = false
 
 func set_machine_purchase_filter():
 	filter_foreman.set_primary_filter(calculate_machine_cost())
+	automation_hover = true
 
 func gain_machine_purchase_focus():
 	filter_foreman.set_secondary_filter(calculate_machine_cost())
+	automation_focus = true
 
 func calculate_machine_cost() -> Dictionary:
 	if(automation_cost == null || automation_cost == {}):

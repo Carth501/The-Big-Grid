@@ -4,10 +4,12 @@ class_name Development_Handler extends Node
 @export var supply_collection : Supply_Collection
 @export var filter_foreman : Filter_Foreman
 var full_development_catalog : Dictionary
+@export var developments_enabled := true
 
 func _ready():
-	for id in DevelopmentsSingle.data:
-		build_development(id)
+	if(developments_enabled):
+		for id in DevelopmentsSingle.data:
+			build_development(id)
 
 func build_development(id : String):
 	var development = Development.new()
