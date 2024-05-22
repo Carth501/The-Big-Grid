@@ -12,6 +12,7 @@ var v_max := 20.0
 var max_increment := 10.0
 var max_upgrade_count := 0
 var max_increase_base_cost : Dictionary
+var max_upgrade_available := true
 var active := false
 var supply_collection : Supply_Collection
 var filter_foreman : Filter_Foreman
@@ -28,8 +29,12 @@ func set_id(new_id : String):
 		v_max = definition.default_max
 	if(definition.has("max_increase_increment")):
 		max_increment = definition.max_increase_increment
+	else:
+		max_upgrade_available = false
 	if(definition.has("max_increase_base_cost")):
 		max_increase_base_cost = definition.max_increase_base_cost
+	else:
+		max_upgrade_available = false
 	if(definition.has("icon_path")):
 		supply_icon_path = definition.icon_path
 

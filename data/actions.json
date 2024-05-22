@@ -1,8 +1,51 @@
 {
+	"generate_electricity": {
+		"changes": {
+			"electricity":{
+				"deltas": [1]
+			}
+		}
+	},
+	"burn_coal": {
+		"changes": {
+			"coal":{
+				"deltas": [-2]
+			},
+			"water":{
+				"deltas": [-4]
+			},
+			"electricity": {
+				"deltas": [9]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-10]
+			}
+		}
+	},
+	"pump_water": {
+		"changes": {
+			"water":{
+				"deltas": [4]
+			},
+			"electricity":{
+				"deltas": [-1]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-10]
+			}
+		}
+	},
 	"extract_coal": {
 		"changes": {
 			"coal":{
 				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-1]
 			}
 		},
 		"automation_cost": {
@@ -15,6 +58,9 @@
 		"changes":{
 			"hematite":{
 				"deltas": [2]
+			},
+			"electricity":{
+				"deltas": [-1]
 			}
 		},
 		"automation_cost": {
@@ -27,6 +73,9 @@
 		"changes":{
 			"magnitite":{
 				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-2]
 			}
 		},
 		"automation_cost": {
@@ -45,6 +94,9 @@
 			},
 			"iron_ingot":{
 				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-1]
 			}
 		},
 		"automation_cost": {
@@ -63,6 +115,9 @@
 			},
 			"iron_ingot":{
 				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-1]
 			}
 		},
 		"automation_cost": {

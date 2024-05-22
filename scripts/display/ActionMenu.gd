@@ -7,6 +7,7 @@ var action : Action
 @export var machine_factory : Machine_Factory
 @onready var machine_editor_prefab := preload("res://scenes/display/ActionMachineEditor.tscn")
 @export var action_machine_container : FlowContainer
+@export var machine_purchase_button : Button
 var idle_machine_editors : Array[Action_Machine_Editor] = []
 var active_machine_editors : Array[Action_Machine_Editor] = []
 
@@ -18,6 +19,10 @@ func set_action(new_action : Action):
 	for machine in machines:
 		activate_machine_editor(machine)
 	action.new_machine.connect(activate_machine_editor)
+	if(action.automation_available):
+		machine_purchase_button.visible = true
+	else:
+		machine_purchase_button.visible = false
 
 func activate_machine_editor(new_machine : Machine):
 	var editor = get_idle_machine_editor()

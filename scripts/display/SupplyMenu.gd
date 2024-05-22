@@ -6,12 +6,18 @@ signal close_supply_menu
 @export var upgrade_increase : Label
 @export var current_max_value : Label
 @export var custom_max_spin : SpinBox
+@export var max_upgrade_button : Button
 var supply : Supply
 
 func open(new_supply : Supply):
 	supply = new_supply
 	current_max_value.text = str("%.2f" % supply.v_max)
-	upgrade_increase.text = str("%.2f" % supply.max_increment)
+	if(supply.max_upgrade_available):
+		max_upgrade_button.visible = true
+		upgrade_increase.text = str("%.2f" % supply.max_increment)
+	else:
+		max_upgrade_button.visible = false
+		upgrade_increase.text = ""
 
 func close():
 	close_supply_menu.emit()

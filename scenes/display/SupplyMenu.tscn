@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/display/SupplyMenu.gd" id="1_o4tcd"]
 
-[node name="SupplyMenu" type="Control" node_paths=PackedStringArray("supply_name", "upgrade_increase", "current_max_value", "custom_max_spin")]
+[node name="SupplyMenu" type="Control" node_paths=PackedStringArray("supply_name", "upgrade_increase", "current_max_value", "custom_max_spin", "max_upgrade_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ supply_name = NodePath("LineEdit")
 upgrade_increase = NodePath("MaxControls/UpgradeIncrease")
 current_max_value = NodePath("MaxControls/CurrentMaxValue")
 custom_max_spin = NodePath("MaxControls/CustomMaxSpinBox")
+max_upgrade_button = NodePath("MaxControls/UpgradeMaxButton")
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
@@ -39,6 +40,7 @@ offset_right = 248.0
 offset_bottom = 171.0
 
 [node name="UpgradeMaxButton" type="Button" parent="MaxControls"]
+visible = false
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
