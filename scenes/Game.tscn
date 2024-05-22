@@ -18,7 +18,7 @@
 script = ExtResource("1_kvsp4")
 supply_collection = NodePath("Logic/SupplyCollection")
 action_manager = NodePath("Logic/ActionManager")
-starting_action_ids = Array[String](["generate_electricity", "pump_water", "burn_coal", "extract_coal", "extract_hematite", "extract_magnitite", "refine_hematite", "refine_magnitite"])
+starting_action_ids = Array[String](["generate_electricity", "pump_water", "burn_coal", "extract_coal", "extract_hematite", "extract_magnitite", "extract_bornite", "extract_bauxite", "extract_native_gold", "refine_hematite", "refine_magnitite", "refine_bornite", "refine_bauxite", "refine_gold"])
 
 [node name="Display" type="ColorRect" parent="."]
 anchors_preset = 15
