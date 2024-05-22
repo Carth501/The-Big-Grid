@@ -17,11 +17,21 @@ func apply_changes():
 	action.apply()
 
 func set_interval(interval : float):
-	timer.wait_time = interval
+	if(interval > 10):
+		push_warning("interval too long")
+	elif(interval < 1):
+		push_warning("interval too short")
+	else:
+		timer.wait_time = interval
 
-func get_frequency() -> float:
-	return 1/timer.wait_time
+func get_interval() -> float:
+	return timer.wait_time
 
-func set_frequency(value : float):
-	if(value <= 1 && value > 0):
-		timer.wait_time = 1/value
+func set_running(setting : bool):
+	if(setting):
+		timer.set_paused(false)
+	else:
+		timer.set_paused(true)
+
+func get_running() -> float:
+	return timer.is_stopped()
