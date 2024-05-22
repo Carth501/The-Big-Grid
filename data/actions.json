@@ -21,6 +21,9 @@
 		"automation_cost": {
 			"iron_ingot": {
 				"deltas": [-10]
+			},
+			"copper_ingot": {
+				"deltas": [-2]
 			}
 		}
 	},
@@ -84,6 +87,60 @@
 			}
 		}
 	},
+	"extract_bornite": {
+		"changes":{
+			"bornite":{
+				"deltas": [2]
+			},
+			"electricity":{
+				"deltas": [-2]
+			},
+			"water":{
+				"deltas": [-1]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-8]
+			}
+		}
+	},
+	"extract_bauxite": {
+		"changes":{
+			"bauxite":{
+				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-1]
+			},
+			"water":{
+				"deltas": [-2]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-12]
+			}
+		}
+	},
+	"extract_native_gold": {
+		"changes":{
+			"native_gold":{
+				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-8]
+			},
+			"water":{
+				"deltas": [-30]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-79]
+			}
+		}
+	},
 	"refine_hematite": {
 		"changes":{
 			"coal":{
@@ -123,6 +180,69 @@
 		"automation_cost": {
 			"iron_ingot": {
 				"deltas": [-14]
+			}
+		}
+	},
+	"refine_bornite": {
+		"changes":{
+			"coal":{
+				"deltas": [-2]
+			},
+			"bornite":{
+				"deltas": [-2]
+			},
+			"copper_ingot":{
+				"deltas": [2]
+			},
+			"electricity":{
+				"deltas": [-1]
+			},
+			"water":{
+				"deltas": [-1]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-14]
+			}
+		}
+	},
+	"refine_bauxite": {
+		"changes":{
+			"bauxite":{
+				"deltas": [-1]
+			},
+			"aluminum_ingot":{
+				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-1]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-8]
+			}
+		}
+	},
+	"refine_gold": {
+		"changes":{
+			"coal":{
+				"deltas": [-8]
+			},
+			"native_gold":{
+				"deltas": [-10]
+			},
+			"gold_ingot":{
+				"deltas": [1]
+			},
+			"electricity":{
+				"deltas": [-5]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [-30]
 			}
 		}
 	}

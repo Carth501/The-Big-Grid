@@ -8,5 +8,11 @@
 	"iron_ingot": "Iron Ingot",
 	"steel_ingot": "Steel Ingot",
 	"iron_gear": "Iron Gear",
-	"steel_gear": "Steel Gear"
+	"steel_gear": "Steel Gear",
+	"bornite": "Bornite",
+	"bauxite": "Bauxite",
+	"native_gold": "Native Gold",
+	"copper_ingot": "Copper Ingot",
+	"aluminum_ingot": "Aluminum Ingot",
+	"gold_ingot": "Gold Ingot",
 }
