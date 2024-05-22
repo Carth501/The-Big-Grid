@@ -8,6 +8,7 @@ signal update_action_name(new_name : String)
 var id : String
 var changes : Dictionary
 var available := true
+var automation_available := true
 var supplies : Dictionary
 var automation_cost : Dictionary
 var filter_foreman : Filter_Foreman
@@ -29,6 +30,8 @@ func setup(package : Dictionary):
 	changes = ActionsSingle.data[id].changes
 	if(ActionsSingle.data[id].has("automation_cost")):
 		automation_cost = ActionsSingle.data[id].automation_cost
+	else:
+		automation_available = false
 	supply_collection = package["supply_collection"]
 	machine_factory = package["machine_factory"]
 	for supply_id in changes:

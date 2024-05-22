@@ -4,5 +4,8 @@
 	"extract_magnitite": {"name": "Extract Magnitite"},
 	"refine_hematite": {"name": "Refine Hematite"},
 	"refine_magnitite": {"name": "Refine Magnitite"},
+	"generate_electricity": {"name": "Manually Crank Turbine"},
+	"burn_coal": {"name": "Burn Coal"},
+	"pump_water": {"name": "Pump Water"},
 	"trade_A_and_B_for_C": {"name": "Trade %s and %s for %s", "supplies": ["A", "B", "C"]},
 }

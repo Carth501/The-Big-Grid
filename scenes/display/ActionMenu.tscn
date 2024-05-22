@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/display/ActionMenu.gd" id="1_gfqu7"]
 
-[node name="ActionMenu" type="Control" node_paths=PackedStringArray("action_name_label", "action_machine_container")]
+[node name="ActionMenu" type="Control" node_paths=PackedStringArray("action_name_label", "action_machine_container", "machine_purchase_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_gfqu7")
 action_name_label = NodePath("ActionNameLabel")
 action_machine_container = NodePath("ActionMachineContainer")
+machine_purchase_button = NodePath("PurchaseMachineButton")
 
 [node name="ActionNameLabel" type="Label" parent="."]
 layout_mode = 1

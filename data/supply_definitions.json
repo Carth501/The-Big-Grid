@@ -1,4 +1,24 @@
 {
+	"electricity": {
+		"default_max": 40,
+		"max_increase_increment": 20,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [-10]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Electricity.svg"
+	},
+	"water": {
+		"default_max": 40,
+		"max_increase_increment": 20,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [-10]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Water.svg"
+	},
 	"coal": {
 		"default_max": 20,
 		"max_increase_increment": 10,
