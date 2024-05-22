@@ -4,6 +4,7 @@ signal update_filter(filter : Dictionary)
 
 var primary_filter : Dictionary
 var secondary_filter : Dictionary
+var secondary_filter_enabled := true
 
 func set_primary_filter(filter : Dictionary):
 	primary_filter = filter
@@ -24,10 +25,13 @@ func clear_secondary_filter():
 func choose_filter():
 	if(primary_filter != {}):
 		apply_filter(primary_filter)
-	elif(secondary_filter != {}):
+	elif(secondary_filter != {} && secondary_filter_enabled):
 		apply_filter(secondary_filter)
 	else:
 		apply_filter({})
 
 func apply_filter(filter : Dictionary):
 	update_filter.emit(filter)
+
+func set_secondary_filter_active(setting : bool):
+	secondary_filter_enabled = setting

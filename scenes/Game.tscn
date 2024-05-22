@@ -89,6 +89,30 @@ button_pressed = true
 text = "Keep Position"
 alignment = 2
 
+[node name="FocusFilteringControl" type="Control" parent="Display/MiddleSplit/SupplyBackground"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_right = -128.0
+grow_horizontal = 0
+
+[node name="FocusFilteringToggle" type="CheckButton" parent="Display/MiddleSplit/SupplyBackground/FocusFilteringControl"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -130.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 33.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 12
+button_pressed = true
+text = "Focus Filtering"
+alignment = 2
+
 [node name="RightSplit" type="VSplitContainer" parent="Display/MiddleSplit"]
 layout_mode = 2
 split_offset = 300
@@ -224,6 +248,7 @@ developments_enabled = false
 script = ExtResource("12_oy6by")
 
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
+[connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/FocusFilteringControl/FocusFilteringToggle" to="Logic/OptionsOverseer" method="set_focus_filtering"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" method="add_new_machine"]
@@ -232,3 +257,4 @@ script = ExtResource("12_oy6by")
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
+[connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
