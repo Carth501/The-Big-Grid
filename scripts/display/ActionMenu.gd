@@ -52,6 +52,7 @@ func close():
 
 func cleanup():
 	for editor in active_machine_editors:
+		editor.close()
 		idle_machine_editors.append(editor)
 		editor.visible = false
 	active_machine_editors.clear()

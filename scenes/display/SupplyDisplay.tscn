@@ -95,4 +95,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[connection signal="left_click" from="Button" to="." method="select"]
 [connection signal="right_click" from="Button" to="." method="open_menu"]

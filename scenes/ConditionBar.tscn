@@ -1,18 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd5pvuohxousc"]
+[gd_scene load_steps=3 format=3 uid="uid://dd5pvuohxousc"]
 
-[ext_resource type="PackedScene" uid="uid://rwjt2gpwatnx" path="res://scenes/Condition.tscn" id="1_em8um"]
+[ext_resource type="Script" path="res://scripts/display/ConditionBar.gd" id="1_kciva"]
+[ext_resource type="PackedScene" uid="uid://b7qkoq5nu3bew" path="res://scenes/display/SupplyIconDisplay.tscn" id="2_80fuh"]
 
-[node name="ConditionBar" type="Control"]
+[node name="ConditionBar" type="Control" node_paths=PackedStringArray("left_member", "left_member_icon", "operation", "right_member", "right_member_icon")]
 layout_mode = 3
 anchors_preset = 0
-
-[node name="Condition" parent="." instance=ExtResource("1_em8um")]
-layout_mode = 0
+script = ExtResource("1_kciva")
+left_member = NodePath("Condition/LeftMember")
+left_member_icon = NodePath("Condition/LeftMember/LeftSupplyIconDisplay")
+operation = NodePath("Condition/OptionButton")
+right_member = NodePath("Condition/RightMember")
+right_member_icon = NodePath("Condition/RightMember/RightSupplyIconDisplay")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 141.0
-offset_top = 5.0
-offset_right = 159.0
-offset_bottom = 36.0
+offset_left = 165.0
+offset_top = 11.0
+offset_right = 183.0
+offset_bottom = 42.0
 text = "X"
+
+[node name="Condition" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 159.0
+offset_bottom = 49.0
+
+[node name="LeftMember" type="Button" parent="Condition"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 41.0
+offset_bottom = 40.0
+
+[node name="LeftSupplyIconDisplay" parent="Condition/LeftMember" instance=ExtResource("2_80fuh")]
+
+[node name="OptionButton" type="OptionButton" parent="Condition"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 6.0
+offset_right = 103.0
+offset_bottom = 37.0
+item_count = 3
+popup/item_0/text = ">"
+popup/item_0/id = 0
+popup/item_1/text = "="
+popup/item_1/id = 1
+popup/item_2/text = "<"
+popup/item_2/id = 2
+
+[node name="RightMember" type="Button" parent="Condition"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 4.0
+offset_right = 146.0
+offset_bottom = 40.0
+
+[node name="RightSupplyIconDisplay" parent="Condition/RightMember" node_paths=PackedStringArray("texture_rect", "panel_container", "label") instance=ExtResource("2_80fuh")]
+texture_rect = NodePath("../../LeftMember/LeftSupplyIconDisplay/ColorRect/TextureRect")
+panel_container = NodePath("../../LeftMember/LeftSupplyIconDisplay/PanelContainer")
+label = NodePath("../../LeftMember/LeftSupplyIconDisplay/PanelContainer/Label")
+
+[connection signal="pressed" from="Condition/LeftMember" to="." method="request_left_selection"]
+[connection signal="pressed" from="Condition/RightMember" to="." method="request_right_selection"]
