@@ -58,10 +58,7 @@ offset_top = 4.0
 offset_right = 146.0
 offset_bottom = 40.0
 
-[node name="RightSupplyIconDisplay" parent="Condition/RightMember" node_paths=PackedStringArray("texture_rect", "panel_container", "label") instance=ExtResource("2_80fuh")]
-texture_rect = NodePath("../../LeftMember/LeftSupplyIconDisplay/ColorRect/TextureRect")
-panel_container = NodePath("../../LeftMember/LeftSupplyIconDisplay/PanelContainer")
-label = NodePath("../../LeftMember/LeftSupplyIconDisplay/PanelContainer/Label")
+[node name="RightSupplyIconDisplay" parent="Condition/RightMember" instance=ExtResource("2_80fuh")]
 
 [connection signal="pressed" from="Condition/LeftMember" to="." method="request_left_selection"]
 [connection signal="pressed" from="Condition/RightMember" to="." method="request_right_selection"]

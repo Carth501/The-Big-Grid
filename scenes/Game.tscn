@@ -221,11 +221,9 @@ development_handler = NodePath("../../../../../../../Logic/DevelopmentHandler")
 
 [node name="Logic" type="Node" parent="."]
 
-[node name="MachineFactory" type="Node" parent="Logic"]
+[node name="MachineFactory" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection")]
 script = ExtResource("4_e1gh5")
-supply_collection = Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":ExtResource("5_vwwhk"),"filter_foreman":Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","script":Resource("res://scripts/display/FilterForeman.gd"))
-)
-
+supply_collection = NodePath("")
 
 [node name="SupplyCollection" type="Node" parent="Logic" node_paths=PackedStringArray("filter_foreman")]
 script = ExtResource("5_vwwhk")
