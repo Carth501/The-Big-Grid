@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dof4bc0xrdtbm"]
+[gd_scene load_steps=3 format=3 uid="uid://dof4bc0xrdtbm"]
 
 [ext_resource type="Script" path="res://scripts/display/ActionMachineEditor.gd" id="1_x85dw"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_nmtv4"]
-[ext_resource type="PackedScene" uid="uid://dd5pvuohxousc" path="res://scenes/ConditionBar.tscn" id="2_ymkdc"]
 
 [node name="ActionMachineEditor" type="Panel" node_paths=PackedStringArray("name_field", "op_rate_field", "condition_list_container")]
 custom_minimum_size = Vector2(232, 116)
@@ -21,6 +20,7 @@ offset_right = 229.0
 offset_bottom = 36.0
 
 [node name="DropdownArrow" parent="Header" instance=ExtResource("2_nmtv4")]
+visible = false
 layout_mode = 1
 offset_left = 201.0
 offset_top = 6.0
@@ -50,9 +50,6 @@ offset_top = 154.0
 offset_right = 40.0
 offset_bottom = 199.0
 theme_override_constants/separation = 45
-
-[node name="ConditionBar" parent="ConditionList" instance=ExtResource("2_ymkdc")]
-layout_mode = 2
 
 [node name="ActiveSwitch" type="Control" parent="."]
 anchors_preset = 0
@@ -101,5 +98,6 @@ step = 0.1
 value = 10.0
 
 [connection signal="text_changed" from="Header/LineEdit" to="." method="set_machine_name"]
+[connection signal="pressed" from="AddConditionButton" to="." method="request_additional_condition"]
 [connection signal="toggled" from="ActiveSwitch/CheckButton" to="." method="set_running"]
 [connection signal="value_changed" from="IntervalControl/OperationRateField" to="." method="set_interval"]

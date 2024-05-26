@@ -6,6 +6,7 @@ class_name Supply_Icon_Display extends Control
 
 func set_image_by_path(path : String):
 	var image = load(path)
+	print(str("texture_rect.name ", texture_rect, " texture_rect.name"))
 	texture_rect.set_texture(image)
 
 func set_supply_name(new_name : String):

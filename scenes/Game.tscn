@@ -223,7 +223,7 @@ development_handler = NodePath("../../../../../../../Logic/DevelopmentHandler")
 
 [node name="MachineFactory" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection")]
 script = ExtResource("4_e1gh5")
-supply_collection = NodePath("../SupplyCollection")
+supply_collection = NodePath("")
 
 [node name="SupplyCollection" type="Node" parent="Logic" node_paths=PackedStringArray("filter_foreman")]
 script = ExtResource("5_vwwhk")

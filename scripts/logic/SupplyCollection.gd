@@ -1,12 +1,19 @@
 class_name Supply_Collection extends Node
 
+signal constant_selection(value : float)
+signal variable_selection(id : String)
 signal new_supply(id : String)
 signal open_supply(supply : Supply)
 var supplies := {}
+var selection_mode := false
 @export var filter_foreman : Filter_Foreman
+
+func _ready():
+	Logic_Directory_Single.index_object("Supply_Collection", self)
 
 func get_supply(id: String) -> Supply:
 	if(!supplies.has(id)):
+		push_warning(str(id, " requested, but it does not exist."))
 		return null
 	return supplies[id]
 
@@ -20,6 +27,7 @@ func add_supply(id: String):
 		var supply := Supply.new()
 		add_child(supply)
 		supplies[id] = supply
+		supply.select.connect(select_supply)
 		supply.set_id(id)
 		supply.set_collection(self)
 		supply.set_filter_foreman(filter_foreman)
@@ -69,3 +77,13 @@ func test_action_changes(changes : Dictionary):
 
 func open_supply_menu(supply : Supply):
 	open_supply.emit(supply)
+
+func request_member_selection():
+	selection_mode = true
+
+func select_supply(id : String):
+	print(str(id, " triggered select"))
+	if(selection_mode):
+		print(str(id, " triggered select while in selection_mode"))
+		variable_selection.emit(id)
+		selection_mode = false

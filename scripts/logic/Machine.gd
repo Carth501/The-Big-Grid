@@ -1,7 +1,10 @@
 class_name Machine extends Node
 
+signal new_conditional(Conditional_Value)
+
 var action : Action
 var timer : Timer
+var conditionals := []
 
 func set_action(new_action : Action):
 	action = new_action
@@ -35,3 +38,9 @@ func set_running(setting : bool):
 
 func get_running() -> float:
 	return timer.is_stopped()
+
+func add_conditional():
+	var conditional_instance = Conditional_Expression.new()
+	add_child(conditional_instance)
+	conditionals.append(conditional_instance)
+	new_conditional.emit(conditional_instance)

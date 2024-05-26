@@ -81,6 +81,7 @@
 		"icon_path": "res://textures/Supply_Icons/Native Gold.svg"
 	},
 	"iron_ingot": {
+		"default_value": 20,
 		"default_max": 24,
 		"max_increase_increment": 10,
 		"max_increase_base_cost": {
