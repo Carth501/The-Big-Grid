@@ -26,9 +26,16 @@ func update_expression_config():
 		write_right_member(config.right)
 	else:
 		clear_right()
+	var comparator = conditional_expression.comparator
+	if(comparator == conditional_expression.Comparators.GREATER):
+		operation.select(0)
+	elif(comparator == conditional_expression.Comparators.EQUAL):
+		operation.select(1)
+	elif(comparator == conditional_expression.Comparators.LESS):
+		operation.select(2)
+	
 
 func write_left_member(left_config : Dictionary):
-	print(str("left = ", left_config))
 	if(left_config.has("constant")):
 		left_member.text = left_config.constant
 		left_member_icon.visible = false
@@ -42,7 +49,6 @@ func write_left_member(left_config : Dictionary):
 		clear_left()
 
 func write_right_member(right_config : Dictionary):
-	print(str("right = ", right_config))
 	if(right_config.has("constant")):
 		right_member.text = right_config.constant
 		right_member_icon.visible = false
@@ -56,11 +62,9 @@ func write_right_member(right_config : Dictionary):
 		clear_right()
 
 func request_left_selection():
-	print("~~request_left_selection")
 	conditional_expression.start_left_selection()
 
 func request_right_selection():
-	print("~~request_right_selection")
 	conditional_expression.start_right_selection()
 
 func clear_left():
@@ -70,4 +74,13 @@ func clear_left():
 func clear_right():
 	right_member.text = ""
 	right_member_icon.visible = false
-	
+
+func set_comparator(new_value : int):
+	var comparator = conditional_expression.Comparators.EQUAL
+	if(new_value == 0):
+		comparator = conditional_expression.Comparators.GREATER
+	elif(new_value == 1):
+		comparator = conditional_expression.Comparators.EQUAL
+	elif(new_value == 2):
+		comparator = conditional_expression.Comparators.LESS
+	conditional_expression.set_comparator(comparator)
