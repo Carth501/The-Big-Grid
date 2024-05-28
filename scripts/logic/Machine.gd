@@ -12,9 +12,15 @@ func set_action(new_action : Action):
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
-	timer.timeout.connect(apply_changes)
+	timer.timeout.connect(check_conditions)
 	timer.wait_time = 1
 	timer.start()
+
+func check_conditions():
+	for condition in conditionals:
+		if(!condition.evaluation):
+			return
+	apply_changes()
 
 func apply_changes():
 	action.apply()
