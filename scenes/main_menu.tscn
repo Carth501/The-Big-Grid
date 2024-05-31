@@ -60,5 +60,6 @@ BIG
 GRID"
 horizontal_alignment = 2
 
-[connection signal="pressed" from="Links/VBoxContainer/NewGameButton" to="." method="load_game"]
+[connection signal="pressed" from="Links/VBoxContainer/ContinueButton" to="." method="load_game"]
+[connection signal="pressed" from="Links/VBoxContainer/NewGameButton" to="." method="new_game"]
 [connection signal="pressed" from="Links/VBoxContainer/Quit" to="." method="quit"]
