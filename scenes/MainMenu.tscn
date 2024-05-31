@@ -1,0 +1,108 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1a6y8skg7kii"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_1qd6f"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("continue_button", "load_panel", "load_buttons_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1qd6f")
+continue_button = NodePath("Links/MarginContainer/VBoxContainer/ContinueButton")
+load_panel = NodePath("LoadGameSelection")
+load_buttons_container = NodePath("LoadGameSelection/MarginContainer/VBoxContainer")
+
+[node name="VFlowContainer" type="VFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.9
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_left = -289.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+alignment = 2
+
+[node name="THE" type="Label" parent="VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "THE"
+horizontal_alignment = 2
+
+[node name="BIG" type="Label" parent="VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "BIG"
+horizontal_alignment = 2
+
+[node name="GRID" type="Label" parent="VFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "GRID"
+horizontal_alignment = 2
+
+[node name="Links" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 82.0
+offset_right = 349.0
+offset_bottom = 253.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Links"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Links/MarginContainer"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="Links/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="LoadGameButton" type="Button" parent="Links/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Game"
+
+[node name="NewGameButton" type="Button" parent="Links/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="OptionsButton" type="Button" parent="Links/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="Links/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="LoadGameSelection" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 353.0
+offset_top = 112.0
+offset_right = 653.0
+offset_bottom = 152.0
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadGameSelection"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoadGameSelection/MarginContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Links/MarginContainer/VBoxContainer/ContinueButton" to="." method="continue_game"]
+[connection signal="pressed" from="Links/MarginContainer/VBoxContainer/LoadGameButton" to="." method="toggle_load_panel"]
+[connection signal="pressed" from="Links/MarginContainer/VBoxContainer/NewGameButton" to="." method="new_game"]
+[connection signal="pressed" from="Links/MarginContainer/VBoxContainer/Quit" to="." method="quit"]

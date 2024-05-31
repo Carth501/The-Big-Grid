@@ -1,7 +1,7 @@
 class_name Save_Handler extends Node
 
 var active_save : Dictionary
-var save_file_names : Array[String] = []
+var save_file_metadata : Array = []
 var save_folder = "user://saves/"
 
 func _ready():
@@ -12,44 +12,49 @@ func _ready():
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
-		
 		while file_name != "":
 			if !dir.current_is_dir():
-				if(check_file_is_save(file_name)):
-					save_file_names.append(file_name)
+				var save_file = get_save(file_name)
+				if(save_file != null):
+					save_file_metadata.append({
+						"file_name": file_name,
+						"save_time": save_file.save_time
+					})
 			file_name = dir.get_next()
 	else:
-		print("An error occurred when trying to access the path.")
+		push_error("An error occurred when trying to access the path.")
 
-func check_file_is_save(save_file_name : String) -> bool:
+func get_save_metadata() -> Array:
+	return save_file_metadata
+
+func prepare_save(save_file_name : String):
+	active_save = get_save(save_file_name)
+
+func prepare_recent_save():
+	if(save_file_metadata.size() > 0):
+		var recent_save
+		for save in save_file_metadata:
+			var this_time = save["save_time"]
+			if(recent_save == null || recent_save["save_time"] < this_time):
+				recent_save = save
+		prepare_save(recent_save["file_name"])
+
+func get_save(save_file_name : String):
 	var path = save_folder + save_file_name
+	
 	if FileAccess.file_exists(path):
 		var dataFile = FileAccess.open(path, FileAccess.READ)
-		var parsedResult = JSON.parse_string(dataFile.get_as_text())
-		
+		var parsedResult = dataFile.get_var()
 		if parsedResult is Dictionary:
-			return true
-	return false
-
-func get_save_names() -> Array[String]:
-	return save_file_names
-
-func load_save(save_file_name : String):
-	var path = save_folder + save_file_name
-	if FileAccess.file_exists(path):
-		var dataFile = FileAccess.open(path, FileAccess.READ)
-		var parsedResult = JSON.parse_string(dataFile.get_as_text())
-		
-		if parsedResult is Dictionary:
-			active_save = parsedResult
+			return parsedResult
 		else:
-			push_error("error reading the translation file")
+			push_error("error reading the save file")
 	else:
-		push_error("translation file does not exist")
+		push_error("file does not exist")
 
 func write_save(data : Dictionary):
 	active_save = data
 	var path = save_folder + active_save.file_name
 	var data_file = FileAccess.open(path, FileAccess.WRITE)
-	data_file.store_var(active_save)
+	data_file.store_var(data)
 	data_file.close()
