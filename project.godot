@@ -24,6 +24,7 @@ DevelopmentTranslatorSingle="*res://scripts/singletons/development_translator.gd
 SupplyDefsSingle="*res://scripts/singletons/supply_defs.gd"
 SupplyTranslatorSingle="*res://scripts/singletons/supply_translator.gd"
 Logic_Directory_Single="*res://scripts/singletons/LogicDirectory.gd"
+Save_Handler_Single="*res://scripts/singletons/SaveHandler.gd"
 
 [display]
 
