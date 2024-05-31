@@ -112,3 +112,13 @@ func set_name_override(new_name : String):
 
 func get_translation() -> String:
 	return SupplyTranslatorSingle.data[id]
+
+func load_values(values : Dictionary):
+	value = values["value"]
+	update_value.emit(value)
+	v_max = values["v_max"]
+	update_max.emit(v_max)
+	max_upgrade_count = values["max_upgrade_count"]
+	update_value.emit(value)
+	if(values["active"]):
+		activate()

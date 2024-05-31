@@ -144,3 +144,7 @@ func evaluate():
 		evaluation = left < right
 	else:
 		push_warning(str("comparator is something weird: ", comparator))
+
+func load_config(config : Dictionary):
+	configuration = config
+	config_change.emit()
