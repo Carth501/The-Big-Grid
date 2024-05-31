@@ -50,3 +50,23 @@ func add_conditional():
 	add_child(conditional_instance)
 	conditionals.append(conditional_instance)
 	new_conditional.emit(conditional_instance)
+
+func load_timer(remaining_time : float):
+	timer.stop()
+	var one_shot_timer = Timer.new()
+	add_child(one_shot_timer)
+	one_shot_timer.one_shot = true
+	one_shot_timer.timeout.connect(check_conditions)
+	one_shot_timer.timeout.connect(timer.start)
+	one_shot_timer.wait_time = remaining_time
+	one_shot_timer.start()
+
+func load_conditions(config_array : Array):
+	for config in config_array:
+		var conditional_instance = Conditional_Expression.new()
+		add_child(conditional_instance)
+		conditional_instance.load_config(config["configuration"])
+		conditional_instance.set_comparator(config["comparator"])
+		conditionals.append(conditional_instance)
+		new_conditional.emit(conditional_instance)
+		print(str("config ", config))

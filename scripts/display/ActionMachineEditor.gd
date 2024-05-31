@@ -11,9 +11,13 @@ func set_machine(new_machine : Machine):
 	machine = new_machine
 	op_rate_field.value = machine.get_interval()
 	name_field.text = machine.get_name()
+	for conditional in machine.conditionals:
+		add_conditional(conditional)
 	machine.new_conditional.connect(add_conditional)
 
 func close():
+	for conditional_bar in conditional_bars:
+		conditional_bar.queue_free()
 	machine.new_conditional.disconnect(add_conditional)
 
 func set_interval(value : float):
@@ -30,5 +34,5 @@ func request_additional_condition():
 
 func add_conditional(new_conditional : Conditional_Expression):
 	var new_conditional_display = condition_bar_prefab.instantiate()
-	new_conditional_display.set_expression(new_conditional)
 	condition_list_container.add_child(new_conditional_display)
+	new_conditional_display.set_expression(new_conditional)
