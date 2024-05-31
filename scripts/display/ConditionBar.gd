@@ -83,4 +83,6 @@ func set_comparator(new_value : int):
 		comparator = conditional_expression.Comparators.EQUAL
 	elif(new_value == 2):
 		comparator = conditional_expression.Comparators.LESS
+	else:
+		push_warning("unknown comparator value")
 	conditional_expression.set_comparator(comparator)
