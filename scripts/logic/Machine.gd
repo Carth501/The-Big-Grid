@@ -18,7 +18,7 @@ func _ready():
 
 func check_conditions():
 	for condition in conditionals:
-		if(!condition.evaluation):
+		if(condition != null && !condition.evaluation):
 			return
 	apply_changes()
 
@@ -50,6 +50,12 @@ func add_conditional():
 	add_child(conditional_instance)
 	conditionals.append(conditional_instance)
 	new_conditional.emit(conditional_instance)
+	conditional_instance.delete_this.connect(remove_conditional)
+
+func remove_conditional(conditional : Conditional_Expression):
+	var index = conditionals.find(conditional)
+	if(index >= 0):
+		conditionals.remove_at(index)
 
 func load_timer(remaining_time : float):
 	timer.stop()
@@ -69,4 +75,4 @@ func load_conditions(config_array : Array):
 		conditional_instance.set_comparator(config["comparator"])
 		conditionals.append(conditional_instance)
 		new_conditional.emit(conditional_instance)
-		print(str("config ", config))
+		conditional_instance.delete_this.connect(remove_conditional)
