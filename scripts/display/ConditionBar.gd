@@ -75,6 +75,12 @@ func clear_right():
 	right_member.text = ""
 	right_member_icon.visible = false
 
+func delete():
+	if(conditional_expression == null):
+		push_error("Attempted deletion of condition, but the expression is null")
+	conditional_expression.delete()
+	queue_free()
+
 func set_comparator(new_value : int):
 	var comparator = conditional_expression.Comparators.EQUAL
 	if(new_value == 0):

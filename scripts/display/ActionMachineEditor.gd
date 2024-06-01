@@ -5,7 +5,6 @@ class_name Action_Machine_Editor extends Panel
 @export var condition_list_container : VBoxContainer
 @onready var condition_bar_prefab := preload("res://scenes/ConditionBar.tscn")
 var machine : Machine
-var conditional_bars : Array = []
 
 func set_machine(new_machine : Machine):
 	machine = new_machine
@@ -16,8 +15,6 @@ func set_machine(new_machine : Machine):
 	machine.new_conditional.connect(add_conditional)
 
 func close():
-	for conditional_bar in conditional_bars:
-		conditional_bar.queue_free()
 	machine.new_conditional.disconnect(add_conditional)
 
 func set_interval(value : float):

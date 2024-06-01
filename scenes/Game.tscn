@@ -263,6 +263,7 @@ offset_bottom = 84.0
 text = "Cancel"
 
 [node name="Save" type="Button" parent="Display/SaveFilePanel/Panel"]
+layout_mode = 0
 offset_left = 165.0
 offset_top = 53.0
 offset_right = 258.0

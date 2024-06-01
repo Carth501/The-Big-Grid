@@ -8,6 +8,7 @@ enum Comparators {
 
 signal update_value(float)
 signal config_change
+signal delete_this(Conditional_Expression)
 
 var configuration : Dictionary
 var supply_collection : Supply_Collection
@@ -144,6 +145,10 @@ func evaluate():
 		evaluation = left < right
 	else:
 		push_warning(str("comparator is something weird: ", comparator))
+
+func delete():
+	delete_this.emit(self)
+	queue_free()
 
 func load_config(config : Dictionary):
 	configuration = config

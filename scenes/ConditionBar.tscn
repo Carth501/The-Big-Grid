@@ -60,6 +60,7 @@ offset_bottom = 40.0
 
 [node name="RightSupplyIconDisplay" parent="Condition/RightMember" instance=ExtResource("2_80fuh")]
 
+[connection signal="pressed" from="Button" to="." method="delete"]
 [connection signal="pressed" from="Condition/LeftMember" to="." method="request_left_selection"]
 [connection signal="item_selected" from="Condition/OptionButton" to="." method="set_comparator"]
 [connection signal="pressed" from="Condition/RightMember" to="." method="request_right_selection"]
