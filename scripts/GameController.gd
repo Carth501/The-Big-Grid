@@ -15,10 +15,6 @@ func _ready():
 		action_manager.create_action(id)
 	load_save()
 
-func _notification(what):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		save("autosave")
-
 func save_as():
 	save(save_name)
 	toggle_save_file_panel()
@@ -99,6 +95,6 @@ func load_save():
 					new_machine.load_timer(machine_config["remaining_time"])
 				if(machine_config.has("conditionals")):
 					new_machine.load_conditions(machine_config["conditionals"])
-			
-		#"remaining_time": machine.timer.time_left,
-		#"conditionals": conditional_data
+
+func autosave():
+	save(save_name)
