@@ -54,7 +54,10 @@ func get_save(save_file_name : String):
 
 func write_save(data : Dictionary):
 	active_save = data
-	var path = save_folder + active_save["file_name"]
+	var file_name = active_save["file_name"]
+	if(file_name == null):
+		file_name = "save"
+	var path = save_folder + file_name
 	var data_file = FileAccess.open(path, FileAccess.WRITE)
 	data_file.store_var(data)
 	data_file.close()

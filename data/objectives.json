@@ -2,12 +2,13 @@
 	"test" : [
 		{
 			"native_gold": [
-				{"greater_than": {"const": 12}},
-				{"equal_to": {"supply": "coal"}},
-			],
+				{"greater_than": {"const": 4}},
+			]
+		},
+		{
 			"iron_ingot": [
-				{"greater_than": {"const": 100}},
-				{"less_than": {"const": 200}},
+				{"greater_than": {"const": 10}},
+				{"less_than": {"const": 20}},
 			]
 		}
 	]
