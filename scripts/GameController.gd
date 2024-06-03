@@ -1,4 +1,6 @@
-extends Node
+class_name Game_Controller extends Node
+
+signal game_setup_ready
 
 @export var supply_collection : Supply_Collection
 @export var action_manager : Action_Manager
