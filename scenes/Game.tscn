@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=15 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="7_ce23n"]
 [ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="9_iev5w"]
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
+[ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "save_file_panel", "save_file_name")]
 script = ExtResource("1_kvsp4")
@@ -297,6 +298,11 @@ developments_enabled = false
 
 [node name="OptionsOverseer" type="Node" parent="Logic"]
 script = ExtResource("12_oy6by")
+
+[node name="ObjectiveSystem" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "game_controller")]
+script = ExtResource("14_lsg5e")
+supply_collection = NodePath("../SupplyCollection")
+game_controller = NodePath("../..")
 
 [node name="AutosaveTimer" type="Timer" parent="Logic"]
 wait_time = 300.0

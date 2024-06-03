@@ -6,6 +6,8 @@ signal update_max(v_max : float)
 signal update_active
 signal open_menu(Supply)
 signal select(String)
+signal set_obj(Array)
+signal unset_obj()
 
 var id := ""
 var value := 0.0
@@ -122,3 +124,9 @@ func load_values(values : Dictionary):
 	update_value.emit(value)
 	if(values["active"]):
 		activate()
+
+func set_objective(obj_def: Array):
+	set_obj.emit(obj_def)
+
+func unset_objective():
+	unset_obj.emit()

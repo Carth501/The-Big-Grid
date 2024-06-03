@@ -7,6 +7,7 @@ class_name Supply_Display extends Control
 @export var supply_button : Button
 @export var supply_change_feedback : Supply_Change_Feedback
 @export var supply_curtain : Panel
+@export var objective_star : Objective_Star
 var supply : Supply
 var showing := true
 var static_position := true
@@ -15,12 +16,13 @@ func setup(id : String,
 supply_collection : Supply_Collection, 
 options_overseer : Options_Overseer):
 	supply = supply_collection.get_supply(id)
-	# don't use the function for updating value, because it should start hidden.
 	value_label.text = center(str("%.1f" % supply.value)) 
 	supply.update_value.connect(set_value_display)
 	supply.new_delta.connect(add_new_delta)
 	set_max_display(supply.v_max)
 	supply.update_max.connect(set_max_display)
+	supply.set_obj.connect(set_objective)
+	supply.unset_obj.connect(unset_objective)
 	if(supply.active):
 		set_active()
 	else:
@@ -78,3 +80,10 @@ func select():
 
 func open_menu():
 	supply.open()
+
+func set_objective(obj_def : Array):
+	objective_star.visible = true
+	objective_star.set_objective_conditions(obj_def)
+
+func unset_objective():
+	objective_star.visible = false
