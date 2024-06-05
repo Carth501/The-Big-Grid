@@ -140,5 +140,7 @@ func unset_objective():
 	unset_obj.emit()
 
 func process_degrade():
+	if(degrade == 0):
+		push_error(str(id + " is being degraded to 0"))
 	var new_value = value * degrade
 	value = new_value

@@ -8,6 +8,7 @@ class_name Supply_Display extends Control
 @export var supply_change_feedback : Supply_Change_Feedback
 @export var supply_curtain : Panel
 @export var objective_star : Objective_Star
+@export var supply_warning : Supply_Warning
 var supply : Supply
 var showing := true
 var static_position := true
@@ -29,6 +30,11 @@ options_overseer : Options_Overseer):
 		supply.update_active.connect(set_active)
 	options_overseer.update_keep_positions.connect(set_static_position)
 	set_icon_display(supply)
+	if(supply.degrade > 0):
+		supply_warning.visible = true
+		var warning_num = (1.0 - supply.degrade) * 100
+		var warning_text = str("This resource degrades ", warning_num, "%.")
+		supply_warning.add_text(warning_text)
 
 func set_icon_display(supply : Supply):
 	supply_icon_display.set_image_by_path(supply.supply_icon_path)
