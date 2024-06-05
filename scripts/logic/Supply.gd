@@ -14,6 +14,7 @@ var value := 0.0
 var v_max := 20.0
 var max_increment := 10.0
 var max_upgrade_count := 0
+var degrade := 0.0
 var max_increase_base_cost : Dictionary
 var max_upgrade_available := true
 var active := false
@@ -40,6 +41,13 @@ func set_id(new_id : String):
 		max_upgrade_available = false
 	if(definition.has("icon_path")):
 		supply_icon_path = definition.icon_path
+	if(definition.has("degrade")):
+		degrade = definition.degrade
+		var timer = Timer.new()
+		timer.wait_time = 1.0
+		timer.timeout.connect(process_degrade)
+		add_child(timer)
+		timer.start()
 
 func set_collection(collection : Supply_Collection):
 	supply_collection = collection
@@ -130,3 +138,7 @@ func set_objective(obj_def: Array):
 
 func unset_objective():
 	unset_obj.emit()
+
+func process_degrade():
+	var new_value = value * degrade
+	value = new_value

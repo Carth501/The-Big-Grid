@@ -7,6 +7,7 @@
 				"deltas": [-10]
 			}
 		},
+		"degrade": 0.98,
 		"icon_path": "res://textures/Supply_Icons/Electricity.svg"
 	},
 	"water": {
