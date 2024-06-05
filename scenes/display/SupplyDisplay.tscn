@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://did1s0tb5cpq1"]
+[gd_scene load_steps=9 format=3 uid="uid://did1s0tb5cpq1"]
 
 [ext_resource type="Script" path="res://scripts/display/SupplyDisplay.gd" id="1_4pac3"]
 [ext_resource type="Script" path="res://scripts/display/SupplyChangeFeedback.gd" id="2_1xhgp"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b7qkoq5nu3bew" path="res://scenes/display/SupplyIconDisplay.tscn" id="4_ofdg0"]
 [ext_resource type="Texture2D" uid="uid://c8ita8dnfej1p" path="res://textures/symbols/Star 1.png" id="5_a01e1"]
 [ext_resource type="Script" path="res://scripts/display/ObjectiveStar.gd" id="6_tnf1p"]
+[ext_resource type="Texture2D" uid="uid://bismbh0tk8iw0" path="res://textures/symbols/Supply Warning.png" id="7_qetdo"]
+[ext_resource type="Script" path="res://scripts/display/SupplyWarning.gd" id="8_0ypd4"]
 
-[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star")]
+[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning")]
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -20,6 +22,7 @@ supply_button = NodePath("Button")
 supply_change_feedback = NodePath("Button/SupplyChangeFeedback")
 supply_curtain = NodePath("Button/SupplyCurtain")
 objective_star = NodePath("Button/ObjectiveStar")
+supply_warning = NodePath("Button/SupplyWarning")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -122,7 +125,41 @@ offset_right = 58.0
 pivot_offset = Vector2(0, 44)
 color = Color(0, 0, 0, 1)
 
+[node name="SupplyWarning" type="TextureRect" parent="Button" node_paths=PackedStringArray("warning_text", "warning_panel")]
+visible = false
+offset_left = -6.0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 20.0
+texture = ExtResource("7_qetdo")
+expand_mode = 1
+script = ExtResource("8_0ypd4")
+warning_text = NodePath("PanelContainer/MarginContainer/Label")
+warning_panel = NodePath("PanelContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="Button/SupplyWarning"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = -30.0
+offset_right = 47.0
+offset_bottom = 1.0
+pivot_offset = Vector2(0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Button/SupplyWarning/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Button/SupplyWarning/PanelContainer/MarginContainer"]
+top_level = true
+layout_mode = 2
+
 [connection signal="left_click" from="Button" to="." method="select"]
 [connection signal="right_click" from="Button" to="." method="open_menu"]
 [connection signal="mouse_entered" from="Button/ObjectiveStar" to="Button/ObjectiveStar" method="open_objective_panel"]
 [connection signal="mouse_exited" from="Button/ObjectiveStar" to="Button/ObjectiveStar" method="close_objective_panel"]
+[connection signal="mouse_entered" from="Button/SupplyWarning" to="Button/SupplyWarning" method="open_warning"]
+[connection signal="mouse_exited" from="Button/SupplyWarning" to="Button/SupplyWarning" method="close_warning"]
