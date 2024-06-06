@@ -117,6 +117,11 @@ button_pressed = true
 text = "Focus Filtering"
 alignment = 2
 
+[node name="SupplySearch" type="LineEdit" parent="Display/MiddleSplit/SupplyBackground"]
+offset_right = 263.0
+offset_bottom = 31.0
+placeholder_text = "Search"
+
 [node name="RightSplit" type="VSplitContainer" parent="Display/MiddleSplit"]
 layout_mode = 2
 split_offset = 300
@@ -132,11 +137,18 @@ action_menu = NodePath("ActionMenuScrollContainer/MarginContainer/ActionMenu")
 supply_menu_container = NodePath("SupplyMenuScrollContainer")
 supply_menu = NodePath("SupplyMenuScrollContainer/MarginContainer/SupplyMenu")
 
+[node name="ActionSearch" type="LineEdit" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
+layout_mode = 0
+offset_right = 263.0
+offset_bottom = 31.0
+placeholder_text = "Search"
+
 [node name="ActionScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
@@ -161,6 +173,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -182,6 +195,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -294,7 +308,8 @@ supply_collection = NodePath("../SupplyCollection")
 filter_foreman = NodePath("../FilterForeman")
 developments_enabled = false
 
-[node name="FilterForeman" parent="Logic" instance=ExtResource("9_iev5w")]
+[node name="FilterForeman" parent="Logic" node_paths=PackedStringArray("supply_collection") instance=ExtResource("9_iev5w")]
+supply_collection = NodePath("../SupplyCollection")
 
 [node name="OptionsOverseer" type="Node" parent="Logic"]
 script = ExtResource("12_oy6by")
@@ -310,6 +325,7 @@ autostart = true
 
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/FocusFilteringControl/FocusFilteringToggle" to="Logic/OptionsOverseer" method="set_focus_filtering"]
+[connection signal="text_changed" from="Display/MiddleSplit/SupplyBackground/SupplySearch" to="Logic/FilterForeman" method="set_search_filter"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="pressed" from="Display/SaveFilePanel" to="." method="toggle_save_file_panel"]

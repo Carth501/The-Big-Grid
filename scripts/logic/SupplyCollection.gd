@@ -82,8 +82,12 @@ func request_member_selection():
 	selection_mode = true
 
 func select_supply(id : String):
-	print(str(id, " triggered select"))
 	if(selection_mode):
-		print(str(id, " triggered select while in selection_mode"))
 		variable_selection.emit(id)
 		selection_mode = false
+
+func get_all_supply_ids() -> Array[String]:
+	var supply_ids : Array[String] = []
+	for id in supplies:
+		supply_ids.append(id)
+	return supply_ids

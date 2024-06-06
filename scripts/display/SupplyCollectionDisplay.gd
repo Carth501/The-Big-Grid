@@ -22,8 +22,11 @@ func filter(new_filter : Dictionary):
 			var supply_display = supply_display_catalogue[supply_display_id]
 			if(new_filter.has(supply_display_id)):
 				supply_display.show_supply(true)
-				var deltas = new_filter[supply_display_id].deltas
-				supply_display.set_delta_display(deltas)
+				if(new_filter[supply_display_id].has("deltas")):
+					var deltas = new_filter[supply_display_id].deltas
+					supply_display.set_delta_display(deltas)
+				else:
+					supply_display.clear_delta_display()
 			else:
 				supply_display.show_supply(false)
 				supply_display.clear_delta_display()
