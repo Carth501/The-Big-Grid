@@ -46,6 +46,8 @@ func concatenate_search_filter(filter : Dictionary) -> Dictionary:
 		var supply_name = SupplyTranslatorSingle.get_supply_name(supply_id)
 		if(supply_name.to_lower().contains(search_term.to_lower())):
 			new_filter[supply_id] = filter[supply_id]
+	if(new_filter == {}):
+		new_filter["bad_filter"] = true
 	return new_filter
 
 func filter_search_exclusive(id_list : Array[String]) -> Dictionary:
@@ -54,6 +56,8 @@ func filter_search_exclusive(id_list : Array[String]) -> Dictionary:
 		var supply_name = SupplyTranslatorSingle.get_supply_name(id)
 		if(supply_name.to_lower().contains(search_term.to_lower())):
 			new_filter[id] = {}
+	if(new_filter == {}):
+		new_filter["bad_filter"] = true
 	return new_filter
 
 func apply_filter(filter : Dictionary):
