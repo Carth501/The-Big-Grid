@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bdycvpx8gj0sr"]
+
+[resource]
+GreenNumber/base_type = &"Label"
+GreenNumber/colors/font_color = Color(0, 0.54902, 0, 1)
+RedNumber/base_type = &"Label"
+RedNumber/colors/font_color = Color(0.784314, 0, 0, 1)

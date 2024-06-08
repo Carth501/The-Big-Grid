@@ -118,6 +118,7 @@ text = "Focus Filtering"
 alignment = 2
 
 [node name="SupplySearch" type="LineEdit" parent="Display/MiddleSplit/SupplyBackground"]
+layout_mode = 0
 offset_right = 263.0
 offset_bottom = 31.0
 placeholder_text = "Search"
@@ -209,8 +210,9 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="SupplyMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer" instance=ExtResource("6_2gdos")]
+[node name="SupplyMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer" node_paths=PackedStringArray("action_manager") instance=ExtResource("6_2gdos")]
 layout_mode = 2
+action_manager = NodePath("../../../../../../../Logic/ActionManager")
 
 [node name="DevBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit"]
 clip_contents = true

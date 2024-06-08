@@ -129,7 +129,6 @@ func load_values(values : Dictionary):
 	v_max = values["v_max"]
 	update_max.emit(v_max)
 	max_upgrade_count = values["max_upgrade_count"]
-	update_value.emit(value)
 	if(values["active"]):
 		activate()
 
@@ -144,3 +143,4 @@ func process_degrade():
 		push_error(str(id + " is being degraded to 0"))
 	var new_value = value * degrade
 	value = new_value
+	update_value.emit(value)
