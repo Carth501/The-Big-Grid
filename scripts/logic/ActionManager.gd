@@ -39,3 +39,10 @@ func set_action_filter(new_search : String):
 		if(action_name.name.to_lower().contains(new_search.to_lower())):
 			action_ids.append(id)
 	action_search_filter.emit(action_ids)
+
+func get_actions_with_supply(supply_id : String) -> Array:
+	var id_list : Array[String]
+	for action_id in full_action_list:
+		if(full_action_list[action_id].supplies.has(supply_id)):
+			id_list.append(action_id)
+	return id_list

@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxnswwxbpknq4"]
+[gd_scene load_steps=3 format=3 uid="uid://cxnswwxbpknq4"]
 
 [ext_resource type="Script" path="res://scripts/display/SupplyMenu.gd" id="1_o4tcd"]
 
-[node name="SupplyMenu" type="Control" node_paths=PackedStringArray("supply_name", "upgrade_increase", "current_max_value", "custom_max_spin", "max_upgrade_button")]
+[sub_resource type="Theme" id="Theme_box8i"]
+/colors/Test = Color(0.698039, 0, 0, 1)
+
+[node name="SupplyMenu" type="Control" node_paths=PackedStringArray("supply_name", "upgrade_increase", "current_max_value", "custom_max_spin", "max_upgrade_button", "action_list")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +18,7 @@ upgrade_increase = NodePath("MaxControls/UpgradeIncrease")
 current_max_value = NodePath("MaxControls/CurrentMaxValue")
 custom_max_spin = NodePath("MaxControls/CustomMaxSpinBox")
 max_upgrade_button = NodePath("MaxControls/UpgradeMaxButton")
+action_list = NodePath("ActionList/VBoxContainer")
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
@@ -88,6 +92,26 @@ offset_right = 214.063
 offset_bottom = 106.0
 step = 0.1
 custom_arrow_step = 1.0
+
+[node name="ActionList" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 273.0
+offset_top = 53.0
+offset_right = 313.0
+offset_bottom = 93.0
+
+[node name="ActionsLabel" type="Label" parent="ActionList"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme = SubResource("Theme_box8i")
+text = "Actions"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionList"]
+layout_mode = 0
+offset_top = 22.0
+offset_right = 40.0
+offset_bottom = 62.0
 
 [connection signal="pressed" from="Close" to="." method="close"]
 [connection signal="text_changed" from="LineEdit" to="." method="change_supply_name"]

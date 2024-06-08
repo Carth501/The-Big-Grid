@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn6vhjl86rme1"]
+
+[ext_resource type="Theme" uid="uid://bdycvpx8gj0sr" path="res://themes/theme.tres" id="1_qude6"]
+[ext_resource type="Script" path="res://scripts/display/feedback/ColoredNumberDisplay.gd" id="2_rkd6m"]
+
+[node name="ColoredNumberDisplay" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_qude6")
+text = "+1"
+script = ExtResource("2_rkd6m")
