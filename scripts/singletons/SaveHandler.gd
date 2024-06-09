@@ -59,5 +59,8 @@ func write_save(data : Dictionary):
 		file_name = "save"
 	var path = save_folder + file_name
 	var data_file = FileAccess.open(path, FileAccess.WRITE)
-	data_file.store_var(data)
-	data_file.close()
+	if(data_file != null && data_file.get_error() == OK):
+		data_file.store_var(data)
+		data_file.close()
+	else:
+		push_error(str("data file not opened. attempted path = ", path))

@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxnswwxbpknq4"]
+[gd_scene load_steps=4 format=3 uid="uid://cxnswwxbpknq4"]
 
 [ext_resource type="Script" path="res://scripts/display/SupplyMenu.gd" id="1_o4tcd"]
+[ext_resource type="PackedScene" uid="uid://bfklnk42p7fce" path="res://scenes/display/TagListDisplay.tscn" id="2_ohaxq"]
 
 [sub_resource type="Theme" id="Theme_box8i"]
 /colors/Test = Color(0.698039, 0, 0, 1)
 
-[node name="SupplyMenu" type="Control" node_paths=PackedStringArray("supply_name", "upgrade_increase", "current_max_value", "custom_max_spin", "max_upgrade_button", "action_list")]
+[node name="SupplyMenu" type="Control" node_paths=PackedStringArray("supply_name", "upgrade_increase", "current_max_value", "custom_max_spin", "max_upgrade_button", "action_list", "tag_list_display")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +20,7 @@ current_max_value = NodePath("MaxControls/CurrentMaxValue")
 custom_max_spin = NodePath("MaxControls/CustomMaxSpinBox")
 max_upgrade_button = NodePath("MaxControls/UpgradeMaxButton")
 action_list = NodePath("ActionList/VBoxContainer")
+tag_list_display = NodePath("TagListDisplay")
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
@@ -112,6 +114,12 @@ layout_mode = 0
 offset_top = 22.0
 offset_right = 40.0
 offset_bottom = 62.0
+
+[node name="TagListDisplay" parent="." instance=ExtResource("2_ohaxq")]
+offset_left = 522.0
+offset_top = 10.0
+offset_right = 562.0
+offset_bottom = 50.0
 
 [connection signal="pressed" from="Close" to="." method="close"]
 [connection signal="text_changed" from="LineEdit" to="." method="change_supply_name"]

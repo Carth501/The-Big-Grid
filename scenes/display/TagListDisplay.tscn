@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfklnk42p7fce"]
+
+[ext_resource type="Script" path="res://scripts/display/TagListDisplay.gd" id="1_wh82t"]
+
+[sub_resource type="Theme" id="Theme_box8i"]
+/colors/Test = Color(0.698039, 0, 0, 1)
+
+[node name="TagListDisplay" type="Control" node_paths=PackedStringArray("new_tag_field", "tag_container")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wh82t")
+new_tag_field = NodePath("LineEdit")
+tag_container = NodePath("VBoxContainer")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 186.0
+offset_bottom = 31.0
+placeholder_text = "16 character max"
+max_length = 16
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 267.0
+offset_bottom = 31.0
+text = "Add Tag"
+
+[node name="TagsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 43.0
+offset_right = 58.0
+offset_bottom = 66.0
+theme = SubResource("Theme_box8i")
+text = "Tags"
+
+[node name="VBoxContainer" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 70.0
+offset_right = 351.0
+offset_bottom = 110.0
+
+[connection signal="pressed" from="Button" to="." method="add_tag"]
