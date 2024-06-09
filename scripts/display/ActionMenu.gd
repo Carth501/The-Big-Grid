@@ -8,6 +8,7 @@ var action : Action
 @onready var machine_editor_prefab := preload("res://scenes/display/ActionMachineEditor.tscn")
 @export var action_machine_container : FlowContainer
 @export var machine_purchase_button : Button
+@export var tag_list_display : Tag_List_Display
 var idle_machine_editors : Array[Action_Machine_Editor] = []
 var active_machine_editors : Array[Action_Machine_Editor] = []
 
@@ -23,6 +24,7 @@ func set_action(new_action : Action):
 		machine_purchase_button.visible = true
 	else:
 		machine_purchase_button.visible = false
+	tag_list_display.set_target(action)
 
 func activate_machine_editor(new_machine : Machine):
 	var editor = get_idle_machine_editor()
@@ -48,6 +50,7 @@ func close():
 	action.update_action_name.disconnect(set_label_text)
 	action.new_machine.disconnect(activate_machine_editor)
 	close_action_menu.emit()
+	tag_list_display.close()
 	cleanup()
 
 func cleanup():

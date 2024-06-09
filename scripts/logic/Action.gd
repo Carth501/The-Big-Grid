@@ -4,6 +4,8 @@ signal update_availability(availability : bool)
 signal open_menu(id : String)
 signal new_machine(machine : Machine)
 signal update_action_name(new_name : String)
+signal tag_added(String)
+signal tag_removed(String)
 
 var id : String
 var changes : Dictionary
@@ -18,6 +20,7 @@ var string_data : Dictionary
 var translated_action_name : String
 var automation_hover := true
 var automation_focus := false
+var tags : Array[String] = []
 
 func setup(package : Dictionary):
 	if(!package.has("id")):
@@ -131,4 +134,14 @@ func calculate_machine_cost() -> Dictionary:
 		for index in range(supply_deltas.size()):
 			supply_deltas[index] *= count
 	return cost
+
+func add_tag(tag : String):
+	if(!tags.has(tag)):
+		tags.append(tag)
+		tag_added.emit(tag)
+
+func remove_tag(tag : String):
+	if(tags.has(tag)):
+		tags.erase(tag)
+		tag_removed.emit(tag)
 	
