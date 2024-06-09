@@ -28,17 +28,17 @@ func setup(new_id : String, supply_collection : Supply_Collection):
 	translation_data = DevelopmentTranslatorSingle.data[id]
 	write_translation_text()
 
-func decide_if_name_update_needed(id : String):
-	if(handle_translation_conditionals):
+func decide_if_name_update_needed(supply_id : String):
+	if(handle_translation_conditionals(supply_id)):
 		write_translation_text()
 		update_translations.emit(translated_strings)
 
-func handle_translation_conditionals(id : String):
+func handle_translation_conditionals(supply_id : String):
 	var label = translation_data.label
-	if(label.has("supplies") && label.supplies.has(id)):
+	if(label.has("supplies") && label.supplies.has(supply_id)):
 		return true
 	var description = translation_data.description
-	if(description.has("supplies") && description.supplies.has(id)):
+	if(description.has("supplies") && description.supplies.has(supply_id)):
 		return true
 	return false
 
