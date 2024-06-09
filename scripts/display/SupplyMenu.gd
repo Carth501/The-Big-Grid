@@ -9,6 +9,7 @@ signal close_supply_menu
 @export var max_upgrade_button : Button
 @export var action_list : VBoxContainer
 @export var action_manager : Action_Manager
+@export var tag_list_display : Tag_List_Display
 @onready var action_package := preload("res://scenes/display/ActionButton.tscn")
 @onready var colored_number := preload("res://scenes/display/feedback/ColoredNumberDisplay.tscn")
 var supply : Supply
@@ -24,18 +25,18 @@ func open(new_supply : Supply):
 		max_upgrade_button.visible = false
 		upgrade_increase.text = ""
 	var action_options = action_manager.get_actions_with_supply(supply.id)
-	print(action_options)
 	for action_id in action_rows:
 		if(action_options.has(action_id)):
-			print(str("showing ", action_id))
 			action_rows[action_id].visible = true
 		else:
 			action_rows[action_id].visible = false
 	for action_option in action_options:
 		add_action_to_list(action_option)
+	tag_list_display.set_supply(supply)
 
 func close():
 	close_supply_menu.emit()
+	tag_list_display.close()
 
 func change_supply_name(new_name : String):
 	supply.set_name_override(new_name)

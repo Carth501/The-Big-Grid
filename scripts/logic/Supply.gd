@@ -8,6 +8,8 @@ signal open_menu(Supply)
 signal select(String)
 signal set_obj(Array)
 signal unset_obj()
+signal tag_added(String)
+signal tag_removed(String)
 
 var id := ""
 var value := 0.0
@@ -23,6 +25,7 @@ var filter_foreman : Filter_Foreman
 var supply_icon_path : String
 var upgrade_hover := true
 var upgrade_focus := false
+var tags : Array[String] = []
 
 func set_id(new_id : String):
 	id = new_id
@@ -144,3 +147,13 @@ func process_degrade():
 	var new_value = value * degrade
 	value = new_value
 	update_value.emit(value)
+
+func add_tag(tag : String):
+	if(!tags.has(tag)):
+		tags.append(tag)
+		tag_added.emit(tag)
+
+func remove_tag(tag : String):
+	if(tags.has(tag)):
+		tags.erase(tag)
+		tag_removed.emit(tag)

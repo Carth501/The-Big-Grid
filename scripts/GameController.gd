@@ -18,10 +18,13 @@ func _ready():
 	load_save()
 
 func save_as():
-	save(save_name)
-	toggle_save_file_panel()
+	var success = save(save_name)
+	if(success):
+		toggle_save_file_panel()
 
-func save(save_name : String):
+func save(save_name : String) -> bool:
+	if(save_name == null || save_name == ""):
+		return false
 	var archive = { "file_name": save_name,
 		"save_time": Time.get_datetime_string_from_system(true),
 		"supplies": {},
@@ -36,6 +39,7 @@ func save(save_name : String):
 			machine_data[action_id].append(get_machine_data(machine))
 	archive["machines"] = machine_data
 	Save_Handler_Single.write_save(archive)
+	return true
 
 func write_supply_archive(id : String):
 	var supply = supply_collection.supplies[id]
