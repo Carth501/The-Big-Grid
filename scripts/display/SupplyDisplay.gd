@@ -29,14 +29,14 @@ options_overseer : Options_Overseer):
 	else:
 		supply.update_active.connect(set_active)
 	options_overseer.update_keep_positions.connect(set_static_position)
-	set_icon_display(supply)
+	set_icon_display()
 	if(supply.degrade > 0):
 		supply_warning.visible = true
 		var warning_num = (1.0 - supply.degrade) * 100
 		var warning_text = str("This resource degrades ", warning_num, "%.")
 		supply_warning.add_text(warning_text)
 
-func set_icon_display(supply : Supply):
+func set_icon_display():
 	supply_icon_display.set_image_by_path(supply.supply_icon_path)
 	supply_icon_display.set_supply_name(supply.get_translation())
 

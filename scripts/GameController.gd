@@ -22,10 +22,10 @@ func save_as():
 	if(success):
 		toggle_save_file_panel()
 
-func save(save_name : String) -> bool:
-	if(save_name == null || save_name == ""):
+func save(new_save_name : String) -> bool:
+	if(new_save_name == null || new_save_name == ""):
 		return false
-	var archive = { "file_name": save_name,
+	var archive = { "file_name": new_save_name,
 		"save_time": Time.get_datetime_string_from_system(true),
 		"supplies": {},
 		"actions": {},

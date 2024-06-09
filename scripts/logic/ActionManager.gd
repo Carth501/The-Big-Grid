@@ -28,10 +28,10 @@ func open_action_menu(id : String):
 
 func set_action_filter(new_search : String):
 	if(new_search == null || new_search == ""):
-		var action_ids : Array[String] = []
+		var ids : Array[String] = []
 		for id in full_action_list:
-			action_ids.append(id)
-		action_search_filter.emit(action_ids)
+			ids.append(id)
+		action_search_filter.emit(ids)
 		return
 	var action_ids : Array[String] = []
 	for id in full_action_list:
@@ -43,7 +43,7 @@ func set_action_filter(new_search : String):
 	action_search_filter.emit(action_ids)
 
 func get_actions_with_supply(supply_id : String) -> Array:
-	var id_list : Array[String]
+	var id_list : Array[String] = []
 	for action_id in full_action_list:
 		if(full_action_list[action_id].supplies.has(supply_id)):
 			id_list.append(action_id)
