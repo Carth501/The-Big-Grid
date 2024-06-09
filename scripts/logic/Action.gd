@@ -144,4 +144,7 @@ func remove_tag(tag : String):
 	if(tags.has(tag)):
 		tags.erase(tag)
 		tag_removed.emit(tag)
-	
+
+func set_tags(new_tags : Array):
+	for tag in new_tags:
+		add_tag(tag)
