@@ -43,8 +43,11 @@ func concatenate_search_filter(filter : Dictionary) -> Dictionary:
 		return filter
 	var new_filter = {}
 	for supply_id in filter:
-		var supply_name = SupplyTranslatorSingle.get_supply_name(supply_id)
+		var supply = supply_collection.get_supply(supply_id)
+		var supply_name = supply.get_translation()
 		if(supply_name.to_lower().contains(search_term.to_lower())):
+			new_filter[supply_id] = filter[supply_id]
+		elif(supply.tags.has(search_term)):
 			new_filter[supply_id] = filter[supply_id]
 	if(new_filter == {}):
 		new_filter["bad_filter"] = true
@@ -53,8 +56,11 @@ func concatenate_search_filter(filter : Dictionary) -> Dictionary:
 func filter_search_exclusive(id_list : Array[String]) -> Dictionary:
 	var new_filter = {}
 	for id in id_list:
-		var supply_name = SupplyTranslatorSingle.get_supply_name(id)
+		var supply = supply_collection.get_supply(id)
+		var supply_name = supply.get_translation()
 		if(supply_name.to_lower().contains(search_term.to_lower())):
+			new_filter[id] = {}
+		elif(supply.tags.has(search_term)):
 			new_filter[id] = {}
 	if(new_filter == {}):
 		new_filter["bad_filter"] = true

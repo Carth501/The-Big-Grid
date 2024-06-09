@@ -38,6 +38,8 @@ func set_action_filter(new_search : String):
 		var action_name = ActionTranslatorSingle.data[id]
 		if(action_name.name.to_lower().contains(new_search.to_lower())):
 			action_ids.append(id)
+		elif(full_action_list[id].tags.has(new_search)):
+			action_ids.append(id)
 	action_search_filter.emit(action_ids)
 
 func get_actions_with_supply(supply_id : String) -> Array:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://l4e311vb2rjt"]
+[gd_scene load_steps=3 format=3 uid="uid://l4e311vb2rjt"]
 
 [ext_resource type="Script" path="res://scripts/display/ActionMenu.gd" id="1_gfqu7"]
+[ext_resource type="PackedScene" uid="uid://bfklnk42p7fce" path="res://scenes/display/TagListDisplay.tscn" id="2_tdi38"]
 
-[node name="ActionMenu" type="Control" node_paths=PackedStringArray("action_name_label", "action_machine_container", "machine_purchase_button")]
+[node name="ActionMenu" type="Control" node_paths=PackedStringArray("action_name_label", "action_machine_container", "machine_purchase_button", "tag_list_display")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +14,7 @@ script = ExtResource("1_gfqu7")
 action_name_label = NodePath("ActionNameLabel")
 action_machine_container = NodePath("ActionMachineContainer")
 machine_purchase_button = NodePath("PurchaseMachineButton")
+tag_list_display = NodePath("TagListDisplay")
 
 [node name="ActionNameLabel" type="Label" parent="."]
 layout_mode = 1
@@ -50,6 +52,12 @@ offset_bottom = 80.0
 grow_horizontal = 2
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
+
+[node name="TagListDisplay" parent="." instance=ExtResource("2_tdi38")]
+offset_left = 278.0
+offset_top = 35.0
+offset_right = 318.0
+offset_bottom = 75.0
 
 [connection signal="pressed" from="CloseButton" to="." method="close"]
 [connection signal="focus_entered" from="PurchaseMachineButton" to="." method="gain_focus_machine"]

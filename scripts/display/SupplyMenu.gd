@@ -16,6 +16,7 @@ var supply : Supply
 var action_rows := {}
 
 func open(new_supply : Supply):
+	tag_list_display.close()
 	supply = new_supply
 	current_max_value.text = str("%.2f" % supply.v_max)
 	if(supply.max_upgrade_available):
@@ -32,7 +33,7 @@ func open(new_supply : Supply):
 			action_rows[action_id].visible = false
 	for action_option in action_options:
 		add_action_to_list(action_option)
-	tag_list_display.set_supply(supply)
+	tag_list_display.set_target(supply)
 
 func close():
 	close_supply_menu.emit()
