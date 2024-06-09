@@ -134,6 +134,8 @@ func load_values(values : Dictionary):
 	max_upgrade_count = values["max_upgrade_count"]
 	if(values["active"]):
 		activate()
+	if(values.has("tags")):
+		set_tags(values["tags"])
 
 func set_objective(obj_def: Array):
 	set_obj.emit(obj_def)
@@ -157,3 +159,7 @@ func remove_tag(tag : String):
 	if(tags.has(tag)):
 		tags.erase(tag)
 		tag_removed.emit(tag)
+
+func set_tags(new_tags : Array):
+	for tag in new_tags:
+		add_tag(tag)

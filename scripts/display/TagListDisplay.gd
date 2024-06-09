@@ -41,4 +41,4 @@ func delete_tag(tag : String):
 
 func destroy_all_tags():
 	for tag in tag_list:
-		tag_list[tag].queue_free()
+		delete_tag(tag)

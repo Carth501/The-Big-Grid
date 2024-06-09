@@ -28,9 +28,13 @@ func save(save_name : String) -> bool:
 	var archive = { "file_name": save_name,
 		"save_time": Time.get_datetime_string_from_system(true),
 		"supplies": {},
+		"actions": {},
 	}
 	for id in supply_collection.supplies:
 		archive["supplies"][id] = write_supply_archive(id)
+	for action_id in action_manager.full_action_list:
+		var action = action_manager.full_action_list[action_id]
+		archive["actions"][action_id] = {"tags" : action.tags}
 	var machine_data = {}
 	for action_id in machine_factory.machine_registry:
 		var machine_list = machine_factory.machine_registry[action_id]
@@ -47,7 +51,8 @@ func write_supply_archive(id : String):
 		"value": supply.value,
 		"v_max": supply.v_max,
 		"max_upgrade_count": supply.max_upgrade_count,
-		"active": supply.active
+		"active": supply.active,
+		"tags": supply.tags
 	}
 
 func get_machine_data(machine : Machine) -> Dictionary:
@@ -91,6 +96,11 @@ func load_save():
 			var saved_supply = active_save["supplies"][id]
 			var supply = supply_collection.get_supply(id)
 			supply.load_values(saved_supply)
+	if(active_save.has("actions")):
+		for id in active_save["actions"]:
+			var saved_action = active_save["actions"][id]
+			var action = action_manager.full_action_list[id]
+			action.set_tags(saved_action["tags"])
 	if(active_save.has("machines")):
 		var action_id_buckets = active_save["machines"]
 		for action_id in action_id_buckets:
