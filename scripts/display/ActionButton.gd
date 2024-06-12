@@ -13,6 +13,10 @@ func connect_logic(new_action : Action):
 	change_label(action.get_translation_text())
 	set_enabled(action.available)
 
+func disconnect_action():
+	action.update_availability.disconnect(set_enabled)
+	action.update_action_name.disconnect(change_label)
+
 func actuate():
 	action.apply()
 
