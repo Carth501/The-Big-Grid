@@ -188,8 +188,10 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="ActionMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer" node_paths=PackedStringArray("machine_factory") instance=ExtResource("5_rdn8f")]
+[node name="ActionMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer" node_paths=PackedStringArray("supply_collection", "options_overseer", "machine_factory") instance=ExtResource("5_rdn8f")]
 layout_mode = 2
+supply_collection = NodePath("../../../../../../../Logic/SupplyCollection")
+options_overseer = NodePath("../../../../../../../Logic/OptionsOverseer")
 machine_factory = NodePath("../../../../../../../Logic/MachineFactory")
 
 [node name="SupplyMenuScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]

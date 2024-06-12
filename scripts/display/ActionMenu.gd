@@ -3,19 +3,22 @@ class_name Action_Menu extends Control
 signal close_action_menu
 
 var action : Action
-@export var action_name_label : Label
+@export var supply_collection : Supply_Collection
+@export var options_overseer : Options_Overseer
 @export var machine_factory : Machine_Factory
 @onready var machine_editor_prefab := preload("res://scenes/display/ActionMachineEditor.tscn")
 @export var action_machine_container : FlowContainer
 @export var machine_purchase_button : Button
 @export var tag_list_display : Tag_List_Display
+@export var action_button : Action_Button
+@export var supply_container : VBoxContainer
+var supply_display_proto := preload("res://scenes/display/SupplyDisplay.tscn")
 var idle_machine_editors : Array[Action_Machine_Editor] = []
 var active_machine_editors : Array[Action_Machine_Editor] = []
+var supply_displays := {}
 
 func set_action(new_action : Action):
 	action = new_action
-	set_label_text(action.get_translation_text())
-	action.update_action_name.connect(set_label_text)
 	var machines = machine_factory.get_machines_by_id(action.id)
 	for machine in machines:
 		activate_machine_editor(machine)
@@ -25,6 +28,19 @@ func set_action(new_action : Action):
 	else:
 		machine_purchase_button.visible = false
 	tag_list_display.set_target(action)
+	
+	action_button.set_id(action.id)
+	action_button.connect_logic(action)
+	action_button.change_label(ActionTranslatorSingle.data[action.id].name)
+	
+	for id in action.supplies:
+		create_display(id)
+
+func create_display(supply_id : String):
+	var new_supply_display : Supply_Display = supply_display_proto.instantiate()
+	supply_container.add_child(new_supply_display)
+	new_supply_display.setup(supply_id, supply_collection, options_overseer)
+	supply_displays[supply_id] = new_supply_display
 
 func activate_machine_editor(new_machine : Machine):
 	var editor = get_idle_machine_editor()
@@ -40,17 +56,14 @@ func get_idle_machine_editor() -> Action_Machine_Editor:
 		action_machine_container.add_child(new_machine)
 		return new_machine
 
-func set_label_text(action_name : String):
-	action_name_label.text = action_name
-
 func attempt_machine_purchase():
 	action.attempt_machine_purchase()
 
 func close():
-	action.update_action_name.disconnect(set_label_text)
 	action.new_machine.disconnect(activate_machine_editor)
 	close_action_menu.emit()
 	tag_list_display.close()
+	action_button.disconnect_action()
 	cleanup()
 
 func cleanup():
@@ -59,6 +72,9 @@ func cleanup():
 		idle_machine_editors.append(editor)
 		editor.visible = false
 	active_machine_editors.clear()
+	for supply in supply_displays:
+		supply_displays[supply].queue_free()
+	supply_displays.clear()
 
 func set_filter():
 	action.set_filter()
