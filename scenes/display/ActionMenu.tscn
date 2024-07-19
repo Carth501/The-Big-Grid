@@ -12,8 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gfqu7")
-action_machine_container = NodePath("ActionMachineContainer")
-machine_purchase_button = NodePath("PurchaseMachineButton")
+action_machine_container = NodePath("Control/ActionMachineContainer")
+machine_purchase_button = NodePath("Control/PurchaseMachineButton")
 tag_list_display = NodePath("TagListDisplay")
 action_button = NodePath("ActionButton")
 supply_container = NodePath("SupplyList/VBoxContainer")
@@ -32,30 +32,14 @@ offset_right = 64.0
 offset_bottom = 31.0
 script = ExtResource("2_xqklk")
 
-[node name="PurchaseMachineButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 172.0
-offset_top = 50.0
-offset_right = 404.0
-offset_bottom = 81.0
-text = "Purchase Machine"
-
-[node name="ActionMachineContainer" type="FlowContainer" parent="."]
-layout_mode = 0
-offset_left = 166.0
-offset_top = 103.0
-offset_right = 424.0
-offset_bottom = 286.0
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
-
 [node name="TagListDisplay" parent="." instance=ExtResource("2_tdi38")]
-offset_left = 446.0
+offset_left = 278.0
 offset_top = 51.0
-offset_right = 486.0
+offset_right = 318.0
 offset_bottom = 91.0
 
 [node name="SupplyList" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_left = 13.0
 offset_top = 58.0
@@ -77,14 +61,35 @@ offset_top = 20.0
 offset_right = 40.0
 offset_bottom = 60.0
 
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 50.0
+offset_right = 40.0
+offset_bottom = 90.0
+
+[node name="PurchaseMachineButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 242.0
+offset_bottom = 31.0
+text = "Purchase Machine"
+
+[node name="ActionMachineContainer" type="FlowContainer" parent="Control"]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 258.0
+offset_bottom = 219.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+
 [connection signal="pressed" from="CloseButton" to="." method="close"]
 [connection signal="focus_entered" from="ActionButton" to="ActionButton" method="gain_focus"]
 [connection signal="focus_exited" from="ActionButton" to="ActionButton" method="lose_focus"]
 [connection signal="left_click" from="ActionButton" to="ActionButton" method="actuate"]
 [connection signal="mouse_entered" from="ActionButton" to="ActionButton" method="set_filter"]
 [connection signal="mouse_exited" from="ActionButton" to="ActionButton" method="unset_filter"]
-[connection signal="focus_entered" from="PurchaseMachineButton" to="." method="gain_focus_machine"]
-[connection signal="focus_exited" from="PurchaseMachineButton" to="." method="lose_focus"]
-[connection signal="mouse_entered" from="PurchaseMachineButton" to="." method="set_filter_machine"]
-[connection signal="mouse_exited" from="PurchaseMachineButton" to="." method="unset_filter"]
-[connection signal="pressed" from="PurchaseMachineButton" to="." method="attempt_machine_purchase"]
+[connection signal="focus_entered" from="Control/PurchaseMachineButton" to="." method="gain_focus_machine"]
+[connection signal="focus_exited" from="Control/PurchaseMachineButton" to="." method="lose_focus"]
+[connection signal="mouse_entered" from="Control/PurchaseMachineButton" to="." method="set_filter_machine"]
+[connection signal="mouse_exited" from="Control/PurchaseMachineButton" to="." method="unset_filter"]
+[connection signal="pressed" from="Control/PurchaseMachineButton" to="." method="attempt_machine_purchase"]
