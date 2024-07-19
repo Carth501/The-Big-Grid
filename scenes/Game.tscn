@@ -304,6 +304,7 @@ text = "Save
 "
 
 [node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players")]
+process_mode = 3
 script = ExtResource("9_vk0jb")
 music_players = [NodePath("OrcDanceIndustrial"), NodePath("OrcDanceIntermediate"), NodePath("OrcDanceOrchestral"), NodePath("WorkersDelight")]
 
