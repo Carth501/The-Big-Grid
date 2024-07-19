@@ -1,73 +1,18 @@
 {
-	"enable_A_B_trade_C": {
+	"figure_out_magnitite_refining": {
 		"changes": {
-			"A": {
+			"electricity": {
 				"deltas": [-10]
 			},
-			"B": {
+			"coal": {
+				"deltas": [-10]
+			},
+			"magnitite": {
 				"deltas": [-6]
 			}
 		},
 		"actions": [
-			"trade_A_and_B_for_C"
-		]
-	},
-	"enable_auto_actions": {
-		"changes": {
-			"A": {
-				"deltas": [-2]
-			},
-			"B": {
-				"deltas": [-10]
-			},
-			"C": {
-				"deltas": [-5]
-			}
-		},
-		"capabilities": [
-			"auto_actions"
-		]
-	},
-	"more_efficient_C": {
-		"changes": {
-			"C": {
-				"deltas": [-3]
-			},
-			"B": {
-				"deltas": [-3]
-			}
-		},
-		"actions": [
-			"eff_trade_A_and_B_for_C"
-		]
-	},
-	"enable_galop_process": {
-		"changes": {
-			"A": {
-				"deltas": [-11]
-			},
-			"B": {
-				"deltas": [-3]
-			},
-			"C": {
-				"deltas": [-5]
-			}
-		},
-		"actions": [
-			"galop_process"
-		]
-	},
-	"enable_aduia_process": {
-		"changes": {
-			"D": {
-				"deltas": [-1]
-			},
-			"B": {
-				"deltas": [-3]
-			}
-		},
-		"actions": [
-			"aduia_process"
+			"refine_magnitite"
 		]
 	}
 }
