@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcdic5mi1gpr1"
+path="res://.godot/imported/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg-1a2af03845f3182e1885d2854cd896c8.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg"
+dest_files=["res://.godot/imported/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg-1a2af03845f3182e1885d2854cd896c8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
