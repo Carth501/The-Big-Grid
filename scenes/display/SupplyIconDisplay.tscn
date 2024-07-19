@@ -29,6 +29,7 @@ expand_mode = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TextureRect"]
 visible = false
+z_index = 1
 layout_mode = 0
 offset_top = 36.0
 offset_right = 40.0
@@ -37,3 +38,6 @@ mouse_filter = 2
 
 [node name="Label" type="Label" parent="MarginContainer/TextureRect/PanelContainer"]
 layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="show_label"]
+[connection signal="mouse_exited" from="." to="." method="hide_label"]
