@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=17 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
+[ext_resource type="Script" path="res://scripts/ContainerWithHeader.gd" id="2_46l8s"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
 [ext_resource type="Script" path="res://scripts/display/ActionPanel.gd" id="3_n23ff"]
 [ext_resource type="Script" path="res://scripts/display/ActionView.gd" id="3_y50x7"]
@@ -42,10 +43,13 @@ grow_horizontal = 2
 grow_vertical = 2
 split_offset = 600
 
-[node name="SupplyBackground" type="ColorRect" parent="Display/MiddleSplit"]
+[node name="SupplyBackground" type="ColorRect" parent="Display/MiddleSplit" node_paths=PackedStringArray("header", "body")]
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+script = ExtResource("2_46l8s")
+header = NodePath("HFlowContainer")
+body = NodePath("SupplyScrollContainer")
 
 [node name="SupplyScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/SupplyBackground"]
 layout_mode = 1
@@ -372,6 +376,7 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 
+[connection signal="resized" from="Display/MiddleSplit/SupplyBackground" to="Display/MiddleSplit/SupplyBackground" method="_on_resized"]
 [connection signal="text_changed" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/SupplySearch" to="Logic/FilterForeman" method="set_search_filter"]
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/FocusFilteringControl/FocusFilteringToggle" to="Logic/OptionsOverseer" method="set_focus_filtering"]
