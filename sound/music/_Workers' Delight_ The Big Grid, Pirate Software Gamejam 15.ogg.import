@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cdo74pgnqchtb"
+path="res://.godot/imported/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg-6181eb7bc8e41fa3eede3ecbca5c7a8d.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/music/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg"
+dest_files=["res://.godot/imported/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg-6181eb7bc8e41fa3eede3ecbca5c7a8d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
