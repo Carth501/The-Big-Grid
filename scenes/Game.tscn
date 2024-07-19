@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=16 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="9_iev5w"]
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
+[ext_resource type="Script" path="res://scenes/PauseMenu.gd" id="15_pb3et"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "save_file_panel", "save_file_name")]
 script = ExtResource("1_kvsp4")
@@ -328,6 +329,37 @@ game_controller = NodePath("../..")
 wait_time = 300.0
 autostart = true
 
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 311.0
+offset_top = 195.0
+offset_right = 351.0
+offset_bottom = 235.0
+scale = Vector2(9.58899, 6.61612)
+script = ExtResource("15_pb3et")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 16.4772
+offset_top = -2.56948
+offset_right = 86.4772
+offset_bottom = 133.431
+scale = Vector2(0.290607, 0.256455)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Button2" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/FocusFilteringControl/FocusFilteringToggle" to="Logic/OptionsOverseer" method="set_focus_filtering"]
 [connection signal="text_changed" from="Display/MiddleSplit/SupplyBackground/SupplySearch" to="Logic/FilterForeman" method="set_search_filter"]
@@ -347,3 +379,5 @@ autostart = true
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Button" to="PauseMenu" method="pause_or_unpause"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Button2" to="PauseMenu" method="_quitGame"]
