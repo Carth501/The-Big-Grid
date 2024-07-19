@@ -1,149 +1,149 @@
 {
-    "electricity": {
-        "default_max": 40,
-        "max_increase_increment": 20,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -10
-                ]
-            }
-        },
-        "degrade": 0.98,
-        "icon_path": "res://textures/Supply_Icons/Electricity.svg"
-    },
-    "water": {
-        "default_max": 40,
-        "max_increase_increment": 20,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -10
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Water.svg"
-    },
-    "coal": {
-        "default_max": 20,
-        "max_increase_increment": 10,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -10
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Coal.svg"
-    },
-    "hematite": {
-        "default_max": 8,
-        "max_increase_increment": 8,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -6
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Hematite.svg"
-    },
-    "magnitite": {
-        "default_value": 0,
-        "default_max": 15,
-        "max_increase_increment": 5,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -9
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Magnitite.svg"
-    },
-    "bornite": {
-        "default_max": 10,
-        "max_increase_increment": 30,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -15
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Bornite.svg"
-    },
-    "bauxite": {
-        "default_max": 10,
-        "max_increase_increment": 15,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -5
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Bauxite.svg"
-    },
-    "native_gold": {
-        "default_max": 50,
-        "max_increase_increment": 20,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -60
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Native Gold.svg"
-    },
-    "iron_ingot": {
-        "default_value": 20,
-        "default_max": 24,
-        "max_increase_increment": 10,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -8
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Iron Ingot.svg"
-    },
-    "copper_ingot": {
-        "default_max": 40,
-        "max_increase_increment": 10,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -20
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Copper Ingot.svg"
-    },
-    "aluminum_ingot": {
-        "default_max": 20,
-        "max_increase_increment": 30,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -12
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Aluminum Ingot.svg"
-    },
-    "gold_ingot": {
-        "default_max": 5,
-        "max_increase_increment": 3,
-        "max_increase_base_cost": {
-            "iron_ingot": {
-                "deltas": [
-                    -8
-                ]
-            }
-        },
-        "icon_path": "res://textures/Supply_Icons/Gold Ingot.svg"
-    }
+	"electricity": {
+		"default_max": 40,
+		"max_increase_increment": 20,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-10
+				]
+			}
+		},
+		"degrade": 0.98,
+		"icon_path": "res://textures/Supply_Icons/Electricity.svg"
+	},
+	"water": {
+		"default_max": 40,
+		"max_increase_increment": 20,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-10
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Water.svg"
+	},
+	"coal": {
+		"default_max": 20,
+		"max_increase_increment": 10,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-10
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Coal.svg"
+	},
+	"hematite": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-6
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Hematite.svg"
+	},
+	"magnitite": {
+		"default_value": 0,
+		"default_max": 15,
+		"max_increase_increment": 5,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-9
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Magnitite.svg"
+	},
+	"bornite": {
+		"default_max": 10,
+		"max_increase_increment": 30,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-15
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Bornite.svg"
+	},
+	"bauxite": {
+		"default_max": 10,
+		"max_increase_increment": 15,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-5
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Bauxite.svg"
+	},
+	"native_gold": {
+		"default_max": 50,
+		"max_increase_increment": 20,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-60
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Native Gold.svg"
+	},
+	"iron_ingot": {
+		"default_value": 20,
+		"default_max": 24,
+		"max_increase_increment": 10,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Iron Ingot.svg"
+	},
+	"copper_ingot": {
+		"default_max": 40,
+		"max_increase_increment": 10,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-20
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Copper Ingot.svg"
+	},
+	"aluminum_ingot": {
+		"default_max": 20,
+		"max_increase_increment": 30,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-12
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Aluminum Ingot.svg"
+	},
+	"gold_ingot": {
+		"default_max": 5,
+		"max_increase_increment": 3,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"icon_path": "res://textures/Supply_Icons/Gold Ingot.svg"
+	}
 }
