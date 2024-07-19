@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=17 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
+[ext_resource type="Script" path="res://scripts/ContainerWithHeader.gd" id="2_46l8s"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
 [ext_resource type="Script" path="res://scripts/display/ActionPanel.gd" id="3_n23ff"]
 [ext_resource type="Script" path="res://scripts/display/ActionView.gd" id="3_y50x7"]
@@ -42,17 +43,20 @@ grow_horizontal = 2
 grow_vertical = 2
 split_offset = 600
 
-[node name="SupplyBackground" type="ColorRect" parent="Display/MiddleSplit"]
+[node name="SupplyBackground" type="ColorRect" parent="Display/MiddleSplit" node_paths=PackedStringArray("header", "body")]
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+script = ExtResource("2_46l8s")
+header = NodePath("HFlowContainer")
+body = NodePath("SupplyScrollContainer")
 
 [node name="SupplyScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/SupplyBackground"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 24.0
+offset_top = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -72,14 +76,24 @@ script = ExtResource("2_iwxov")
 supply_collection = NodePath("../../../../../../Logic/SupplyCollection")
 options_overseer = NodePath("../../../../../../Logic/OptionsOverseer")
 
-[node name="KeepPositionControl" type="Control" parent="Display/MiddleSplit/SupplyBackground"]
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/SupplyBackground"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-grow_horizontal = 0
+offset_bottom = 31.0
+grow_horizontal = 2
 
-[node name="KeepPositionToggle" type="CheckButton" parent="Display/MiddleSplit/SupplyBackground/KeepPositionControl"]
+[node name="SupplySearch" type="LineEdit" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+placeholder_text = "Search"
+clear_button_enabled = true
+
+[node name="KeepPositionControl" type="Control" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer"]
+custom_minimum_size = Vector2(130, 31)
+layout_mode = 2
+
+[node name="KeepPositionToggle" type="CheckButton" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -94,16 +108,11 @@ button_pressed = true
 text = "Keep Position"
 alignment = 2
 
-[node name="FocusFilteringControl" type="Control" parent="Display/MiddleSplit/SupplyBackground"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -128.0
-offset_right = -128.0
-grow_horizontal = 0
+[node name="FocusFilteringControl" type="Control" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer"]
+custom_minimum_size = Vector2(130, 31)
+layout_mode = 2
 
-[node name="FocusFilteringToggle" type="CheckButton" parent="Display/MiddleSplit/SupplyBackground/FocusFilteringControl"]
+[node name="FocusFilteringToggle" type="CheckButton" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer/FocusFilteringControl"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -117,13 +126,6 @@ theme_override_font_sizes/font_size = 12
 button_pressed = true
 text = "Focus Filtering"
 alignment = 2
-
-[node name="SupplySearch" type="LineEdit" parent="Display/MiddleSplit/SupplyBackground"]
-layout_mode = 0
-offset_right = 263.0
-offset_bottom = 31.0
-placeholder_text = "Search"
-clear_button_enabled = true
 
 [node name="RightSplit" type="VSplitContainer" parent="Display/MiddleSplit"]
 layout_mode = 2
@@ -374,9 +376,10 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 
-[connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
-[connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/FocusFilteringControl/FocusFilteringToggle" to="Logic/OptionsOverseer" method="set_focus_filtering"]
-[connection signal="text_changed" from="Display/MiddleSplit/SupplyBackground/SupplySearch" to="Logic/FilterForeman" method="set_search_filter"]
+[connection signal="resized" from="Display/MiddleSplit/SupplyBackground" to="Display/MiddleSplit/SupplyBackground" method="_on_resized"]
+[connection signal="text_changed" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/SupplySearch" to="Logic/FilterForeman" method="set_search_filter"]
+[connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
+[connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/FocusFilteringControl/FocusFilteringToggle" to="Logic/OptionsOverseer" method="set_focus_filtering"]
 [connection signal="text_changed" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionSearch" to="Logic/ActionManager" method="set_action_filter"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
