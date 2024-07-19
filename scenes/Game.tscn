@@ -329,7 +329,7 @@ game_controller = NodePath("../..")
 wait_time = 300.0
 autostart = true
 
-[node name="PauseMenu" type="Control" parent="."]
+[node name="PauseMenu" type="Control" parent="." node_paths=PackedStringArray("resume_button")]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -339,6 +339,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("15_pb3et")
+resume_button = NodePath("MarginContainer/VBoxContainer/Resume")
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
 layout_mode = 1
@@ -365,11 +366,11 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
 
-[node name="Button2" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
@@ -392,5 +393,5 @@ text = "Quit"
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
-[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Button" to="PauseMenu" method="pause_or_unpause"]
-[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Button2" to="PauseMenu" method="_quitGame"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit" to="PauseMenu" method="_quitGame"]
