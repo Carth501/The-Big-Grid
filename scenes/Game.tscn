@@ -329,34 +329,48 @@ game_controller = NodePath("../..")
 wait_time = 300.0
 autostart = true
 
-[node name="PauseMenu" type="Control" parent="."]
+[node name="PauseMenu" type="Control" parent="." node_paths=PackedStringArray("resume_button")]
 process_mode = 3
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_left = 311.0
-offset_top = 195.0
-offset_right = 351.0
-offset_bottom = 235.0
-scale = Vector2(9.58899, 6.61612)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("15_pb3et")
+resume_button = NodePath("MarginContainer/VBoxContainer/Resume")
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
-layout_mode = 0
-offset_left = 16.4772
-offset_top = -2.56948
-offset_right = 86.4772
-offset_bottom = 133.431
-scale = Vector2(0.290607, 0.256455)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -68.0002
+offset_right = 35.0
+offset_bottom = 68.0002
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
 
-[node name="Button2" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
@@ -379,5 +393,5 @@ text = "Quit"
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
-[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Button" to="PauseMenu" method="pause_or_unpause"]
-[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Button2" to="PauseMenu" method="_quitGame"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit" to="PauseMenu" method="_quitGame"]
