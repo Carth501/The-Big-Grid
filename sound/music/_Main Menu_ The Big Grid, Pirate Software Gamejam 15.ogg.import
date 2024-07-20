@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://rimplcys6c2t"
+path="res://.godot/imported/_Main Menu_ The Big Grid, Pirate Software Gamejam 15.ogg-75b69141821fdc9404d95a72835dfc71.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/music/_Main Menu_ The Big Grid, Pirate Software Gamejam 15.ogg"
+dest_files=["res://.godot/imported/_Main Menu_ The Big Grid, Pirate Software Gamejam 15.ogg-75b69141821fdc9404d95a72835dfc71.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
