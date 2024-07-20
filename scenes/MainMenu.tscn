@@ -50,7 +50,7 @@ layout_mode = 0
 offset_left = 106.0
 offset_top = 82.0
 offset_right = 349.0
-offset_bottom = 253.0
+offset_bottom = 234.45
 
 [node name="MarginContainer" type="MarginContainer" parent="Links"]
 layout_mode = 2
@@ -79,6 +79,7 @@ layout_mode = 2
 text = "Options"
 
 [node name="Quit" type="Button" parent="Links/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Quit
 "
@@ -105,4 +106,5 @@ layout_mode = 2
 [connection signal="pressed" from="Links/MarginContainer/VBoxContainer/ContinueButton" to="." method="continue_game"]
 [connection signal="pressed" from="Links/MarginContainer/VBoxContainer/LoadGameButton" to="." method="toggle_load_panel"]
 [connection signal="pressed" from="Links/MarginContainer/VBoxContainer/NewGameButton" to="." method="new_game"]
+[connection signal="pressed" from="Links/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Links/MarginContainer/VBoxContainer/Quit" to="." method="quit"]
