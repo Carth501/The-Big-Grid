@@ -1,11 +1,13 @@
 {
 	"test" : [
 		{
+			"stepId": "test1",
 			"native_gold": [
 				{"greater_than": {"const": 4}},
 			]
 		},
 		{
+			"stepId": "test2",
 			"iron_ingot": [
 				{"greater_than": {"const": 10}},
 				{"less_than": {"const": 20}},

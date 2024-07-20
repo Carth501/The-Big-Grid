@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=24 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cdo74pgnqchtb" path="res://sound/music/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg" id="12_dwipf"]
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
+[ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
 [ext_resource type="Script" path="res://scenes/PauseMenu.gd" id="15_pb3et"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "save_file_panel", "save_file_name")]
@@ -42,9 +43,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="MiddleSplit" type="HSplitContainer" parent="Display"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 split_offset = 600
@@ -303,6 +305,52 @@ offset_bottom = 84.0
 text = "Save
 "
 
+[node name="Panel" type="Panel" parent="Display"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Display/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Pause"
+
+[node name="CurrentObjectiveLine" type="Control" parent="Display/Panel" node_paths=PackedStringArray("objective_text")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_3ikv4")
+objective_text = NodePath("ObjectiveText")
+
+[node name="Label" type="Label" parent="Display/Panel/CurrentObjectiveLine"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 151.0
+offset_bottom = 27.0
+text = "Current Objective: "
+
+[node name="ObjectiveText" type="Label" parent="Display/Panel/CurrentObjectiveLine"]
+offset_left = 151.0
+offset_top = 4.0
+offset_right = 977.0
+offset_bottom = 27.0
+text_overrun_behavior = 3
+
 [node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players")]
 process_mode = 3
 script = ExtResource("9_vk0jb")
@@ -404,38 +452,6 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -177.0
-offset_top = -40.0
-offset_right = -4.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -174.0
-offset_top = -40.0
-offset_right = -35.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(1.27, 1.283)
-
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Pause"
-
 [connection signal="dragged" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_resized"]
 [connection signal="resized" from="Display/MiddleSplit/SupplyBackground" to="Display/MiddleSplit/SupplyBackground" method="_on_resized"]
@@ -451,6 +467,7 @@ text = "Pause"
 [connection signal="text_changed" from="Display/SaveFilePanel/Panel/TextEdit" to="." method="change_save_name"]
 [connection signal="pressed" from="Display/SaveFilePanel/Panel/Cancel" to="." method="toggle_save_file_panel"]
 [connection signal="pressed" from="Display/SaveFilePanel/Panel/Save" to="." method="save_as"]
+[connection signal="pressed" from="Display/Panel/Button" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIndustrial" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIntermediate" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceOrchestral" to="Display/MusicSystem" method="next_track"]
@@ -463,7 +480,7 @@ text = "Pause"
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
+[connection signal="newStepDescription" from="Logic/ObjectiveSystem" to="Display/Panel/CurrentObjectiveLine" method="update_objective"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit" to="PauseMenu" method="_quitGame"]
-[connection signal="pressed" from="Control/VBoxContainer/Button" to="PauseMenu" method="pause_or_unpause"]
