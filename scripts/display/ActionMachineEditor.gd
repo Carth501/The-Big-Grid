@@ -1,4 +1,4 @@
-class_name Action_Machine_Editor extends Panel
+class_name Action_Machine_Editor extends Control
 
 @export var name_field : LineEdit
 @export var op_rate_field : SpinBox   
@@ -13,6 +13,9 @@ func set_machine(new_machine : Machine):
 	for conditional in machine.conditionals:
 		add_conditional(conditional)
 	machine.new_conditional.connect(add_conditional)
+
+func _ready() -> void:
+	resize(null)
 
 func close():
 	machine.new_conditional.disconnect(add_conditional)
@@ -33,3 +36,13 @@ func add_conditional(new_conditional : Conditional_Expression):
 	var new_conditional_display = condition_bar_prefab.instantiate()
 	condition_list_container.add_child(new_conditional_display)
 	new_conditional_display.set_expression(new_conditional)
+
+func resize(_node):
+	var condition_count = condition_list_container.get_child_count()
+	var vertical_length = 144 + condition_count * 49
+	custom_minimum_size.y = vertical_length
+
+func resize_minus_one(_node):
+	var condition_count = condition_list_container.get_child_count() - 1
+	var vertical_length = 144 + condition_count * 49
+	custom_minimum_size.y = vertical_length
