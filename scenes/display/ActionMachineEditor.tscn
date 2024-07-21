@@ -3,23 +3,41 @@
 [ext_resource type="Script" path="res://scripts/display/ActionMachineEditor.gd" id="1_x85dw"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_nmtv4"]
 
-[node name="ActionMachineEditor" type="Panel" node_paths=PackedStringArray("name_field", "op_rate_field", "condition_list_container")]
+[node name="ActionMachineEditor" type="Control" node_paths=PackedStringArray("name_field", "op_rate_field", "condition_list_container")]
 custom_minimum_size = Vector2(232, 116)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 232.0
-offset_bottom = 203.0
+offset_bottom = 144.0
+size_flags_vertical = 3
 script = ExtResource("1_x85dw")
-name_field = NodePath("Header/LineEdit")
-op_rate_field = NodePath("IntervalControl/OperationRateField")
-condition_list_container = NodePath("ConditionList")
+name_field = NodePath("Panel/VFlowContainer/Header/LineEdit")
+op_rate_field = NodePath("Panel/VFlowContainer/IntervalControl/OperationRateField")
+condition_list_container = NodePath("Panel/VFlowContainer/ConditionList")
 
-[node name="Header" type="Button" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = 229.0
-offset_bottom = 36.0
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="DropdownArrow" parent="Header" instance=ExtResource("2_nmtv4")]
+[node name="VFlowContainer" type="VFlowContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Button" parent="Panel/VFlowContainer"]
+custom_minimum_size = Vector2(230, 32)
+layout_mode = 2
+
+[node name="DropdownArrow" parent="Panel/VFlowContainer/Header" instance=ExtResource("2_nmtv4")]
 visible = false
 layout_mode = 1
 offset_left = 201.0
@@ -27,37 +45,18 @@ offset_top = 6.0
 offset_right = -24.0
 offset_bottom = -25.0
 
-[node name="LineEdit" type="LineEdit" parent="Header"]
+[node name="LineEdit" type="LineEdit" parent="Panel/VFlowContainer/Header"]
 layout_mode = 0
 offset_left = 2.0
 offset_right = 197.0
 offset_bottom = 31.0
 placeholder_text = "Machine Name"
 
-[node name="AddConditionButton" type="Button" parent="."]
+[node name="ActiveSwitch" type="Control" parent="Panel/VFlowContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
-offset_left = 4.0
-offset_top = 120.0
-offset_right = 228.0
-offset_bottom = 148.0
-theme_override_font_sizes/font_size = 14
-text = "Add condition"
 
-[node name="ConditionList" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 154.0
-offset_right = 40.0
-offset_bottom = 199.0
-theme_override_constants/separation = 45
-
-[node name="ActiveSwitch" type="Control" parent="."]
-anchors_preset = 0
-offset_top = 39.0
-offset_right = 40.0
-offset_bottom = 79.0
-
-[node name="CheckButton" type="CheckButton" parent="ActiveSwitch"]
+[node name="CheckButton" type="CheckButton" parent="Panel/VFlowContainer/ActiveSwitch"]
 layout_mode = 0
 offset_left = 126.0
 offset_right = 170.0
@@ -65,7 +64,7 @@ offset_bottom = 24.0
 scale = Vector2(1.5, 1.5)
 button_pressed = true
 
-[node name="Label" type="Label" parent="ActiveSwitch"]
+[node name="Label" type="Label" parent="Panel/VFlowContainer/ActiveSwitch"]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 8.0
@@ -73,13 +72,11 @@ offset_right = 92.0
 offset_bottom = 31.0
 text = "Active"
 
-[node name="IntervalControl" type="Control" parent="."]
-anchors_preset = 0
-offset_top = 79.0
-offset_right = 40.0
-offset_bottom = 119.0
+[node name="IntervalControl" type="Control" parent="Panel/VFlowContainer"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
 
-[node name="Label" type="Label" parent="IntervalControl"]
+[node name="Label" type="Label" parent="Panel/VFlowContainer/IntervalControl"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 3.0
@@ -87,7 +84,7 @@ offset_right = 91.0
 offset_bottom = 26.0
 text = "Interval (S)"
 
-[node name="OperationRateField" type="SpinBox" parent="IntervalControl"]
+[node name="OperationRateField" type="SpinBox" parent="Panel/VFlowContainer/IntervalControl"]
 layout_mode = 2
 offset_left = 108.0
 offset_right = 226.0
@@ -97,7 +94,19 @@ max_value = 10.0
 step = 0.1
 value = 10.0
 
-[connection signal="text_changed" from="Header/LineEdit" to="." method="set_machine_name"]
-[connection signal="pressed" from="AddConditionButton" to="." method="request_additional_condition"]
-[connection signal="toggled" from="ActiveSwitch/CheckButton" to="." method="set_running"]
-[connection signal="value_changed" from="IntervalControl/OperationRateField" to="." method="set_interval"]
+[node name="AddConditionButton" type="Button" parent="Panel/VFlowContainer"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Add condition"
+
+[node name="ConditionList" type="VBoxContainer" parent="Panel/VFlowContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[connection signal="text_changed" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
+[connection signal="toggled" from="Panel/VFlowContainer/ActiveSwitch/CheckButton" to="." method="set_running"]
+[connection signal="value_changed" from="Panel/VFlowContainer/IntervalControl/OperationRateField" to="." method="set_interval"]
+[connection signal="pressed" from="Panel/VFlowContainer/AddConditionButton" to="." method="request_additional_condition"]
+[connection signal="child_entered_tree" from="Panel/VFlowContainer/ConditionList" to="." method="resize"]
+[connection signal="child_exiting_tree" from="Panel/VFlowContainer/ConditionList" to="." method="resize_minus_one"]

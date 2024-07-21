@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=25 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://nqca84fbhaxg" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Intermediate_.ogg" id="9_v5ac6"]
 [ext_resource type="Script" path="res://scripts/MusicSystem.gd" id="9_vk0jb"]
 [ext_resource type="AudioStream" uid="uid://dcdic5mi1gpr1" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg" id="10_agjpm"]
+[ext_resource type="Script" path="res://scripts/AutomationPanel.gd" id="11_3l4m0"]
 [ext_resource type="AudioStream" uid="uid://cdo74pgnqchtb" path="res://sound/music/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg" id="12_dwipf"]
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
@@ -229,12 +230,17 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 action_manager = NodePath("../../../../../../../Logic/ActionManager")
 
-[node name="DevBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit"]
+[node name="TabContainer" type="TabContainer" parent="Display/MiddleSplit/RightSplit"]
+layout_mode = 2
+current_tab = 1
+
+[node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer"]
+visible = false
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
-[node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/DevBackground"]
+[node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -243,7 +249,7 @@ grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments/DevScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 8
@@ -251,10 +257,30 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
 layout_mode = 2
 script = ExtResource("4_p32ci")
-development_handler = NodePath("../../../../../../../Logic/DevelopmentHandler")
+development_handler = NodePath("../../../../../../../../Logic/DevelopmentHandler")
+
+[node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer" node_paths=PackedStringArray("machine_container", "machine_factory")]
+layout_mode = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+script = ExtResource("11_3l4m0")
+machine_container = NodePath("ScrollContainer/HFlowContainer")
+machine_factory = NodePath("../../../../../Logic/MachineFactory")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="SaveFilePanel" type="Button" parent="Display"]
 visible = false
@@ -374,8 +400,9 @@ stream = ExtResource("12_dwipf")
 
 [node name="Logic" type="Node" parent="."]
 
-[node name="MachineFactory" type="Node" parent="Logic"]
+[node name="MachineFactory" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection")]
 script = ExtResource("4_e1gh5")
+supply_collection = NodePath("../SupplyCollection")
 
 [node name="SupplyCollection" type="Node" parent="Logic" node_paths=PackedStringArray("filter_foreman")]
 script = ExtResource("5_vwwhk")
@@ -474,6 +501,7 @@ text = "Quit"
 [connection signal="finished" from="Display/MusicSystem/OrcDanceOrchestral" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/WorkersDelight" to="Display/MusicSystem" method="next_track"]
 [connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" method="add_new_machine"]
+[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/TabContainer/Machines" method="add_machine_editor"]
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="open_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_supply_menu"]
 [connection signal="action_search_filter" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="filter_actions"]
