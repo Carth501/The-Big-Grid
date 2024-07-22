@@ -27,6 +27,7 @@ Logic_Directory_Single="*res://scripts/singletons/LogicDirectory.gd"
 Save_Handler_Single="*res://scripts/singletons/SaveHandler.gd"
 Objectives_Table_Single="*res://scripts/singletons/ObjectivesTable.gd"
 ObjectivesTextsSingle="*res://scripts/singletons/ObjectivesTexts.gd"
+AudioEffectControllerSingle="*res://scripts/singletons/AudioEffectController.gd"
 
 [display]
 

@@ -21,6 +21,7 @@ var translated_action_name : String
 var automation_hover := true
 var automation_focus := false
 var tags : Array[String] = []
+var audio : String
 
 func setup(package : Dictionary):
 	if(!package.has("id")):
@@ -42,6 +43,8 @@ func setup(package : Dictionary):
 		supplies[supply_id] = supply
 		supply.update_value.connect(process_availability)
 		supply.activate()
+	if(ActionsSingle.data[id].has("audio")):
+		audio = ActionsSingle.data[id].audio
 	process_availability()
 	string_data = ActionTranslatorSingle.data[id]
 	write_translation_text()
