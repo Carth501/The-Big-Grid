@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://86c8yass8u4m"]
 
-[ext_resource type="Script" path="res://scenes/OptionsMenu/audio_slider_settings.gd" id="1_0acnw"]
+[ext_resource type="Script" path="res://scripts/display/options/audio_slider_settings.gd" id="1_gk77j"]
 
 [node name="Audio_slider_settings" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ offset_left = 4.0
 offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0acnw")
+script = ExtResource("1_gk77j")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 0)

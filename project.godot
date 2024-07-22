@@ -26,11 +26,9 @@ SupplyTranslatorSingle="*res://scripts/singletons/supply_translator.gd"
 Logic_Directory_Single="*res://scripts/singletons/LogicDirectory.gd"
 Save_Handler_Single="*res://scripts/singletons/SaveHandler.gd"
 Objectives_Table_Single="*res://scripts/singletons/ObjectivesTable.gd"
-SettingsSignalBus="*res://scripts/singletons/SettingsSignalBus.gd"
-SettingsDataContainer="*res://scripts/singletons/SettingsDataContainer.gd"
-SaveManager="*res://scripts/singletons/SaveManager.gd"
 ObjectivesTextsSingle="*res://scripts/singletons/ObjectivesTexts.gd"
 AudioEffectControllerSingle="*res://scripts/singletons/AudioEffectController.gd"
+SettingsDataContainerSingle="*res://scripts/singletons/SettingsDataContainer.gd"
 
 [display]
 

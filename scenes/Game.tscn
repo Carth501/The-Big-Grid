@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
 [ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
-[ext_resource type="Script" path="res://scenes/PauseMenu.gd" id="15_pb3et"]
+[ext_resource type="Script" path="res://scripts/display/PauseMenu.gd" id="15_pb3et"]
 [ext_resource type="AudioStream" uid="uid://spu70ttwko4c" path="res://sound/effects/Mining_Drilling - The Big Grid.ogg" id="17_8qotj"]
 [ext_resource type="Script" path="res://scripts/display/feedback/SoundEffect.gd" id="18_m7ho0"]
 [ext_resource type="AudioStream" uid="uid://b2t72h31ipq2l" path="res://sound/effects/Bubbling - The Big Grid.ogg" id="19_pcg51"]

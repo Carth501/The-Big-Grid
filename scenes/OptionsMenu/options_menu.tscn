@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4bi8m84gcg7c"]
 
-[ext_resource type="Script" path="res://scenes/OptionsMenu/options_menu.gd" id="1_nmy6e"]
+[ext_resource type="Script" path="res://scripts/display/options/options_menu.gd" id="1_nmy6e"]
 [ext_resource type="PackedScene" uid="uid://6vva04aqj2rk" path="res://scenes/OptionsMenu/settings_tab_container.tscn" id="2_firt6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ulg7v"]

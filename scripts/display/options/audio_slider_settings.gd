@@ -14,35 +14,35 @@ func _ready():
 	load_data()
 	set_name_label_text()
 	set_slider_value()
-	
+
 func load_data()-> void:
 	match bus_name:
 		"Master":
-			on_value_changed(SettingsDataContainer.get_master_volume())
+			on_value_changed(SettingsDataContainerSingle.master_volume)
+			SettingsDataContainerSingle.master_volume_change.connect(on_value_changed)
 		"Music":
-			on_value_changed(SettingsDataContainer.get_music_volume())
-	
-	
+			on_value_changed(SettingsDataContainerSingle.music_volume)
+			SettingsDataContainerSingle.music_volume_change.connect(on_value_changed)
+
 func set_name_label_text() -> void:
 	audio_name_lbl.text = str(bus_name) + " Volume"
-	
+
 func set_num_label_text() -> void:
 	audio_num_lbl.text = str(h_slider.value * 100) 
-	
+
 func get_bus_name_by_index() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
-	
+
 func set_slider_value() -> void:
 	h_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
 	set_num_label_text()
-	
+
 func on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index,linear_to_db(value))
 	set_num_label_text()
-	
+
 	match bus_index:
 		0:
-			SettingsSignalBus.emit_on_master_sound_set(value)
+			SettingsDataContainerSingle.master_volume = value
 		1:
-			SettingsSignalBus.emit_on_music_sound_set(value)
-			
+			SettingsDataContainerSingle.music_volume = value
