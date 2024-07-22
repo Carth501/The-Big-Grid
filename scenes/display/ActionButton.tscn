@@ -1,18 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdae06mcb0mb1"]
+[gd_scene load_steps=2 format=3 uid="uid://cdae06mcb0mb1"]
 
 [ext_resource type="Script" path="res://scripts/display/ActionButton.gd" id="1_2pt23"]
-[ext_resource type="AudioStream" uid="uid://hde6uekbq3c0" path="res://sound/effects/Button Press - The Big Grid.ogg" id="2_k3ad2"]
-[ext_resource type="Script" path="res://scripts/display/AudioCustomBinding.gd" id="3_4gnmi"]
 
 [node name="Action" type="Button"]
 offset_right = 64.0
 offset_bottom = 64.0
 script = ExtResource("1_2pt23")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_k3ad2")
-max_polyphony = 2
-script = ExtResource("3_4gnmi")
 
 [connection signal="focus_entered" from="." to="." method="gain_focus"]
 [connection signal="focus_exited" from="." to="." method="lose_focus"]
@@ -20,4 +13,3 @@ script = ExtResource("3_4gnmi")
 [connection signal="mouse_entered" from="." to="." method="set_filter"]
 [connection signal="mouse_exited" from="." to="." method="unset_filter"]
 [connection signal="right_click" from="." to="." method="open_menu"]
-[connection signal="trigger" from="." to="AudioStreamPlayer" method="play_audio"]

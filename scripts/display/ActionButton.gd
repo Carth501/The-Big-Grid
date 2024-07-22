@@ -5,6 +5,14 @@ signal trigger
 var id : String
 var action : Action
 var audio_stream : Sound_Effect
+var action_press_sound : Sound_Effect
+
+func _ready() -> void:
+	super._ready()
+	var directory = AudioEffectControllerSingle.directory
+	if(directory.has("button_press")):
+		action_press_sound = directory["button_press"]
+		trigger.connect(action_press_sound.play)
 
 func set_id(new_id : String):
 	id = new_id
