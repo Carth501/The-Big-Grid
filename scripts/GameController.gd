@@ -99,6 +99,8 @@ func load_save():
 	if(active_save.has("actions")):
 		for id in active_save["actions"]:
 			var saved_action = active_save["actions"][id]
+			if(!action_manager.full_action_list.has(id)):
+				action_manager.create_action(id)
 			var action = action_manager.full_action_list[id]
 			action.set_tags(saved_action["tags"])
 	if(active_save.has("machines")):
