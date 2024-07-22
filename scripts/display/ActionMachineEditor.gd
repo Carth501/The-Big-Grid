@@ -46,3 +46,6 @@ func resize_minus_one(_node):
 	var condition_count = condition_list_container.get_child_count() - 1
 	var vertical_length = 144 + condition_count * 49
 	custom_minimum_size.y = vertical_length
+
+func refund_machine() -> void:
+	machine.refund()

@@ -1,6 +1,7 @@
 class_name Machine extends Node
 
 signal new_conditional(Conditional_Value)
+signal refund_machine(Machine)
 
 var action : Action
 var timer : Timer
@@ -76,3 +77,6 @@ func load_conditions(config_array : Array):
 		conditionals.append(conditional_instance)
 		new_conditional.emit(conditional_instance)
 		conditional_instance.delete_this.connect(remove_conditional)
+
+func refund():
+	refund_machine.emit(self)
