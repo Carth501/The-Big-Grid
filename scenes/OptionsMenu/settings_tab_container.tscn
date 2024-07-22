@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://6vva04aqj2rk"]
+
+[ext_resource type="PackedScene" uid="uid://bx6oox0gce533" path="res://scenes/OptionsMenu/window_mode_button.tscn" id="1_66gv7"]
+[ext_resource type="PackedScene" uid="uid://brnvvbxkhova0" path="res://scenes/OptionsMenu/resolution_mode_button.tscn" id="2_512al"]
+[ext_resource type="PackedScene" uid="uid://86c8yass8u4m" path="res://scenes/OptionsMenu/audio_slider_settings.tscn" id="3_vdi12"]
+
+[node name="Settings_tab_container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 150.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 1
+
+[node name="Display" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Display"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Display/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Display/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="window_mode_button" parent="TabContainer/Display/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_66gv7")]
+layout_mode = 2
+
+[node name="resolution_mode_button" parent="TabContainer/Display/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_512al")]
+layout_mode = 2
+
+[node name="Sound" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Sound/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Audio_slider_settings" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_vdi12")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Audio_slider_settings2" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_vdi12")]
+layout_mode = 2
+bus_name = "Music"

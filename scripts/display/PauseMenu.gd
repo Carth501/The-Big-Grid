@@ -9,10 +9,10 @@ func _process(_delta: float) -> void:
 
 func pause_or_unpause():
 		if get_tree().paused == true: #if game is paused, pressing resume will unpause it
-			$".".hide()
+			hide()
 			get_tree().paused = false
 		elif get_tree().paused == false: #if game is unpaused, pressing escape will pause it
-			$".".show()
+			show()
 			get_tree().paused = true
 			resume_button.grab_focus()
 
