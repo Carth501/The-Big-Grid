@@ -73,4 +73,6 @@ func on_settings_data_loaded(data: Dictionary) -> void:
 func handle_signals() -> void:
 	SettingsSignalBus.on_window_mode_selected.connect(on_window_mode_selected)
 	SettingsSignalBus.on_resolution_selected.connect(on_resolution_selected)
+	SettingsSignalBus.on_master_sound_set.connect(on_master_sound_set)
+	SettingsSignalBus.on_music_sound_set.connect(on_music_sound_set)
 	SettingsSignalBus.load_settings_data.connect(on_settings_data_loaded)
