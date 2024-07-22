@@ -1,5 +1,7 @@
 class_name Action_Button extends Dual_Button
 
+signal trigger
+
 var id : String
 var action : Action
 
@@ -18,10 +20,13 @@ func disconnect_action():
 	action.update_action_name.disconnect(change_label)
 
 func actuate():
+	if(!disabled):
+		trigger.emit()
 	action.apply()
 
 func open_menu():
 	action.open()
+	trigger.emit()
 
 func change_label(new_text : String):
 	text = new_text

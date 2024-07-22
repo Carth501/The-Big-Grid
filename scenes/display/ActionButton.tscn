@@ -19,5 +19,5 @@ script = ExtResource("3_4gnmi")
 [connection signal="left_click" from="." to="." method="actuate"]
 [connection signal="mouse_entered" from="." to="." method="set_filter"]
 [connection signal="mouse_exited" from="." to="." method="unset_filter"]
-[connection signal="pressed" from="." to="AudioStreamPlayer" method="play_audio"]
 [connection signal="right_click" from="." to="." method="open_menu"]
+[connection signal="trigger" from="." to="AudioStreamPlayer" method="play_audio"]
