@@ -6,6 +6,7 @@ signal game_setup_ready
 @export var action_manager : Action_Manager
 @export var starting_action_ids : Array[String]
 @export var machine_factory : Machine_Factory
+@export var development_handler : Development_Handler
 @export var save_file_panel : Button
 @export var save_file_name : LineEdit
 var save_name : String
@@ -42,6 +43,7 @@ func save(new_save_name : String) -> bool:
 		for machine in machine_list:
 			machine_data[action_id].append(get_machine_data(machine))
 	archive["machines"] = machine_data
+	archive["developments"] = development_handler.compeleted_developments
 	Save_Handler_Single.write_save(archive)
 	return true
 
@@ -99,6 +101,8 @@ func load_save():
 	if(active_save.has("actions")):
 		for id in active_save["actions"]:
 			var saved_action = active_save["actions"][id]
+			if(!action_manager.full_action_list.has(id)):
+				action_manager.create_action(id)
 			var action = action_manager.full_action_list[id]
 			action.set_tags(saved_action["tags"])
 	if(active_save.has("machines")):
@@ -111,6 +115,9 @@ func load_save():
 					new_machine.load_timer(machine_config["remaining_time"])
 				if(machine_config.has("conditionals")):
 					new_machine.load_conditions(machine_config["conditionals"])
+	if(active_save.has("developments")):
+		var devs = active_save.developments
+		development_handler.set_completed_developments(devs)
 
 func autosave():
 	save(save_name)

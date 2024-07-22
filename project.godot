@@ -29,6 +29,8 @@ Objectives_Table_Single="*res://scripts/singletons/ObjectivesTable.gd"
 SettingsSignalBus="*res://scripts/singletons/SettingsSignalBus.gd"
 SettingsDataContainer="*res://scripts/singletons/SettingsDataContainer.gd"
 SaveManager="*res://scripts/singletons/SaveManager.gd"
+ObjectivesTextsSingle="*res://scripts/singletons/ObjectivesTexts.gd"
+AudioEffectControllerSingle="*res://scripts/singletons/AudioEffectController.gd"
 
 [display]
 

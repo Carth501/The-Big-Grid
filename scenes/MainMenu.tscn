@@ -81,7 +81,6 @@ layout_mode = 2
 text = "Options"
 
 [node name="Quit" type="Button" parent="Links/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 text = "Quit
 "

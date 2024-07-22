@@ -11,9 +11,9 @@ func build_machine(action : Action) -> Machine:
 	if(!machine_registry.has(action.id)):
 		machine_registry[action.id] = []
 	machine_registry[action.id].append(new_machine)
-	new_machine_built.emit(new_machine)
 	var new_name := str("machine #", machine_registry[action.id].size())
 	new_machine.set_name(new_name)
+	new_machine_built.emit(new_machine)
 	return new_machine
 
 func get_machines_by_id(id : String) -> Array:

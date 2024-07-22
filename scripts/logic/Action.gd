@@ -21,6 +21,7 @@ var translated_action_name : String
 var automation_hover := true
 var automation_focus := false
 var tags : Array[String] = []
+var audio : String
 
 func setup(package : Dictionary):
 	if(!package.has("id")):
@@ -42,6 +43,8 @@ func setup(package : Dictionary):
 		supplies[supply_id] = supply
 		supply.update_value.connect(process_availability)
 		supply.activate()
+	if(ActionsSingle.data[id].has("audio")):
+		audio = ActionsSingle.data[id].audio
 	process_availability()
 	string_data = ActionTranslatorSingle.data[id]
 	write_translation_text()
@@ -127,12 +130,12 @@ func gain_machine_purchase_focus():
 func calculate_machine_cost() -> Dictionary:
 	if(automation_cost == null || automation_cost == {}):
 		return {}
-	var count := machine_factory.get_machine_count_by_id(id) + 1
+	#var count := machine_factory.get_machine_count_by_id(id) + 1
 	var cost = automation_cost.duplicate(true)
-	for supply in cost:
-		var supply_deltas = cost[supply].deltas
-		for index in range(supply_deltas.size()):
-			supply_deltas[index] *= count
+	#for supply in cost:
+		#var supply_deltas = cost[supply].deltas
+		#for index in range(supply_deltas.size()):
+			#supply_deltas[index] *= count
 	return cost
 
 func add_tag(tag : String):

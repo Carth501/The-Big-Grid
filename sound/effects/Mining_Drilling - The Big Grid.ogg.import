@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://spu70ttwko4c"
+path="res://.godot/imported/Mining_Drilling - The Big Grid.ogg-ac11bf2c4a5620fe9695557663c729ce.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/effects/Mining_Drilling - The Big Grid.ogg"
+dest_files=["res://.godot/imported/Mining_Drilling - The Big Grid.ogg-ac11bf2c4a5620fe9695557663c729ce.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

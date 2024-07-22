@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=31 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -18,17 +18,26 @@
 [ext_resource type="AudioStream" uid="uid://nqca84fbhaxg" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Intermediate_.ogg" id="9_v5ac6"]
 [ext_resource type="Script" path="res://scripts/MusicSystem.gd" id="9_vk0jb"]
 [ext_resource type="AudioStream" uid="uid://dcdic5mi1gpr1" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg" id="10_agjpm"]
+[ext_resource type="Script" path="res://scripts/AutomationPanel.gd" id="11_3l4m0"]
 [ext_resource type="AudioStream" uid="uid://cdo74pgnqchtb" path="res://sound/music/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg" id="12_dwipf"]
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
+[ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
 [ext_resource type="Script" path="res://scenes/PauseMenu.gd" id="15_pb3et"]
+[ext_resource type="AudioStream" uid="uid://spu70ttwko4c" path="res://sound/effects/Mining_Drilling - The Big Grid.ogg" id="17_8qotj"]
+[ext_resource type="Script" path="res://scripts/display/feedback/SoundEffect.gd" id="18_m7ho0"]
+[ext_resource type="AudioStream" uid="uid://b2t72h31ipq2l" path="res://sound/effects/Bubbling - The Big Grid.ogg" id="19_pcg51"]
+[ext_resource type="AudioStream" uid="uid://hde6uekbq3c0" path="res://sound/effects/Button Press - The Big Grid.ogg" id="20_foqce"]
+[ext_resource type="AudioStream" uid="uid://dfpytqk3l8bgu" path="res://sound/effects/Crafting - The Big Grid.ogg" id="21_p2o5c"]
+[ext_resource type="AudioStream" uid="uid://ka1de74am3ri" path="res://sound/effects/Cutting - The Big Grid.ogg" id="22_2sucg"]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "save_file_panel", "save_file_name")]
+[node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "save_file_panel", "save_file_name")]
 script = ExtResource("1_kvsp4")
 supply_collection = NodePath("Logic/SupplyCollection")
 action_manager = NodePath("Logic/ActionManager")
 starting_action_ids = Array[String](["generate_electricity", "pump_water", "burn_coal", "extract_coal", "extract_hematite", "extract_magnitite", "extract_bornite", "extract_bauxite", "extract_native_gold", "refine_hematite", "refine_bornite", "refine_bauxite", "refine_gold"])
 machine_factory = NodePath("Logic/MachineFactory")
+development_handler = NodePath("Logic/DevelopmentHandler")
 save_file_panel = NodePath("Display/SaveFilePanel")
 save_file_name = NodePath("Display/SaveFilePanel/Panel/TextEdit")
 
@@ -42,9 +51,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="MiddleSplit" type="HSplitContainer" parent="Display"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 split_offset = 600
@@ -227,12 +237,17 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 action_manager = NodePath("../../../../../../../Logic/ActionManager")
 
-[node name="DevBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit"]
+[node name="TabContainer" type="TabContainer" parent="Display/MiddleSplit/RightSplit"]
+layout_mode = 2
+current_tab = 1
+
+[node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer"]
+visible = false
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
-[node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/DevBackground"]
+[node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,7 +256,7 @@ grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments/DevScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 8
@@ -249,10 +264,30 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/DevBackground/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
 layout_mode = 2
 script = ExtResource("4_p32ci")
-development_handler = NodePath("../../../../../../../Logic/DevelopmentHandler")
+development_handler = NodePath("../../../../../../../../Logic/DevelopmentHandler")
+
+[node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer" node_paths=PackedStringArray("machine_container", "machine_factory")]
+layout_mode = 2
+color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+script = ExtResource("11_3l4m0")
+machine_container = NodePath("ScrollContainer/HFlowContainer")
+machine_factory = NodePath("../../../../../Logic/MachineFactory")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="SaveFilePanel" type="Button" parent="Display"]
 visible = false
@@ -303,6 +338,53 @@ offset_bottom = 84.0
 text = "Save
 "
 
+[node name="Panel" type="Panel" parent="Display"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Display/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Pause"
+
+[node name="CurrentObjectiveLine" type="Control" parent="Display/Panel" node_paths=PackedStringArray("objective_text")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_3ikv4")
+objective_text = NodePath("ObjectiveText")
+
+[node name="Label" type="Label" parent="Display/Panel/CurrentObjectiveLine"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 151.0
+offset_bottom = 27.0
+text = "Current Objective: "
+
+[node name="ObjectiveText" type="Label" parent="Display/Panel/CurrentObjectiveLine"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 4.0
+offset_right = 977.0
+offset_bottom = 27.0
+text_overrun_behavior = 3
+
 [node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players")]
 process_mode = 3
 script = ExtResource("9_vk0jb")
@@ -323,10 +405,44 @@ bus = &"Music"
 [node name="WorkersDelight" type="AudioStreamPlayer" parent="Display/MusicSystem"]
 stream = ExtResource("12_dwipf")
 
+[node name="SoundEffects" type="Node" parent="Display"]
+
+[node name="Mining" type="AudioStreamPlayer" parent="Display/SoundEffects"]
+stream = ExtResource("17_8qotj")
+bus = &"Effects"
+script = ExtResource("18_m7ho0")
+id = "mining"
+
+[node name="Bubbling" type="AudioStreamPlayer" parent="Display/SoundEffects"]
+stream = ExtResource("19_pcg51")
+bus = &"Effects"
+script = ExtResource("18_m7ho0")
+id = "bubbling"
+
+[node name="Sound_Effect" type="AudioStreamPlayer" parent="Display/SoundEffects"]
+stream = ExtResource("20_foqce")
+max_polyphony = 2
+bus = &"Effects"
+script = ExtResource("18_m7ho0")
+id = "button_press"
+
+[node name="Crafting" type="AudioStreamPlayer" parent="Display/SoundEffects"]
+stream = ExtResource("21_p2o5c")
+bus = &"Effects"
+script = ExtResource("18_m7ho0")
+id = "crafting"
+
+[node name="Cutting" type="AudioStreamPlayer" parent="Display/SoundEffects"]
+stream = ExtResource("22_2sucg")
+bus = &"Effects"
+script = ExtResource("18_m7ho0")
+id = "cutting"
+
 [node name="Logic" type="Node" parent="."]
 
-[node name="MachineFactory" type="Node" parent="Logic"]
+[node name="MachineFactory" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection")]
 script = ExtResource("4_e1gh5")
+supply_collection = NodePath("../SupplyCollection")
 
 [node name="SupplyCollection" type="Node" parent="Logic" node_paths=PackedStringArray("filter_foreman")]
 script = ExtResource("5_vwwhk")
@@ -404,38 +520,6 @@ text = "Resume"
 layout_mode = 2
 text = "Quit"
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -177.0
-offset_top = -40.0
-offset_right = -4.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -174.0
-offset_top = -40.0
-offset_right = -35.0
-offset_bottom = -8.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(1.27, 1.283)
-
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
-layout_mode = 2
-text = "Pause"
-
 [connection signal="dragged" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_resized"]
 [connection signal="resized" from="Display/MiddleSplit/SupplyBackground" to="Display/MiddleSplit/SupplyBackground" method="_on_resized"]
@@ -451,11 +535,13 @@ text = "Pause"
 [connection signal="text_changed" from="Display/SaveFilePanel/Panel/TextEdit" to="." method="change_save_name"]
 [connection signal="pressed" from="Display/SaveFilePanel/Panel/Cancel" to="." method="toggle_save_file_panel"]
 [connection signal="pressed" from="Display/SaveFilePanel/Panel/Save" to="." method="save_as"]
+[connection signal="pressed" from="Display/Panel/Button" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIndustrial" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIntermediate" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceOrchestral" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/WorkersDelight" to="Display/MusicSystem" method="next_track"]
 [connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" method="add_new_machine"]
+[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/TabContainer/Machines" method="add_machine_editor"]
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="open_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_supply_menu"]
 [connection signal="action_search_filter" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="filter_actions"]
@@ -463,7 +549,7 @@ text = "Pause"
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
+[connection signal="newStepDescription" from="Logic/ObjectiveSystem" to="Display/Panel/CurrentObjectiveLine" method="update_objective"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit" to="PauseMenu" method="_quitGame"]
-[connection signal="pressed" from="Control/VBoxContainer/Button" to="PauseMenu" method="pause_or_unpause"]
