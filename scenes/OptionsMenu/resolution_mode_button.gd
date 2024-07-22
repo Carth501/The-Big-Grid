@@ -19,4 +19,5 @@ func add_resolution_items() -> void:
 		option_button.add_item(resolution_size_text)
 
 func on_resolution_selected(index: int) -> void:
+	SettingsSignalBus.emit_on_resolution_selected(index)
 	DisplayServer.window_set_size(RESOLUTION_DICTIONARY.values()[index])
