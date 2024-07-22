@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://hde6uekbq3c0"
+path="res://.godot/imported/Button Press - The Big Grid.ogg-d601999642727189bf7f682eae78398e.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/effects/Button Press - The Big Grid.ogg"
+dest_files=["res://.godot/imported/Button Press - The Big Grid.ogg-d601999642727189bf7f682eae78398e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
