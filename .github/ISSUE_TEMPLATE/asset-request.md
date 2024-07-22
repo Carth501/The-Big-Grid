@@ -2,7 +2,7 @@
 name: Asset request
 about: Suggest an art asset to be designed for this project
 title: ''
-labels: art
+labels: art, enhancement
 assignees: ''
 
 ---
