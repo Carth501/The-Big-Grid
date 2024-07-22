@@ -10,6 +10,11 @@ signal on_music_sound_set(value : float)
 
 signal set_settings_dictionary(setting_dict: Dictionary)
 
+signal load_settings_data(setting_dict : Dictionary)
+
+func emit_load_settings_data(setting_dict : Dictionary):
+	load_settings_data.emit(setting_dict)
+
 func emit_set_settings_dictionary(settings_dict : Dictionary) -> void:
 	set_settings_dictionary.emit(settings_dict)
 
