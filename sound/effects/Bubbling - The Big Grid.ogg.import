@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b2t72h31ipq2l"
+path="res://.godot/imported/Bubbling - The Big Grid.ogg-0ca9c9cc280691f4d979c913e12dcd0b.oggvorbisstr"
+
+[deps]
+
+source_file="res://sound/effects/Bubbling - The Big Grid.ogg"
+dest_files=["res://.godot/imported/Bubbling - The Big Grid.ogg-0ca9c9cc280691f4d979c913e12dcd0b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
