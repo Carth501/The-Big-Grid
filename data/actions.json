@@ -167,7 +167,8 @@
 			"iron_ingot": {
 				"deltas": [-20]
 			}
-		}
+		},
+		"audio": "crafting"
 	},
 	"refine_magnitite": {
 		"changes":{
@@ -188,7 +189,8 @@
 			"iron_ingot": {
 				"deltas": [-14]
 			}
-		}
+		},
+		"audio": "crafting"
 	},
 	"refine_bornite": {
 		"changes":{
@@ -212,7 +214,8 @@
 			"iron_ingot": {
 				"deltas": [-14]
 			}
-		}
+		},
+		"audio": "crafting"
 	},
 	"refine_bauxite": {
 		"changes":{
@@ -230,7 +233,8 @@
 			"iron_ingot": {
 				"deltas": [-8]
 			}
-		}
+		},
+		"audio": "crafting"
 	},
 	"refine_gold": {
 		"changes":{
@@ -251,6 +255,7 @@
 			"iron_ingot": {
 				"deltas": [-30]
 			}
-		}
+		},
+		"audio": "crafting"
 	}
 }
