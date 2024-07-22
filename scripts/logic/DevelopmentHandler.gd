@@ -5,6 +5,7 @@ class_name Development_Handler extends Node
 @export var filter_foreman : Filter_Foreman
 var full_development_catalog : Dictionary
 @export var developments_enabled := true
+var compeleted_developments : Array
 
 func _ready():
 	if(developments_enabled):
@@ -25,3 +26,9 @@ func attempt_development(id : String):
 		if(candidate.action_unlocks != null):
 			for action_id in candidate.action_unlocks:
 				action_manager.create_action(action_id)
+		compeleted_developments.append(candidate.id)
+
+func set_completed_developments(previous_devs : Array):
+	compeleted_developments = previous_devs
+	for dev in compeleted_developments:
+		full_development_catalog[dev].set_complete()
