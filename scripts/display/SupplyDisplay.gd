@@ -37,7 +37,8 @@ options_overseer : Options_Overseer):
 		supply_warning.add_text(warning_text)
 
 func set_icon_display():
-	supply_icon_display.set_image_by_path(supply.supply_icon_path)
+	if(supply.supply_icon_path != null && supply.supply_icon_path != ""):
+		supply_icon_display.set_image_by_path(supply.supply_icon_path)
 	supply_icon_display.set_supply_name(supply.get_translation())
 
 func set_value_display(value : float):

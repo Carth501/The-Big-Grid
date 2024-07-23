@@ -145,5 +145,16 @@
 			}
 		},
 		"icon_path": "res://textures/Supply_Icons/Gold Ingot.svg"
+	},
+	"empty_icon_test": {
+		"default_max": 7,
+		"max_increase_increment": 2,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-2
+				]
+			}
+		}
 	}
 }
