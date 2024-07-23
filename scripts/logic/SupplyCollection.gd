@@ -10,6 +10,7 @@ var selection_mode := false
 
 func _ready():
 	Logic_Directory_Single.index_object("Supply_Collection", self)
+	tree_exiting.connect(delist)
 
 func get_supply(id: String) -> Supply:
 	if(!supplies.has(id)):
@@ -91,3 +92,6 @@ func get_all_supply_ids() -> Array[String]:
 	for id in supplies:
 		supply_ids.append(id)
 	return supply_ids
+
+func delist():
+	Logic_Directory_Single.directory.erase("Supply_Collection")

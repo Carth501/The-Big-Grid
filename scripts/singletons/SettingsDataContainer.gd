@@ -49,7 +49,6 @@ func on_settings_save() -> void:
 	
 	
 func load_settings_data() -> void:
-	var settings_data = {}
 	var config = ConfigFile.new()
 
 	var err = config.load("user://settings.cfg")
