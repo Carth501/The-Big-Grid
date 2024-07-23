@@ -14,4 +14,5 @@
 	"refine_bauxite": {"name": "Refine Aluminum"},
 	"refine_gold": {"name": "Refine Gold"},
 	"trade_A_and_B_for_C": {"name": "Trade %s and %s for %s", "supplies": ["A", "B", "C"]},
+	"test_supply_without_icon": {"name": "Test without Icon", "supplies": []}
 }

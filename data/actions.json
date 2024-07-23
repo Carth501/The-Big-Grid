@@ -257,5 +257,12 @@
 			}
 		},
 		"audio": "crafting"
+	},
+	"test_supply_without_icon": {
+		"changes":{
+			"empty_icon_test":{
+				"deltas": [0]
+			},
+		}
 	}
 }
