@@ -9,7 +9,7 @@ var future_objectives := []
 func _ready():
 	if(!game_controller.is_node_ready()):
 		await game_controller.ready
-	future_objectives = Objectives_Table_Single.data["test"]
+	future_objectives = Objectives_Table_Single.data["test"].duplicate()
 	next()
 
 func next():
