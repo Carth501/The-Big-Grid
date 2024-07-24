@@ -38,7 +38,6 @@ options_overseer : Options_Overseer):
 		var warning_text = str("This resource degrades ", warning_num, "%.")
 		supply_warning.add_text(warning_text)
 	visible = revealed
-	
 
 func set_icon_display():
 	if(supply.supply_icon_path != null && supply.supply_icon_path != ""):
