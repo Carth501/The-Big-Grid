@@ -200,9 +200,9 @@
 			}
 		},
 		"automation_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
-					-79
+					-15
 				]
 			}
 		},

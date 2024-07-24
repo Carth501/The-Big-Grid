@@ -1,267 +1,267 @@
 {
-    "learn_to_refine_hematite": {
-        "label": {
-            "text": "Enable %s Smelting",
-            "supplies": [
-                "hematite"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to smelt %s from %s.",
-            "supplies": [
-                "iron_ingot",
-                "hematite"
-            ]
-        }
-    },
-    "learn_to_extract_magnitite": {
-        "label": {
-            "text": "Enable %s Extraction",
-            "supplies": [
-                "magnitite"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to mine %s.",
-            "supplies": [
-                "magnitite"
-            ]
-        }
-    },
-    "learn_to_refine_magnitite": {
-        "label": {
-            "text": "Enable %s smelting",
-            "supplies": [
-                "magnitite"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to smelt %s from %s.",
-            "supplies": [
-                "iron_ingot",
-                "magnitite"
-            ]
-        }
-    },
-    "learn_to_extract_bornite": {
-        "label": {
-            "text": "Enable %s Extraction",
-            "supplies": [
-                "bornite"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to mine %s.",
-            "supplies": [
-                "bornite"
-            ]
-        }
-    },
-    "learn_to_extract_bauxite": {
-        "label": {
-            "text": "Enable %s Extraction",
-            "supplies": [
-                "bauxite"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to mine %s.",
-            "supplies": [
-                "bauxite"
-            ]
-        }
-    },
-    "learn_to_smelt_steel": {
-        "label": {
-            "text": "Enable %s smelting",
-            "supplies": [
-                "steel"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to smelt %s.",
-            "supplies": [
-                "steel"
-            ]
-        }
-    },
-    "learn_to_refine_bornite": {
-        "label": {
-            "text": "Enable %s smelting",
-            "supplies": [
-                "bornite"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to smelt %s from %s.",
-            "supplies": [
-                "copper_ingot",
-                "bornite"
-            ]
-        }
-    },
-    "learn_to_refine_bauxite": {
-        "label": {
-            "text": "Enable %s smelting",
-            "supplies": [
-                "bauxite"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to smelt %s from %s.",
-            "supplies": [
-                "aluminum_ingot",
-                "bauxite"
-            ]
-        }
-    },
-    "learn_to_extract_native_gold": {
-        "label": {
-            "text": "Enable %s mining",
-            "supplies": [
-                "native_gold"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to mine %s.",
-            "supplies": [
-                "native_gold"
-            ]
-        }
-    },
-    "learn_to_refine_gold": {
-        "label": {
-            "text": "Enable %s smelting",
-            "supplies": [
-                "native_gold"
-            ]
-        },
-        "description": {
-            "text": "Unlock action to smelt %s from %s.",
-            "supplies": [
-                "gold_ingot",
-                "native_gold"
-            ]
-        }
-    },
-    "learn_to_desalinate": {
-        "label": {
-            "text": "Enable Water Desalination",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to split salt from water.",
-            "supplies": []
-        }
-    },
-    "learn_to_bless_water": {
-        "label": {
-            "text": "Enable Water Blessing",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to create Holy Water.",
-            "supplies": []
-        }
-    },
-    "learn_to_create_divine_dust": {
-        "label": {
-            "text": "Enable Mixing Divine Dust",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to mix Divine Dust.",
-            "supplies": []
-        }
-    },
-    "learn_to_sanctify_gold": {
-        "label": {
-            "text": "Enable Gold Sanctification",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to Sanctify Gold.",
-            "supplies": []
-        }
-    },
-    "learn_to_mix_starsand": {
-        "label": {
-            "text": "Enable Mixing Starsand",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to bring the attention of something distant to this sand.",
-            "supplies": []
-        }
-    },
-    "learn_to_smelt_starglass": {
-        "label": {
-            "text": "Enable Starglass Smelting",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to smelt a beautiful glass with bizarre properties.",
-            "supplies": []
-        }
-    },
-    "learn_to_smelt_hellsteel": {
-        "label": {
-            "text": "Enable Hellsteel Smelting",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to smelt an infernal iron bar.",
-            "supplies": []
-        }
-    },
-    "learn_to_smelt_profane_ingot": {
-        "label": {
-            "text": "Enable Profane Ingot Smelting",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to smelt an truely evil bar. Is this a good idea?",
-            "supplies": []
-        }
-    },
-    "learn_to_mix_pure_and_heavy": {
-        "label": {
-            "text": "Enable Mixing Pure and Heavy Dusts",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to create seperate piles of Pure and Heavy Dusts.",
-            "supplies": []
-        }
-    },
-    "learn_to_mix_corrupted_dust": {
-        "label": {
-            "text": "Enable Mixing Corrupted Dust",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to turn divinity for nefarious purposes.",
-            "supplies": []
-        }
-    },
-    "learn_to_mix_ascendant_dust": {
-        "label": {
-            "text": "Enable Mixing Ascendant Dust",
-            "supplies": []
-        },
-        "description": {
-            "text": "Unlock action to mix Ascendant Dust, which seems to violate physics in new ways.",
-            "supplies": []
-        }
-    },
-    "learn_to_mix_arcane_dust": {
-        "label": {
-            "text": "Enable Mixing Arcane Dust",
-            "supplies": []
-        },
-        "description": {
-            "text": "Make a dust to manipulate reality, if you know how to manipulate it.",
-            "supplies": []
-        }
-    }
+	"learn_to_refine_hematite": {
+		"label": {
+			"text": "Enable %s Smelting",
+			"supplies": [
+				"hematite"
+			]
+		},
+		"description": {
+			"text": "Unlock action to smelt %s from %s.",
+			"supplies": [
+				"iron_ingot",
+				"hematite"
+			]
+		}
+	},
+	"learn_to_extract_magnitite": {
+		"label": {
+			"text": "Enable %s Extraction",
+			"supplies": [
+				"magnitite"
+			]
+		},
+		"description": {
+			"text": "Unlock action to mine %s.",
+			"supplies": [
+				"magnitite"
+			]
+		}
+	},
+	"learn_to_refine_magnitite": {
+		"label": {
+			"text": "Enable %s smelting",
+			"supplies": [
+				"magnitite"
+			]
+		},
+		"description": {
+			"text": "Unlock action to smelt %s from %s.",
+			"supplies": [
+				"iron_ingot",
+				"magnitite"
+			]
+		}
+	},
+	"learn_to_extract_bornite": {
+		"label": {
+			"text": "Enable %s Extraction",
+			"supplies": [
+				"bornite"
+			]
+		},
+		"description": {
+			"text": "Unlock action to mine %s.",
+			"supplies": [
+				"bornite"
+			]
+		}
+	},
+	"learn_to_extract_bauxite": {
+		"label": {
+			"text": "Enable %s Extraction",
+			"supplies": [
+				"bauxite"
+			]
+		},
+		"description": {
+			"text": "Unlock action to mine %s.",
+			"supplies": [
+				"bauxite"
+			]
+		}
+	},
+	"learn_to_smelt_steel": {
+		"label": {
+			"text": "Enable %s smelting",
+			"supplies": [
+				"steel"
+			]
+		},
+		"description": {
+			"text": "Unlock action to smelt %s.",
+			"supplies": [
+				"steel"
+			]
+		}
+	},
+	"learn_to_refine_bornite": {
+		"label": {
+			"text": "Enable %s smelting",
+			"supplies": [
+				"bornite"
+			]
+		},
+		"description": {
+			"text": "Unlock action to smelt %s from %s.",
+			"supplies": [
+				"copper_ingot",
+				"bornite"
+			]
+		}
+	},
+	"learn_to_refine_bauxite": {
+		"label": {
+			"text": "Enable %s smelting",
+			"supplies": [
+				"bauxite"
+			]
+		},
+		"description": {
+			"text": "Unlock action to smelt %s from %s.",
+			"supplies": [
+				"aluminum_ingot",
+				"bauxite"
+			]
+		}
+	},
+	"learn_to_extract_native_gold": {
+		"label": {
+			"text": "Enable %s mining",
+			"supplies": [
+				"native_gold"
+			]
+		},
+		"description": {
+			"text": "Unlock action to mine %s.",
+			"supplies": [
+				"native_gold"
+			]
+		}
+	},
+	"learn_to_refine_gold": {
+		"label": {
+			"text": "Enable %s smelting",
+			"supplies": [
+				"native_gold"
+			]
+		},
+		"description": {
+			"text": "Unlock action to smelt %s from %s.",
+			"supplies": [
+				"gold_ingot",
+				"native_gold"
+			]
+		}
+	},
+	"learn_to_desalinate": {
+		"label": {
+			"text": "Enable Water Desalination",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to split salt from water.",
+			"supplies": []
+		}
+	},
+	"learn_to_bless_water": {
+		"label": {
+			"text": "Enable Water Blessing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to create Holy Water.",
+			"supplies": []
+		}
+	},
+	"learn_to_create_divine_dust": {
+		"label": {
+			"text": "Enable Mixing Divine Dust",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to mix Divine Dust.",
+			"supplies": []
+		}
+	},
+	"learn_to_sanctify_gold": {
+		"label": {
+			"text": "Enable Gold Sanctification",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to Sanctify Gold.",
+			"supplies": []
+		}
+	},
+	"learn_to_mix_starsand": {
+		"label": {
+			"text": "Enable Mixing Starsand",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to bring the attention of something distant to this sand.",
+			"supplies": []
+		}
+	},
+	"learn_to_smelt_starglass": {
+		"label": {
+			"text": "Enable Starglass Smelting",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to smelt a beautiful glass with bizarre properties.",
+			"supplies": []
+		}
+	},
+	"learn_to_smelt_hellsteel": {
+		"label": {
+			"text": "Enable Hellsteel Smelting",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to smelt an infernal iron bar.",
+			"supplies": []
+		}
+	},
+	"learn_to_smelt_profane_ingot": {
+		"label": {
+			"text": "Enable Profane Ingot Smelting",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to smelt an truely evil bar. Is this a good idea?",
+			"supplies": []
+		}
+	},
+	"learn_to_mix_pure_and_heavy": {
+		"label": {
+			"text": "Enable Mixing Pure and Heavy Dusts",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to create seperate piles of Pure and Heavy Dusts.",
+			"supplies": []
+		}
+	},
+	"learn_to_mix_corrupted_dust": {
+		"label": {
+			"text": "Enable Mixing Corrupted Dust",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to turn divinity for nefarious purposes.",
+			"supplies": []
+		}
+	},
+	"learn_to_mix_ascendant_dust": {
+		"label": {
+			"text": "Enable Mixing Ascendant Dust",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to mix Ascendant Dust, which seems to violate physics in new ways.",
+			"supplies": []
+		}
+	},
+	"learn_to_mix_arcane_dust": {
+		"label": {
+			"text": "Enable Mixing Arcane Dust",
+			"supplies": []
+		},
+		"description": {
+			"text": "Make a dust to manipulate reality, if you know how to manipulate it.",
+			"supplies": []
+		}
+	}
 }
