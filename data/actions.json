@@ -1,268 +1,794 @@
 {
 	"generate_electricity": {
 		"changes": {
-			"electricity":{
-				"deltas": [1]
+			"electricity": {
+				"deltas": [
+					1
+				]
 			}
 		}
 	},
 	"burn_coal": {
 		"changes": {
-			"coal":{
-				"deltas": [-2]
+			"coal": {
+				"deltas": [
+					-2
+				]
 			},
-			"water":{
-				"deltas": [-4]
+			"water": {
+				"deltas": [
+					-4
+				]
 			},
 			"electricity": {
-				"deltas": [9]
+				"deltas": [
+					9
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-10]
+				"deltas": [
+					-10
+				]
 			},
 			"copper_ingot": {
-				"deltas": [-2]
+				"deltas": [
+					-2
+				]
 			}
 		}
 	},
 	"pump_water": {
 		"changes": {
-			"water":{
-				"deltas": [4]
+			"water": {
+				"deltas": [
+					4
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-10]
+				"deltas": [
+					-10
+				]
 			}
 		},
 		"audio": "bubbling"
 	},
 	"extract_coal": {
 		"changes": {
-			"coal":{
-				"deltas": [1]
+			"coal": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-10]
+				"deltas": [
+					-10
+				]
 			}
 		},
 		"audio": "mining"
 	},
 	"extract_hematite": {
-		"changes":{
-			"hematite":{
-				"deltas": [2]
+		"changes": {
+			"hematite": {
+				"deltas": [
+					2
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-15]
+				"deltas": [
+					-15
+				]
 			}
 		},
 		"audio": "mining"
 	},
 	"extract_magnitite": {
-		"changes":{
-			"magnitite":{
-				"deltas": [1]
+		"changes": {
+			"magnitite": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-2]
+			"electricity": {
+				"deltas": [
+					-2
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-6]
+				"deltas": [
+					-6
+				]
 			}
 		},
 		"audio": "mining"
 	},
 	"extract_bornite": {
-		"changes":{
-			"bornite":{
-				"deltas": [2]
+		"changes": {
+			"bornite": {
+				"deltas": [
+					2
+				]
 			},
-			"electricity":{
-				"deltas": [-2]
+			"electricity": {
+				"deltas": [
+					-2
+				]
 			},
-			"water":{
-				"deltas": [-1]
+			"water": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-8]
+				"deltas": [
+					-8
+				]
 			}
 		},
 		"audio": "mining"
 	},
 	"extract_bauxite": {
-		"changes":{
-			"bauxite":{
-				"deltas": [1]
+		"changes": {
+			"bauxite": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			},
-			"water":{
-				"deltas": [-2]
+			"water": {
+				"deltas": [
+					-2
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-12]
+				"deltas": [
+					-12
+				]
 			}
 		},
 		"audio": "mining"
 	},
 	"extract_native_gold": {
-		"changes":{
-			"native_gold":{
-				"deltas": [1]
+		"changes": {
+			"native_gold": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-8]
+			"electricity": {
+				"deltas": [
+					-8
+				]
 			},
-			"water":{
-				"deltas": [-30]
+			"water": {
+				"deltas": [
+					-30
+				]
 			}
 		},
 		"automation_cost": {
-			"iron_ingot": {
-				"deltas": [-79]
+			"steel": {
+				"deltas": [
+					-15
+				]
 			}
 		},
 		"audio": "mining"
 	},
 	"refine_hematite": {
-		"changes":{
-			"coal":{
-				"deltas": [-1]
+		"changes": {
+			"coal": {
+				"deltas": [
+					-1
+				]
 			},
-			"hematite":{
-				"deltas": [-3]
+			"hematite": {
+				"deltas": [
+					-3
+				]
 			},
-			"iron_ingot":{
-				"deltas": [1]
+			"iron_ingot": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-20]
+				"deltas": [
+					-20
+				]
 			}
 		},
 		"audio": "crafting"
 	},
 	"refine_magnitite": {
-		"changes":{
-			"coal":{
-				"deltas": [-2]
+		"changes": {
+			"coal": {
+				"deltas": [
+					-2
+				]
 			},
-			"magnitite":{
-				"deltas": [-2]
+			"magnitite": {
+				"deltas": [
+					-2
+				]
 			},
-			"iron_ingot":{
-				"deltas": [1]
+			"iron_ingot": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-14]
+				"deltas": [
+					-14
+				]
 			}
 		},
 		"audio": "crafting"
 	},
 	"refine_bornite": {
-		"changes":{
-			"coal":{
-				"deltas": [-2]
+		"changes": {
+			"coal": {
+				"deltas": [
+					-2
+				]
 			},
-			"bornite":{
-				"deltas": [-2]
+			"bornite": {
+				"deltas": [
+					-2
+				]
 			},
-			"copper_ingot":{
-				"deltas": [2]
+			"copper_ingot": {
+				"deltas": [
+					2
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			},
-			"water":{
-				"deltas": [-1]
+			"water": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-14]
+				"deltas": [
+					-14
+				]
 			}
 		},
 		"audio": "crafting"
 	},
 	"refine_bauxite": {
-		"changes":{
-			"bauxite":{
-				"deltas": [-1]
+		"changes": {
+			"bauxite": {
+				"deltas": [
+					-1
+				]
 			},
-			"aluminum_ingot":{
-				"deltas": [1]
+			"aluminum_ingot": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-1]
+			"electricity": {
+				"deltas": [
+					-1
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-8]
+				"deltas": [
+					-8
+				]
 			}
 		},
 		"audio": "crafting"
 	},
 	"refine_gold": {
-		"changes":{
-			"coal":{
-				"deltas": [-8]
+		"changes": {
+			"coal": {
+				"deltas": [
+					-8
+				]
 			},
-			"native_gold":{
-				"deltas": [-10]
+			"native_gold": {
+				"deltas": [
+					-10
+				]
 			},
-			"gold_ingot":{
-				"deltas": [1]
+			"gold_ingot": {
+				"deltas": [
+					1
+				]
 			},
-			"electricity":{
-				"deltas": [-5]
+			"electricity": {
+				"deltas": [
+					-5
+				]
 			}
 		},
 		"automation_cost": {
 			"iron_ingot": {
-				"deltas": [-30]
+				"deltas": [
+					-30
+				]
 			}
 		},
 		"audio": "crafting"
 	},
-	"test_supply_without_icon": {
-		"changes":{
-			"empty_icon_test":{
-				"deltas": [0]
+	"steel_smelting": {
+		"changes": {
+			"iron_ingot": {
+				"deltas": [
+					-1
+				]
 			},
-		}
+			"coal": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"desalination": {
+		"changes": {
+			"water": {
+				"deltas": [
+					-8
+				]
+			},
+			"purified_water": {
+				"deltas": [
+					2
+				]
+			},
+			"salt": {
+				"deltas": [
+					1
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"bless_water": {
+		"changes": {
+			"purified_water": {
+				"deltas": [
+					-1
+				]
+			},
+			"holy_water": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"divine_dust": {
+				"deltas": [
+					-2
+				]
+			},
+			"purified_water": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"gather_sand": {
+		"changes": {
+			"sand": {
+				"deltas": [
+					20
+				]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"create_divine_dust": {
+		"changes": {
+			"salt": {
+				"deltas": [
+					-1
+				]
+			},
+			"holy_water": {
+				"deltas": [
+					-1
+				]
+			},
+			"gold_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"divine_dust": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-2
+				]
+			},
+			"holy_water": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"sanctify_gold": {
+		"changes": {
+			"gold_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"sanctified_gold": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"holy_water": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"mix_starsand": {
+		"changes": {
+			"sanctified_gold": {
+				"deltas": [
+					-1
+				]
+			},
+			"sand": {
+				"deltas": [
+					-5
+				]
+			},
+			"starsand": {
+				"deltas": [
+					5
+				]
+			}
+		},
+		"automation_cost": {
+			"starglass": {
+				"deltas": [
+					-12
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"smelt_starglass": {
+		"changes": {
+			"starsand": {
+				"deltas": [
+					-1
+				]
+			},
+			"coal": {
+				"deltas": [
+					-1
+				]
+			},
+			"starglass": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-8
+				]
+			},
+			"pure_dust": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"smelt_hellsteel": {
+		"changes": {
+			"iron_ingot": {
+				"deltas": [
+					-3
+				]
+			},
+			"hellsteel": {
+				"deltas": [
+					1
+				]
+			},
+			"electricity": {
+				"deltas": [
+					2
+				]
+			}
+		},
+		"automation_cost": {
+			"corrupted_dust": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"smelt_profane_ingot": {
+		"changes": {
+			"hellsteel": {
+				"deltas": [
+					-3
+				]
+			},
+			"sand": {
+				"deltas": [
+					-2
+				]
+			},
+			"profane_ingot": {
+				"deltas": [
+					1
+				]
+			},
+			"starsand": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"corrupted_dust": {
+				"deltas": [
+					-2
+				]
+			},
+			"profane_ingot": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"mix_pure_and_heavy": {
+		"changes": {
+			"divine_dust": {
+				"deltas": [
+					-2
+				]
+			},
+			"sanctified_gold": {
+				"deltas": [
+					-2
+				]
+			},
+			"pure_dust": {
+				"deltas": [
+					1
+				]
+			},
+			"heavy_dust": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"ascendant_dust": {
+				"deltas": [
+					-4
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"mix_corrupted_dust": {
+		"changes": {
+			"divine_dust": {
+				"deltas": [
+					-1
+				]
+			},
+			"profane_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"corrupted_dust": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-4
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"mix_ascendant_dust": {
+		"changes": {
+			"profane_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"sanctified_gold": {
+				"deltas": [
+					-2
+				]
+			},
+			"ascendant_dust": {
+				"deltas": [
+					1
+				]
+			},
+			"starsand": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"galliantium": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"mix_arcane_dust": {
+		"changes": {
+			"starglass": {
+				"deltas": [
+					-2
+				]
+			},
+			"gilded_dust": {
+				"deltas": [
+					-1
+				]
+			},
+			"arcane_dust": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"pure_dust": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-1
+				]
+			},
+			"galliantium": {
+				"deltas": [
+					-1
+				]
+			},
+			"profane_ingot": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"audio": "crafting"
 	}
 }
