@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/display/SupplyWarning.gd" id="8_0ypd4"]
 
 [node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning")]
+visible = false
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 3
 anchors_preset = 0
