@@ -65,7 +65,10 @@ func get_machine_data(machine : Machine) -> Dictionary:
 			"comparator": conditional.comparator
 			})
 	return {
+		"name": machine.name,
 		"remaining_time": machine.timer.time_left,
+		"active": machine.get_running(),
+		"interval": machine.get_interval(),
 		"conditionals": conditional_data
 	}
 
@@ -115,6 +118,12 @@ func load_save():
 					new_machine.load_timer(machine_config["remaining_time"])
 				if(machine_config.has("conditionals")):
 					new_machine.load_conditions(machine_config["conditionals"])
+				if(machine_config.has("name")):
+					new_machine.set_machine_name(machine_config["name"])
+				if(machine_config.has("active")):
+					new_machine.set_running(machine_config["active"])
+				if(machine_config.has("interval")):
+					new_machine.set_interval(machine_config["interval"])
 	if(active_save.has("developments")):
 		var devs = active_save.developments
 		development_handler.set_completed_developments(devs)
