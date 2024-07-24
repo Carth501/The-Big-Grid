@@ -99,7 +99,7 @@ func load_save():
 	if(active_save.has("supplies")):
 		for id in active_save["supplies"]:
 			var saved_supply = active_save["supplies"][id]
-			var supply = supply_collection.get_supply(id)
+			var supply = supply_collection.get_or_create_supply(id)
 			supply.load_values(saved_supply)
 	if(active_save.has("actions")):
 		for id in active_save["actions"]:
