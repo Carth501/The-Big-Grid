@@ -103,7 +103,8 @@ func calculate_upgrade_cost() -> Dictionary:
 	for supply in cost:
 		var supply_deltas = cost[supply].deltas
 		for index in range(supply_deltas.size()):
-			supply_deltas[index] *= count
+			var new_cost = supply_deltas[index] * sqrt(count)
+			supply_deltas[index] = floori(new_cost)
 	return cost
 
 func set_upgrade_hover():
