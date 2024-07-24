@@ -10,6 +10,7 @@ class_name Supply_Display extends Control
 @export var objective_star : Objective_Star
 @export var supply_warning : Supply_Warning
 var supply : Supply
+var revealed := false
 var showing := true
 var static_position := true
 
@@ -17,6 +18,7 @@ func setup(id : String,
 supply_collection : Supply_Collection, 
 options_overseer : Options_Overseer):
 	supply = supply_collection.get_supply(id)
+	supply.reveal_this.connect(reveal)
 	value_label.text = center(str("%.1f" % supply.value)) 
 	supply.update_value.connect(set_value_display)
 	supply.new_delta.connect(add_new_delta)
@@ -35,6 +37,8 @@ options_overseer : Options_Overseer):
 		var warning_num = (1.0 - supply.degrade) * 100
 		var warning_text = str("This resource degrades ", warning_num, "%.")
 		supply_warning.add_text(warning_text)
+	visible = revealed
+	
 
 func set_icon_display():
 	if(supply.supply_icon_path != null && supply.supply_icon_path != ""):
@@ -65,8 +69,19 @@ func center(text : String) -> String:
 func set_active():
 	supply_curtain.visible = false
 
+func reveal():
+	revealed = true;
+	if(static_position):
+		visible = true
+		supply_button.visible = showing
+	else:
+		visible = showing
+		supply_button.visible = true
+
 func show_supply(setting : bool):
 	showing = setting
+	if(!revealed):
+		return
 	if(static_position):
 		supply_button.visible = showing
 	else:
@@ -74,6 +89,8 @@ func show_supply(setting : bool):
 
 func set_static_position(setting : bool):
 	static_position = setting
+	if(!revealed):
+		return
 	if(!showing):
 		if(static_position):
 			visible = true

@@ -7,6 +7,9 @@ var complete := false
 @export var description_popup : PanelContainer
 @export var description : Label
 
+func _ready() -> void:
+	visible = false
+
 func set_id(new_id : String):
 	id = new_id
 
@@ -17,6 +20,7 @@ func connect_to_logic(dev : Development):
 	set_enabled(dev.available)
 	set_strings(dev.translated_strings)
 	dev.update_translations.connect(set_strings)
+	dev.reveal.connect(reveal)
 	development = dev
 
 func set_strings(new_strings : Dictionary):
@@ -56,3 +60,7 @@ func gain_focus():
 
 func lose_focus():
 	development.lose_focus()
+
+func reveal():
+	if(!complete):
+		visible = true

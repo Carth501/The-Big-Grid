@@ -3,6 +3,7 @@ class_name Action_Manager extends Node
 signal open_menu(action : Action)
 signal new_action(id : String)
 signal action_search_filter(Array)
+signal reveal_supply(String)
 
 @export var supply_collection : Supply_Collection
 @export var filter_foreman : Filter_Foreman
@@ -22,6 +23,9 @@ func create_action(id : String):
 	new_action_logic.set_filter_foreman(filter_foreman)
 	new_action.emit(id)
 	new_action_logic.open_menu.connect(open_action_menu)
+	var changes = ActionsSingle.data[id].changes
+	for change in changes:
+		reveal_supply.emit(change)
 
 func open_action_menu(id : String):
 	open_menu.emit(full_action_list[id])

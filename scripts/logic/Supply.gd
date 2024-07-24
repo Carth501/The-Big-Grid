@@ -10,6 +10,7 @@ signal set_obj(Array)
 signal unset_obj()
 signal tag_added(String)
 signal tag_removed(String)
+signal reveal_this()
 
 var id := ""
 var value := 0.0
@@ -26,6 +27,7 @@ var supply_icon_path : String
 var upgrade_hover := true
 var upgrade_focus := false
 var tags : Array[String] = []
+var revealed := false
 
 func set_id(new_id : String):
 	id = new_id
@@ -163,3 +165,7 @@ func remove_tag(tag : String):
 func set_tags(new_tags : Array):
 	for tag in new_tags:
 		add_tag(tag)
+
+func reveal():
+	revealed = true
+	reveal_this.emit()

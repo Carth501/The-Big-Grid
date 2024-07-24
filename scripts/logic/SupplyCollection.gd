@@ -95,3 +95,7 @@ func get_all_supply_ids() -> Array[String]:
 
 func delist():
 	Logic_Directory_Single.directory.erase("Supply_Collection")
+
+func reveal_supply(id : String):
+	if(supplies.has(id)):
+		supplies[id].reveal()
