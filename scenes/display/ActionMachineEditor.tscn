@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/display/ActionMachineEditor.gd" id="1_x85dw"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_nmtv4"]
 
-[node name="ActionMachineEditor" type="Control" node_paths=PackedStringArray("name_field", "op_rate_field", "condition_list_container")]
+[node name="ActionMachineEditor" type="Control" node_paths=PackedStringArray("name_field", "op_rate_field", "active_switch", "condition_list_container")]
 custom_minimum_size = Vector2(232, 116)
 layout_mode = 3
 anchors_preset = 0
@@ -13,6 +13,7 @@ size_flags_vertical = 3
 script = ExtResource("1_x85dw")
 name_field = NodePath("Panel/VFlowContainer/Header/LineEdit")
 op_rate_field = NodePath("Panel/VFlowContainer/IntervalControl/OperationRateField")
+active_switch = NodePath("Panel/VFlowContainer/ActiveSwitch/CheckButton")
 condition_list_container = NodePath("Panel/VFlowContainer/ConditionList")
 
 [node name="Panel" type="Panel" parent="."]
@@ -51,6 +52,7 @@ offset_left = 2.0
 offset_right = 197.0
 offset_bottom = 31.0
 placeholder_text = "Machine Name"
+max_length = 20
 
 [node name="ActiveSwitch" type="Control" parent="Panel/VFlowContainer"]
 custom_minimum_size = Vector2(0, 35)
@@ -104,7 +106,8 @@ text = "Add condition"
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[connection signal="text_changed" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
+[connection signal="focus_exited" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
+[connection signal="text_submitted" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
 [connection signal="toggled" from="Panel/VFlowContainer/ActiveSwitch/CheckButton" to="." method="set_running"]
 [connection signal="value_changed" from="Panel/VFlowContainer/IntervalControl/OperationRateField" to="." method="set_interval"]
 [connection signal="pressed" from="Panel/VFlowContainer/AddConditionButton" to="." method="request_additional_condition"]

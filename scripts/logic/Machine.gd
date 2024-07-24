@@ -1,6 +1,9 @@
 class_name Machine extends Node
 
 signal new_conditional(Conditional_Value)
+signal update_name(String)
+signal update_active(bool)
+signal update_interval(float)
 
 var action : Action
 var timer : Timer
@@ -32,15 +35,21 @@ func set_interval(interval : float):
 		push_warning("interval too short")
 	else:
 		timer.wait_time = interval
+		update_interval.emit(interval)
 
 func get_interval() -> float:
 	return timer.wait_time
+
+func set_machine_name(value : String):
+	name = value
+	update_name.emit(value)
 
 func set_running(setting : bool):
 	if(setting):
 		timer.set_paused(false)
 	else:
 		timer.set_paused(true)
+	update_active.emit(!timer.paused)
 
 func get_running() -> float:
 	return timer.is_stopped()
