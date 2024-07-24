@@ -31,6 +31,7 @@ func next():
 			supply.set_objective(active_objective[supply_id])
 			supply.update_value.connect(check_victory)
 			check_victory(0)
+			supply.reveal()
 
 func check_victory(_value):
 	if(check_conditions()):
