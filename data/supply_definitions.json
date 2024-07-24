@@ -3,7 +3,7 @@
 		"default_max": 40,
 		"max_increase_increment": 20,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"copper_ingot": {
 				"deltas": [
 					-10
 				]
@@ -16,7 +16,7 @@
 		"default_max": 40,
 		"max_increase_increment": 20,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-10
 				]
@@ -28,7 +28,7 @@
 		"default_max": 20,
 		"max_increase_increment": 10,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-10
 				]
@@ -40,7 +40,7 @@
 		"default_max": 8,
 		"max_increase_increment": 8,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-6
 				]
@@ -53,7 +53,7 @@
 		"default_max": 15,
 		"max_increase_increment": 5,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-9
 				]
@@ -65,7 +65,7 @@
 		"default_max": 10,
 		"max_increase_increment": 30,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-15
 				]
@@ -102,7 +102,7 @@
 		"default_max": 24,
 		"max_increase_increment": 10,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-8
 				]
@@ -114,7 +114,7 @@
 		"default_max": 40,
 		"max_increase_increment": 10,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-20
 				]
@@ -126,7 +126,7 @@
 		"default_max": 20,
 		"max_increase_increment": 30,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-12
 				]
@@ -138,7 +138,7 @@
 		"default_max": 5,
 		"max_increase_increment": 3,
 		"max_increase_base_cost": {
-			"iron_ingot": {
+			"steel": {
 				"deltas": [
 					-8
 				]
@@ -146,11 +146,247 @@
 		},
 		"icon_path": "res://textures/Supply_Icons/Gold Ingot.svg"
 	},
-	"empty_icon_test": {
-		"default_max": 7,
-		"max_increase_increment": 2,
+	"steel": {
+		"default_max": 10,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"steel": {
+				"deltas": [
+					-4
+				]
+			}
+		}
+	},
+	"sand": {
+		"default_max": 40,
+		"max_increase_increment": 10,
+		"max_increase_base_cost": {
+			"aluminum_ingot": {
+				"deltas": [
+					-4
+				]
+			},
+			"steel": {
+				"deltas": [
+					-2
+				]
+			}
+		}
+	},
+	"salt": {
+		"default_max": 40,
+		"max_increase_increment": 5,
+		"max_increase_base_cost": {
+			"steel": {
+				"deltas": [
+					-10
+				]
+			},
+			"aluminum_ingot": {
+				"deltas": [
+					-10
+				]
+			}
+		}
+	},
+	"purified_water": {
+		"default_max": 20,
+		"max_increase_increment": 10,
+		"max_increase_base_cost": {
+			"aluminum_ingot": {
+				"deltas": [
+					-10
+				]
+			}
+		}
+	},
+	"holy_water": {
+		"default_max": 10,
+		"max_increase_increment": 10,
 		"max_increase_base_cost": {
 			"iron_ingot": {
+				"deltas": [
+					-4
+				]
+			},
+			"sanctified_gold": {
+				"deltas": [
+					-1
+				]
+			}
+		}
+	},
+	"sanctified_gold": {
+		"default_max": 4,
+		"max_increase_increment": 2,
+		"max_increase_base_cost": {
+			"aluminum_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		}
+	},
+	"starsand": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"aluminum_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		}
+	},
+	"starglass": {
+		"default_max": 8,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"aluminum_ingot": {
+				"deltas": [
+					-3
+				]
+			}
+		}
+	},
+	"hellsteel": {
+		"default_max": 10,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"profane_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		}
+	},
+	"profane_ingot": {
+		"default_max": 10,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"profane_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		}
+	},
+	"divine_dust": {
+		"default_max": 10,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-4
+				]
+			},
+			"sanctified_gold": {
+				"deltas": [
+					-1
+				]
+			},
+			"holy_water": {
+				"deltas": [
+					-1
+				]
+			}
+		}
+	},
+	"pure_dust": {
+		"default_max": 10,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"galliantium": {
+				"deltas": [
+					-2
+				]
+			},
+			"starglass": {
+				"deltas": [
+					-2
+				]
+			},
+			"iron_ingot": {
+				"deltas": [
+					-2
+				]
+			}
+		}
+	},
+	"heavy_dust": {
+		"default_max": 10,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"galliantium": {
+				"deltas": [
+					-2
+				]
+			},
+			"starglass": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-2
+				]
+			}
+		}
+	},
+	"corrupted_dust": {
+		"default_max": 2,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"profane_ingot": {
+				"deltas": [
+					-2
+				]
+			}
+		}
+	},
+	"ascendant_dust": {
+		"default_max": 4,
+		"max_increase_increment": 1,
+		"max_increase_base_cost": {
+			"starglass": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-2
+				]
+			}
+		}
+	},
+	"arcane_dust": {
+		"default_max": 4,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"galliantium": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-4
+				]
+			}
+		}
+	},
+	"gilded_dust": {
+		"default_max": 2,
+		"max_increase_increment": 6,
+		"max_increase_base_cost": {
+			"galliantium": {
+				"deltas": [
+					-4
+				]
+			},
+			"steel": {
 				"deltas": [
 					-2
 				]

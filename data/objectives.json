@@ -1,17 +1,44 @@
 {
-	"test" : [
-		{
-			"stepId": "test1",
-			"native_gold": [
-				{"greater_than": {"const": 4}},
-			]
-		},
-		{
-			"stepId": "test2",
-			"iron_ingot": [
-				{"greater_than": {"const": 10}},
-				{"less_than": {"const": 20}},
-			]
-		}
-	]
+    "test": [
+        {
+            "stepId": "first_step",
+            "native_gold": [
+                {
+                    "greater_than": {
+                        "const": 4
+                    }
+                }
+            ]
+        },
+        {
+            "stepId": "make_hellsteel",
+            "hellsteel": [
+                {
+                    "greater_than": {
+                        "const": 1
+                    }
+                }
+            ]
+        },
+        {
+            "stepId": "make_galliantium",
+            "galliantium": [
+                {
+                    "greater_than": {
+                        "const": 0
+                    }
+                }
+            ]
+        },
+        {
+            "stepId": "make_arcane_dust",
+            "gilded_dust": [
+                {
+                    "greater_than": {
+                        "const": 0
+                    }
+                }
+            ]
+        }
+    ]
 }
