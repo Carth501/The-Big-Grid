@@ -10,6 +10,7 @@
 			}
 		},
 		"degrade": 0.98,
+		"default_index": 0,
 		"icon_path": "res://textures/Supply_Icons/Electricity.svg"
 	},
 	"water": {
@@ -22,6 +23,7 @@
 				]
 			}
 		},
+		"default_index": 1,
 		"icon_path": "res://textures/Supply_Icons/Water.svg"
 	},
 	"coal": {
@@ -34,6 +36,7 @@
 				]
 			}
 		},
+		"default_index": 2,
 		"icon_path": "res://textures/Supply_Icons/Coal.svg"
 	},
 	"hematite": {
@@ -46,6 +49,7 @@
 				]
 			}
 		},
+		"default_index": 3,
 		"icon_path": "res://textures/Supply_Icons/Hematite.svg"
 	},
 	"magnitite": {
@@ -59,6 +63,7 @@
 				]
 			}
 		},
+		"default_index": 4,
 		"icon_path": "res://textures/Supply_Icons/Magnitite.svg"
 	},
 	"bornite": {
@@ -71,6 +76,7 @@
 				]
 			}
 		},
+		"default_index": 5,
 		"icon_path": "res://textures/Supply_Icons/Bornite.svg"
 	},
 	"bauxite": {
@@ -83,6 +89,7 @@
 				]
 			}
 		},
+		"default_index": 6,
 		"icon_path": "res://textures/Supply_Icons/Bauxite.svg"
 	},
 	"native_gold": {
@@ -95,6 +102,7 @@
 				]
 			}
 		},
+		"default_index": 7,
 		"icon_path": "res://textures/Supply_Icons/Native Gold.svg"
 	},
 	"iron_ingot": {
@@ -108,6 +116,7 @@
 				]
 			}
 		},
+		"default_index": 8,
 		"icon_path": "res://textures/Supply_Icons/Iron Ingot.svg"
 	},
 	"copper_ingot": {
@@ -120,6 +129,7 @@
 				]
 			}
 		},
+		"default_index": 9,
 		"icon_path": "res://textures/Supply_Icons/Copper Ingot.svg"
 	},
 	"aluminum_ingot": {
@@ -132,6 +142,7 @@
 				]
 			}
 		},
+		"default_index": 10,
 		"icon_path": "res://textures/Supply_Icons/Aluminum Ingot.svg"
 	},
 	"gold_ingot": {
@@ -144,6 +155,7 @@
 				]
 			}
 		},
+		"default_index": 11,
 		"icon_path": "res://textures/Supply_Icons/Gold Ingot.svg"
 	},
 	"steel": {
@@ -155,7 +167,8 @@
 					-4
 				]
 			}
-		}
+		},
+		"default_index": 12
 	},
 	"sand": {
 		"default_max": 40,
@@ -171,7 +184,8 @@
 					-2
 				]
 			}
-		}
+		},
+		"default_index": 13
 	},
 	"salt": {
 		"default_max": 40,
@@ -187,7 +201,8 @@
 					-10
 				]
 			}
-		}
+		},
+		"default_index": 14
 	},
 	"purified_water": {
 		"default_max": 20,
@@ -198,7 +213,8 @@
 					-10
 				]
 			}
-		}
+		},
+		"default_index": 15
 	},
 	"holy_water": {
 		"default_max": 10,
@@ -214,7 +230,8 @@
 					-1
 				]
 			}
-		}
+		},
+		"default_index": 16
 	},
 	"sanctified_gold": {
 		"default_max": 4,
@@ -225,7 +242,8 @@
 					-8
 				]
 			}
-		}
+		},
+		"default_index": 17
 	},
 	"starsand": {
 		"default_max": 8,
@@ -236,7 +254,8 @@
 					-8
 				]
 			}
-		}
+		},
+		"default_index": 18
 	},
 	"starglass": {
 		"default_max": 8,
@@ -247,7 +266,8 @@
 					-3
 				]
 			}
-		}
+		},
+		"default_index": 19
 	},
 	"hellsteel": {
 		"default_max": 10,
@@ -258,7 +278,8 @@
 					-8
 				]
 			}
-		}
+		},
+		"default_index": 20
 	},
 	"profane_ingot": {
 		"default_max": 10,
@@ -269,7 +290,8 @@
 					-8
 				]
 			}
-		}
+		},
+		"default_index": 21
 	},
 	"divine_dust": {
 		"default_max": 10,
@@ -290,7 +312,8 @@
 					-1
 				]
 			}
-		}
+		},
+		"default_index": 22
 	},
 	"pure_dust": {
 		"default_max": 10,
@@ -311,7 +334,8 @@
 					-2
 				]
 			}
-		}
+		},
+		"default_index": 23
 	},
 	"heavy_dust": {
 		"default_max": 10,
@@ -332,7 +356,8 @@
 					-2
 				]
 			}
-		}
+		},
+		"default_index": 24
 	},
 	"corrupted_dust": {
 		"default_max": 2,
@@ -343,7 +368,8 @@
 					-2
 				]
 			}
-		}
+		},
+		"default_index": 25
 	},
 	"ascendant_dust": {
 		"default_max": 4,
@@ -359,7 +385,8 @@
 					-2
 				]
 			}
-		}
+		},
+		"default_index": 26
 	},
 	"arcane_dust": {
 		"default_max": 4,
@@ -375,7 +402,8 @@
 					-4
 				]
 			}
-		}
+		},
+		"default_index": 27
 	},
 	"gilded_dust": {
 		"default_max": 2,
@@ -391,6 +419,7 @@
 					-2
 				]
 			}
-		}
+		},
+		"default_index": 28
 	}
 }
