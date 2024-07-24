@@ -58,9 +58,9 @@ func load_settings_data() -> void:
 		resolution_index = default_settings_data["resolution_index"]
 		master_volume = default_settings_data["master_volume"]
 		music_volume = default_settings_data["music_volume"]
-
-	window_mode_index = config.get_value("Video", "window_mode_index")
-	resolution_index = config.get_value("Video", "resolution_index")
-	master_volume = config.get_value("Audio", "master_volume")
-	music_volume = config.get_value("Audio", "music_volume")
+	else:
+		window_mode_index = config.get_value("Video", "window_mode_index")
+		resolution_index = config.get_value("Video", "resolution_index")
+		master_volume = config.get_value("Audio", "master_volume")
+		music_volume = config.get_value("Audio", "music_volume")
 
