@@ -1,4 +1,6 @@
 {
-	"test1": "Acquire 5 Native Gold.",
-	"test2": "The objective doesn't actually have to be HELPFUL."
+	"first_step": "Acquire at least 5 Native Gold to begin to explore alchemy.",
+	"make_hellsteel": "Smelt some Hellsteel",
+	"make_galliantium": "Smelt your first Galliantium",
+	"make_arcane_dust": "Mix your first Arcane Dust"
 }

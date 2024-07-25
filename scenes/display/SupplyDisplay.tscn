@@ -61,15 +61,14 @@ fit_content = true
 
 [node name="Delta" type="RichTextLabel" parent="Button"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 88.0
-offset_top = -64.0
-offset_right = 128.0
-offset_bottom = -32.0
-grow_vertical = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 32.0
+grow_horizontal = 0
 mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 fit_content = true
 
@@ -120,9 +119,10 @@ condition_panel = NodePath("ConditionPanel")
 
 [node name="ConditionPanel" type="ColorRect" parent="Button/ObjectiveStar"]
 visible = false
+layout_direction = 1
 layout_mode = 0
-offset_top = -86.0
 offset_right = 58.0
+offset_bottom = 86.0
 pivot_offset = Vector2(0, 44)
 color = Color(0, 0, 0, 1)
 

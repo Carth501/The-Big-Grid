@@ -32,6 +32,9 @@ func connect_logic(new_action : Action):
 func disconnect_action():
 	action.update_availability.disconnect(set_enabled)
 	action.update_action_name.disconnect(change_label)
+	var directory = AudioEffectControllerSingle.directory
+	if(action.audio != null && directory.has(action.audio)):
+		trigger.disconnect(audio_stream.play)
 
 func actuate():
 	if(!disabled):

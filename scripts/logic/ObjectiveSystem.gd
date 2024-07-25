@@ -9,7 +9,7 @@ var future_objectives := []
 func _ready():
 	if(!game_controller.is_node_ready()):
 		await game_controller.ready
-	future_objectives = Objectives_Table_Single.data["test"]
+	future_objectives = Objectives_Table_Single.data["test"].duplicate()
 	next()
 
 func next():
@@ -31,6 +31,7 @@ func next():
 			supply.set_objective(active_objective[supply_id])
 			supply.update_value.connect(check_victory)
 			check_victory(0)
+			supply.reveal()
 
 func check_victory(_value):
 	if(check_conditions()):

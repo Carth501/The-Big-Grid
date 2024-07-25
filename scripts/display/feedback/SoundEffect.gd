@@ -10,6 +10,10 @@ func _ready() -> void:
 		push_error(str("sound effect id ", id, " already exists"))
 	else:
 		directory[id]=self
+	tree_exited.connect(delist)
 
 func play_audio():
 	play()
+
+func delist():
+	AudioEffectControllerSingle.directory.erase(id)

@@ -3,6 +3,7 @@ class_name Development extends Node
 signal update_availability(availability : bool)
 signal complete
 signal update_translations(translated_strings : Dictionary)
+signal reveal
 
 var id : String
 var changes : Dictionary
@@ -23,6 +24,8 @@ func setup(new_id : String, supply_collection : Supply_Collection):
 		var supply = supply_collection.get_or_create_supply(supply_id)
 		supplies[supply_id] = supply
 		supply.update_value.connect(process_availability)
+		supply.reveal_this.connect(check_supplies)
+	check_supplies()
 	process_availability()
 	SupplyTranslatorSingle.new_override.connect(decide_if_name_update_needed)
 	translation_data = DevelopmentTranslatorSingle.data[id]
@@ -92,3 +95,9 @@ func gain_focus():
 
 func lose_focus():
 	filter_foreman.clear_primary_filter()
+
+func check_supplies():
+	for supply_id in supplies:
+		if(!supplies[supply_id].revealed):
+			return
+	reveal.emit()

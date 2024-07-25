@@ -5,7 +5,8 @@ var directory : Dictionary
 
 func index_object(object_type : String, object):
 	if(directory.has(object_type)):
-		push_warning("object_type is being overwritten. Was this intended?")
+		push_warning(str("object_type ", object_type, 
+		" is being overwritten. Was this intended?"))
 	directory[object_type] = object
 
 func get_object(object_type : String):

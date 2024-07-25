@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://x6m03nc7qdvl"]
+
+[ext_resource type="Script" path="res://scripts/display/ActionSection.gd" id="1_hc45m"]
+
+[node name="ActionSection" type="Control" node_paths=PackedStringArray("section_label", "editor_container")]
+custom_minimum_size = Vector2(0, 167)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 540.0
+size_flags_horizontal = 3
+script = ExtResource("1_hc45m")
+section_label = NodePath("Label")
+editor_container = NodePath("HFlowContainer")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 8.0
+offset_right = -8.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Burn Coal"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 23.0
+offset_right = -8.0
+offset_bottom = 167.0
+grow_horizontal = 2
+
+[connection signal="resized" from="." to="." method="recalculate_minimum_size"]
