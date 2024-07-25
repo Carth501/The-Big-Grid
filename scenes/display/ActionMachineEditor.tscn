@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_nmtv4"]
 
 [node name="ActionMachineEditor" type="Control" node_paths=PackedStringArray("name_field", "op_rate_field", "active_switch", "condition_list_container")]
-custom_minimum_size = Vector2(232, 116)
+custom_minimum_size = Vector2(232, 144)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 232.0

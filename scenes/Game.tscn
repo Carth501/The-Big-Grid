@@ -271,11 +271,11 @@ layout_mode = 2
 script = ExtResource("4_p32ci")
 development_handler = NodePath("../../../../../../../../Logic/DevelopmentHandler")
 
-[node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer" node_paths=PackedStringArray("machine_container", "machine_factory")]
+[node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer" node_paths=PackedStringArray("action_section_container", "machine_factory")]
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 script = ExtResource("11_3l4m0")
-machine_container = NodePath("ScrollContainer/HFlowContainer")
+action_section_container = NodePath("ScrollContainer/ActionSectionContainer")
 machine_factory = NodePath("../../../../../Logic/MachineFactory")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines"]
@@ -287,7 +287,8 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines/ScrollContainer"]
+[node name="ActionSectionContainer" type="VBoxContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines/ScrollContainer"]
+custom_minimum_size = Vector2(0, 167)
 layout_mode = 2
 size_flags_horizontal = 3
 
