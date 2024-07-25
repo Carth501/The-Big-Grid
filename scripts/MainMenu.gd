@@ -18,6 +18,9 @@ func _ready():
 
 func continue_game():
 	Save_Handler_Single.prepare_recent_save()
+	var tween = create_tween()
+	tween.tween_property($AudioStreamPlayer, "volume_db", -44.768, 3 )
+	await get_tree().create_timer(3.0).timeout
 	get_tree().change_scene_to_file("res://scenes/Game.tscn")
 
 func toggle_load_panel():
@@ -25,10 +28,16 @@ func toggle_load_panel():
 
 func load_game(file_name : String):
 	Save_Handler_Single.prepare_save(file_name)
+	var tween = create_tween()
+	tween.tween_property($AudioStreamPlayer, "volume_db", -44.768, 3 )
+	await get_tree().create_timer(3.0).timeout
 	get_tree().change_scene_to_file("res://scenes/Game.tscn")
 
 func new_game():
 	#Save_Handler_Single.clear_save()
+	var tween = create_tween()
+	tween.tween_property($AudioStreamPlayer, "volume_db", -44.768, 3 )
+	await get_tree().create_timer(3.0).timeout
 	get_tree().change_scene_to_file("res://scenes/Game.tscn")
 
 func quit():
