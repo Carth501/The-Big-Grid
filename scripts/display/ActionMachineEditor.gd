@@ -11,7 +11,8 @@ func set_machine(new_machine : Machine):
 	machine = new_machine
 	op_rate_field.value = machine.get_interval()
 	machine.update_interval.connect(update_interval)
-	update_running(machine.get_running())
+	var active = machine.get_running()
+	update_running(active)
 	machine.update_active.connect(update_running)
 	name_field.text = machine.name
 	machine.update_name.connect(update_machine_name)
@@ -38,7 +39,7 @@ func set_running(setting : bool):
 	machine.set_running(setting)
 
 func update_running(setting : bool):
-	active_switch.button_pressed = setting
+	active_switch.set_pressed_no_signal(setting)
 
 func set_machine_name(new_name : String = name_field.text):
 	if(new_name != ""):

@@ -52,7 +52,7 @@ func set_running(setting : bool):
 	update_active.emit(!timer.paused)
 
 func get_running() -> float:
-	return timer.is_stopped()
+	return !timer.is_stopped() && !timer.paused
 
 func add_conditional():
 	var conditional_instance = Conditional_Expression.new()
