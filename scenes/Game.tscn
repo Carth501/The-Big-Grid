@@ -25,8 +25,8 @@
 [ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
 [ext_resource type="Script" path="res://scripts/display/PauseMenu.gd" id="15_pb3et"]
 [ext_resource type="AudioStream" uid="uid://spu70ttwko4c" path="res://sound/effects/Mining_Drilling - The Big Grid.ogg" id="17_8qotj"]
-[ext_resource type="AudioStream" uid="uid://5rqlb3bgiriu" path="res://sound/music/_Melded_ The Big Grid, Pirate Software Gamejam 15.ogg" id="17_047oi"]
-[ext_resource type="AudioStream" uid="uid://b0a4quoeud2p8" path="res://sound/music/_Tireless_ The Big Grid, Pirate Software Gamejam 15.ogg" id="18_36x25"]
+[ext_resource type="AudioStream" path="res://sound/music/_Melded_ The Big Grid, Pirate Software Gamejam 15.ogg" id="17_047oi"]
+[ext_resource type="AudioStream" path="res://sound/music/_Tireless_ The Big Grid, Pirate Software Gamejam 15.ogg" id="18_36x25"]
 [ext_resource type="Script" path="res://scripts/display/feedback/SoundEffect.gd" id="18_m7ho0"]
 [ext_resource type="AudioStream" uid="uid://b2t72h31ipq2l" path="res://sound/effects/Bubbling - The Big Grid.ogg" id="19_pcg51"]
 [ext_resource type="AudioStream" uid="uid://hde6uekbq3c0" path="res://sound/effects/Button Press - The Big Grid.ogg" id="20_foqce"]
@@ -125,25 +125,6 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 12
 button_pressed = true
 text = "Keep Position"
-alignment = 2
-
-[node name="FocusFilteringControl" type="Control" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer"]
-custom_minimum_size = Vector2(130, 31)
-layout_mode = 2
-
-[node name="FocusFilteringToggle" type="CheckButton" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer/FocusFilteringControl"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -130.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 33.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 12
-button_pressed = true
-text = "Focus Filtering"
 alignment = 2
 
 [node name="RightSplit" type="VSplitContainer" parent="Display/MiddleSplit"]
@@ -534,7 +515,6 @@ text = "Quit"
 [connection signal="resized" from="Display/MiddleSplit/SupplyBackground" to="Display/MiddleSplit/SupplyBackground" method="_on_resized"]
 [connection signal="text_changed" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/SupplySearch" to="Logic/FilterForeman" method="set_search_filter"]
 [connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
-[connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/FocusFilteringControl/FocusFilteringToggle" to="Logic/OptionsOverseer" method="set_focus_filtering"]
 [connection signal="dragged" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_resized"]
 [connection signal="text_changed" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionSearch" to="Logic/ActionManager" method="set_action_filter"]
@@ -560,6 +540,7 @@ text = "Quit"
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
 [connection signal="reveal_supply" from="Logic/ActionManager" to="Logic/SupplyCollection" method="reveal_supply"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
+[connection signal="initialize_keep_positions" from="Logic/OptionsOverseer" to="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" method="set_pressed"]
 [connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
 [connection signal="newStepDescription" from="Logic/ObjectiveSystem" to="Display/Panel/CurrentObjectiveLine" method="update_objective"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
