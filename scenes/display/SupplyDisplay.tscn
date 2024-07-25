@@ -119,9 +119,10 @@ condition_panel = NodePath("ConditionPanel")
 
 [node name="ConditionPanel" type="ColorRect" parent="Button/ObjectiveStar"]
 visible = false
+layout_direction = 1
 layout_mode = 0
-offset_top = -86.0
 offset_right = 58.0
+offset_bottom = 86.0
 pivot_offset = Vector2(0, 44)
 color = Color(0, 0, 0, 1)
 
