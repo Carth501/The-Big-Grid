@@ -25,8 +25,8 @@
 [ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
 [ext_resource type="Script" path="res://scripts/display/PauseMenu.gd" id="15_pb3et"]
 [ext_resource type="AudioStream" uid="uid://spu70ttwko4c" path="res://sound/effects/Mining_Drilling - The Big Grid.ogg" id="17_8qotj"]
-[ext_resource type="AudioStream" path="res://sound/music/_Melded_ The Big Grid, Pirate Software Gamejam 15.ogg" id="17_047oi"]
-[ext_resource type="AudioStream" path="res://sound/music/_Tireless_ The Big Grid, Pirate Software Gamejam 15.ogg" id="18_36x25"]
+[ext_resource type="AudioStream" uid="uid://5rqlb3bgiriu" path="res://sound/music/_Melded_ The Big Grid, Pirate Software Gamejam 15.ogg" id="17_047oi"]
+[ext_resource type="AudioStream" uid="uid://b0a4quoeud2p8" path="res://sound/music/_Tireless_ The Big Grid, Pirate Software Gamejam 15.ogg" id="18_36x25"]
 [ext_resource type="Script" path="res://scripts/display/feedback/SoundEffect.gd" id="18_m7ho0"]
 [ext_resource type="AudioStream" uid="uid://b2t72h31ipq2l" path="res://sound/effects/Bubbling - The Big Grid.ogg" id="19_pcg51"]
 [ext_resource type="AudioStream" uid="uid://hde6uekbq3c0" path="res://sound/effects/Button Press - The Big Grid.ogg" id="20_foqce"]
@@ -132,14 +132,13 @@ layout_mode = 2
 split_offset = 300
 script = ExtResource("5_vo8pe")
 
-[node name="ActionBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu_container", "action_menu", "supply_menu_container", "supply_menu")]
+[node name="ActionBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu", "supply_menu_container", "supply_menu")]
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 script = ExtResource("3_y50x7")
 actions_display = NodePath("ActionScrollContainer")
-action_menu_container = NodePath("ActionMenuScrollContainer")
-action_menu = NodePath("ActionMenuScrollContainer/MarginContainer/ActionMenu")
+action_menu = NodePath("ActionMenu")
 supply_menu_container = NodePath("SupplyMenuScrollContainer")
 supply_menu = NodePath("SupplyMenuScrollContainer/MarginContainer/SupplyMenu")
 
@@ -174,29 +173,14 @@ script = ExtResource("3_n23ff")
 action_manager = NodePath("../../../../../../../Logic/ActionManager")
 supply_collection = NodePath("../../../../../../../Logic/SupplyCollection")
 
-[node name="ActionMenuScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
+[node name="ActionMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground" node_paths=PackedStringArray("supply_collection", "options_overseer", "machine_factory") instance=ExtResource("5_rdn8f")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="ActionMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer" node_paths=PackedStringArray("supply_collection", "options_overseer", "machine_factory") instance=ExtResource("5_rdn8f")]
-layout_mode = 2
-supply_collection = NodePath("../../../../../../../Logic/SupplyCollection")
-options_overseer = NodePath("../../../../../../../Logic/OptionsOverseer")
-machine_factory = NodePath("../../../../../../../Logic/MachineFactory")
+anchors_preset = -1
+offset_top = 36.0
+supply_collection = NodePath("../../../../../Logic/SupplyCollection")
+options_overseer = NodePath("../../../../../Logic/OptionsOverseer")
+machine_factory = NodePath("../../../../../Logic/MachineFactory")
 
 [node name="SupplyMenuScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/ActionBackground"]
 visible = false
@@ -518,7 +502,7 @@ text = "Quit"
 [connection signal="dragged" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_resized"]
 [connection signal="text_changed" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionSearch" to="Logic/ActionManager" method="set_action_filter"]
-[connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
+[connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="pressed" from="Display/SaveFilePanel" to="." method="toggle_save_file_panel"]
 [connection signal="text_changed" from="Display/SaveFilePanel/Panel/TextEdit" to="." method="change_save_name"]
@@ -531,7 +515,7 @@ text = "Quit"
 [connection signal="finished" from="Display/MusicSystem/WorkersDelight" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/Melded" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/Tireless" to="Display/MusicSystem" method="next_track"]
-[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenuScrollContainer/MarginContainer/ActionMenu" method="add_new_machine"]
+[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" method="add_new_machine"]
 [connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/TabContainer/Machines" method="add_machine_editor"]
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="open_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_supply_menu"]
