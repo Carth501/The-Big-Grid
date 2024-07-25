@@ -59,6 +59,8 @@ anchor_bottom = 1.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 16
+theme_override_constants/autohide = 0
 split_offset = 600
 script = ExtResource("2_1k5o2")
 
@@ -129,6 +131,8 @@ alignment = 2
 
 [node name="RightSplit" type="VSplitContainer" parent="Display/MiddleSplit"]
 layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_constants/autohide = 0
 split_offset = 300
 script = ExtResource("5_vo8pe")
 
