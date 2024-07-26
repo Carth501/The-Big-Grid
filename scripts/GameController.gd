@@ -45,6 +45,7 @@ func save(new_save_name : String) -> bool:
 	archive["machines"] = machine_data
 	archive["developments"] = development_handler.compeleted_developments
 	Save_Handler_Single.write_save(archive)
+	Save_Handler_Single.index_saves()
 	return true
 
 func write_supply_archive(id : String):

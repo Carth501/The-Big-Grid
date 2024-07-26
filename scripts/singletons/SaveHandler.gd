@@ -5,24 +5,7 @@ var save_file_metadata : Array = []
 var save_folder = "user://saves/"
 
 func _ready():
-	var user = DirAccess.open("user://")
-	if(!user.dir_exists(save_folder)):
-		user.make_dir("saves")
-	var dir = DirAccess.open(save_folder)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir():
-				var save_file = get_save(file_name)
-				if(save_file != null):
-					save_file_metadata.append({
-						"file_name": file_name,
-						"save_time": save_file.save_time
-					})
-			file_name = dir.get_next()
-	else:
-		push_error("An error occurred when trying to access the path.")
+	index_saves()
 
 func get_save_metadata() -> Array:
 	return save_file_metadata
@@ -67,3 +50,23 @@ func write_save(data : Dictionary):
 		data_file.close()
 	else:
 		push_error(str("data file not opened. attempted path = ", path))
+
+func index_saves():
+	var user = DirAccess.open("user://")
+	if(!user.dir_exists(save_folder)):
+		user.make_dir("saves")
+	var dir = DirAccess.open(save_folder)
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir():
+				var save_file = get_save(file_name)
+				if(save_file != null):
+					save_file_metadata.append({
+						"file_name": file_name,
+						"save_time": save_file.save_time
+					})
+			file_name = dir.get_next()
+	else:
+		push_error("An error occurred when trying to access the path.")
