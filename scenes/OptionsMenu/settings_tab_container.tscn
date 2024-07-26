@@ -86,3 +86,7 @@ bus_name = "Master"
 [node name="Audio_slider_settings2" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_vdi12")]
 layout_mode = 2
 bus_name = "Music"
+
+[node name="Audio_slider_settings3" parent="TabContainer/Sound/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_vdi12")]
+layout_mode = 2
+bus_name = "Effects"
