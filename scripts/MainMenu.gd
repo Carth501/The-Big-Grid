@@ -1,5 +1,4 @@
 extends Control
-
 @export var continue_button : Button
 @export var load_panel : PanelContainer
 @export var load_buttons_container : VBoxContainer
