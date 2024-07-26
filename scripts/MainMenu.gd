@@ -34,6 +34,7 @@ func load_game(file_name : String):
 	get_tree().change_scene_to_file("res://scenes/Game.tscn")
 
 func new_game():
+	Save_Handler_Single.clear_save()
 	var tween = create_tween()
 	tween.tween_property($AudioStreamPlayer, "volume_db", -44.768, fade_duration )
 	await get_tree().create_timer(fade_duration).timeout

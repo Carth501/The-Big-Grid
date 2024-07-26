@@ -30,6 +30,9 @@ func get_save_metadata() -> Array:
 func prepare_save(save_file_name : String):
 	active_save = get_save(save_file_name)
 
+func clear_save():
+	active_save = {}
+
 func prepare_recent_save():
 	if(save_file_metadata.size() > 0):
 		var recent_save
