@@ -340,12 +340,12 @@
 		"changes": {
 			"coal": {
 				"deltas": [
-					-8
+					-6
 				]
 			},
 			"native_gold": {
 				"deltas": [
-					-10
+					-4
 				]
 			},
 			"gold_ingot": {
@@ -355,7 +355,7 @@
 			},
 			"electricity": {
 				"deltas": [
-					-5
+					-4
 				]
 			}
 		},

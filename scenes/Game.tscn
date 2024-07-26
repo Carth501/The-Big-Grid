@@ -210,10 +210,8 @@ action_manager = NodePath("../../../../../../../Logic/ActionManager")
 
 [node name="TabContainer" type="TabContainer" parent="Display/MiddleSplit/RightSplit"]
 layout_mode = 2
-current_tab = 1
 
 [node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer"]
-visible = false
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
@@ -241,6 +239,7 @@ script = ExtResource("4_p32ci")
 development_handler = NodePath("../../../../../../../../Logic/DevelopmentHandler")
 
 [node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer" node_paths=PackedStringArray("action_section_container", "machine_factory")]
+visible = false
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 1)
 script = ExtResource("11_3l4m0")
