@@ -129,4 +129,8 @@ func load_save():
 		development_handler.set_completed_developments(devs)
 
 func autosave():
-	save(save_name)
+	save("autoSave")
+
+
+func _on_auto_save_timer_timeout() -> void:
+	autosave()
