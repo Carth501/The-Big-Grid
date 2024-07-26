@@ -134,6 +134,5 @@ func autosave():
 func SaveButton():
 	save("SaveGame")
 
-
 func _on_auto_save_timer_timeout() -> void:
 	autosave()
