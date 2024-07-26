@@ -10,7 +10,7 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(music_volume))
 	if(music_players.size() > 0):
 		index = randi_range(0, music_players.size() - 1)
-		music_players[index].play()
+	music_players[index].play()
 		
 
 func next_track():
