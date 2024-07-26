@@ -1,5 +1,6 @@
 extends Control
 @export var continue_button : Button
+@export var exit_button : Button
 @export var load_panel : PanelContainer
 @export var load_buttons_container : VBoxContainer
 @export var fade_duration : float = 0.5
@@ -15,6 +16,8 @@ func _ready():
 			save_selection.set_file_name(save["file_name"])
 			load_buttons_container.add_child(save_selection)
 			save_selection.select_save.connect(load_game)
+	if(OS.get_name() == "Web"):
+		exit_button.visible = false
 
 func continue_game():
 	Save_Handler_Single.prepare_recent_save()
