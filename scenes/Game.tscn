@@ -376,12 +376,15 @@ bus = &"Music"
 
 [node name="WorkersDelight" type="AudioStreamPlayer" parent="Display/MusicSystem"]
 stream = ExtResource("12_dwipf")
+bus = &"Music"
 
 [node name="Melded" type="AudioStreamPlayer" parent="Display/MusicSystem"]
 stream = ExtResource("17_047oi")
+bus = &"Music"
 
 [node name="Tireless" type="AudioStreamPlayer" parent="Display/MusicSystem"]
 stream = ExtResource("18_36x25")
+bus = &"Music"
 
 [node name="SoundEffects" type="Node" parent="Display"]
 
