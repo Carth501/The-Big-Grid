@@ -15,6 +15,7 @@ func set_expression(new_conditional : Conditional_Expression):
 	conditional_expression = new_conditional
 	new_conditional.config_change.connect(update_expression_config)
 	update_expression_config()
+	conditional_expression.delete_this.connect(remove)
 
 func update_expression_config():
 	var config = conditional_expression.configuration
@@ -79,6 +80,9 @@ func delete():
 	if(conditional_expression == null):
 		push_error("Attempted deletion of condition, but the expression is null")
 	conditional_expression.delete()
+	queue_free()
+
+func remove(_conditional_expression):
 	queue_free()
 
 func set_comparator(new_value : int):
