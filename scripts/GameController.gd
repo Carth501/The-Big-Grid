@@ -131,6 +131,9 @@ func load_save():
 func autosave():
 	save("autoSave")
 
+func SaveButton():
+	save("SaveGame")
+
 
 func _on_auto_save_timer_timeout() -> void:
 	autosave()

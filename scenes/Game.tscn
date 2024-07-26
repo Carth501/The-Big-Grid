@@ -497,6 +497,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Resume"
 
+[node name="Save game" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save game"
+
 [node name="Quit" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
@@ -515,7 +519,6 @@ autostart = true
 [connection signal="text_changed" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionSearch" to="Logic/ActionManager" method="set_action_filter"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
-[connection signal="pressed" from="Display/SaveFilePanel" to="." method="toggle_save_file_panel"]
 [connection signal="text_changed" from="Display/SaveFilePanel/Panel/TextEdit" to="." method="change_save_name"]
 [connection signal="pressed" from="Display/SaveFilePanel/Panel/Cancel" to="." method="toggle_save_file_panel"]
 [connection signal="pressed" from="Display/SaveFilePanel/Panel/Save" to="." method="save_as"]
@@ -540,5 +543,6 @@ autostart = true
 [connection signal="newStepDescription" from="Logic/ObjectiveSystem" to="Display/Panel/CurrentObjectiveLine" method="update_objective"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Save game" to="." method="SaveButton"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit" to="PauseMenu" method="_quitGame"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
