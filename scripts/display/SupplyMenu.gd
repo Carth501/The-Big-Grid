@@ -28,9 +28,9 @@ func open(new_supply : Supply):
 	var action_options = action_manager.get_actions_with_supply(supply.id)
 	for action_id in action_rows:
 		if(action_options.has(action_id)):
-			action_rows[action_id].visible = true
+			action_rows[action_id].row.visible = true
 		else:
-			action_rows[action_id].visible = false
+			action_rows[action_id].row.visible = false
 	for action_option in action_options:
 		add_action_to_list(action_option)
 	tag_list_display.set_target(supply)
@@ -63,13 +63,19 @@ func upgrade_unfocus():
 
 func add_action_to_list(id : String):
 	if(action_rows.has(id)):
+		var label : Colored_Number_Display = action_rows[id].delta
+		var action_logic = action_manager.full_action_list[id]
+		var deltas = action_logic.changes[supply.id].deltas
+		var net := 0
+		for delta in deltas:
+			net += delta
+		label.set_number(net)
 		return
 	if(!ActionsSingle.data.has(id)):
 		push_error(str("id ", id, " not found"))
 		return
 	var new_row := HBoxContainer.new()
 	action_list.add_child(new_row)
-	action_rows[id] = new_row
 	var new_button : Action_Button = action_package.instantiate()
 	new_button.set_id(id)
 	new_row.add_child(new_button)
@@ -82,6 +88,7 @@ func add_action_to_list(id : String):
 	var new_label = create_action_net_delta(deltas)
 	new_row.add_child(new_label)
 	new_label.position.x += new_button.size.x
+	action_rows[id] = {"row": new_row, "delta": new_label}
 
 func create_action_net_delta(deltas : Array) -> Label:
 	var net := 0
