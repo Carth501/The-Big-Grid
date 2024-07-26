@@ -4,7 +4,7 @@ extends Control
 @onready var audio_num_lbl: Label = $HBoxContainer/Audio_Num_Lbl
 @onready var h_slider: HSlider = $HBoxContainer/HSlider
 
-@export_enum("Master","Music") var bus_name : String
+@export_enum("Master","Music", "Effects") var bus_name : String
 
 var bus_index : int = 0
 
@@ -22,6 +22,9 @@ func load_data()-> void:
 			SettingsDataContainerSingle.master_volume_change.connect(on_value_changed)
 		"Music":
 			on_value_changed(SettingsDataContainerSingle.music_volume)
+			SettingsDataContainerSingle.music_volume_change.connect(on_value_changed)
+		"Effects":
+			on_value_changed(SettingsDataContainerSingle.effects_volume)
 			SettingsDataContainerSingle.music_volume_change.connect(on_value_changed)
 
 func set_name_label_text() -> void:
@@ -46,3 +49,5 @@ func on_value_changed(value: float) -> void:
 			SettingsDataContainerSingle.master_volume = value
 		1:
 			SettingsDataContainerSingle.music_volume = value
+		2:
+			SettingsDataContainerSingle.effects_volume = value
