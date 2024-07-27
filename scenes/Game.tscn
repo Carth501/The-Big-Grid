@@ -342,18 +342,20 @@ objective_text = NodePath("ObjectiveText")
 
 [node name="Label" type="Label" parent="Display/Panel/CurrentObjectiveLine"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 4.0
-offset_right = 151.0
-offset_bottom = 27.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 227.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 25
 text = "Current Objective: "
 
 [node name="ObjectiveText" type="Label" parent="Display/Panel/CurrentObjectiveLine"]
 layout_mode = 0
-offset_left = 151.0
-offset_top = 4.0
-offset_right = 977.0
-offset_bottom = 27.0
+offset_left = 228.0
+offset_top = -1.0
+offset_right = 1054.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 25
 text_overrun_behavior = 3
 
 [node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players")]
