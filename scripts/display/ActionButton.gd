@@ -12,7 +12,6 @@ func _ready() -> void:
 	var directory = AudioEffectControllerSingle.directory
 	if(directory.has("button_press")):
 		action_press_sound = directory["button_press"]
-		trigger.connect(action_press_sound.play)
 
 func set_id(new_id : String):
 	id = new_id
@@ -28,6 +27,10 @@ func connect_logic(new_action : Action):
 		if(directory.has(action.audio)):
 			audio_stream = directory[action.audio]
 			trigger.connect(audio_stream.play)
+		else:
+			if(directory.has("button_press")):
+				action_press_sound = directory["button_press"]
+			trigger.connect(action_press_sound.play)
 
 func disconnect_action():
 	action.update_availability.disconnect(set_enabled)
@@ -43,7 +46,9 @@ func actuate():
 
 func open_menu():
 	action.open()
-	trigger.emit()
+	if(action_press_sound == null):
+		push_warning("action_press_sound is null")
+	action_press_sound.play()
 
 func change_label(new_text : String):
 	text = new_text

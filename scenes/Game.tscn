@@ -403,7 +403,6 @@ id = "bubbling"
 
 [node name="Sound_Effect" type="AudioStreamPlayer" parent="Display/SoundEffects"]
 stream = ExtResource("20_foqce")
-max_polyphony = 2
 bus = &"Effects"
 script = ExtResource("18_m7ho0")
 id = "button_press"
