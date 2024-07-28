@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bqrwqww1tfjm6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vkjf"]
+bg_color = Color(0.647481, 0.548476, 0.770979, 1)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r428m"]
+bg_color = Color(0.196574, 0.000240221, 0.288689, 1)
+border_width_left = 8
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqfnv"]
+bg_color = Color(0.548337, 0.577924, 0.826214, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+CheckButton/font_sizes/font_size = 25
+CheckButton/icons/checked = null
+CheckButton/styles/focus = SubResource("StyleBoxFlat_1vkjf")
+LineEdit/font_sizes/font_size = 40
+LineEdit/styles/normal = SubResource("StyleBoxFlat_r428m")
+TabContainer/font_sizes/font_size = 30
+TabContainer/styles/panel = SubResource("StyleBoxFlat_vqfnv")

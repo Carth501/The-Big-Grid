@@ -24,7 +24,7 @@
 			}
 		},
 		"default_index": 1,
-		"icon_path": "res://textures/Supply_Icons/Water.svg"
+		"icon_path": "res://textures/Supply_Icons/Water 1.svg"
 	},
 	"coal": {
 		"default_max": 20,
