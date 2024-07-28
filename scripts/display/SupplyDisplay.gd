@@ -13,7 +13,8 @@ class_name Supply_Display extends Control
 @export var popup_label : Label
 var supply : Supply
 var revealed := false
-var showing := true
+var filtered_mode := false
+var in_filter := true
 var static_position := true
 
 func setup(id : String, 
@@ -71,28 +72,31 @@ func set_active():
 	supply_curtain.visible = false
 
 func reveal():
-	revealed = true;
-	if(static_position):
-		visible = true
-		supply_button.visible = showing
-	else:
-		visible = showing
-		supply_button.visible = true
+	revealed = true
+	handle_visibility()
 
-func show_supply(setting : bool):
-	showing = setting
-	if(!revealed):
-		return
-	if(static_position):
-		supply_button.visible = showing
-	else:
-		visible = showing
+func set_filtered_mode(setting : bool):
+	filtered_mode = setting
+	handle_visibility()
+
+func set_in_filter(setting : bool):
+	in_filter = setting
+	handle_visibility()
 
 func set_static_position(setting : bool):
 	static_position = setting
-	if(!revealed):
-		return
-	if(!showing):
+	handle_visibility()
+
+func handle_visibility():
+	var showing = false
+	if(!filtered_mode && revealed):
+		showing = true
+	if(filtered_mode && in_filter):
+		showing = true
+	if(showing):
+		visible = true
+		supply_button.visible = true
+	else:
 		if(static_position):
 			visible = true
 			supply_button.visible = false
