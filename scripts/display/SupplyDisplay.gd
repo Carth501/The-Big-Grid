@@ -9,6 +9,8 @@ class_name Supply_Display extends Control
 @export var supply_curtain : Panel
 @export var objective_star : Objective_Star
 @export var supply_warning : Supply_Warning
+@export var popup_container : PanelContainer
+@export var popup_label : Label
 var supply : Supply
 var revealed := false
 var showing := true
@@ -42,7 +44,7 @@ options_overseer : Options_Overseer):
 func set_icon_display():
 	if(supply.supply_icon_path != null && supply.supply_icon_path != ""):
 		supply_icon_display.set_image_by_path(supply.supply_icon_path)
-	supply_icon_display.set_supply_name(supply.get_translation())
+	set_supply_name(supply.get_translation())
 
 func set_value_display(value : float):
 	value_label.text = center(str("%.1f" % value))
@@ -110,3 +112,12 @@ func set_objective(obj_def : Array):
 
 func unset_objective():
 	objective_star.visible = false
+
+func set_supply_name(new_name : String):
+	popup_label.text = new_name
+
+func show_label():
+	popup_container.visible = true
+
+func hide_label():
+	popup_container.visible = false

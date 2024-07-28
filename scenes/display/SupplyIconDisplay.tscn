@@ -2,14 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/display/SupplyIconDisplay.gd" id="1_8gr0y"]
 
-[node name="SupplyIconDisplay" type="Control" node_paths=PackedStringArray("texture_rect", "panel_container", "label")]
+[node name="SupplyIconDisplay" type="Control" node_paths=PackedStringArray("texture_rect")]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
 script = ExtResource("1_8gr0y")
 texture_rect = NodePath("MarginContainer/TextureRect")
-panel_container = NodePath("MarginContainer/TextureRect/PanelContainer")
-label = NodePath("MarginContainer/TextureRect/PanelContainer/Label")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -24,18 +22,6 @@ theme_override_constants/margin_bottom = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 expand_mode = 4
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TextureRect"]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_top = 36.0
-offset_right = 40.0
-offset_bottom = 76.0
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="MarginContainer/TextureRect/PanelContainer"]
-layout_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="show_label"]
 [connection signal="mouse_exited" from="." to="." method="hide_label"]
