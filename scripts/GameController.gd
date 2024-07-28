@@ -133,7 +133,7 @@ func autosave():
 	save("autoSave")
 
 func SaveButton():
-	save("SaveGame")
+	toggle_save_file_panel()
 
 func _on_auto_save_timer_timeout() -> void:
 	autosave()
