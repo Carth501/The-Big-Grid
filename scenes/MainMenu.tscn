@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_1qd6f"]
 [ext_resource type="AudioStream" uid="uid://rimplcys6c2t" path="res://sound/music/_Main Menu_ The Big Grid, Pirate Software Gamejam 15.ogg" id="2_fi6st"]
-[ext_resource type="PackedScene" uid="uid://c4bi8m84gcg7c" path="res://scenes/OptionsMenu/options_menu.tscn" id="3_8lr38"]
+[ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="3_8lr38"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("continue_button", "load_panel", "load_buttons_container")]
 layout_mode = 3

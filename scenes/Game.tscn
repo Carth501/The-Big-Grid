@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=34 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -32,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://hde6uekbq3c0" path="res://sound/effects/Button Press - The Big Grid.ogg" id="20_foqce"]
 [ext_resource type="AudioStream" uid="uid://dfpytqk3l8bgu" path="res://sound/effects/Crafting - The Big Grid.ogg" id="21_p2o5c"]
 [ext_resource type="AudioStream" uid="uid://ka1de74am3ri" path="res://sound/effects/Cutting - The Big Grid.ogg" id="22_2sucg"]
+[ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="33_ttcp7"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "save_file_panel", "save_file_name")]
 script = ExtResource("1_kvsp4")
@@ -501,9 +502,17 @@ text = "Resume"
 layout_mode = 2
 text = "Save game"
 
+[node name="Options" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
 [node name="Quit" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Options_Menu" parent="PauseMenu" instance=ExtResource("33_ttcp7")]
+visible = false
+layout_mode = 1
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
 wait_time = 300.0
@@ -544,5 +553,6 @@ autostart = true
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Save game" to="." method="SaveButton"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Options" to="PauseMenu/Options_Menu" method="show"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Quit" to="PauseMenu" method="_quitGame"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
