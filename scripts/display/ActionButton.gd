@@ -38,6 +38,8 @@ func disconnect_action():
 	var directory = AudioEffectControllerSingle.directory
 	if(action.audio != null && directory.has(action.audio)):
 		trigger.disconnect(audio_stream.play)
+	else:
+		trigger.disconnect(action_press_sound.play)
 
 func actuate():
 	if(!disabled):

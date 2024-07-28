@@ -37,6 +37,7 @@ offset_top = 9.0
 offset_right = 347.0
 offset_bottom = 40.0
 placeholder_text = "Supply Name"
+editable = false
 
 [node name="MaxControls" type="Panel" parent="."]
 layout_mode = 1
