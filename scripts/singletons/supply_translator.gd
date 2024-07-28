@@ -25,7 +25,7 @@ func get_supply_name(id : String) -> String:
 	if(overrides.has(id) && overrides[id] != ""):
 		return overrides[id]
 	else:
-		return data[id]
+		return data[id].name
 
 func get_supply_names(ids : Array) -> Array:
 	var list : Array[String] = []
@@ -33,7 +33,7 @@ func get_supply_names(ids : Array) -> Array:
 		if(overrides.has(id) && overrides[id] != ""):
 			list.append(overrides[id])
 		else:
-			list.append(data[id])
+			list.append(data[id].name)
 	return list
 
 func set_name_override(id, new_name):
