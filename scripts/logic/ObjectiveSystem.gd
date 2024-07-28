@@ -24,7 +24,7 @@ func next():
 			var stepId = active_objective[supply_id]
 			newStepDescription.emit(ObjectivesTextsSingle.data[stepId])
 		else:
-			var supply = supply_collection.get_supply(supply_id)
+			var supply = supply_collection.get_or_create_supply(supply_id)
 			while(supply == null):
 				await supply_collection.new_supply
 				supply = supply_collection.get_supply(supply_id)

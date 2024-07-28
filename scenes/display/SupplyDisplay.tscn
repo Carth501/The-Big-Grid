@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bismbh0tk8iw0" path="res://textures/symbols/Supply Warning.png" id="7_qetdo"]
 [ext_resource type="Script" path="res://scripts/display/SupplyWarning.gd" id="8_0ypd4"]
 
-[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning", "popup_container", "popup_label")]
+[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning", "popup_container", "popup_label", "popup_description")]
 custom_minimum_size = Vector2(128, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -24,7 +24,8 @@ supply_curtain = NodePath("Button/SupplyCurtain")
 objective_star = NodePath("Button/ObjectiveStar")
 supply_warning = NodePath("Button/SupplyWarning")
 popup_container = NodePath("Button/PanelContainer")
-popup_label = NodePath("Button/PanelContainer/Label")
+popup_label = NodePath("Button/PanelContainer/VBoxContainer/SupplyName")
+popup_description = NodePath("Button/PanelContainer/VBoxContainer/SupplyDescription")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -170,13 +171,34 @@ offset_right = 40.0
 offset_bottom = 76.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Button/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Button/PanelContainer"]
+layout_mode = 2
+
+[node name="SupplyName" type="Label" parent="Button/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SupplyDescription" type="Label" parent="Button/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_top = 36.0
+offset_right = 40.0
+offset_bottom = 76.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
 layout_mode = 2
 
 [connection signal="left_click" from="Button" to="." method="select"]
 [connection signal="mouse_entered" from="Button" to="." method="show_label"]
 [connection signal="mouse_exited" from="Button" to="." method="hide_label"]
 [connection signal="right_click" from="Button" to="." method="open_menu"]
+[connection signal="mouse_entered" from="Button/ColorRect/SupplyIconDisplay" to="." method="show_description"]
+[connection signal="mouse_exited" from="Button/ColorRect/SupplyIconDisplay" to="." method="hide_description"]
 [connection signal="mouse_entered" from="Button/ObjectiveStar" to="Button/ObjectiveStar" method="open_objective_panel"]
 [connection signal="mouse_exited" from="Button/ObjectiveStar" to="Button/ObjectiveStar" method="close_objective_panel"]
 [connection signal="mouse_entered" from="Button/SupplyWarning" to="Button/SupplyWarning" method="open_warning"]

@@ -790,5 +790,99 @@
 			}
 		},
 		"audio": "crafting"
+	},
+	"smelt_galliantium": {
+		"changes": {
+			"starglass": {
+				"deltas": [
+					-2
+				]
+			},
+			"hellsteel": {
+				"deltas": [
+					-3
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-10
+				]
+			},
+			"galliantium": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"gilded_dust": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-4
+				]
+			},
+			"galliantium": {
+				"deltas": [
+					-1
+				]
+			},
+			"pure_dust": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"mix_gilded_dust": {
+		"changes": {
+			"holy_water": {
+				"deltas": [
+					-6
+				]
+			},
+			"gold_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"galliantium": {
+				"deltas": [
+					-2
+				]
+			},
+			"gilded_dust": {
+				"deltas": [
+					1
+				]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"heavy_dust": {
+				"deltas": [
+					-2
+				]
+			},
+			"arcane_dust": {
+				"deltas": [
+					-2
+				]
+			},
+			"hellsteel": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting"
 	}
 }
