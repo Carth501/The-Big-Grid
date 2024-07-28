@@ -17,25 +17,27 @@ func _on_supply_collection_new_supply(id : String):
 
 func filter(new_filter : Dictionary):
 	if(new_filter.has("bad_filter") && new_filter.bad_filter):
+		push_error("bad_filter passed to supply collection display")
 		for supply_display_id in supply_display_catalogue:
 			var supply_display = supply_display_catalogue[supply_display_id]
-			supply_display.show_supply(false)
+			supply_display.set_filtered_mode(true)
 			supply_display.clear_delta_display()
 	elif(new_filter == {}):
 		for supply_display_id in supply_display_catalogue:
 			var supply_display = supply_display_catalogue[supply_display_id]
-			supply_display.show_supply(true)
+			supply_display.set_filtered_mode(false)
 			supply_display.clear_delta_display()
 	else:
 		for supply_display_id in supply_display_catalogue:
 			var supply_display = supply_display_catalogue[supply_display_id]
+			supply_display.set_filtered_mode(true)
 			if(new_filter.has(supply_display_id)):
-				supply_display.show_supply(true)
+				supply_display.set_in_filter(true)
 				if(new_filter[supply_display_id].has("deltas")):
 					var deltas = new_filter[supply_display_id].deltas
 					supply_display.set_delta_display(deltas)
 				else:
 					supply_display.clear_delta_display()
 			else:
-				supply_display.show_supply(false)
+				supply_display.set_in_filter(false)
 				supply_display.clear_delta_display()
