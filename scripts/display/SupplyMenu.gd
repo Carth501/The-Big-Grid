@@ -18,7 +18,8 @@ var action_rows := {}
 func open(new_supply : Supply):
 	tag_list_display.close()
 	supply = new_supply
-	current_max_value.text = str("%.2f" % supply.v_max)
+	update_max_upgrade_value(supply.v_max)
+	supply.update_max.connect(update_max_upgrade_value)
 	if(supply.max_upgrade_available):
 		max_upgrade_button.visible = true
 		upgrade_increase.text = str("%.2f" % supply.max_increment)
@@ -34,8 +35,10 @@ func open(new_supply : Supply):
 	for action_option in action_options:
 		add_action_to_list(action_option)
 	tag_list_display.set_target(supply)
+	update_supply_name(SupplyTranslatorSingle.get_supply_name(supply.id))
 
 func close():
+	supply.update_max.disconnect(update_max_upgrade_value)
 	close_supply_menu.emit()
 	tag_list_display.close()
 
@@ -43,8 +46,7 @@ func change_supply_name(new_name : String):
 	supply.set_name_override(new_name)
 
 func update_supply_name(current_name : String):
-	if(supply_name.text != current_name):
-		supply_name.text = current_name
+	supply_name.text = current_name
 
 func attempt_max_upgrade():
 	supply.attempt_upgrade_max()
@@ -61,13 +63,16 @@ func upgrade_focus():
 func upgrade_unfocus():
 	supply.unset_upgrade_focus()
 
+func update_max_upgrade_value(v_max):
+	current_max_value.text = str("%.2f" % v_max)
+
 func add_action_to_list(id : String):
 	if(action_rows.has(id)):
 		var label : Colored_Number_Display = action_rows[id].delta
-		var action_logic = action_manager.full_action_list[id]
-		var deltas = action_logic.changes[supply.id].deltas
+		var action_logic_node = action_manager.full_action_list[id]
+		var deltas_from_data = action_logic_node.changes[supply.id].deltas
 		var net := 0
-		for delta in deltas:
+		for delta in deltas_from_data:
 			net += delta
 		label.set_number(net)
 		return
