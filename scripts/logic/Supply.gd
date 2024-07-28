@@ -126,7 +126,7 @@ func unset_upgrade_focus():
 func set_name_override(new_name : String):
 	SupplyTranslatorSingle.set_name_override(id, new_name)
 
-func get_translation() -> String:
+func get_translation():
 	return SupplyTranslatorSingle.data[id]
 
 func load_values(values : Dictionary):
