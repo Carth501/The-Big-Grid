@@ -60,7 +60,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -30.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
@@ -291,13 +291,12 @@ size_flags_horizontal = 3
 
 [node name="Panel" type="Panel" parent="Display"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
+offset_top = -60.0
 grow_horizontal = 2
-grow_vertical = 0
 
 [node name="Button" type="Button" parent="Display/Panel"]
 layout_mode = 1
@@ -324,18 +323,49 @@ objective_text = NodePath("ObjectiveText")
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
-offset_right = 227.0
-offset_bottom = 34.0
-theme_override_font_sizes/font_size = 25
+offset_right = 181.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 20
 text = "Current Objective: "
 
 [node name="ObjectiveText" type="Label" parent="Display/Panel/CurrentObjectiveLine"]
 layout_mode = 0
-offset_left = 228.0
+offset_left = 181.0
 offset_top = -1.0
-offset_right = 1054.0
-offset_bottom = 34.0
-theme_override_font_sizes/font_size = 25
+offset_right = 1002.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 20
+text_overrun_behavior = 3
+
+[node name="OverallObjectiveLine" type="Control" parent="Display/Panel" node_paths=PackedStringArray("objective_text")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("15_3ikv4")
+objective_text = NodePath("ObjectiveText")
+
+[node name="Label" type="Label" parent="Display/Panel/OverallObjectiveLine"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_right = 144.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Ultimate Goal: "
+
+[node name="ObjectiveText" type="Label" parent="Display/Panel/OverallObjectiveLine"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 12.0
+offset_right = 1002.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 20
 text_overrun_behavior = 3
 
 [node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players")]
@@ -585,6 +615,7 @@ text = "Save
 [connection signal="initialize_keep_positions" from="Logic/OptionsOverseer" to="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" method="set_pressed"]
 [connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
 [connection signal="newStepDescription" from="Logic/ObjectiveSystem" to="Display/Panel/CurrentObjectiveLine" method="update_objective"]
+[connection signal="overallGoalDescription" from="Logic/ObjectiveSystem" to="Display/Panel/OverallObjectiveLine" method="update_objective"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Save game" to="." method="SaveButton"]
