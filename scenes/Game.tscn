@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=37 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
 [ext_resource type="Script" path="res://scripts/display/ContainerWithHeader.gd" id="2_46l8s"]
 [ext_resource type="Script" path="res://scripts/display/SupplyCollectionDisplay.gd" id="2_iwxov"]
+[ext_resource type="Texture2D" uid="uid://7gjkq7x5vy0" path="res://textures/ui/Resources Menu.svg" id="3_06xxk"]
 [ext_resource type="Script" path="res://scripts/display/ActionPanel.gd" id="3_n23ff"]
 [ext_resource type="Script" path="res://scripts/display/ActionView.gd" id="3_y50x7"]
 [ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="4_e1gh5"]
@@ -14,11 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://cxnswwxbpknq4" path="res://scenes/display/SupplyMenu.tscn" id="6_2gdos"]
 [ext_resource type="Script" path="res://scripts/logic/ActionManager.gd" id="6_fgv5p"]
 [ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="7_ce23n"]
+[ext_resource type="Texture2D" uid="uid://f3n32mmtluxq" path="res://textures/ui/Actions Menu.svg" id="7_cggcs"]
 [ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="9_iev5w"]
 [ext_resource type="AudioStream" uid="uid://nqca84fbhaxg" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Intermediate_.ogg" id="9_v5ac6"]
 [ext_resource type="Script" path="res://scripts/MusicSystem.gd" id="9_vk0jb"]
 [ext_resource type="AudioStream" uid="uid://dcdic5mi1gpr1" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg" id="10_agjpm"]
 [ext_resource type="Script" path="res://scripts/AutomationPanel.gd" id="11_3l4m0"]
+[ext_resource type="Texture2D" uid="uid://brrc1qffyn2h5" path="res://textures/ui/Developments Menu.svg" id="12_bqf4o"]
 [ext_resource type="AudioStream" uid="uid://cdo74pgnqchtb" path="res://sound/music/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg" id="12_dwipf"]
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
@@ -65,10 +68,15 @@ theme_override_constants/autohide = 0
 split_offset = 600
 script = ExtResource("2_1k5o2")
 
-[node name="SupplyBackground" type="ColorRect" parent="Display/MiddleSplit" node_paths=PackedStringArray("header", "body")]
+[node name="SupplyBackground" type="NinePatchRect" parent="Display/MiddleSplit" node_paths=PackedStringArray("header", "body")]
 clip_contents = true
 layout_mode = 2
-color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+texture = ExtResource("3_06xxk")
+region_rect = Rect2(0, 0, 713, 814)
+patch_margin_left = 91
+patch_margin_top = 102
+patch_margin_right = 66
+patch_margin_bottom = 65
 script = ExtResource("2_46l8s")
 header = NodePath("HFlowContainer")
 body = NodePath("SupplyScrollContainer")
@@ -100,8 +108,10 @@ options_overseer = NodePath("../../../../../../Logic/OptionsOverseer")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/SupplyBackground"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+offset_left = 85.0
+offset_top = 5.0
 offset_bottom = 31.0
 grow_horizontal = 2
 
@@ -137,10 +147,14 @@ theme_override_constants/autohide = 0
 split_offset = 300
 script = ExtResource("5_vo8pe")
 
-[node name="ActionBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu", "supply_menu_container", "supply_menu")]
+[node name="ActionBackground" type="NinePatchRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu", "supply_menu_container", "supply_menu")]
 clip_contents = true
 layout_mode = 2
-color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+texture = ExtResource("7_cggcs")
+patch_margin_left = 127
+patch_margin_top = 129
+patch_margin_right = 128
+patch_margin_bottom = 89
 script = ExtResource("3_y50x7")
 actions_display = NodePath("ActionScrollContainer")
 action_menu = NodePath("ActionMenu")
@@ -209,15 +223,29 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 action_manager = NodePath("../../../../../../../Logic/ActionManager")
 
-[node name="TabContainer" type="TabContainer" parent="Display/MiddleSplit/RightSplit"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Display/MiddleSplit/RightSplit"]
 layout_mode = 2
+texture = ExtResource("12_bqf4o")
+patch_margin_left = 87
+patch_margin_top = 54
+patch_margin_right = 108
+patch_margin_bottom = 45
 
-[node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer"]
+[node name="TabContainer" type="TabContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+
+[node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer"]
 clip_contents = true
 layout_mode = 2
-color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+color = Color(0.0431373, 0.0431373, 0.0431373, 0)
 
-[node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments"]
+[node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -226,7 +254,7 @@ grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments/DevScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments/DevScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 8
@@ -234,20 +262,20 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Developments/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments/DevScrollContainer/MarginContainer" node_paths=PackedStringArray("development_handler")]
 layout_mode = 2
 script = ExtResource("4_p32ci")
-development_handler = NodePath("../../../../../../../../Logic/DevelopmentHandler")
+development_handler = NodePath("../../../../../../../../../Logic/DevelopmentHandler")
 
-[node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/TabContainer" node_paths=PackedStringArray("action_section_container", "machine_factory")]
+[node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer" node_paths=PackedStringArray("action_section_container", "machine_factory")]
 visible = false
 layout_mode = 2
-color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+color = Color(0.0431373, 0.0431373, 0.0431373, 0)
 script = ExtResource("11_3l4m0")
 action_section_container = NodePath("ScrollContainer/ActionSectionContainer")
-machine_factory = NodePath("../../../../../Logic/MachineFactory")
+machine_factory = NodePath("../../../../../../Logic/MachineFactory")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -256,7 +284,7 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="ActionSectionContainer" type="VBoxContainer" parent="Display/MiddleSplit/RightSplit/TabContainer/Machines/ScrollContainer"]
+[node name="ActionSectionContainer" type="VBoxContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer"]
 custom_minimum_size = Vector2(0, 167)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -546,7 +574,7 @@ text = "Save
 [connection signal="finished" from="Display/MusicSystem/Melded" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/Tireless" to="Display/MusicSystem" method="next_track"]
 [connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" method="add_new_machine"]
-[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/TabContainer/Machines" method="add_machine_editor"]
+[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="add_machine_editor"]
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="open_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_supply_menu"]
 [connection signal="action_search_filter" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="filter_actions"]
