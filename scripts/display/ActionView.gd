@@ -1,4 +1,4 @@
-class_name Action_View extends ColorRect
+class_name Action_View extends NinePatchRect
 
 @export var actions_display : ScrollContainer
 @export var action_menu : Action_Menu
