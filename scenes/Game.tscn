@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=38 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://hde6uekbq3c0" path="res://sound/effects/Button Press - The Big Grid.ogg" id="20_foqce"]
 [ext_resource type="AudioStream" uid="uid://dfpytqk3l8bgu" path="res://sound/effects/Crafting - The Big Grid.ogg" id="21_p2o5c"]
 [ext_resource type="AudioStream" uid="uid://ka1de74am3ri" path="res://sound/effects/Cutting - The Big Grid.ogg" id="22_2sucg"]
+[ext_resource type="AudioStream" uid="uid://brwsjg35lmntm" path="res://sound/music/_Victor's Paycheck_ The Big Grid, Pirate Software Gamejam 15.ogg" id="22_xm5k0"]
 [ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="33_ttcp7"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "save_file_panel", "save_file_name")]
@@ -368,10 +369,11 @@ offset_bottom = 40.0
 theme_override_font_sizes/font_size = 20
 text_overrun_behavior = 3
 
-[node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players")]
+[node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players", "victory_music")]
 process_mode = 3
 script = ExtResource("9_vk0jb")
 music_players = [NodePath("OrcDanceIndustrial"), NodePath("OrcDanceIntermediate"), NodePath("OrcDanceOrchestral"), NodePath("WorkersDelight"), NodePath("Melded"), NodePath("Tireless")]
+victory_music = NodePath("VictorsPaycheck")
 
 [node name="OrcDanceIndustrial" type="AudioStreamPlayer" parent="Display/MusicSystem"]
 stream = ExtResource("9_v5ac6")
@@ -395,6 +397,10 @@ bus = &"Music"
 
 [node name="Tireless" type="AudioStreamPlayer" parent="Display/MusicSystem"]
 stream = ExtResource("18_36x25")
+bus = &"Music"
+
+[node name="VictorsPaycheck" type="AudioStreamPlayer" parent="Display/MusicSystem"]
+stream = ExtResource("22_xm5k0")
 bus = &"Music"
 
 [node name="SoundEffects" type="Node" parent="Display"]
@@ -457,10 +463,11 @@ supply_collection = NodePath("../SupplyCollection")
 [node name="OptionsOverseer" type="Node" parent="Logic"]
 script = ExtResource("12_oy6by")
 
-[node name="ObjectiveSystem" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "game_controller")]
+[node name="ObjectiveSystem" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "game_controller", "music_system")]
 script = ExtResource("14_lsg5e")
 supply_collection = NodePath("../SupplyCollection")
 game_controller = NodePath("../..")
+music_system = NodePath("../../Display/MusicSystem")
 
 [node name="AutosaveTimer" type="Timer" parent="Logic"]
 wait_time = 300.0

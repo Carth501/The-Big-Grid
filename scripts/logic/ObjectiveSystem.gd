@@ -6,6 +6,7 @@ signal overallGoalDescription(description : String)
 var active_objective : Dictionary
 var future_objectives := []
 @export var game_controller : Game_Controller
+@export var music_system : MusicSystem
 
 func _ready():
 	if(!game_controller.is_node_ready()):
@@ -19,6 +20,7 @@ func next():
 	var new_objective = future_objectives.pop_front()
 	if(new_objective == null):
 		overallGoalDescription.emit(ObjectivesTextsSingle.data["test_finished"])
+		music_system.play_victory()
 		return
 	active_objective = new_objective
 	for supply_id in active_objective:
