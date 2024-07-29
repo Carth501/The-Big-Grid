@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=35 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dfpytqk3l8bgu" path="res://sound/effects/Crafting - The Big Grid.ogg" id="21_p2o5c"]
 [ext_resource type="AudioStream" uid="uid://ka1de74am3ri" path="res://sound/effects/Cutting - The Big Grid.ogg" id="22_2sucg"]
 [ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="33_ttcp7"]
+[ext_resource type="Texture2D" uid="uid://4hbs43oyi286" path="res://textures/Subtract.svg" id="34_bc0fs"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "save_file_panel", "save_file_name")]
 script = ExtResource("1_kvsp4")
@@ -527,6 +528,46 @@ offset_right = 258.0
 offset_bottom = 84.0
 text = "Save
 "
+
+[node name="HelpButton" type="Button" parent="."]
+offset_left = 510.295
+offset_right = 599.985
+offset_bottom = 31.0
+text = "Help"
+
+[node name="PopupMenu" type="PopupMenu" parent="HelpButton"]
+position = Vector2i(204, 58)
+size = Vector2i(775, 500)
+unresizable = false
+always_on_top = true
+
+[node name="PanelBackground" type="TextureRect" parent="HelpButton/PopupMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("34_bc0fs")
+expand_mode = 5
+
+[node name="Title" type="RichTextLabel" parent="HelpButton/PopupMenu/PanelBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_right = 118.998
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "Welcome to The Big Grid!"
+fit_content = true
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters = 39
+visible_ratio = 6.5
+text_direction = 1
 
 [connection signal="dragged" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_resized"]
