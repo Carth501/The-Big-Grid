@@ -1,22 +1,26 @@
 class_name Objective_System extends Node
 
 signal newStepDescription(String)
+signal overallGoalDescription(description : String)
 @export var supply_collection : Supply_Collection
 var active_objective : Dictionary
 var future_objectives := []
 @export var game_controller : Game_Controller
+@export var music_system : MusicSystem
 
 func _ready():
 	if(!game_controller.is_node_ready()):
 		await game_controller.ready
 	future_objectives = Objectives_Table_Single.data["test"].duplicate()
+	overallGoalDescription.emit(ObjectivesTextsSingle.data["test"])
 	next()
 
 func next():
 	unsubscribe_supplies()
 	var new_objective = future_objectives.pop_front()
 	if(new_objective == null):
-		print("VICTORY")
+		overallGoalDescription.emit(ObjectivesTextsSingle.data["test_finished"])
+		music_system.play_victory()
 		return
 	active_objective = new_objective
 	for supply_id in active_objective:
