@@ -137,3 +137,7 @@ func SaveButton():
 
 func _on_auto_save_timer_timeout() -> void:
 	autosave()
+
+
+func _on_help_pressed() -> void:
+	$TutorialPopUp.show()
