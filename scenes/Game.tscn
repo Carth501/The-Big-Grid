@@ -638,6 +638,8 @@ visible = false
 [connection signal="text_changed" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionSearch" to="Logic/ActionManager" method="set_action_filter"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
+[connection signal="visibility_changed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_visibility_changed"]
+[connection signal="resized" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_scroll_container_resized"]
 [connection signal="pressed" from="Display/Panel/Button" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIndustrial" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIntermediate" to="Display/MusicSystem" method="next_track"]
