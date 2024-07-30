@@ -82,38 +82,13 @@ script = ExtResource("2_46l8s")
 header = NodePath("HFlowContainer")
 body = NodePath("SupplyScrollContainer")
 
-[node name="SupplyScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/SupplyBackground"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer" node_paths=PackedStringArray("supply_collection", "options_overseer")]
-layout_mode = 2
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-script = ExtResource("2_iwxov")
-supply_collection = NodePath("../../../../../../Logic/SupplyCollection")
-options_overseer = NodePath("../../../../../../Logic/OptionsOverseer")
-
 [node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/SupplyBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 offset_left = 85.0
 offset_top = 5.0
-offset_bottom = 31.0
+offset_bottom = 36.0
 grow_horizontal = 2
 
 [node name="SupplySearch" type="LineEdit" parent="Display/MiddleSplit/SupplyBackground/HFlowContainer"]
@@ -140,6 +115,34 @@ theme_override_font_sizes/font_size = 12
 button_pressed = true
 text = "Keep Position"
 alignment = 2
+
+[node name="SupplyScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/SupplyBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer" node_paths=PackedStringArray("supply_collection", "options_overseer")]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+script = ExtResource("2_iwxov")
+supply_collection = NodePath("../../../../../../Logic/SupplyCollection")
+options_overseer = NodePath("../../../../../../Logic/OptionsOverseer")
+
+[node name="Control" type="Control" parent="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
 
 [node name="RightSplit" type="VSplitContainer" parent="Display/MiddleSplit"]
 layout_mode = 2

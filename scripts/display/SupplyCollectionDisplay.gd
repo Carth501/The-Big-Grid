@@ -12,8 +12,9 @@ func _on_supply_collection_new_supply(id : String):
 	supply_display_catalogue[id] = new_supply_display
 	var supply_data = SupplyDefsSingle.data[id]
 	if(supply_data.has("default_index")):
-		if(supply_data.default_index < get_child_count()):
-			move_child(new_supply_display, supply_data.default_index)
+		if(supply_data.default_index + 1 < get_child_count()):
+			print(str("Placing ", id, " at index ", supply_data.default_index + 1))
+			move_child(new_supply_display, supply_data.default_index + 1)
 
 func filter(new_filter : Dictionary):
 	if(new_filter.has("bad_filter") && new_filter.bad_filter):
