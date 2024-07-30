@@ -14,5 +14,4 @@ func recalculate_minimum_size():
 	custom_minimum_size.y = vertical
 
 func _on_h_flow_container_child_entered_tree(_node: Node) -> void:
-	print("_on_h_flow_container_child_entered_tree")
 	recalculate_minimum_size()
