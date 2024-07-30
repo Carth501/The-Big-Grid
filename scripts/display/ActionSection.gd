@@ -8,8 +8,11 @@ func set_label(section_name : String):
 
 func add_machine_editor(new_editor : Action_Machine_Editor):
 	editor_container.add_child(new_editor)
-	recalculate_minimum_size()
 
 func recalculate_minimum_size():
 	var vertical = editor_container.size.y + section_label.size.y
 	custom_minimum_size.y = vertical
+
+func _on_h_flow_container_child_entered_tree(_node: Node) -> void:
+	print("_on_h_flow_container_child_entered_tree")
+	recalculate_minimum_size()

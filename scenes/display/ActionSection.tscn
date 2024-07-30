@@ -33,3 +33,5 @@ offset_bottom = 167.0
 grow_horizontal = 2
 
 [connection signal="resized" from="." to="." method="recalculate_minimum_size"]
+[connection signal="visibility_changed" from="." to="." method="recalculate_minimum_size"]
+[connection signal="child_entered_tree" from="HFlowContainer" to="." method="_on_h_flow_container_child_entered_tree"]
