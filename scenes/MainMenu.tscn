@@ -27,7 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_11uni")
 expand_mode = 3
-stretch_mode = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
