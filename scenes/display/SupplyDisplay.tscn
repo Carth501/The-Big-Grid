@@ -13,9 +13,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0e2l"]
 
 [node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning", "popup_container", "popup_label", "popup_description")]
-custom_minimum_size = Vector2(128, 64)
+custom_minimum_size = Vector2(216, 64)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 216.0
+offset_bottom = 64.0
 script = ExtResource("1_4pac3")
 supply_icon_display = NodePath("Button/SupplyIconDisplay")
 value_label = NodePath("Button/Count")
@@ -48,14 +50,16 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -81.0
-offset_top = 5.0
-offset_right = -42.0
-offset_bottom = 37.0
+offset_left = -137.0
+offset_top = 2.0
+offset_right = -69.0
+offset_bottom = 60.0
 grow_horizontal = 0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
+text = "
+"
 fit_content = true
 
 [node name="Delta" type="RichTextLabel" parent="Button"]
@@ -63,14 +67,16 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -81.0
-offset_top = 31.0
-offset_right = -42.0
-offset_bottom = 63.0
+offset_left = -137.0
+offset_top = 55.0
+offset_right = -69.0
+offset_bottom = 113.0
 grow_horizontal = 0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
+text = "
+"
 fit_content = true
 
 [node name="Max" type="RichTextLabel" parent="Button"]
@@ -80,23 +86,25 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -42.0
-offset_top = -59.0
-offset_right = -4.0
-offset_bottom = -27.0
+offset_left = -69.0
+offset_top = -63.0
+offset_right = -1.0
+offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 26
 bbcode_enabled = true
+text = "
+"
 fit_content = true
 
 [node name="SupplyChangeFeedback" type="Control" parent="Button"]
 anchors_preset = 0
-offset_left = 76.0
-offset_top = 31.0
-offset_right = 116.0
-offset_bottom = 71.0
+offset_left = 143.0
+offset_top = 59.0
+offset_right = 183.0
+offset_bottom = 99.0
 mouse_filter = 2
 script = ExtResource("2_1xhgp")
 
@@ -113,10 +121,10 @@ mouse_filter = 2
 [node name="ObjectiveStar" type="TextureRect" parent="Button" node_paths=PackedStringArray("condition_panel")]
 visible = false
 layout_mode = 0
-offset_left = 22.0
-offset_top = 1.0
-offset_right = 44.0
-offset_bottom = 23.0
+offset_left = 56.0
+offset_top = -3.0
+offset_right = 78.0
+offset_bottom = 19.0
 mouse_filter = 2
 texture = ExtResource("5_a01e1")
 expand_mode = 1
@@ -136,9 +144,9 @@ color = Color(0, 0, 0, 1)
 [node name="SupplyWarning" type="TextureRect" parent="Button" node_paths=PackedStringArray("warning_text", "warning_panel")]
 visible = false
 layout_mode = 0
-offset_left = -6.0
+offset_left = 10.0
 offset_top = -2.0
-offset_right = 16.0
+offset_right = 32.0
 offset_bottom = 20.0
 mouse_filter = 2
 texture = ExtResource("7_qetdo")
@@ -173,9 +181,9 @@ layout_mode = 2
 visible = false
 z_index = 1
 layout_mode = 0
-offset_top = 36.0
+offset_top = 60.0
 offset_right = 40.0
-offset_bottom = 76.0
+offset_bottom = 100.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Button/PanelContainer"]
