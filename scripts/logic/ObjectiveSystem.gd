@@ -20,6 +20,7 @@ func next():
 	var new_objective = future_objectives.pop_front()
 	if(new_objective == null):
 		overallGoalDescription.emit(ObjectivesTextsSingle.data["test_finished"])
+		newStepDescription.emit("Gather Supplies for the next update!")
 		music_system.play_victory()
 		return
 	active_objective = new_objective
