@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=40 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://dfpytqk3l8bgu" path="res://sound/effects/Crafting - The Big Grid.ogg" id="21_p2o5c"]
 [ext_resource type="AudioStream" uid="uid://ka1de74am3ri" path="res://sound/effects/Cutting - The Big Grid.ogg" id="22_2sucg"]
 [ext_resource type="AudioStream" uid="uid://brwsjg35lmntm" path="res://sound/music/_Victor's Paycheck_ The Big Grid, Pirate Software Gamejam 15.ogg" id="22_xm5k0"]
+[ext_resource type="AudioStream" uid="uid://c1thhfqko4fve" path="res://sound/effects/Development - The Big Grid.ogg" id="29_lmw6t"]
 [ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="33_ttcp7"]
 [ext_resource type="PackedScene" uid="uid://brv0nvrfcfotn" path="res://scenes/tutorial_pop_up.tscn" id="37_anvfk"]
 
@@ -69,7 +70,7 @@ theme_override_constants/separation = 16
 theme_override_constants/autohide = 0
 split_offset = 600
 script = ExtResource("2_1k5o2")
-split = 0.4
+split = 0.45
 
 [node name="SupplyBackground" type="NinePatchRect" parent="Display/MiddleSplit" node_paths=PackedStringArray("header", "body")]
 clip_contents = true
@@ -465,6 +466,12 @@ stream = ExtResource("22_2sucg")
 bus = &"Effects"
 script = ExtResource("18_m7ho0")
 id = "cutting"
+
+[node name="Development" type="AudioStreamPlayer" parent="Display/SoundEffects"]
+stream = ExtResource("29_lmw6t")
+bus = &"Effects"
+script = ExtResource("18_m7ho0")
+id = "development"
 
 [node name="Logic" type="Node" parent="."]
 
