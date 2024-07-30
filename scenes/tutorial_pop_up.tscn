@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://da31bhna7axgt"]
+[gd_scene load_steps=3 format=3 uid="uid://brv0nvrfcfotn"]
 
 [ext_resource type="Script" path="res://scripts/tutorial_pop_up.gd" id="1_q6bgp"]
-[ext_resource type="Texture2D" uid="uid://hnydjmt3ed2o" path="res://textures/Subtract.svg" id="1_upres"]
+[ext_resource type="Texture2D" path="res://textures/Subtract.svg" id="1_upres"]
 
 [node name="TutorialPopUp" type="ColorRect"]
 anchors_preset = 15
@@ -170,6 +170,7 @@ theme_override_font_sizes/font_size = 40
 text = "Close"
 
 [node name="ActionMenuTutorial" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
