@@ -56,35 +56,63 @@ fit_content = true
 [node name="Supplies Menu" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 348.615
-offset_top = 205.805
-offset_right = 569.615
-offset_bottom = 255.805
+anchor_left = 0.401
+anchor_top = 0.318
+anchor_right = 0.401
+anchor_bottom = 0.318
+offset_left = -110.215
+offset_top = -0.259018
+offset_right = 110.785
+offset_bottom = 49.741
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Supplies Menu"
 
 [node name="Action Menu" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 626.425
-offset_top = 205.805
-offset_right = 817.425
-offset_bottom = 255.805
+anchor_left = 0.631
+anchor_top = 0.318
+anchor_right = 0.631
+anchor_bottom = 0.318
+offset_left = -95.5747
+offset_top = -0.259018
+offset_right = 95.4253
+offset_bottom = 49.741
 theme_override_font_sizes/font_size = 30
 text = "Action Menu"
 
-[node name="SuppliesTutorial" type="PopupPanel" parent="."]
-size = Vector2i(1160, 650)
-max_size = Vector2i(1160, 650)
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.843
+anchor_right = 0.506
+anchor_bottom = 0.843
+offset_left = -109.973
+offset_top = -0.264038
+offset_right = 111.028
+offset_bottom = 49.736
+theme_override_font_sizes/font_size = 30
+text = "Exit
+"
 
-[node name="Background Texture2" type="TextureRect" parent="SuppliesTutorial"]
+[node name="SuppliesTutorial" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 1156.0
-offset_bottom = 651.427
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[node name="Background Texture2" type="TextureRect" parent="SuppliesTutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -96,56 +124,65 @@ stretch_mode = 4
 [node name="RichTextLabel" type="RichTextLabel" parent="SuppliesTutorial/Background Texture2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -175.0
-offset_right = 576.0
-offset_bottom = 647.0
+anchor_left = 0.516
+anchor_top = 0.023
+anchor_right = 0.516
+anchor_bottom = 0.023
+offset_left = -185.415
+offset_top = 0.0959988
+offset_right = 185.585
+offset_bottom = 61.096
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 46
 text = "Supplies Menu"
+fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="SuppliesTutorial/Background Texture2"]
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -569.085
-offset_top = 57.13
-offset_right = 582.915
-offset_bottom = 704.13
+anchor_left = 0.513
+anchor_top = 0.157
+anchor_right = 0.513
+anchor_bottom = 0.157
+offset_left = -559.982
+offset_top = 0.264
+offset_right = 560.018
+offset_bottom = 179.264
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "The Supplies Menu is on the left hand side of the screen. It lists all of the current available supplies. If any supplies are right clicked, it will open a supply sub menu which will allow you to expand the maximum capacity."
 
 [node name="close" type="Button" parent="SuppliesTutorial/Background Texture2"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.903
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.903
 offset_left = -55.0
-offset_top = -63.0
+offset_top = -0.144043
 offset_right = 55.0
+offset_bottom = 62.856
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Close"
 
-[node name="ActionMenuTutorial" type="PopupPanel" parent="."]
-size = Vector2i(1160, 650)
-max_size = Vector2i(1160, 650)
-
-[node name="Background Texture2" type="TextureRect" parent="ActionMenuTutorial"]
+[node name="ActionMenuTutorial" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 1156.0
-offset_bottom = 651.427
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[node name="Background Texture2" type="TextureRect" parent="ActionMenuTutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -157,11 +194,14 @@ stretch_mode = 4
 [node name="RichTextLabel" type="RichTextLabel" parent="ActionMenuTutorial/Background Texture2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -175.0
-offset_right = 576.0
-offset_bottom = 647.0
+anchor_left = 0.479
+anchor_top = 0.026
+anchor_right = 0.479
+anchor_bottom = 0.026
+offset_left = -151.079
+offset_top = 0.152
+offset_right = 150.921
+offset_bottom = 66.152
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 46
 text = "Action Menu"
@@ -170,45 +210,38 @@ text = "Action Menu"
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -569.085
-offset_top = 57.13
-offset_right = 582.915
-offset_bottom = 704.13
+anchor_left = 0.497
+anchor_top = 0.131
+anchor_right = 0.497
+anchor_bottom = 0.131
+offset_left = -565.675
+offset_top = 0.111992
+offset_right = 565.325
+offset_bottom = 216.112
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "The Action Menu is on the right hand side of the screen. It lists all of the current available actions that affect the supplies in some manner. If any actions are right clicked, it will open a machine sub menu which will allow you to purchase machines with supplies in order to automate the associated 
 action."
 
 [node name="closeAction" type="Button" parent="ActionMenuTutorial/Background Texture2"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -55.0
-offset_top = -63.0
-offset_right = 55.0
+anchors_preset = -1
+anchor_left = 0.461
+anchor_top = 0.903
+anchor_right = 0.461
+anchor_bottom = 0.903
+offset_left = -54.4832
+offset_top = -0.144043
+offset_right = 55.5168
+offset_bottom = 62.856
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Close"
 
-[node name="Exit" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 468.715
-offset_top = 347.085
-offset_right = 689.716
-offset_bottom = 397.085
-theme_override_font_sizes/font_size = 30
-text = "Exit
-"
-
 [connection signal="pressed" from="Supplies Menu" to="." method="_on_supplies_menu_pressed"]
 [connection signal="pressed" from="Action Menu" to="." method="_on_action_menu_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="SuppliesTutorial/Background Texture2/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="ActionMenuTutorial/Background Texture2/closeAction" to="." method="_on_close_action_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

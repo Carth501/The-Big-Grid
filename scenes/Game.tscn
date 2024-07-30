@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=39 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
