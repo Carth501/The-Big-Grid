@@ -16,7 +16,7 @@ action_machine_container = NodePath("Control/ScrollContainer/ActionMachineContai
 machine_purchase_button = NodePath("Control/PurchaseMachineButton")
 tag_list_display = NodePath("TagListDisplay")
 action_button = NodePath("ActionButton")
-supply_container = NodePath("SupplyList/VBoxContainer")
+supply_container = NodePath("SupplyListScrollArea/SupplyListContainer")
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 1
@@ -33,40 +33,37 @@ offset_bottom = 31.0
 script = ExtResource("2_xqklk")
 
 [node name="TagListDisplay" parent="." instance=ExtResource("2_tdi38")]
-offset_left = 278.0
-offset_top = 51.0
-offset_right = 318.0
-offset_bottom = 91.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 268.0
+offset_top = 166.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 
-[node name="SupplyList" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = 13.0
-offset_top = 58.0
-offset_right = 53.0
-offset_bottom = 98.0
+[node name="SupplyListScrollArea" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 38.0
+offset_bottom = 166.0
+grow_horizontal = 2
 
-[node name="Label" type="Label" parent="SupplyList"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = -7.0
-offset_right = 73.0
-offset_bottom = 16.0
-text = "Supplies
-"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SupplyList"]
-layout_mode = 0
-offset_top = 20.0
-offset_right = 40.0
-offset_bottom = 60.0
+[node name="SupplyListContainer" type="HBoxContainer" parent="SupplyListScrollArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_top = 50.0
+offset_top = 166.0
 offset_right = 260.0
+offset_bottom = 116.0
 grow_vertical = 2
 
 [node name="PurchaseMachineButton" type="Button" parent="Control"]
