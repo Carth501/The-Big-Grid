@@ -43,6 +43,7 @@ func set_enabled(setting):
 func trigger():
 	if(!complete):
 		attempt.emit(id)
+		play_sound()
 
 func set_hover():
 	if(!complete):
@@ -64,3 +65,10 @@ func lose_focus():
 func reveal():
 	if(!complete):
 		visible = true
+
+func play_sound():
+	var directory = AudioEffectControllerSingle.directory
+	if(directory.has("development")):
+		directory["development"].play()
+	else:
+		push_warning("directory does not have development sound.")
