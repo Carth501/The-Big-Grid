@@ -7,12 +7,12 @@ var action : Action
 @export var options_overseer : Options_Overseer
 @export var machine_factory : Machine_Factory
 @onready var machine_editor_prefab := preload("res://scenes/display/ActionMachineEditor.tscn")
+@onready var supply_display_proto := preload("res://scenes/display/SupplyDisplay.tscn")
 @export var action_machine_container : FlowContainer
 @export var machine_purchase_button : Button
 @export var tag_list_display : Tag_List_Display
 @export var action_button : Action_Button
-@export var supply_container : VBoxContainer
-var supply_display_proto := preload("res://scenes/display/SupplyDisplay.tscn")
+@export var supply_container : HBoxContainer
 var idle_machine_editors : Array[Action_Machine_Editor] = []
 var active_machine_editors : Array[Action_Machine_Editor] = []
 var supply_displays := {}
@@ -41,6 +41,7 @@ func create_display(supply_id : String):
 	supply_container.add_child(new_supply_display)
 	new_supply_display.setup(supply_id, supply_collection, options_overseer)
 	supply_displays[supply_id] = new_supply_display
+	new_supply_display.show()
 
 func activate_machine_editor(new_machine : Machine):
 	var editor = get_idle_machine_editor()
