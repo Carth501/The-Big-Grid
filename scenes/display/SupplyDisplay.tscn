@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dogpp8mey0he7"]
+[gd_scene load_steps=12 format=3 uid="uid://dogpp8mey0he7"]
 
 [ext_resource type="Script" path="res://scripts/display/SupplyDisplay.gd" id="1_4pac3"]
 [ext_resource type="Script" path="res://scripts/display/SupplyChangeFeedback.gd" id="2_1xhgp"]
@@ -11,6 +11,13 @@
 [ext_resource type="Script" path="res://scripts/display/SupplyWarning.gd" id="8_0ypd4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0e2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daq2x"]
+bg_color = Color(0.121569, 0.121569, 0.121569, 0.580392)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning", "popup_container", "popup_label", "popup_description")]
 custom_minimum_size = Vector2(216, 64)
@@ -40,6 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_x0e2l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_daq2x")
 icon = ExtResource("2_ljcvu")
 vertical_icon_alignment = 0
 expand_icon = true
