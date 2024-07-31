@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhbyc72c4njr0"
-path="res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"
+uid="uid://c8p8mln38wukp"
+path="res://.godot/imported/Magnitite.PNG-b1c4364e6c2568a94cf7398bb34d3fd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Supply_Icons/Water.PNG"
-dest_files=["res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"]
+source_file="res://textures/Supply_Icons/Magnitite.PNG"
+dest_files=["res://.godot/imported/Magnitite.PNG-b1c4364e6c2568a94cf7398bb34d3fd3.ctex"]
 
 [params]
 

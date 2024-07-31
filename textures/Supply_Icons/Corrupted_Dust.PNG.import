@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhbyc72c4njr0"
-path="res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"
+uid="uid://woretgcgkdqk"
+path="res://.godot/imported/Corrupted_Dust.PNG-1b54c7998b5ac400c091362a76d808ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Supply_Icons/Water.PNG"
-dest_files=["res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"]
+source_file="res://textures/Supply_Icons/Corrupted_Dust.PNG"
+dest_files=["res://.godot/imported/Corrupted_Dust.PNG-1b54c7998b5ac400c091362a76d808ae.ctex"]
 
 [params]
 

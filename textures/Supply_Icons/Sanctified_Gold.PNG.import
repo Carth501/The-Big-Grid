@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhbyc72c4njr0"
-path="res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"
+uid="uid://5lp4t2xc10qe"
+path="res://.godot/imported/Sanctified_Gold.PNG-19d5e1158f68162a807c7db44bc964e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Supply_Icons/Water.PNG"
-dest_files=["res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"]
+source_file="res://textures/Supply_Icons/Sanctified_Gold.PNG"
+dest_files=["res://.godot/imported/Sanctified_Gold.PNG-19d5e1158f68162a807c7db44bc964e3.ctex"]
 
 [params]
 

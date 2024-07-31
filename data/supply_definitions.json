@@ -11,7 +11,7 @@
 		},
 		"degrade": 0.98,
 		"default_index": 0,
-		"icon_path": "res://textures/Supply_Icons/Electricity.svg"
+		"icon_path": "res://textures/Supply_Icons/Power.PNG"
 	},
 	"water": {
 		"default_max": 40,
@@ -24,7 +24,7 @@
 			}
 		},
 		"default_index": 1,
-		"icon_path": "res://textures/Supply_Icons/Water.png"
+		"icon_path": "res://textures/Supply_Icons/Water.PNG"
 	},
 	"coal": {
 		"default_max": 20,
@@ -37,7 +37,7 @@
 			}
 		},
 		"default_index": 2,
-		"icon_path": "res://textures/Supply_Icons/Coal.svg"
+		"icon_path": "res://textures/Supply_Icons/Coal.PNG"
 	},
 	"hematite": {
 		"default_max": 8,
@@ -50,7 +50,7 @@
 			}
 		},
 		"default_index": 3,
-		"icon_path": "res://textures/Supply_Icons/Hematite.svg"
+		"icon_path": "res://textures/Supply_Icons/Hematite.PNG"
 	},
 	"magnitite": {
 		"default_value": 0,
@@ -64,7 +64,7 @@
 			}
 		},
 		"default_index": 4,
-		"icon_path": "res://textures/Supply_Icons/Magnitite.svg"
+		"icon_path": "res://textures/Supply_Icons/Magnitite.PNG"
 	},
 	"bornite": {
 		"default_max": 10,
@@ -77,7 +77,7 @@
 			}
 		},
 		"default_index": 5,
-		"icon_path": "res://textures/Supply_Icons/Bornite.svg"
+		"icon_path": "res://textures/Supply_Icons/Bornite.PNG"
 	},
 	"bauxite": {
 		"default_max": 10,
@@ -90,7 +90,7 @@
 			}
 		},
 		"default_index": 6,
-		"icon_path": "res://textures/Supply_Icons/Bauxite.svg"
+		"icon_path": "res://textures/Supply_Icons/Bauxite.PNG"
 	},
 	"native_gold": {
 		"default_max": 50,
@@ -103,7 +103,7 @@
 			}
 		},
 		"default_index": 7,
-		"icon_path": "res://textures/Supply_Icons/Native Gold.svg"
+		"icon_path": "res://textures/Supply_Icons/Native_Gold.PNG"
 	},
 	"iron_ingot": {
 		"default_value": 20,
@@ -117,7 +117,7 @@
 			}
 		},
 		"default_index": 8,
-		"icon_path": "res://textures/Supply_Icons/Iron Ingot.svg"
+		"icon_path": "res://textures/Supply_Icons/Iron_Gear.PNG"
 	},
 	"copper_ingot": {
 		"default_max": 40,
@@ -130,7 +130,7 @@
 			}
 		},
 		"default_index": 9,
-		"icon_path": "res://textures/Supply_Icons/Copper Ingot.svg"
+		"icon_path": "res://textures/Supply_Icons/Copper_Ingot.PNG"
 	},
 	"aluminum_ingot": {
 		"default_max": 20,
@@ -143,7 +143,7 @@
 			}
 		},
 		"default_index": 10,
-		"icon_path": "res://textures/Supply_Icons/Aluminum Ingot.svg"
+		"icon_path": "res://textures/Supply_Icons/Aluminium_Ingot.PNG"
 	},
 	"gold_ingot": {
 		"default_max": 5,
@@ -169,7 +169,7 @@
 			}
 		},
 		"default_index": 12,
-		"icon_path": "res://textures/Supply_Icons/Steel Ingot.svg"
+		"icon_path": "res://textures/Supply_Icons/Steel_Ingot.PNG"
 	},
 	"sand": {
 		"default_max": 40,
@@ -187,7 +187,7 @@
 			}
 		},
 		"default_index": 13,
-		"icon_path": "res://textures/Supply_Icons/Sand.svg"
+		"icon_path": "res://textures/Supply_Icons/Sand.PNG"
 	},
 	"salt": {
 		"default_max": 40,
@@ -205,7 +205,7 @@
 			}
 		},
 		"default_index": 14,
-		"icon_path": "res://textures/Supply_Icons/Salt.svg"
+		"icon_path": "res://textures/Supply_Icons/Salt.PNG"
 	},
 	"purified_water": {
 		"default_max": 20,
@@ -218,7 +218,7 @@
 			}
 		},
 		"default_index": 15,
-		"icon_path": "res://textures/Supply_Icons/Zibuli.svg"
+		"icon_path": "res://textures/Supply_Icons/Purified_Water.PNG"
 	},
 	"holy_water": {
 		"default_max": 10,
@@ -236,7 +236,7 @@
 			}
 		},
 		"default_index": 16,
-		"icon_path": "res://textures/Supply_Icons/Tivon.svg"
+		"icon_path": "res://textures/Supply_Icons/Holy_Water.PNG"
 	},
 	"sanctified_gold": {
 		"default_max": 4,
@@ -249,7 +249,7 @@
 			}
 		},
 		"default_index": 17,
-		"icon_path": "res://textures/Supply_Icons/Ysmarl.svg"
+		"icon_path": "res://textures/Supply_Icons/Sanctified_Gold.PNG"
 	},
 	"starsand": {
 		"default_max": 8,
@@ -262,7 +262,7 @@
 			}
 		},
 		"default_index": 18,
-		"icon_path": "res://textures/Supply_Icons/Doardfhor.svg"
+		"icon_path": "res://textures/Supply_Icons/Starsand.PNG"
 	},
 	"starglass": {
 		"default_max": 8,
@@ -275,7 +275,7 @@
 			}
 		},
 		"default_index": 19,
-		"icon_path": "res://textures/Supply_Icons/Astrallium.svg"
+		"icon_path": "res://textures/Supply_Icons/Starglass.PNG"
 	},
 	"hellsteel": {
 		"default_max": 10,
@@ -288,7 +288,7 @@
 			}
 		},
 		"default_index": 20,
-		"icon_path": "res://textures/Supply_Icons/Rocket Fuel.svg"
+		"icon_path": "res://textures/Supply_Icons/HellSteel.PNG"
 	},
 	"profane_ingot": {
 		"default_max": 10,
@@ -301,7 +301,7 @@
 			}
 		},
 		"default_index": 21,
-		"icon_path": "res://textures/Supply_Icons/Demons.svg"
+		"icon_path": "res://textures/Supply_Icons/Profane_Ingot.PNG"
 	},
 	"divine_dust": {
 		"default_max": 10,
@@ -347,7 +347,7 @@
 			}
 		},
 		"default_index": 23,
-		"icon_path": "res://textures/Supply_Icons/Rocket Parts.svg"
+		"icon_path": "res://textures/Supply_Icons/Pure_Dust.PNG"
 	},
 	"heavy_dust": {
 		"default_max": 10,
@@ -370,7 +370,7 @@
 			}
 		},
 		"default_index": 24,
-		"icon_path": "res://textures/Supply_Icons/Uranium.svg"
+		"icon_path": "res://textures/Supply_Icons/Heavy_Dust.PNG"
 	},
 	"corrupted_dust": {
 		"default_max": 2,
@@ -383,7 +383,7 @@
 			}
 		},
 		"default_index": 25,
-		"icon_path": "res://textures/Supply_Icons/Ballistic Missile.svg"
+		"icon_path": "res://textures/Supply_Icons/Corrupted_Dust.PNG"
 	},
 	"ascendant_dust": {
 		"default_max": 4,
@@ -419,7 +419,7 @@
 			}
 		},
 		"default_index": 27,
-		"icon_path": "res://textures/Supply_Icons/Cosmosium.svg"
+		"icon_path": "res://textures/Supply_Icons/Arcane_Dust.PNG"
 	},
 	"gilded_dust": {
 		"default_max": 2,
@@ -437,7 +437,7 @@
 			}
 		},
 		"default_index": 28,
-		"icon_path": "res://textures/Supply_Icons/Laminate Shielding.svg"
+		"icon_path": "res://textures/Supply_Icons/Gilded_Dust.PNG"
 	},
 	"galliantium": {
 		"default_max": 8,
