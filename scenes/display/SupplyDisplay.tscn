@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/display/SupplyDisplay.gd" id="1_4pac3"]
 [ext_resource type="Script" path="res://scripts/display/SupplyChangeFeedback.gd" id="2_1xhgp"]
 [ext_resource type="Script" path="res://scripts/display/DualButton.gd" id="2_475cn"]
-[ext_resource type="Texture2D" path="res://textures/ui/SupplyDisplay.svg" id="2_ljcvu"]
+[ext_resource type="Texture2D" uid="uid://cbrs7wghjvgw3" path="res://textures/ui/SupplyDisplay.svg" id="2_ljcvu"]
 [ext_resource type="PackedScene" uid="uid://b7qkoq5nu3bew" path="res://scenes/display/SupplyIconDisplay.tscn" id="4_ofdg0"]
 [ext_resource type="Texture2D" uid="uid://c8ita8dnfej1p" path="res://textures/symbols/Star 1.png" id="5_a01e1"]
 [ext_resource type="Script" path="res://scripts/display/ObjectiveStar.gd" id="6_tnf1p"]

@@ -550,18 +550,22 @@ layout_mode = 2
 
 [node name="Resume" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Resume"
 
 [node name="Save game" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Save game"
 
 [node name="Options" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Options"
 
 [node name="Quit" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="Options_Menu" parent="PauseMenu" instance=ExtResource("33_ttcp7")]
