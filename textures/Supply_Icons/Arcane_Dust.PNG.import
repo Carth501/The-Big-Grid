@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhbyc72c4njr0"
-path="res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"
+uid="uid://0m3mwoir8xyl"
+path="res://.godot/imported/Arcane_Dust.PNG-b9d40c37336232094815d696a6d75a63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Supply_Icons/Water.PNG"
-dest_files=["res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"]
+source_file="res://textures/Supply_Icons/Arcane_Dust.PNG"
+dest_files=["res://.godot/imported/Arcane_Dust.PNG-b9d40c37336232094815d696a6d75a63.ctex"]
 
 [params]
 

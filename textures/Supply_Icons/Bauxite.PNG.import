@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhbyc72c4njr0"
-path="res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"
+uid="uid://coy8yhty4ge8e"
+path="res://.godot/imported/Bauxite.PNG-5da11ce6c388a4c14bfb8bf75097ec28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Supply_Icons/Water.PNG"
-dest_files=["res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"]
+source_file="res://textures/Supply_Icons/Bauxite.PNG"
+dest_files=["res://.godot/imported/Bauxite.PNG-5da11ce6c388a4c14bfb8bf75097ec28.ctex"]
 
 [params]
 

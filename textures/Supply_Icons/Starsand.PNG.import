@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhbyc72c4njr0"
-path="res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"
+uid="uid://rfc3vsmwgnbp"
+path="res://.godot/imported/Starsand.PNG-02a93ab16af0d18250dd712241823390.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Supply_Icons/Water.PNG"
-dest_files=["res://.godot/imported/Water.PNG-7e56cda70fa569481d519d7895358112.ctex"]
+source_file="res://textures/Supply_Icons/Starsand.PNG"
+dest_files=["res://.godot/imported/Starsand.PNG-02a93ab16af0d18250dd712241823390.ctex"]
 
 [params]
 
