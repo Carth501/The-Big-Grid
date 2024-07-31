@@ -42,6 +42,7 @@ func create_display(supply_id : String):
 	new_supply_display.setup(supply_id, supply_collection, options_overseer)
 	supply_displays[supply_id] = new_supply_display
 	new_supply_display.show()
+	new_supply_display.opening_menu.connect(close)
 
 func activate_machine_editor(new_machine : Machine):
 	var editor = get_idle_machine_editor()
@@ -74,6 +75,7 @@ func cleanup():
 		editor.visible = false
 	active_machine_editors.clear()
 	for supply in supply_displays:
+		supply_displays[supply].opening_menu.disconnect(close)
 		supply_displays[supply].queue_free()
 	supply_displays.clear()
 

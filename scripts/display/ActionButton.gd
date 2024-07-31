@@ -1,6 +1,7 @@
 class_name Action_Button extends Dual_Button
 
 signal trigger
+signal open_action_menu
 
 var id : String
 var action : Action
@@ -47,6 +48,7 @@ func actuate():
 	action.apply()
 
 func open_menu():
+	open_action_menu.emit()
 	action.open()
 	if(action_press_sound == null):
 		push_warning("action_press_sound is null")
