@@ -38,6 +38,8 @@ func open(new_supply : Supply):
 	update_supply_name(SupplyTranslatorSingle.get_supply_name(supply.id))
 
 func close():
+	for action in action_rows:
+		action_rows[action].button.open_action_menu.disconnect(close)
 	supply.update_max.disconnect(update_max_upgrade_value)
 	close_supply_menu.emit()
 	tag_list_display.close()
@@ -84,6 +86,7 @@ func add_action_to_list(id : String):
 	var new_button : Action_Button = action_package.instantiate()
 	new_button.set_id(id)
 	new_row.add_child(new_button)
+	new_button.open_action_menu.connect(close)
 	if(!ActionTranslatorSingle.data.has(id)):
 		push_error(str("id ", id, " translation not found"))
 		return
@@ -93,7 +96,7 @@ func add_action_to_list(id : String):
 	var new_label = create_action_net_delta(deltas)
 	new_row.add_child(new_label)
 	new_label.position.x += new_button.size.x
-	action_rows[id] = {"row": new_row, "delta": new_label}
+	action_rows[id] = {"row": new_row, "button": new_button, "delta": new_label}
 
 func create_action_net_delta(deltas : Array) -> Label:
 	var net := 0

@@ -1,5 +1,6 @@
 class_name Supply_Display extends Control
 
+signal opening_menu
 @export var supply_icon_display : Supply_Icon_Display
 @export var value_label : RichTextLabel
 @export var max_label : RichTextLabel
@@ -112,6 +113,7 @@ func select():
 	supply.trigger_select()
 
 func open_menu():
+	opening_menu.emit()
 	supply.open()
 
 func set_objective(obj_def : Array):
