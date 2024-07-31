@@ -168,7 +168,8 @@
 				]
 			}
 		},
-		"default_index": 12
+		"default_index": 12,
+		"icon_path": "res://textures/Supply_Icons/Steel Ingot.svg"
 	},
 	"sand": {
 		"default_max": 40,
@@ -185,7 +186,8 @@
 				]
 			}
 		},
-		"default_index": 13
+		"default_index": 13,
+		"icon_path": "res://textures/Supply_Icons/Sand.svg"
 	},
 	"salt": {
 		"default_max": 40,
@@ -202,7 +204,8 @@
 				]
 			}
 		},
-		"default_index": 14
+		"default_index": 14,
+		"icon_path": "res://textures/Supply_Icons/Salt.svg"
 	},
 	"purified_water": {
 		"default_max": 20,
@@ -214,7 +217,8 @@
 				]
 			}
 		},
-		"default_index": 15
+		"default_index": 15,
+		"icon_path": "res://textures/Supply_Icons/Zibuli.svg"
 	},
 	"holy_water": {
 		"default_max": 10,
@@ -231,7 +235,8 @@
 				]
 			}
 		},
-		"default_index": 16
+		"default_index": 16,
+		"icon_path": "res://textures/Supply_Icons/Tivon.svg"
 	},
 	"sanctified_gold": {
 		"default_max": 4,
@@ -243,7 +248,8 @@
 				]
 			}
 		},
-		"default_index": 17
+		"default_index": 17,
+		"icon_path": "res://textures/Supply_Icons/Ysmarl.svg"
 	},
 	"starsand": {
 		"default_max": 8,
@@ -255,7 +261,8 @@
 				]
 			}
 		},
-		"default_index": 18
+		"default_index": 18,
+		"icon_path": "res://textures/Supply_Icons/Doardfhor.svg"
 	},
 	"starglass": {
 		"default_max": 8,
@@ -267,7 +274,8 @@
 				]
 			}
 		},
-		"default_index": 19
+		"default_index": 19,
+		"icon_path": "res://textures/Supply_Icons/Astrallium.svg"
 	},
 	"hellsteel": {
 		"default_max": 10,
@@ -279,7 +287,8 @@
 				]
 			}
 		},
-		"default_index": 20
+		"default_index": 20,
+		"icon_path": "res://textures/Supply_Icons/Rocket Fuel.svg"
 	},
 	"profane_ingot": {
 		"default_max": 10,
@@ -291,7 +300,8 @@
 				]
 			}
 		},
-		"default_index": 21
+		"default_index": 21,
+		"icon_path": "res://textures/Supply_Icons/Demons.svg"
 	},
 	"divine_dust": {
 		"default_max": 10,
@@ -313,7 +323,8 @@
 				]
 			}
 		},
-		"default_index": 22
+		"default_index": 22,
+		"icon_path": "res://textures/Supply_Icons/Tonteu.svg"
 	},
 	"pure_dust": {
 		"default_max": 10,
@@ -335,7 +346,8 @@
 				]
 			}
 		},
-		"default_index": 23
+		"default_index": 23,
+		"icon_path": "res://textures/Supply_Icons/Rocket Parts.svg"
 	},
 	"heavy_dust": {
 		"default_max": 10,
@@ -357,7 +369,8 @@
 				]
 			}
 		},
-		"default_index": 24
+		"default_index": 24,
+		"icon_path": "res://textures/Supply_Icons/Uranium.svg"
 	},
 	"corrupted_dust": {
 		"default_max": 2,
@@ -369,7 +382,8 @@
 				]
 			}
 		},
-		"default_index": 25
+		"default_index": 25,
+		"icon_path": "res://textures/Supply_Icons/Ballistic Missile.svg"
 	},
 	"ascendant_dust": {
 		"default_max": 4,
@@ -386,7 +400,8 @@
 				]
 			}
 		},
-		"default_index": 26
+		"default_index": 26,
+		"icon_path": "res://textures/Supply_Icons/Zabdail.svg"
 	},
 	"arcane_dust": {
 		"default_max": 4,
@@ -403,7 +418,8 @@
 				]
 			}
 		},
-		"default_index": 27
+		"default_index": 27,
+		"icon_path": "res://textures/Supply_Icons/Cosmosium.svg"
 	},
 	"gilded_dust": {
 		"default_max": 2,
@@ -420,7 +436,8 @@
 				]
 			}
 		},
-		"default_index": 28
+		"default_index": 28,
+		"icon_path": "res://textures/Supply_Icons/Laminate Shielding.svg"
 	},
 	"galliantium": {
 		"default_max": 8,
@@ -442,6 +459,7 @@
 				]
 			}
 		},
-		"default_index": 29
+		"default_index": 29,
+		"icon_path": "res://textures/Supply_Icons/Plastic Pipe.svg"
 	}
 }
