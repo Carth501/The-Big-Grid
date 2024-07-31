@@ -18,8 +18,6 @@ var active_machine_editors : Array[Action_Machine_Editor] = []
 var supply_displays := {}
 
 func set_action(new_action : Action):
-	if(action != null):
-		action_button.disconnect_action()
 	action = new_action
 	var machines = machine_factory.get_machines_by_id(action.id)
 	for machine in machines:
