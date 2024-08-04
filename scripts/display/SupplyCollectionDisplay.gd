@@ -2,6 +2,7 @@ class_name Supply_Collection_Display extends HFlowContainer
 
 @export var supply_collection : Supply_Collection
 @export var options_overseer : Options_Overseer
+@export var supply_label : Supply_Label
 var supply_display_catalogue := {}
 var supply_display_proto := preload("res://scenes/display/SupplyDisplay.tscn")
 
@@ -10,6 +11,7 @@ func _on_supply_collection_new_supply(id : String):
 	add_child(new_supply_display)
 	new_supply_display.setup(id, supply_collection, options_overseer)
 	supply_display_catalogue[id] = new_supply_display
+	new_supply_display.set_label(supply_label)
 	var supply_data = SupplyDefsSingle.data[id]
 	if(supply_data.has("default_index")):
 		if(supply_data.default_index + 1 < get_child_count()):

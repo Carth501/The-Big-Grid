@@ -19,7 +19,7 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning", "popup_container", "popup_label", "popup_description")]
+[node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning")]
 custom_minimum_size = Vector2(216, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -35,9 +35,6 @@ supply_change_feedback = NodePath("Button/SupplyChangeFeedback")
 supply_curtain = NodePath("Button/SupplyCurtain")
 objective_star = NodePath("Button/ObjectiveStar")
 supply_warning = NodePath("Button/SupplyWarning")
-popup_container = NodePath("Button/PanelContainer")
-popup_label = NodePath("Button/PanelContainer/VBoxContainer/SupplyName")
-popup_description = NodePath("Button/PanelContainer/VBoxContainer/SupplyDescription")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -176,26 +173,6 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="Label" parent="Button/SupplyWarning/PanelContainer/MarginContainer"]
 top_level = true
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Button"]
-visible = false
-z_index = 1
-layout_mode = 0
-offset_top = 60.0
-offset_right = 40.0
-offset_bottom = 100.0
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Button/PanelContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="SupplyName" type="Label" parent="Button/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="SupplyDescription" type="Label" parent="Button/PanelContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="SupplyIconDisplay" parent="Button" instance=ExtResource("4_ofdg0")]

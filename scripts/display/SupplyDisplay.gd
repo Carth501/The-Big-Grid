@@ -10,14 +10,14 @@ signal opening_menu
 @export var supply_curtain : Panel
 @export var objective_star : Objective_Star
 @export var supply_warning : Supply_Warning
-@export var popup_container : PanelContainer
-@export var popup_label : Label
-@export var popup_description : Label
+@export var supply_label : Supply_Label
 var supply : Supply
 var revealed := false
 var filtered_mode := false
 var in_filter := true
 var static_position := true
+var supply_name : String
+var supply_description : String
 
 func setup(id : String, 
 supply_collection : Supply_Collection, 
@@ -48,9 +48,8 @@ func set_icon_display():
 	if(supply.supply_icon_path != null && supply.supply_icon_path != ""):
 		supply_icon_display.set_image_by_path(supply.supply_icon_path)
 	var localization = supply.get_translation()
-	set_supply_name(localization.name)
-	set_supply_description(localization.description)
-
+	supply_name = localization.name
+	supply_description = localization.description
 
 func set_value_display(value : float):
 	value_label.text = center(str("%.1f" % value))
@@ -123,20 +122,19 @@ func set_objective(obj_def : Array):
 func unset_objective():
 	objective_star.visible = false
 
-func set_supply_name(new_name : String):
-	popup_label.text = new_name
-
-func set_supply_description(description : String):
-	popup_description.text = description
-
 func show_label():
-	popup_container.visible = true
+	supply_label.show_name(supply_name)
+	supply_label.move_to_supply_rect(get_global_rect())
 
 func hide_label():
-	popup_container.visible = false
+	supply_label.hide_name()
 
 func show_description():
-	popup_description.visible = true
+	supply_label.show_description(supply_description)
+	supply_label.move_to_supply_rect(get_global_rect())
 
 func hide_description():
-	popup_description.visible = false
+	supply_label.hide_description()
+
+func set_label(new_supply_label : Supply_Label):
+	supply_label = new_supply_label
