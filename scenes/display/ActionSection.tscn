@@ -9,10 +9,10 @@ anchors_preset = 0
 offset_right = 540.0
 size_flags_horizontal = 3
 script = ExtResource("1_hc45m")
-section_label = NodePath("Label")
+section_label = NodePath("LabelButton")
 editor_container = NodePath("HFlowContainer")
 
-[node name="Label" type="Label" parent="."]
+[node name="LabelButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -23,16 +23,18 @@ grow_horizontal = 2
 text = "Burn Coal"
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 offset_left = 8.0
-offset_top = 23.0
+offset_top = 39.0
 offset_right = -8.0
 offset_bottom = 167.0
 grow_horizontal = 2
 
 [connection signal="resized" from="." to="." method="recalculate_minimum_size"]
 [connection signal="visibility_changed" from="." to="." method="recalculate_minimum_size"]
+[connection signal="pressed" from="LabelButton" to="." method="toggle_expand"]
 [connection signal="child_entered_tree" from="HFlowContainer" to="." method="_on_h_flow_container_child_entered_tree"]
 [connection signal="sort_children" from="HFlowContainer" to="." method="recalculate_minimum_size"]
