@@ -73,7 +73,8 @@ func get_deltas_apply_count(deltas : Array) -> int:
 	var i = 0
 	while(dummy_value >= 0 && dummy_value <= v_max):
 		for delta in deltas:
-			dummy_value += delta
+			if(dummy_value >= 0 && dummy_value <= v_max):
+				dummy_value += delta
 		if(dummy_value >= 0 && dummy_value <= v_max):
 			i += 1
 	return i
