@@ -68,6 +68,16 @@ func test_deltas(deltas: Array) -> bool:
 			return false
 	return true
 
+func get_deltas_apply_count(deltas : Array) -> int:
+	var dummy_value = value
+	var i = 0
+	while(dummy_value >= 0 && dummy_value <= v_max):
+		for delta in deltas:
+			dummy_value += delta
+		if(dummy_value >= 0 && dummy_value <= v_max):
+			i += 1
+	return i
+
 func apply_change(deltas: Array):
 	for delta in deltas:
 		value += delta
