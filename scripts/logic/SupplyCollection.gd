@@ -4,6 +4,7 @@ signal constant_selection(value : float)
 signal variable_selection(id : String)
 signal new_supply(id : String)
 signal open_supply(supply : Supply)
+signal action_multi(num : int)
 var supplies := {}
 var selection_mode := false
 @export var filter_foreman : Filter_Foreman
@@ -45,6 +46,7 @@ func apply_changes(changes : Dictionary):
 func apply_changes_mult(changes : Dictionary, count : int):
 	var action_potential = get_action_changes_mult(changes)
 	var num = mini(action_potential, count)
+	action_multi.emit(num)
 	if(num > 0):
 		var multiplied_changes = changes.duplicate(true)
 		for supply_id in multiplied_changes:
