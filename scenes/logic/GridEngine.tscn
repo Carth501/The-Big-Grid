@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://durgfyetb6d3p"]
+
+[ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="1_2654x"]
+[ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="2_ewbvm"]
+[ext_resource type="Script" path="res://scripts/logic/ActionManager.gd" id="3_6gquc"]
+[ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="4_v6rhi"]
+[ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="5_owboe"]
+[ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="6_gsxxp"]
+[ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="7_udl0h"]
+
+[node name="Logic" type="Node"]
+
+[node name="MachineFactory" type="Node" parent="." node_paths=PackedStringArray("supply_collection")]
+script = ExtResource("1_2654x")
+supply_collection = NodePath("../SupplyCollection")
+
+[node name="SupplyCollection" type="Node" parent="." node_paths=PackedStringArray("filter_foreman")]
+script = ExtResource("2_ewbvm")
+filter_foreman = NodePath("../FilterForeman")
+
+[node name="ActionManager" type="Node" parent="." node_paths=PackedStringArray("supply_collection", "filter_foreman", "machine_factory")]
+script = ExtResource("3_6gquc")
+supply_collection = NodePath("../SupplyCollection")
+filter_foreman = NodePath("../FilterForeman")
+machine_factory = NodePath("../MachineFactory")
+
+[node name="DevelopmentHandler" type="Node" parent="." node_paths=PackedStringArray("action_manager", "supply_collection", "filter_foreman")]
+script = ExtResource("4_v6rhi")
+action_manager = NodePath("../ActionManager")
+supply_collection = NodePath("../SupplyCollection")
+filter_foreman = NodePath("../FilterForeman")
+
+[node name="FilterForeman" parent="." node_paths=PackedStringArray("supply_collection") instance=ExtResource("5_owboe")]
+supply_collection = NodePath("../SupplyCollection")
+
+[node name="OptionsOverseer" type="Node" parent="."]
+script = ExtResource("6_gsxxp")
+
+[node name="ObjectiveSystem" type="Node" parent="." node_paths=PackedStringArray("supply_collection")]
+script = ExtResource("7_udl0h")
+supply_collection = NodePath("../SupplyCollection")
+
+[node name="AutosaveTimer" type="Timer" parent="."]
+wait_time = 300.0
+autostart = true
+
+[connection signal="reveal_supply" from="ActionManager" to="SupplyCollection" method="reveal_supply"]
+[connection signal="update_focus_filtering" from="OptionsOverseer" to="FilterForeman" method="set_secondary_filter_active"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=35 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -7,24 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://7gjkq7x5vy0" path="res://textures/ui/Resources Menu.svg" id="3_06xxk"]
 [ext_resource type="Script" path="res://scripts/display/ActionPanel.gd" id="3_n23ff"]
 [ext_resource type="Script" path="res://scripts/display/ActionView.gd" id="3_y50x7"]
-[ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="4_e1gh5"]
 [ext_resource type="Script" path="res://scripts/display/DevelopmentDisplay.gd" id="4_p32ci"]
 [ext_resource type="PackedScene" uid="uid://l4e311vb2rjt" path="res://scenes/display/ActionMenu.tscn" id="5_rdn8f"]
 [ext_resource type="Script" path="res://scripts/display/VerticalPercentSplit.gd" id="5_vo8pe"]
-[ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="5_vwwhk"]
 [ext_resource type="PackedScene" uid="uid://cxnswwxbpknq4" path="res://scenes/display/SupplyMenu.tscn" id="6_2gdos"]
-[ext_resource type="Script" path="res://scripts/logic/ActionManager.gd" id="6_fgv5p"]
-[ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="7_ce23n"]
 [ext_resource type="Texture2D" uid="uid://f3n32mmtluxq" path="res://textures/ui/Actions Menu.svg" id="7_cggcs"]
-[ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="9_iev5w"]
 [ext_resource type="AudioStream" uid="uid://nqca84fbhaxg" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Intermediate_.ogg" id="9_v5ac6"]
 [ext_resource type="Script" path="res://scripts/MusicSystem.gd" id="9_vk0jb"]
 [ext_resource type="AudioStream" uid="uid://dcdic5mi1gpr1" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg" id="10_agjpm"]
 [ext_resource type="Script" path="res://scripts/AutomationPanel.gd" id="11_3l4m0"]
 [ext_resource type="Texture2D" uid="uid://brrc1qffyn2h5" path="res://textures/ui/Developments Menu.svg" id="12_bqf4o"]
 [ext_resource type="AudioStream" uid="uid://cdo74pgnqchtb" path="res://sound/music/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg" id="12_dwipf"]
-[ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="12_oy6by"]
-[ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="14_lsg5e"]
 [ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
 [ext_resource type="Script" path="res://scripts/display/PauseMenu.gd" id="15_pb3et"]
 [ext_resource type="AudioStream" uid="uid://spu70ttwko4c" path="res://sound/effects/Mining_Drilling - The Big Grid.ogg" id="17_8qotj"]
@@ -38,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://brwsjg35lmntm" path="res://sound/music/_Victor's Paycheck_ The Big Grid, Pirate Software Gamejam 15.ogg" id="22_xm5k0"]
 [ext_resource type="AudioStream" uid="uid://c1thhfqko4fve" path="res://sound/effects/Development - The Big Grid.ogg" id="29_lmw6t"]
 [ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="33_ttcp7"]
+[ext_resource type="PackedScene" uid="uid://durgfyetb6d3p" path="res://scenes/logic/GridEngine.tscn" id="37_08wen"]
 [ext_resource type="PackedScene" uid="uid://brv0nvrfcfotn" path="res://scenes/tutorial_pop_up.tscn" id="37_anvfk"]
 [ext_resource type="Script" path="res://scripts/SupplyLabel.gd" id="40_lks8k"]
 
@@ -242,9 +236,8 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="SupplyMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer" node_paths=PackedStringArray("action_manager") instance=ExtResource("6_2gdos")]
+[node name="SupplyMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer" instance=ExtResource("6_2gdos")]
 layout_mode = 2
-action_manager = NodePath("../../../../../../../Logic/ActionManager")
 
 [node name="CurrentObjectiveLine" type="Control" parent="Display/MiddleSplit/RightSplit/ActionBackground" node_paths=PackedStringArray("objective_text")]
 layout_mode = 1
@@ -475,43 +468,7 @@ bus = &"Effects"
 script = ExtResource("18_m7ho0")
 id = "development"
 
-[node name="Logic" type="Node" parent="."]
-
-[node name="MachineFactory" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection")]
-script = ExtResource("4_e1gh5")
-supply_collection = NodePath("../SupplyCollection")
-
-[node name="SupplyCollection" type="Node" parent="Logic" node_paths=PackedStringArray("filter_foreman")]
-script = ExtResource("5_vwwhk")
-filter_foreman = NodePath("../FilterForeman")
-
-[node name="ActionManager" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "filter_foreman", "machine_factory")]
-script = ExtResource("6_fgv5p")
-supply_collection = NodePath("../SupplyCollection")
-filter_foreman = NodePath("../FilterForeman")
-machine_factory = NodePath("../MachineFactory")
-
-[node name="DevelopmentHandler" type="Node" parent="Logic" node_paths=PackedStringArray("action_manager", "supply_collection", "filter_foreman")]
-script = ExtResource("7_ce23n")
-action_manager = NodePath("../ActionManager")
-supply_collection = NodePath("../SupplyCollection")
-filter_foreman = NodePath("../FilterForeman")
-
-[node name="FilterForeman" parent="Logic" node_paths=PackedStringArray("supply_collection") instance=ExtResource("9_iev5w")]
-supply_collection = NodePath("../SupplyCollection")
-
-[node name="OptionsOverseer" type="Node" parent="Logic"]
-script = ExtResource("12_oy6by")
-
-[node name="ObjectiveSystem" type="Node" parent="Logic" node_paths=PackedStringArray("supply_collection", "game_controller", "music_system")]
-script = ExtResource("14_lsg5e")
-supply_collection = NodePath("../SupplyCollection")
-game_controller = NodePath("../..")
-music_system = NodePath("../../Display/MusicSystem")
-
-[node name="AutosaveTimer" type="Timer" parent="Logic"]
-wait_time = 300.0
-autostart = true
+[node name="Logic" parent="." instance=ExtResource("37_08wen")]
 
 [node name="PauseMenu" type="Control" parent="." node_paths=PackedStringArray("resume_button")]
 process_mode = 3
@@ -666,12 +623,9 @@ layout_mode = 2
 [connection signal="dragged" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_resized"]
 [connection signal="resized" from="Display/MiddleSplit/SupplyBackground" to="Display/MiddleSplit/SupplyBackground" method="_on_resized"]
-[connection signal="text_changed" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/SupplySearch" to="Logic/FilterForeman" method="set_search_filter"]
-[connection signal="toggled" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" to="Logic/OptionsOverseer" method="set_keep_positions"]
 [connection signal="pressed" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="dragged" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_resized"]
-[connection signal="text_changed" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionSearch" to="Logic/ActionManager" method="set_action_filter"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="visibility_changed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_visibility_changed"]
@@ -683,17 +637,15 @@ layout_mode = 2
 [connection signal="finished" from="Display/MusicSystem/WorkersDelight" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/Melded" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/Tireless" to="Display/MusicSystem" method="next_track"]
-[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" method="add_new_machine"]
+[connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" method="activate_machine_editor"]
 [connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="add_machine_editor"]
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="open_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_supply_menu"]
 [connection signal="action_search_filter" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="filter_actions"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
-[connection signal="reveal_supply" from="Logic/ActionManager" to="Logic/SupplyCollection" method="reveal_supply"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="initialize_keep_positions" from="Logic/OptionsOverseer" to="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" method="set_pressed"]
-[connection signal="update_focus_filtering" from="Logic/OptionsOverseer" to="Logic/FilterForeman" method="set_secondary_filter_active"]
 [connection signal="newStepDescription" from="Logic/ObjectiveSystem" to="Display/MiddleSplit/RightSplit/ActionBackground/CurrentObjectiveLine" method="update_objective"]
 [connection signal="overallGoalDescription" from="Logic/ObjectiveSystem" to="Display/MiddleSplit/RightSplit/ActionBackground/OverallObjectiveLine" method="update_objective"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
@@ -705,3 +657,5 @@ layout_mode = 2
 [connection signal="text_changed" from="SaveFilePanel/ColorRect/Panel/TextEdit" to="." method="change_save_name"]
 [connection signal="pressed" from="SaveFilePanel/ColorRect/Panel/Cancel" to="." method="toggle_save_file_panel"]
 [connection signal="pressed" from="SaveFilePanel/ColorRect/Panel/Save" to="." method="save_as"]
+
+[editable path="Logic"]
