@@ -53,6 +53,9 @@ func setup(package : Dictionary):
 func apply():
 	supply_collection.apply_changes(changes)
 
+func apply_multiple(value : int):
+	supply_collection.apply_changes_mult(changes, value)
+
 func decide_if_name_update_needed(supply : String):
 	if(string_data.has("supplies") && string_data.supplies.has(supply)):
 		write_translation_text()

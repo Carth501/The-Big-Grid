@@ -4,6 +4,7 @@ signal constant_selection(value : float)
 signal variable_selection(id : String)
 signal new_supply(id : String)
 signal open_supply(supply : Supply)
+signal action_multi(num : int)
 var supplies := {}
 var selection_mode := false
 @export var filter_foreman : Filter_Foreman
@@ -42,6 +43,17 @@ func apply_changes(changes : Dictionary):
 		var target = get_supply(change)
 		target.apply_change(changes[change].deltas)
 
+func apply_changes_mult(changes : Dictionary, count : int):
+	var action_potential = get_action_changes_mult(changes)
+	var num = mini(action_potential, count)
+	action_multi.emit(num)
+	if(num > 0):
+		var multiplied_changes = changes.duplicate(true)
+		for supply_id in multiplied_changes:
+			for value in multiplied_changes[supply_id].deltas:
+				value *= num
+		apply_changes(multiplied_changes)
+
 func attempt_purchase(changes : Dictionary) -> bool:
 	for r in changes:
 		var target = get_supply(r)
@@ -75,6 +87,18 @@ func test_action_changes(changes : Dictionary):
 		if(!target.test_deltas(changes[supply_id].deltas)):
 			return false
 	return true
+
+func get_action_changes_mult(changes : Dictionary):
+	var count = 1000
+	for supply_id in changes:
+		var target = get_supply(supply_id)
+		if(target == null):
+			add_supply(supply_id)
+			target = get_supply(supply_id)	
+		var num = target.get_deltas_apply_count(changes[supply_id].deltas)
+		if(num < count):
+			count = num
+	return count
 
 func open_supply_menu(supply : Supply):
 	open_supply.emit(supply)
