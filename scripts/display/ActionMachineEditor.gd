@@ -4,6 +4,7 @@ class_name Action_Machine_Editor extends Control
 @export var op_rate_field : SpinBox
 @export var active_switch : Button
 @export var condition_list_container : VBoxContainer
+@export var tier_value : Label
 @onready var condition_bar_prefab := preload("res://scenes/ConditionBar.tscn")
 var machine : Machine
 
@@ -19,6 +20,8 @@ func set_machine(new_machine : Machine):
 	for conditional in machine.conditionals:
 		add_conditional(conditional)
 	machine.new_conditional.connect(add_conditional)
+	update_tier_value(machine.tier)
+	machine.update_tier.connect(update_tier_value)
 
 func _ready() -> void:
 	resize(null)
@@ -28,6 +31,7 @@ func close():
 	machine.update_interval.disconnect(update_interval)
 	machine.update_active.disconnect(update_running)
 	machine.update_name.disconnect(update_machine_name)
+	machine.update_tier.disconnect(update_tier_value)
 
 func set_interval(value : float):
 	machine.set_interval(value)
@@ -58,10 +62,22 @@ func add_conditional(new_conditional : Conditional_Expression):
 
 func resize(_node):
 	var condition_count = condition_list_container.get_child_count()
-	var vertical_length = 144 + condition_count * 49
+	var vertical_length = 167 + condition_count * 49
 	custom_minimum_size.y = vertical_length
 
 func resize_minus_one(_node):
 	var condition_count = condition_list_container.get_child_count() - 1
-	var vertical_length = 144 + condition_count * 49
+	var vertical_length = 167 + condition_count * 49
 	custom_minimum_size.y = vertical_length
+
+func hover_upgrade():
+	machine.preview_upgrade_costs()
+
+func leave_upgrade():
+	machine.end_upgrade_preview()
+
+func attempt_machine_upgrade():
+	machine.attempt_machine_upgrade()
+
+func update_tier_value(new_value : int):
+	tier_value.text = str(new_value)

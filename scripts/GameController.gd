@@ -70,7 +70,8 @@ func get_machine_data(machine : Machine) -> Dictionary:
 		"remaining_time": machine.timer.time_left,
 		"active": machine.get_running(),
 		"interval": machine.get_interval(),
-		"conditionals": conditional_data
+		"conditionals": conditional_data,
+		"tier": machine.tier
 	}
 
 func get_conditional_data(conditional: Conditional_Expression):
@@ -125,6 +126,10 @@ func load_save():
 					new_machine.set_running(machine_config["active"])
 				if(machine_config.has("interval")):
 					new_machine.set_interval(machine_config["interval"])
+				if(machine_config.has("tier")):
+					new_machine.set_tier(machine_config["tier"])
+				else:
+					new_machine.set_tier(1)
 	if(active_save.has("developments")):
 		var devs = active_save.developments
 		development_handler.set_completed_developments(devs)

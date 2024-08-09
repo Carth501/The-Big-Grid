@@ -13,6 +13,7 @@ var action : Action
 @export var tag_list_display : Tag_List_Display
 @export var action_button : Action_Button
 @export var supply_container : HBoxContainer
+@export var supply_label : Supply_Label
 var idle_machine_editors : Array[Action_Machine_Editor] = []
 var active_machine_editors : Array[Action_Machine_Editor] = []
 var supply_displays := {}
@@ -43,6 +44,7 @@ func create_display(supply_id : String):
 	supply_displays[supply_id] = new_supply_display
 	new_supply_display.show()
 	new_supply_display.opening_menu.connect(close)
+	new_supply_display.set_label(supply_label)
 
 func activate_machine_editor(new_machine : Machine):
 	var editor = get_idle_machine_editor()

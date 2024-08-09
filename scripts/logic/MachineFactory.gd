@@ -14,6 +14,7 @@ func build_machine(action : Action) -> Machine:
 	var new_name := str("machine #", machine_registry[action.id].size())
 	new_machine.set_name(new_name)
 	new_machine.set_running(true)
+	new_machine.set_tier(1)
 	new_machine_built.emit(new_machine)
 	return new_machine
 
