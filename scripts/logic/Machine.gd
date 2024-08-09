@@ -2,12 +2,14 @@ class_name Machine extends Node
 
 signal new_conditional(Conditional_Value)
 signal update_name(String)
+signal update_tier(tier : int)
 signal update_active(bool)
 signal update_interval(float)
 
 var action : Action
 var timer : Timer
 var conditionals := []
+var tier := 1
 
 func set_action(new_action : Action):
 	action = new_action
@@ -26,7 +28,7 @@ func check_conditions():
 	apply_changes()
 
 func apply_changes():
-	action.apply()
+	action.apply_multiple(tier)
 
 func set_interval(interval : float):
 	if(interval > 10):
@@ -85,3 +87,19 @@ func load_conditions(config_array : Array):
 		conditionals.append(conditional_instance)
 		new_conditional.emit(conditional_instance)
 		conditional_instance.delete_this.connect(remove_conditional)
+
+func set_tier(new_value : int):
+	tier = new_value
+	update_tier.emit(tier)
+
+func preview_upgrade_costs():
+	action.set_machine_purchase_filter()
+
+func end_upgrade_preview():
+	action.unset_filter()
+
+func attempt_machine_upgrade():
+	var success = action.attempt_purchase()
+	if(success):
+		tier += 1
+		update_tier.emit(tier)

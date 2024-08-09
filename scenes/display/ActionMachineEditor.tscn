@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/display/ActionMachineEditor.gd" id="1_x85dw"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_nmtv4"]
 
-[node name="ActionMachineEditor" type="Control" node_paths=PackedStringArray("name_field", "op_rate_field", "active_switch", "condition_list_container")]
+[node name="ActionMachineEditor" type="Control" node_paths=PackedStringArray("name_field", "op_rate_field", "active_switch", "condition_list_container", "tier_value")]
 custom_minimum_size = Vector2(232, 144)
 layout_mode = 3
 anchors_preset = 0
@@ -15,12 +15,14 @@ name_field = NodePath("Panel/VFlowContainer/Header/LineEdit")
 op_rate_field = NodePath("Panel/VFlowContainer/IntervalControl/OperationRateField")
 active_switch = NodePath("Panel/VFlowContainer/ActiveSwitch/CheckButton")
 condition_list_container = NodePath("Panel/VFlowContainer/ConditionList")
+tier_value = NodePath("Panel/VFlowContainer/Control/TierNumberLabel")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,6 +55,35 @@ offset_right = 197.0
 offset_bottom = 31.0
 placeholder_text = "Machine Name"
 max_length = 20
+
+[node name="Control" type="Control" parent="Panel/VFlowContainer"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VFlowContainer/Control"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 43.0
+offset_bottom = 26.0
+text = "Tier"
+
+[node name="TierNumberLabel" type="Label" parent="Panel/VFlowContainer/Control"]
+offset_left = 49.0
+offset_top = 3.0
+offset_right = 121.0
+offset_bottom = 26.0
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="UpgradeButton" type="Button" parent="Panel/VFlowContainer/Control"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = -1.0
+offset_right = 230.0
+offset_bottom = 30.0
+text = "Upgrade"
 
 [node name="ActiveSwitch" type="Control" parent="Panel/VFlowContainer"]
 custom_minimum_size = Vector2(0, 35)
@@ -108,6 +139,9 @@ theme_override_constants/separation = 45
 
 [connection signal="focus_exited" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
 [connection signal="text_submitted" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
+[connection signal="mouse_entered" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="hover_upgrade"]
+[connection signal="mouse_exited" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="leave_upgrade"]
+[connection signal="pressed" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="attempt_machine_upgrade"]
 [connection signal="toggled" from="Panel/VFlowContainer/ActiveSwitch/CheckButton" to="." method="set_running"]
 [connection signal="value_changed" from="Panel/VFlowContainer/IntervalControl/OperationRateField" to="." method="set_interval"]
 [connection signal="pressed" from="Panel/VFlowContainer/AddConditionButton" to="." method="request_additional_condition"]

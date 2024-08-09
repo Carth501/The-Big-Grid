@@ -92,18 +92,21 @@ func test_supplies():
 	return true
 
 func attempt_machine_purchase():
-	if(automation_cost == null || automation_cost == {}):
-		return
-	var cost = calculate_machine_cost()
-	var success = supply_collection.attempt_purchase(cost)
+	var success = attempt_purchase()
 	if(success):
 		var machine = machine_factory.build_machine(self)
 		new_machine.emit(machine)
-		cost = calculate_machine_cost()
+		var cost = calculate_machine_cost()
 		if(automation_hover):
 			filter_foreman.set_primary_filter(cost)
 		if(automation_focus):
 			filter_foreman.set_secondary_filter(cost)
+
+func attempt_purchase() -> bool:
+	if(automation_cost == null || automation_cost == {}):
+		return false
+	var cost = calculate_machine_cost()
+	return supply_collection.attempt_purchase(cost)
 
 func open():
 	open_menu.emit(id)
