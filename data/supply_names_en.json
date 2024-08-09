@@ -1,138 +1,150 @@
 {
-    "electricity": {
-        "name": "Electricity",
-        "description": "The most basic resource, used at almost every level."
-    },
-    "water": {
-        "name": "Water",
-        "description": "The most common fluid. Used to wash, suspend, or react."
-    },
-    "coal": {
-        "name": "Coal",
-        "description": "A mineral uniquely suited for burning. Replaced by other techniques later."
-    },
-    "carbon": {
-        "name": "Carbon",
-        "description": "The chemical foundation for most biology and much chemistry."
-    },
-    "hematite": {
-        "name": "Hematite",
-        "description": "One of the iron ores."
-    },
-    "magnitite": {
-        "name": "Magnitite",
-        "description": "Another of the iron ores."
-    },
-    "iron_ingot": {
-        "name": "Iron Ingot",
-        "description": "Elemental iron. Relatively pure."
-    },
-    "steel_ingot": {
-        "name": "Steel Ingot",
-        "description": "Iron bonded with other elements, mostly carbon, for strength."
-    },
-    "iron_gear": {
-        "name": "Iron Gear",
-        "description": "A mechanical part made of iron."
-    },
-    "steel_gear": {
-        "name": "Steel Gear",
-        "description": "A mechanical part made of steel."
-    },
-    "bornite": {
-        "name": "Bornite",
-        "description": "Copper ore, ready to be refined."
-    },
-    "bauxite": {
-        "name": "Bauxite",
-        "description": "Aluminum ore, ready to be refined."
-    },
-    "native_gold": {
-        "name": "Native Gold",
-        "description": "Gold ore, disappointingly hard to find, but important."
-    },
-    "copper_ingot": {
-        "name": "Copper Ingot",
-        "description": "The cheapest conductor."
-    },
-    "aluminum_ingot": {
-        "name": "Aluminum Ingot",
-        "description": "For when low density is important in a metal."
-    },
-    "gold_ingot": {
-        "name": "Gold Ingot",
-        "description": "An electric conductor that happens to have celestial importance."
-    },
-    "steel": {
-        "name": "Steel",
-        "description": "Iron bonded with other elements, mostly carbon, for strength."
-    },
-    "sand": {
-        "name": "Sand",
-        "description": "Mixed minerals making a course powder."
-    },
-    "salt": {
-        "name": "Salt",
-        "description": "Sodium chloride, commonly found making up a few % of oceans."
-    },
-    "purified_water": {
-        "name": "Purified Water",
-        "description": "Water without the other stuff."
-    },
-    "holy_water": {
-        "name": "Holy Water",
-        "description": "Water that draws the attention of the divine."
-    },
-    "sanctified_gold": {
-        "name": "Sanctified Gold",
-        "description": "Gold given divine prominance."
-    },
-    "starsand": {
-        "name": "Starsand",
-        "description": "Sand that now resembles the night sky."
-    },
-    "starglass": {
-        "name": "Starglass",
-        "description": "Glass with new and unreplicable properties."
-    },
-    "hellsteel": {
-        "name": "Hellsteel",
-        "description": "Misnamed blend of iron and infernal power, but not hell."
-    },
-    "profane_ingot": {
-        "name": "Profane Ingot",
-        "description": "That you felt you needed to make this is the true tragedy."
-    },
-    "divine_dust": {
-        "name": "Divine Dust",
-        "description": "While attention is important, this can draw angels themselves."
-    },
-    "pure_dust": {
-        "name": "Pure Dust",
-        "description": "A mixture of solids that seems opinionated about other materials."
-    },
-    "heavy_dust": {
-        "name": "Heavy Dust",
-        "description": "A mixture of solids that is far more dense than it should be."
-    },
-    "corrupted_dust": {
-        "name": "Corrupted Dust",
-        "description": "The might of the divine, given to those of lesser intent."
-    },
-    "ascendant_dust": {
-        "name": "Ascendant Dust",
-        "description": "Dust given the attention of something else, not infernal, not divine."
-    },
-    "arcane_dust": {
-        "name": "Arcane Dust",
-        "description": "A mixture that can bend the universe, maybe break it."
-    },
-    "gilded_dust": {
-        "name": "Gilded Dust",
-        "description": "It says it's expensive, shows it's worthless, and then proves priceless."
-    },
-    "galliantium": {
-        "name": "Galliantium",
-        "description": "A metal empowered by more fundamental undercurrents of the universe."
-    }
+	"electricity": {
+		"name": "Electricity",
+		"description": "The most basic resource, used at almost every level."
+	},
+	"water": {
+		"name": "Water",
+		"description": "The most common fluid. Used to wash, suspend, or react."
+	},
+	"coal": {
+		"name": "Coal",
+		"description": "A mineral uniquely suited for burning. Replaced by other techniques later."
+	},
+	"carbon": {
+		"name": "Carbon",
+		"description": "The chemical foundation for most biology and much chemistry."
+	},
+	"hematite": {
+		"name": "Hematite",
+		"description": "One of the iron ores."
+	},
+	"magnitite": {
+		"name": "Magnitite",
+		"description": "Another of the iron ores."
+	},
+	"iron_ingot": {
+		"name": "Iron Ingot",
+		"description": "Elemental iron. Relatively pure."
+	},
+	"steel_ingot": {
+		"name": "Steel Ingot",
+		"description": "Iron bonded with other elements, mostly carbon, for strength."
+	},
+	"iron_gear": {
+		"name": "Iron Gear",
+		"description": "A mechanical part made of iron."
+	},
+	"steel_gear": {
+		"name": "Steel Gear",
+		"description": "A mechanical part made of steel."
+	},
+	"bornite": {
+		"name": "Bornite",
+		"description": "Copper ore, ready to be refined."
+	},
+	"bauxite": {
+		"name": "Bauxite",
+		"description": "Aluminum ore, ready to be refined."
+	},
+	"native_gold": {
+		"name": "Native Gold",
+		"description": "Gold ore, disappointingly hard to find, but important."
+	},
+	"copper_ingot": {
+		"name": "Copper Ingot",
+		"description": "The cheapest conductor."
+	},
+	"aluminum_ingot": {
+		"name": "Aluminum Ingot",
+		"description": "For when low density is important in a metal."
+	},
+	"gold_ingot": {
+		"name": "Gold Ingot",
+		"description": "An electric conductor that happens to have celestial importance."
+	},
+	"steel": {
+		"name": "Steel",
+		"description": "Iron bonded with other elements, mostly carbon, for strength."
+	},
+	"sand": {
+		"name": "Sand",
+		"description": "Mixed minerals making a course powder."
+	},
+	"salt": {
+		"name": "Salt",
+		"description": "Sodium chloride, commonly found making up a few % of oceans."
+	},
+	"purified_water": {
+		"name": "Purified Water",
+		"description": "Water without the other stuff."
+	},
+	"oxygen": {
+		"name": "Oxygen",
+		"description": "Elemental gas important for most life as we understand."
+	},
+	"hydrogen": {
+		"name": "Hydrogen",
+		"description": "2/3rds of water, a very stable molecule."
+	},
+	"nitrogen": {
+		"name": "Nitrogen",
+		"description": "A stable and relatively inert element."
+	},
+	"holy_water": {
+		"name": "Holy Water",
+		"description": "Water that draws the attention of the divine."
+	},
+	"sanctified_gold": {
+		"name": "Sanctified Gold",
+		"description": "Gold given divine prominance."
+	},
+	"starsand": {
+		"name": "Starsand",
+		"description": "Sand that now resembles the night sky."
+	},
+	"starglass": {
+		"name": "Starglass",
+		"description": "Glass with new and unreplicable properties."
+	},
+	"hellsteel": {
+		"name": "Hellsteel",
+		"description": "Misnamed blend of iron and infernal power, but not hell."
+	},
+	"profane_ingot": {
+		"name": "Profane Ingot",
+		"description": "That you felt you needed to make this is the true tragedy."
+	},
+	"divine_dust": {
+		"name": "Divine Dust",
+		"description": "While attention is important, this can draw angels themselves."
+	},
+	"pure_dust": {
+		"name": "Pure Dust",
+		"description": "A mixture of solids that seems opinionated about other materials."
+	},
+	"heavy_dust": {
+		"name": "Heavy Dust",
+		"description": "A mixture of solids that is far more dense than it should be."
+	},
+	"corrupted_dust": {
+		"name": "Corrupted Dust",
+		"description": "The might of the divine, given to those of lesser intent."
+	},
+	"ascendant_dust": {
+		"name": "Ascendant Dust",
+		"description": "Dust given the attention of something else, not infernal, not divine."
+	},
+	"arcane_dust": {
+		"name": "Arcane Dust",
+		"description": "A mixture that can bend the universe, maybe break it."
+	},
+	"gilded_dust": {
+		"name": "Gilded Dust",
+		"description": "It says it's expensive, shows it's worthless, and then proves priceless."
+	},
+	"galliantium": {
+		"name": "Galliantium",
+		"description": "A metal empowered by more fundamental undercurrents of the universe."
+	}
 }

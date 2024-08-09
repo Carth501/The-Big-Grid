@@ -236,8 +236,9 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="SupplyMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer" instance=ExtResource("6_2gdos")]
+[node name="SupplyMenu" parent="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer" node_paths=PackedStringArray("action_manager") instance=ExtResource("6_2gdos")]
 layout_mode = 2
+action_manager = NodePath("../../../../../../../Logic/ActionManager")
 
 [node name="CurrentObjectiveLine" type="Control" parent="Display/MiddleSplit/RightSplit/ActionBackground" node_paths=PackedStringArray("objective_text")]
 layout_mode = 1
