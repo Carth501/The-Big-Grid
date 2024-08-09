@@ -427,6 +427,68 @@
 		},
 		"audio": "crafting"
 	},
+	"electrolysis": {
+		"changes": {
+			"purified_water": {
+				"deltas": [
+					-2
+				]
+			},
+			"oxygen": {
+				"deltas": [
+					1
+				]
+			},
+			"hydrogen": {
+				"deltas": [
+					2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"automation_cost": {
+			"copper": {
+				"deltas": [
+					-8
+				]
+			},
+			"iron": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-3
+				]
+			}
+		},
+		"audio": "crafting"
+	},
+	"cryogenic_condensation": {
+		"changes": {
+			"oxygen": {
+				"deltas": [
+					2
+				]
+			},
+			"nitrogen": {
+				"deltas": [
+					8
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-10
+				]
+			}
+		},
+		"audio": "crafting"
+	},
 	"bless_water": {
 		"changes": {
 			"purified_water": {

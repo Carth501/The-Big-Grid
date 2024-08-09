@@ -1,116 +1,124 @@
 {
-    "extract_coal": {
-        "name": "Extract Coal"
-    },
-    "extract_hematite": {
-        "name": "Extract Hematite"
-    },
-    "extract_magnitite": {
-        "name": "Extract Magnitite"
-    },
-    "refine_hematite": {
-        "name": "Refine Iron from Hematite"
-    },
-    "refine_magnitite": {
-        "name": "Refine Iron from Magnitite"
-    },
-    "generate_electricity": {
-        "name": "Manually Crank Turbine"
-    },
-    "burn_coal": {
-        "name": "Burn Coal"
-    },
-    "pump_water": {
-        "name": "Pump Water"
-    },
-    "extract_bornite": {
-        "name": "Extract Bornite"
-    },
-    "extract_bauxite": {
-        "name": "Extract Bauxite"
-    },
-    "extract_native_gold": {
-        "name": "Extract Native Gold"
-    },
-    "refine_bornite": {
-        "name": "Refine Copper"
-    },
-    "refine_bauxite": {
-        "name": "Refine Aluminum"
-    },
-    "refine_gold": {
-        "name": "Refine Gold"
-    },
-    "trade_A_and_B_for_C": {
-        "name": "Trade %s and %s for %s",
-        "supplies": [
-            "A",
-            "B",
-            "C"
-        ]
-    },
-    "desalination": {
-        "name": "Desalinate Water",
-        "supplies": []
-    },
-    "steel_smelting": {
-        "name": "Smelt Steel",
-        "supplies": []
-    },
-    "bless_water": {
-        "name": "Bless Water",
-        "supplies": []
-    },
-    "gather_sand": {
-        "name": "Gather Sand",
-        "supplies": []
-    },
-    "create_divine_dust": {
-        "name": "Mix Divine Dust",
-        "supplies": []
-    },
-    "sanctify_gold": {
-        "name": "Sanctify Gold",
-        "supplies": []
-    },
-    "mix_starsand": {
-        "name": "Mix Starsand",
-        "supplies": []
-    },
-    "smelt_starglass": {
-        "name": "Smelt Starglass",
-        "supplies": []
-    },
-    "smelt_hellsteel": {
-        "name": "Smelt Hellsteel",
-        "supplies": []
-    },
-    "smelt_profane_ingot": {
-        "name": "Smelt Profane Ingot",
-        "supplies": []
-    },
-    "mix_pure_and_heavy": {
-        "name": "Make Pure and Heavy Dusts",
-        "supplies": []
-    },
-    "mix_corrupted_dust": {
-        "name": "Mix Corrupted Dust",
-        "supplies": []
-    },
-    "mix_ascendant_dust": {
-        "name": "Mix Ascendant Dust",
-        "supplies": []
-    },
-    "mix_arcane_dust": {
-        "name": "Mix Arcane Dust",
-        "supplies": []
-    },
-    "smelt_galliantium": {
-        "name": "Smelt Galliantium",
-        "supplies": []
-    },
-    "mix_gilded_dust": {
-        "name": "Mix Gilded Dust",
-        "supplies": []
-    }
+	"extract_coal": {
+		"name": "Extract Coal"
+	},
+	"extract_hematite": {
+		"name": "Extract Hematite"
+	},
+	"extract_magnitite": {
+		"name": "Extract Magnitite"
+	},
+	"refine_hematite": {
+		"name": "Refine Iron from Hematite"
+	},
+	"refine_magnitite": {
+		"name": "Refine Iron from Magnitite"
+	},
+	"generate_electricity": {
+		"name": "Manually Crank Turbine"
+	},
+	"burn_coal": {
+		"name": "Burn Coal"
+	},
+	"pump_water": {
+		"name": "Pump Water"
+	},
+	"extract_bornite": {
+		"name": "Extract Bornite"
+	},
+	"extract_bauxite": {
+		"name": "Extract Bauxite"
+	},
+	"extract_native_gold": {
+		"name": "Extract Native Gold"
+	},
+	"refine_bornite": {
+		"name": "Refine Copper"
+	},
+	"refine_bauxite": {
+		"name": "Refine Aluminum"
+	},
+	"refine_gold": {
+		"name": "Refine Gold"
+	},
+	"trade_A_and_B_for_C": {
+		"name": "Trade %s and %s for %s",
+		"supplies": [
+			"A",
+			"B",
+			"C"
+		]
+	},
+	"desalination": {
+		"name": "Desalinate Water",
+		"supplies": []
+	},
+	"electrolysis": {
+		"name": "Electrolysis",
+		"supplies": []
+	},
+	"cryogenic_condensation": {
+		"name": "Cryogenic Condensation",
+		"supplies": []
+	},
+	"steel_smelting": {
+		"name": "Smelt Steel",
+		"supplies": []
+	},
+	"bless_water": {
+		"name": "Bless Water",
+		"supplies": []
+	},
+	"gather_sand": {
+		"name": "Gather Sand",
+		"supplies": []
+	},
+	"create_divine_dust": {
+		"name": "Mix Divine Dust",
+		"supplies": []
+	},
+	"sanctify_gold": {
+		"name": "Sanctify Gold",
+		"supplies": []
+	},
+	"mix_starsand": {
+		"name": "Mix Starsand",
+		"supplies": []
+	},
+	"smelt_starglass": {
+		"name": "Smelt Starglass",
+		"supplies": []
+	},
+	"smelt_hellsteel": {
+		"name": "Smelt Hellsteel",
+		"supplies": []
+	},
+	"smelt_profane_ingot": {
+		"name": "Smelt Profane Ingot",
+		"supplies": []
+	},
+	"mix_pure_and_heavy": {
+		"name": "Make Pure and Heavy Dusts",
+		"supplies": []
+	},
+	"mix_corrupted_dust": {
+		"name": "Mix Corrupted Dust",
+		"supplies": []
+	},
+	"mix_ascendant_dust": {
+		"name": "Mix Ascendant Dust",
+		"supplies": []
+	},
+	"mix_arcane_dust": {
+		"name": "Mix Arcane Dust",
+		"supplies": []
+	},
+	"smelt_galliantium": {
+		"name": "Smelt Galliantium",
+		"supplies": []
+	},
+	"mix_gilded_dust": {
+		"name": "Mix Gilded Dust",
+		"supplies": []
+	}
 }
