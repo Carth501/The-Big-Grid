@@ -26,6 +26,7 @@ func _ready():
 func set_collection(id : String):
 	if(id == "Supply_Collection"):
 		supply_collection = Logic_Directory_Single.directory["Supply_Collection"]
+		Logic_Directory_Single.new_object.disconnect(set_collection)
 
 func get_left_value() -> float:
 	if(configuration.has("left")):

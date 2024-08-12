@@ -10,6 +10,7 @@ var action : Action
 var timer : Timer
 var conditionals := []
 var tier := 1
+var copy_handler : Copy_Handler
 
 func set_action(new_action : Action):
 	action = new_action
@@ -103,3 +104,16 @@ func attempt_machine_upgrade():
 	if(success):
 		tier += 1
 		update_tier.emit(tier)
+
+func set_copy_hander(new_copy_handler : Copy_Handler):
+	copy_handler = new_copy_handler
+
+func attempt_copy():
+	if(copy_handler == null):
+		push_error("No Copy Handler found!")
+	copy_handler.copy_machine(self)
+
+func attempt_paste():
+	if(copy_handler == null):
+		push_error("No Copy Handler found!")
+	copy_handler.paste_machine(self)
