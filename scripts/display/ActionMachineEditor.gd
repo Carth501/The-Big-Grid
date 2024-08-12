@@ -7,6 +7,14 @@ class_name Action_Machine_Editor extends Control
 @export var tier_value : Label
 @onready var condition_bar_prefab := preload("res://scenes/ConditionBar.tscn")
 var machine : Machine
+var hovering := false
+
+func _input(event: InputEvent) -> void:
+	if(hovering):
+		if event.is_action_pressed("copy"):
+			shift_right_click()
+		elif event.is_action_pressed("paste"):
+			shift_left_click()
 
 func set_machine(new_machine : Machine):
 	machine = new_machine
@@ -81,3 +89,15 @@ func attempt_machine_upgrade():
 
 func update_tier_value(new_value : int):
 	tier_value.text = str(new_value)
+
+func shift_right_click():
+	machine.attempt_copy()
+
+func shift_left_click():
+	machine.attempt_paste()
+
+func enter_hovering():
+	hovering = true
+
+func exit_hovering():
+	hovering = false

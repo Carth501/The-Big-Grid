@@ -2,6 +2,7 @@ class_name Machine_Factory extends Node
 
 signal new_machine_built(machine : Machine)
 @export var supply_collection : Supply_Collection
+@export var copy_handler : Copy_Handler
 var machine_registry : Dictionary
 
 func build_machine(action : Action) -> Machine:
@@ -16,6 +17,7 @@ func build_machine(action : Action) -> Machine:
 	new_machine.set_running(true)
 	new_machine.set_tier(1)
 	new_machine_built.emit(new_machine)
+	new_machine.copy_handler = copy_handler
 	return new_machine
 
 func get_machines_by_id(id : String) -> Array:
