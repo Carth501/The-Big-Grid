@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=36 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://cdo74pgnqchtb" path="res://sound/music/_Workers' Delight_ The Big Grid, Pirate Software Gamejam 15.ogg" id="12_dwipf"]
 [ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
 [ext_resource type="Script" path="res://scripts/display/PauseMenu.gd" id="15_pb3et"]
+[ext_resource type="Script" path="res://scripts/display/ControlsLabel.gd" id="16_lih5f"]
 [ext_resource type="AudioStream" uid="uid://spu70ttwko4c" path="res://sound/effects/Mining_Drilling - The Big Grid.ogg" id="17_8qotj"]
 [ext_resource type="AudioStream" uid="uid://5rqlb3bgiriu" path="res://sound/music/_Melded_ The Big Grid, Pirate Software Gamejam 15.ogg" id="17_047oi"]
 [ext_resource type="AudioStream" uid="uid://b0a4quoeud2p8" path="res://sound/music/_Tireless_ The Big Grid, Pirate Software Gamejam 15.ogg" id="18_36x25"]
@@ -397,6 +398,18 @@ offset_bottom = 15.5
 grow_horizontal = 0
 grow_vertical = 2
 text = "Pause"
+
+[node name="ControlsLabel" type="Label" parent="Display/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_alignment = 1
+script = ExtResource("16_lih5f")
 
 [node name="MusicSystem" type="Node" parent="Display" node_paths=PackedStringArray("music_players", "victory_music")]
 process_mode = 3

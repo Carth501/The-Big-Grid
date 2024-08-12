@@ -97,7 +97,13 @@ func shift_left_click():
 	machine.attempt_paste()
 
 func enter_hovering():
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.update_text("Shift-RMB: Copy, Shift-LMB: Paste")
 	hovering = true
 
 func exit_hovering():
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.clear_text()
 	hovering = false
