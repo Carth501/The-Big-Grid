@@ -1,21 +1,18 @@
-extends Control
+class_name Pause_Menu extends Control
 
 @export var resume_button : Button
+@export var pause_handler : Pause_Handler
 
-#Make sure root node process is set to always or will not work properly
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause"): #Takes input  for pause key
-		pause_or_unpause() #executes pause/unpause function
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		pause_handler.pause_or_unpause()
 
-func pause_or_unpause():
-		if get_tree().paused == true: #if game is paused, pressing resume will unpause it
-			hide()
-			get_tree().paused = false
-		elif get_tree().paused == false: #if game is unpaused, pressing escape will pause it
-			show()
-			get_tree().paused = true
-			resume_button.grab_focus()
+func toggle_pause(show_menu : bool):
+	if(show_menu):
+		show()
+		resume_button.grab_focus()
+	else:
+		hide()
 
-func _quitGame(): #Quits to main menu
-	get_tree().paused = false #unpauses tree so main menu can be clicked
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn") #changes scene to main menu
+func _quitGame():
+	pause_handler._quitGame()

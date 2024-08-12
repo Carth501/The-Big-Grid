@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://durgfyetb6d3p"]
+[gd_scene load_steps=10 format=3 uid="uid://durgfyetb6d3p"]
 
 [ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="1_2654x"]
 [ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="2_ewbvm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="6_gsxxp"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="7_udl0h"]
 [ext_resource type="Script" path="res://scripts/logic/CopyHandler.gd" id="8_p7w5d"]
+[ext_resource type="Script" path="res://scripts/logic/PauseHandler.gd" id="9_2rlac"]
 
 [node name="Logic" type="Node"]
 
@@ -44,6 +45,9 @@ supply_collection = NodePath("../SupplyCollection")
 
 [node name="CopyHandler" type="Node" parent="."]
 script = ExtResource("8_p7w5d")
+
+[node name="PauseHandler" type="Node" parent="."]
+script = ExtResource("9_2rlac")
 
 [node name="AutosaveTimer" type="Timer" parent="."]
 wait_time = 300.0

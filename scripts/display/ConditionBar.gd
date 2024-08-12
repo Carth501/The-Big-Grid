@@ -16,6 +16,7 @@ func set_expression(new_conditional : Conditional_Expression):
 	new_conditional.config_change.connect(update_expression_config)
 	update_expression_config()
 	conditional_expression.delete_this.connect(remove)
+	conditional_expression.end_changing.connect(hide_control_instructions)
 
 func update_expression_config():
 	var config = conditional_expression.configuration
@@ -45,7 +46,6 @@ func write_left_member(left_config : Dictionary):
 		left_member_icon.visible = true
 		var supply = supply_collection.get_supply(left_config.variable)
 		left_member_icon.set_image_by_path(supply.supply_icon_path)
-		left_member_icon.set_supply_name(supply.get_translation())
 	else:
 		clear_left()
 
@@ -58,15 +58,16 @@ func write_right_member(right_config : Dictionary):
 		right_member_icon.visible = true
 		var supply = supply_collection.get_supply(right_config.variable)
 		right_member_icon.set_image_by_path(supply.supply_icon_path)
-		right_member_icon.set_supply_name(supply.get_translation())
 	else:
 		clear_right()
 
 func request_left_selection():
 	conditional_expression.start_left_selection()
+	display_control_instructions()
 
 func request_right_selection():
 	conditional_expression.start_right_selection()
+	display_control_instructions()
 
 func clear_left():
 	left_member.text = ""
@@ -96,3 +97,15 @@ func set_comparator(new_value : int):
 	else:
 		push_warning("unknown comparator value")
 	conditional_expression.set_comparator(comparator)
+
+func display_control_instructions():
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.set_priority_text(
+			"LMB over a supply to add it to the conditional. ESC to cancel."
+			)
+
+func hide_control_instructions():
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.clear_priority_text()
