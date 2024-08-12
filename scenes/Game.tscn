@@ -485,7 +485,7 @@ id = "development"
 
 [node name="Logic" parent="." instance=ExtResource("37_08wen")]
 
-[node name="PauseMenu" type="Control" parent="." node_paths=PackedStringArray("resume_button")]
+[node name="PauseMenu" type="Control" parent="." node_paths=PackedStringArray("resume_button", "pause_handler")]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -496,6 +496,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("15_pb3et")
 resume_button = NodePath("MarginContainer/VBoxContainer/Resume")
+pause_handler = NodePath("../Logic/PauseHandler")
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
 layout_mode = 1
@@ -658,10 +659,12 @@ layout_mode = 2
 [connection signal="action_search_filter" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="filter_actions"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
+[connection signal="reveal_supply" from="Logic/ActionManager" to="Logic/SupplyCollection" method="reveal_supply"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="initialize_keep_positions" from="Logic/OptionsOverseer" to="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" method="set_pressed"]
 [connection signal="newStepDescription" from="Logic/ObjectiveSystem" to="Display/MiddleSplit/RightSplit/ActionBackground/CurrentObjectiveLine" method="update_objective"]
 [connection signal="overallGoalDescription" from="Logic/ObjectiveSystem" to="Display/MiddleSplit/RightSplit/ActionBackground/OverallObjectiveLine" method="update_objective"]
+[connection signal="toggle_display" from="Logic/PauseHandler" to="PauseMenu" method="toggle_pause"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Save game" to="." method="SaveButton"]

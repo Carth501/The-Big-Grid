@@ -9,24 +9,39 @@ enum Comparators {
 signal update_value(float)
 signal config_change
 signal delete_this(Conditional_Expression)
+signal end_changing
 
 var configuration : Dictionary
 var supply_collection : Supply_Collection
+var pause_handler : Pause_Handler
 var edit_left := false
 var edit_right := false
 var comparator := Comparators.EQUAL
 var evaluation := true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") && (edit_left || edit_right):
+		reset_editing()
 
 func _ready():
 	if(Logic_Directory_Single.directory.has("Supply_Collection")):
 		supply_collection = Logic_Directory_Single.directory["Supply_Collection"]
 	else:
 		Logic_Directory_Single.new_object.connect(set_collection)
+	if(Logic_Directory_Single.directory.has("Pause_Handler")):
+		pause_handler = Logic_Directory_Single.directory["Pause_Handler"]
+	else:
+		Logic_Directory_Single.new_object.connect(set_pause_handler)
 
 func set_collection(id : String):
 	if(id == "Supply_Collection"):
 		supply_collection = Logic_Directory_Single.directory["Supply_Collection"]
 		Logic_Directory_Single.new_object.disconnect(set_collection)
+
+func set_pause_handler(id : String):
+	if(id == "Pause_Handler"):
+		pause_handler = Logic_Directory_Single.directory["Pause_Handler"]
+		Logic_Directory_Single.new_object.disconnect(set_pause_handler)
 
 func get_left_value() -> float:
 	if(configuration.has("left")):
@@ -53,7 +68,7 @@ func set_left_constant(value : float):
 	configuration["left"] = {"constant": value}
 	config_change.emit()
 	evaluate()
-	disconnect_left_selection()
+	reset_editing()
 
 func set_left_variable(id : String):
 	disconnect_old_left_variable()
@@ -62,14 +77,14 @@ func set_left_variable(id : String):
 	evaluate()
 	var supply = supply_collection.get_supply(id)
 	supply.update_value.connect(handle_variable_update)
-	disconnect_left_selection()
+	reset_editing()
 
 func set_right_constant(value : float):
 	disconnect_old_right_variable()
 	configuration["right"] = {"constant": value}
 	config_change.emit()
 	evaluate()
-	disconnect_right_selection()
+	reset_editing()
 
 func set_right_variable(id : String):
 	disconnect_old_right_variable()
@@ -78,7 +93,7 @@ func set_right_variable(id : String):
 	evaluate()
 	var supply = supply_collection.get_supply(id)
 	supply.update_value.connect(handle_variable_update)
-	disconnect_right_selection()
+	reset_editing()
 
 func disconnect_old_left_variable():
 	if(configuration.has("left")):
@@ -103,6 +118,7 @@ func start_left_selection():
 	supply_collection.constant_selection.connect(set_left_constant)
 	supply_collection.variable_selection.connect(set_left_variable)
 	supply_collection.request_member_selection()
+	pause_handler.locked = true
 
 func start_right_selection():
 	reset_editing()
@@ -110,6 +126,7 @@ func start_right_selection():
 	supply_collection.constant_selection.connect(set_right_constant)
 	supply_collection.variable_selection.connect(set_right_variable)
 	supply_collection.request_member_selection()
+	pause_handler.locked = true
 
 func disconnect_left_selection():
 	edit_left = false
@@ -126,6 +143,8 @@ func reset_editing():
 		disconnect_left_selection()
 	if(edit_right):
 		disconnect_right_selection()
+	end_changing.emit()
+	pause_handler.locked = false
 
 func set_comparator(new_comparator : Comparators):
 	comparator = new_comparator
