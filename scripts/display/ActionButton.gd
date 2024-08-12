@@ -62,9 +62,15 @@ func set_enabled(setting : bool):
 
 func set_filter():
 	action.set_filter()
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.update_text("LMB: Activate, RMB: Open action menu")
 
 func unset_filter():
 	action.unset_filter()
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.clear_text()
 
 func gain_focus():
 	action.gain_focus()

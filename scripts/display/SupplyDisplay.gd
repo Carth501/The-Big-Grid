@@ -125,9 +125,15 @@ func unset_objective():
 func show_label():
 	supply_label.show_name(supply_name)
 	supply_label.move_to_supply_rect(get_global_rect())
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.update_text("RMB: Open supply menu")
 
 func hide_label():
 	supply_label.hide_name()
+	var controls_display = $/root/Game/Display/Panel/ControlsLabel
+	if(controls_display != null):
+		controls_display.clear_text()
 
 func show_description():
 	supply_label.show_description(supply_description)
