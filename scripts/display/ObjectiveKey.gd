@@ -6,7 +6,10 @@ class_name Objective_Key extends Control
 var supply_collection : Supply_Collection
 
 func _ready():
-	supply_collection = Logic_Directory_Single.get_object("Supply_Collection")
+	if(Logic_Directory_Single.directory.has("Supply_Collection")):
+		supply_collection = Logic_Directory_Single.directory["Supply_Collection"]
+	else:
+		Logic_Directory_Single.new_object.connect(set_collection)
 
 func set_objective_supply(id : String):
 	constant.visible = false
@@ -22,3 +25,6 @@ func set_objective_constant(value : float):
 
 func set_comparator(symbol : String):
 	comparator.text = symbol
+
+func set_collection():
+	supply_collection = Logic_Directory_Single.directory["Supply_Collection"]

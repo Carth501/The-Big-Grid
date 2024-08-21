@@ -10,14 +10,15 @@ func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	timer.timeout.connect(check_conditions)
-	timer.wait_time = 1
+	timer.wait_time = 10
 	timer.start()
 
 func check_conditions():
 	for condition in conditionals:
 		if(condition != null && !condition.evaluation):
 			return
-	proceed()
+	if(pattern.size() > 0):
+		proceed()
 
 func proceed():
 	var count := 0

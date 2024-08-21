@@ -1,4 +1,4 @@
-extends Control
+class_name Sequencer_Editor extends Control
 
 var sequencer : Sequencer
 

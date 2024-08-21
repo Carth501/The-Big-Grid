@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=37 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scripts/CurrentObjectiveLine.gd" id="15_3ikv4"]
 [ext_resource type="Script" path="res://scripts/display/PauseMenu.gd" id="15_pb3et"]
 [ext_resource type="Script" path="res://scripts/display/ControlsLabel.gd" id="16_lih5f"]
+[ext_resource type="PackedScene" uid="uid://py8ko638dtp2" path="res://scenes/display/SequencersDisplay.tscn" id="16_p7bp0"]
 [ext_resource type="AudioStream" uid="uid://spu70ttwko4c" path="res://sound/effects/Mining_Drilling - The Big Grid.ogg" id="17_8qotj"]
 [ext_resource type="AudioStream" uid="uid://5rqlb3bgiriu" path="res://sound/music/_Melded_ The Big Grid, Pirate Software Gamejam 15.ogg" id="17_047oi"]
 [ext_resource type="AudioStream" uid="uid://b0a4quoeud2p8" path="res://sound/music/_Tireless_ The Big Grid, Pirate Software Gamejam 15.ogg" id="18_36x25"]
@@ -326,8 +327,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
+current_tab = 1
 
 [node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer"]
+visible = false
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 0)
@@ -355,7 +358,6 @@ script = ExtResource("4_p32ci")
 development_handler = NodePath("../../../../../../../../../Logic/DevelopmentHandler")
 
 [node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer" node_paths=PackedStringArray("action_section_container", "machine_factory")]
-visible = false
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 0)
 script = ExtResource("11_3l4m0")
@@ -375,6 +377,11 @@ horizontal_scroll_mode = 0
 custom_minimum_size = Vector2(0, 167)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Sequencers" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer" node_paths=PackedStringArray("sequencer_manager") instance=ExtResource("16_p7bp0")]
+visible = false
+layout_mode = 2
+sequencer_manager = NodePath("../../../../../../Logic/SequencerManager")
 
 [node name="Panel" type="Panel" parent="Display"]
 layout_mode = 1
@@ -656,6 +663,7 @@ layout_mode = 2
 [connection signal="action_search_filter" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="filter_actions"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
+[connection signal="reveal_supply" from="Logic/ActionManager" to="Logic/SupplyCollection" method="reveal_supply"]
 [connection signal="update_filter" from="Logic/FilterForeman" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="filter"]
 [connection signal="new_machine_built" from="Logic/MachineFactory" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="add_machine_editor"]
 [connection signal="initialize_keep_positions" from="Logic/OptionsOverseer" to="Display/MiddleSplit/SupplyBackground/HFlowContainer/KeepPositionControl/KeepPositionToggle" method="set_pressed"]
