@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://durgfyetb6d3p"]
+[gd_scene load_steps=11 format=3 uid="uid://durgfyetb6d3p"]
 
 [ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="1_2654x"]
 [ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="2_ewbvm"]
@@ -9,23 +9,18 @@
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="7_udl0h"]
 [ext_resource type="Script" path="res://scripts/logic/CopyHandler.gd" id="8_p7w5d"]
 [ext_resource type="Script" path="res://scripts/logic/PauseHandler.gd" id="9_2rlac"]
+[ext_resource type="Script" path="res://scripts/logic/SequencerManager.gd" id="9_4ahhb"]
 
 [node name="Logic" type="Node"]
-
-[node name="MachineFactory" type="Node" parent="." node_paths=PackedStringArray("supply_collection", "copy_handler")]
-script = ExtResource("1_2654x")
-supply_collection = NodePath("../SupplyCollection")
-copy_handler = NodePath("../CopyHandler")
-
-[node name="SupplyCollection" type="Node" parent="." node_paths=PackedStringArray("filter_foreman")]
-script = ExtResource("2_ewbvm")
-filter_foreman = NodePath("../FilterForeman")
 
 [node name="ActionManager" type="Node" parent="." node_paths=PackedStringArray("supply_collection", "filter_foreman", "machine_factory")]
 script = ExtResource("3_6gquc")
 supply_collection = NodePath("../SupplyCollection")
 filter_foreman = NodePath("../FilterForeman")
 machine_factory = NodePath("../MachineFactory")
+
+[node name="CopyHandler" type="Node" parent="."]
+script = ExtResource("8_p7w5d")
 
 [node name="DevelopmentHandler" type="Node" parent="." node_paths=PackedStringArray("action_manager", "supply_collection", "filter_foreman")]
 script = ExtResource("4_v6rhi")
@@ -36,6 +31,11 @@ filter_foreman = NodePath("../FilterForeman")
 [node name="FilterForeman" parent="." node_paths=PackedStringArray("supply_collection") instance=ExtResource("5_owboe")]
 supply_collection = NodePath("../SupplyCollection")
 
+[node name="MachineFactory" type="Node" parent="." node_paths=PackedStringArray("supply_collection", "copy_handler")]
+script = ExtResource("1_2654x")
+supply_collection = NodePath("../SupplyCollection")
+copy_handler = NodePath("../CopyHandler")
+
 [node name="OptionsOverseer" type="Node" parent="."]
 script = ExtResource("6_gsxxp")
 
@@ -43,11 +43,15 @@ script = ExtResource("6_gsxxp")
 script = ExtResource("7_udl0h")
 supply_collection = NodePath("../SupplyCollection")
 
-[node name="CopyHandler" type="Node" parent="."]
-script = ExtResource("8_p7w5d")
-
 [node name="PauseHandler" type="Node" parent="."]
 script = ExtResource("9_2rlac")
+
+[node name="SequencerManager" type="Node" parent="."]
+script = ExtResource("9_4ahhb")
+
+[node name="SupplyCollection" type="Node" parent="." node_paths=PackedStringArray("filter_foreman")]
+script = ExtResource("2_ewbvm")
+filter_foreman = NodePath("../FilterForeman")
 
 [node name="AutosaveTimer" type="Timer" parent="."]
 wait_time = 300.0

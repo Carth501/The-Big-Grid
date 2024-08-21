@@ -188,6 +188,7 @@ text = "Add Slot"
 
 [node name="NewPatternButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
 visible = false
+layout_mode = 0
 offset_left = 116.0
 offset_top = 120.0
 offset_right = 227.0
@@ -195,6 +196,7 @@ offset_bottom = 151.0
 text = "New Pattern"
 
 [node name="PatternButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 120.0
 offset_right = 112.0
@@ -202,6 +204,7 @@ offset_bottom = 151.0
 text = "Pattern"
 
 [node name="DisconnectButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
+layout_mode = 0
 offset_left = 116.0
 offset_top = 120.0
 offset_right = 227.0
