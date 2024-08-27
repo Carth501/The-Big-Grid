@@ -1,5 +1,9 @@
 class_name Sequencer extends Node
 
+signal name_changed(new_name)
+signal tier_changed(new_teir)
+signal update_active(setting)
+
 var pattern = []
 var timer : Timer
 var conditionals := []
@@ -12,6 +16,13 @@ func _ready():
 	timer.timeout.connect(check_conditions)
 	timer.wait_time = 10
 	timer.start()
+
+func set_sequencer_name(new_name : String):
+	name = new_name
+	name_changed.emit(name)
+
+func get_sequencer_name():
+	return name
 
 func check_conditions():
 	for condition in conditionals:
@@ -42,3 +53,17 @@ func move_index(original : int, new : int):
 	var action_to_be_moved = pattern[original]
 	pattern.remove_at(original)
 	pattern.insert(new, action_to_be_moved)
+
+func change_teir(new_teir : int):
+	tier = new_teir
+	tier_changed.emit(tier)
+
+func set_running(setting : bool):
+	if(setting):
+		timer.set_paused(false)
+	else:
+		timer.set_paused(true)
+	update_active.emit(!timer.paused)
+
+func get_running() -> float:
+	return !timer.is_stopped() && !timer.paused

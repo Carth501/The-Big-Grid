@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1twd20u4t2dv"]
+[gd_scene load_steps=5 format=3 uid="uid://c1twd20u4t2dv"]
 
 [ext_resource type="Script" path="res://scripts/display/SequencerEditor.gd" id="1_i4ida"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_7spwc"]
-[ext_resource type="Texture2D" uid="uid://cpfr33ldko3yw" path="res://textures/symbols/Arrow.png" id="3_swksg"]
+[ext_resource type="PackedScene" uid="uid://cbesjkby23ov4" path="res://scenes/display/SequencerActionItem.tscn" id="3_b1ya8"]
+[ext_resource type="Script" path="res://scripts/display/SequencerActionItem.gd" id="4_iilbr"]
 
-[node name="SequencerEditor" type="Control"]
+[node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "item_list")]
 custom_minimum_size = Vector2(232, 144)
 layout_mode = 3
 anchors_preset = 0
@@ -12,6 +13,10 @@ offset_right = 232.0
 offset_bottom = 325.0
 size_flags_vertical = 3
 script = ExtResource("1_i4ida")
+name_field = NodePath("Panel/VFlowContainer/Header/LineEdit")
+tier_value = NodePath("Panel/VFlowContainer/Control/TierNumberLabel")
+active_switch = NodePath("Panel/VFlowContainer/ActiveSwitch/CheckButton")
+item_list = NodePath("Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -144,38 +149,9 @@ vertical_scroll_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer"]
 layout_mode = 2
 
-[node name="SequencerActionItem" type="Control" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 31)
+[node name="SequencerActionItem" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer" instance=ExtResource("3_b1ya8")]
 layout_mode = 2
-
-[node name="Number" type="Label" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/SequencerActionItem"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 5.0
-offset_right = 30.0
-offset_bottom = 28.0
-text = "1"
-
-[node name="Arrow" type="Sprite2D" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/SequencerActionItem"]
-visible = false
-modulate = Color(0.0591774, 0.777202, 0.0497361, 1)
-position = Vector2(15, 17)
-rotation = 1.5708
-texture = ExtResource("3_swksg")
-
-[node name="ActionButton" type="Button" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/SequencerActionItem"]
-layout_mode = 0
-offset_left = 61.0
-offset_right = 169.0
-offset_bottom = 31.0
-text = "Action Name"
-
-[node name="Remove" type="Button" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/SequencerActionItem"]
-layout_mode = 0
-offset_left = 193.0
-offset_right = 211.0
-offset_bottom = 31.0
-text = "X"
+script = ExtResource("4_iilbr")
 
 [node name="AddSlotButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
 visible = false
