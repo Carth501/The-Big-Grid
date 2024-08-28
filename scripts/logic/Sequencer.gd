@@ -3,12 +3,16 @@ class_name Sequencer extends Node
 signal name_changed(new_name)
 signal tier_changed(new_teir)
 signal update_active(setting)
+signal add_action(index, action)
+signal remove_action(index)
+signal request_action(sequencer)
 
 var pattern = []
 var timer : Timer
 var conditionals := []
 var tier := 1
 var current_index := 0
+var request_index := 0
 
 func _ready():
 	timer = Timer.new()
@@ -54,8 +58,8 @@ func move_index(original : int, new : int):
 	pattern.remove_at(original)
 	pattern.insert(new, action_to_be_moved)
 
-func change_teir(new_teir : int):
-	tier = new_teir
+func change_tier(new_tier : int):
+	tier = new_tier
 	tier_changed.emit(tier)
 
 func set_running(setting : bool):
@@ -67,3 +71,18 @@ func set_running(setting : bool):
 
 func get_running() -> float:
 	return !timer.is_stopped() && !timer.paused
+
+func begin_slot_fill(index : int):
+	request_index = index
+	request_action.emit(self)
+
+func fufill_request(action: Action):
+	pattern[request_index] = action
+	add_action.emit(request_index, action)
+
+func add_slot():
+	pattern.push_back(null)
+
+func clear_slot(index : int):
+	pattern[index] = null
+	remove_action.emit(index)

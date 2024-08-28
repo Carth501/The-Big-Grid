@@ -2,11 +2,13 @@ class_name Action_Button extends Dual_Button
 
 signal trigger
 signal open_action_menu
+signal select(action)
 
 var id : String
 var action : Action
 var audio_stream : Sound_Effect
 var action_press_sound : Sound_Effect
+var selection_mode := false
 
 func _ready() -> void:
 	super._ready()
@@ -43,6 +45,9 @@ func disconnect_action():
 		trigger.disconnect(action_press_sound.play)
 
 func actuate():
+	if(selection_mode):
+		select.emit(action)
+		return
 	if(!disabled):
 		trigger.emit()
 	action.apply()

@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1twd20u4t2dv"]
+[gd_scene load_steps=3 format=3 uid="uid://c1twd20u4t2dv"]
 
 [ext_resource type="Script" path="res://scripts/display/SequencerEditor.gd" id="1_i4ida"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_7spwc"]
-[ext_resource type="PackedScene" uid="uid://cbesjkby23ov4" path="res://scenes/display/SequencerActionItem.tscn" id="3_b1ya8"]
-[ext_resource type="Script" path="res://scripts/display/SequencerActionItem.gd" id="4_iilbr"]
 
 [node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "item_list")]
 custom_minimum_size = Vector2(232, 144)
@@ -147,11 +145,12 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 
-[node name="SequencerActionItem" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer" instance=ExtResource("3_b1ya8")]
+[node name="PurchaseActionSlotButton" type="Button" parent="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-script = ExtResource("4_iilbr")
+text = "Purchase Action Slot"
 
 [node name="AddSlotButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
 visible = false
@@ -206,6 +205,7 @@ theme_override_constants/separation = 45
 [connection signal="pressed" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="attempt_machine_upgrade"]
 [connection signal="toggled" from="Panel/VFlowContainer/ActiveSwitch/CheckButton" to="." method="set_running"]
 [connection signal="value_changed" from="Panel/VFlowContainer/IntervalControl/OperationRateField" to="." method="set_interval"]
+[connection signal="pressed" from="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/PurchaseActionSlotButton" to="." method="add_action_slot"]
 [connection signal="pressed" from="Panel/VFlowContainer/AddConditionButton" to="." method="request_additional_condition"]
 [connection signal="child_entered_tree" from="Panel/VFlowContainer/ConditionList" to="." method="resize"]
 [connection signal="child_exiting_tree" from="Panel/VFlowContainer/ConditionList" to="." method="resize_minus_one"]
