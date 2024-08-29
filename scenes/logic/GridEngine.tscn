@@ -57,5 +57,4 @@ filter_foreman = NodePath("../FilterForeman")
 wait_time = 300.0
 autostart = true
 
-[connection signal="reveal_supply" from="ActionManager" to="SupplyCollection" method="reveal_supply"]
 [connection signal="update_focus_filtering" from="OptionsOverseer" to="FilterForeman" method="set_secondary_filter_active"]

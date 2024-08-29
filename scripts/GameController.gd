@@ -7,6 +7,7 @@ signal game_setup_ready
 @export var starting_action_ids : Array[String]
 @export var machine_factory : Machine_Factory
 @export var development_handler : Development_Handler
+@export var sequencer_manager : Sequencer_Manager
 @export var save_file_panel : Button
 @export var save_file_name : LineEdit
 var save_name : String
@@ -44,6 +45,11 @@ func save(new_save_name : String) -> bool:
 			machine_data[action_id].append(get_machine_data(machine))
 	archive["machines"] = machine_data
 	archive["developments"] = development_handler.compeleted_developments
+	var sequencer_data = {}
+	for sequencer_id in sequencer_manager.sequencer_list:
+		var sequencer = sequencer_manager.sequencer_list[sequencer_id]
+		sequencer_data[sequencer_id] = get_sequencer_data(sequencer)
+	archive["sequencers"] = sequencer_data
 	Save_Handler_Single.write_save(archive)
 	Save_Handler_Single.index_saves()
 	return true
@@ -77,6 +83,21 @@ func get_machine_data(machine : Machine) -> Dictionary:
 func get_conditional_data(conditional: Conditional_Expression):
 	return {"configuration": conditional.configuration,
 	"comparator": conditional.comparator}
+
+func get_sequencer_data(sequencer : Sequencer) -> Dictionary:
+	var pattern = []
+	for action in sequencer.pattern:
+		if(action == null):
+			pattern.append(null)
+		else:
+			pattern.append(sequencer.pattern[action].id)
+	return {
+		"name": sequencer.name,
+		"remaining_time": sequencer.timer.time_left,
+		"active": sequencer.get_running(),
+		"tier": sequencer.tier,
+		"pattern": pattern
+	}
 
 func _input(event):
 	if event.is_action_pressed("save"):
@@ -133,6 +154,8 @@ func load_save():
 	if(active_save.has("developments")):
 		var devs = active_save.developments
 		development_handler.set_completed_developments(devs)
+	if(active_save.has("sequencers")):
+		sequencer_manager.load_sequencers(active_save.sequencers)
 
 func autosave():
 	save("autoSave")
