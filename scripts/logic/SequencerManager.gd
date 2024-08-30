@@ -5,7 +5,7 @@ signal request_action()
 signal cancel_action_request()
 var sequencer_list := {}
 var requesting_sequencer : Sequencer
-var action_manager : Action_Manager
+@export var action_manager : Action_Manager
 
 func create_sequencer():
 	var id = sequencer_list.keys().size()

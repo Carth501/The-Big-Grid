@@ -90,11 +90,12 @@ func get_sequencer_data(sequencer : Sequencer) -> Dictionary:
 		if(action == null):
 			pattern.append(null)
 		else:
-			pattern.append(sequencer.pattern[action].id)
+			pattern.append(action.id)
 	return {
 		"name": sequencer.name,
 		"remaining_time": sequencer.timer.time_left,
 		"active": sequencer.get_running(),
+		"interval": sequencer.timer.wait_time,
 		"tier": sequencer.tier,
 		"pattern": pattern
 	}

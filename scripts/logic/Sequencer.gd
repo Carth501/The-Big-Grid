@@ -18,7 +18,7 @@ func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	timer.timeout.connect(check_conditions)
-	timer.wait_time = 10
+	timer.wait_time = 1
 	timer.start()
 
 func set_sequencer_name(new_name : String):
@@ -39,6 +39,8 @@ func proceed():
 	var count := 0
 	while(count < tier):
 		var action = get_next_action()
+		if(action == null):
+			return
 		if(action.available):
 			action.apply()
 			count += 1
@@ -47,10 +49,13 @@ func proceed():
 			return
 
 func get_next_action():
+	var start = current_index
 	var next_action = pattern[current_index]
 	while(next_action == null):
 		current_index = (current_index + 1) % pattern.size()
 		next_action = pattern[current_index]
+		if(current_index == start):
+			return null
 	return next_action
 
 func move_index(original : int, new : int):
@@ -86,3 +91,10 @@ func add_slot():
 func clear_slot(index : int):
 	pattern[index] = null
 	remove_action.emit(index)
+
+func set_interval(value : float):
+	timer.wait_time = clampf(value, 1, 10)
+
+func set_last_slot(action : Action):
+	if(pattern.size() > 0):
+		pattern[pattern.size() - 1] = action

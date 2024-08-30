@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/display/SequencerEditor.gd" id="1_i4ida"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_7spwc"]
 
-[node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "item_list")]
+[node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "interval_field", "item_list")]
 custom_minimum_size = Vector2(232, 144)
 layout_mode = 3
 anchors_preset = 0
@@ -14,6 +14,7 @@ script = ExtResource("1_i4ida")
 name_field = NodePath("Panel/VFlowContainer/Header/LineEdit")
 tier_value = NodePath("Panel/VFlowContainer/Control/TierNumberLabel")
 active_switch = NodePath("Panel/VFlowContainer/ActiveSwitch/CheckButton")
+interval_field = NodePath("Panel/VFlowContainer/IntervalControl/OperationRateField")
 item_list = NodePath("Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer")
 
 [node name="Panel" type="Panel" parent="."]
@@ -205,7 +206,7 @@ theme_override_constants/separation = 45
 [connection signal="pressed" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="attempt_machine_upgrade"]
 [connection signal="toggled" from="Panel/VFlowContainer/ActiveSwitch/CheckButton" to="." method="set_running"]
 [connection signal="value_changed" from="Panel/VFlowContainer/IntervalControl/OperationRateField" to="." method="set_interval"]
-[connection signal="pressed" from="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/PurchaseActionSlotButton" to="." method="add_action_slot"]
+[connection signal="pressed" from="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/PurchaseActionSlotButton" to="." method="purchase_action_slot"]
 [connection signal="pressed" from="Panel/VFlowContainer/AddConditionButton" to="." method="request_additional_condition"]
 [connection signal="child_entered_tree" from="Panel/VFlowContainer/ConditionList" to="." method="resize"]
 [connection signal="child_exiting_tree" from="Panel/VFlowContainer/ConditionList" to="." method="resize_minus_one"]

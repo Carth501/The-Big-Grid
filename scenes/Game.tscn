@@ -494,6 +494,9 @@ id = "development"
 
 [node name="Logic" parent="." instance=ExtResource("37_08wen")]
 
+[node name="SequencerManager" parent="Logic" index="8" node_paths=PackedStringArray("action_manager")]
+action_manager = NodePath("../ActionManager")
+
 [node name="PauseMenu" type="Control" parent="." node_paths=PackedStringArray("resume_button", "pause_handler")]
 process_mode = 3
 visible = false

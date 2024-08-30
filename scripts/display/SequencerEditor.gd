@@ -4,6 +4,7 @@ var sequencer : Sequencer
 @export var name_field : LineEdit
 @export var tier_value : Label
 @export var active_switch : Button
+@export var interval_field : SpinBox
 var sequencer_action_item_prefab = preload("res://scenes/display/SequencerActionItem.tscn")
 @export var item_list : VBoxContainer
 var action_slots : Array = []
@@ -19,6 +20,7 @@ func set_sequencer(new_sequencer : Sequencer):
 	set_pattern(sequencer.pattern)
 	sequencer.add_action.connect(change_action)
 	sequencer.remove_action.connect(clear_action)
+	interval_field.value = sequencer.timer.wait_time
 
 func set_sequencer_name_display(new_string : String):
 	name_field.text = new_string
@@ -50,6 +52,9 @@ func add_action_slot():
 	action_slots.push_back(new_item)
 	new_item.begin_fill.connect(begin_add_action)
 	new_item.remove.connect(clear_index)
+
+func purchase_action_slot():
+	add_action_slot()
 	sequencer.add_slot()
 
 func begin_add_action(index : int):
@@ -63,3 +68,6 @@ func clear_action(index : int):
 
 func clear_index(index : int):
 	sequencer.clear_slot(index)
+
+func set_interval(value : float):
+	sequencer.set_interval(value)
