@@ -3,6 +3,7 @@ class_name Action_Panel extends Control
 @onready var action_package := preload("res://scenes/display/ActionButton.tscn")
 @export var action_manager : Action_Manager
 @export var supply_collection : Supply_Collection
+@export var sequencer_manager : Sequencer_Manager
 var action_buttons := {}
 
 func build_action_button(id : String):
@@ -21,6 +22,7 @@ func build_action_button(id : String):
 	action_buttons[id] = new_button
 	var action_logic = action_manager.full_action_list[id]
 	new_button.connect_logic(action_logic)
+	new_button.select.connect(select)
 
 func filter_actions(id_list : Array):
 	for id in action_buttons:
@@ -28,3 +30,15 @@ func filter_actions(id_list : Array):
 			action_buttons[id].visible = true
 		else:
 			action_buttons[id].visible = false
+
+func enter_selection_mode():
+	for action_button_key in action_buttons:
+		action_buttons[action_button_key].selection_mode = true
+
+func exit_selection_mode():
+	for action_button_key in action_buttons:
+		action_buttons[action_button_key].selection_mode = false
+
+func select(action: Action):
+	sequencer_manager.fufill_request(action)
+	exit_selection_mode()

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://py8ko638dtp2"]
+
+[ext_resource type="Script" path="res://scripts/SequencersDisplay.gd" id="1_ulqi8"]
+[ext_resource type="Script" path="res://scripts/WaterfallContainer.gd" id="2_wla42"]
+
+[node name="Sequencers" type="ColorRect" node_paths=PackedStringArray("editor_container")]
+color = Color(0.0431373, 0.0431373, 0.0431373, 0)
+script = ExtResource("1_ulqi8")
+editor_container = NodePath("ScrollContainer/WaterfallContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaterfallContainer" type="Container" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_wla42")
+column_width = 232
+
+[node name="PurchaseSequencer" type="Button" parent="ScrollContainer/WaterfallContainer"]
+layout_mode = 2
+text = "Purchase Sequencer"
+
+[connection signal="pressed" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="attempt_sequencer_purchaser"]

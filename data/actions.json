@@ -37,7 +37,8 @@
 					-2
 				]
 			}
-		}
+		},
+		"branches": ["mining"]
 	},
 	"pump_water": {
 		"changes": {
@@ -59,7 +60,8 @@
 				]
 			}
 		},
-		"audio": "bubbling"
+		"audio": "bubbling",
+		"branches": ["mining"]
 	},
 	"extract_coal": {
 		"changes": {
@@ -81,7 +83,8 @@
 				]
 			}
 		},
-		"audio": "mining"
+		"audio": "mining",
+		"branches": ["mining"]
 	},
 	"extract_hematite": {
 		"changes": {
@@ -103,7 +106,8 @@
 				]
 			}
 		},
-		"audio": "mining"
+		"audio": "mining",
+		"branches": ["mining"]
 	},
 	"extract_magnitite": {
 		"changes": {
@@ -125,7 +129,8 @@
 				]
 			}
 		},
-		"audio": "mining"
+		"audio": "mining",
+		"branches": ["mining"]
 	},
 	"extract_bornite": {
 		"changes": {
@@ -152,7 +157,8 @@
 				]
 			}
 		},
-		"audio": "mining"
+		"audio": "mining",
+		"branches": ["mining"]
 	},
 	"extract_bauxite": {
 		"changes": {
@@ -179,7 +185,8 @@
 				]
 			}
 		},
-		"audio": "mining"
+		"audio": "mining",
+		"branches": ["mining"]
 	},
 	"extract_native_gold": {
 		"changes": {
@@ -206,7 +213,8 @@
 				]
 			}
 		},
-		"audio": "mining"
+		"audio": "mining",
+		"branches": ["mining"]
 	},
 	"refine_hematite": {
 		"changes": {
@@ -238,7 +246,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"refine_magnitite": {
 		"changes": {
@@ -270,7 +279,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"refine_bornite": {
 		"changes": {
@@ -307,7 +317,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"refine_bauxite": {
 		"changes": {
@@ -334,7 +345,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"refine_gold": {
 		"changes": {
@@ -366,7 +378,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"steel_smelting": {
 		"changes": {
@@ -393,7 +406,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"desalination": {
 		"changes": {
@@ -425,7 +439,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"electrolysis": {
 		"changes": {
@@ -467,7 +482,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"cryogenic_condensation": {
 		"changes": {
@@ -487,7 +503,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"bless_water": {
 		"changes": {
@@ -514,7 +531,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"gather_sand": {
 		"changes": {
@@ -536,7 +554,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["mining"]
 	},
 	"create_divine_dust": {
 		"changes": {
@@ -573,7 +592,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"sanctify_gold": {
 		"changes": {
@@ -595,7 +615,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"mix_starsand": {
 		"changes": {
@@ -622,7 +643,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"smelt_starglass": {
 		"changes": {
@@ -654,7 +676,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"smelt_hellsteel": {
 		"changes": {
@@ -681,7 +704,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"smelt_profane_ingot": {
 		"changes": {
@@ -718,7 +742,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"mix_pure_and_heavy": {
 		"changes": {
@@ -750,7 +775,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"mix_corrupted_dust": {
 		"changes": {
@@ -777,7 +803,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"mix_ascendant_dust": {
 		"changes": {
@@ -809,7 +836,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"mix_arcane_dust": {
 		"changes": {
@@ -851,7 +879,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"smelt_galliantium": {
 		"changes": {
@@ -898,7 +927,8 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	},
 	"mix_gilded_dust": {
 		"changes": {
@@ -945,6 +975,7 @@
 				]
 			}
 		},
-		"audio": "crafting"
+		"audio": "crafting",
+		"branches": ["alchemy"]
 	}
 }

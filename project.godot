@@ -29,6 +29,7 @@ Objectives_Table_Single="*res://scripts/singletons/ObjectivesTable.gd"
 ObjectivesTextsSingle="*res://scripts/singletons/ObjectivesTexts.gd"
 AudioEffectControllerSingle="*res://scripts/singletons/AudioEffectController.gd"
 SettingsDataContainerSingle="*res://scripts/singletons/SettingsDataContainer.gd"
+BranchesSingle="*res://scripts/singletons/Branches.gd"
 
 [display]
 
