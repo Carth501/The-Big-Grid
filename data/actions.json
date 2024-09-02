@@ -381,6 +381,44 @@
 		"audio": "crafting",
 		"branches": ["mining"]
 	},
+	"alt_refine_gold": {
+		"changes": {
+			"coal": {
+				"deltas": [
+					-6
+				]
+			},
+			"native_gold": {
+				"deltas": [
+					-3
+				]
+			},
+			"silver": {
+				"deltas": [
+					1
+				]
+			},
+			"gold_ingot": {
+				"deltas": [
+					1
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-4
+				]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-30
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["mining"]
+	},
 	"steel_smelting": {
 		"changes": {
 			"iron_ingot": {
@@ -977,5 +1015,744 @@
 		},
 		"audio": "crafting",
 		"branches": ["alchemy"]
+	},
+	"mine_cassiterite": {
+		"changes": {
+			"cassiterite": {
+				"deltas": [
+					2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"automation_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["mining"]
+	},
+	"refine_tin": {
+		"changes": {
+			"cassiterite": {
+				"deltas": [
+					-3
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			},
+			"tin": {
+				"deltas": [
+					2
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-2
+				]
+			},
+			"iron_ingot": {
+				"deltas": [
+					-4
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["mining"]
+	},
+	"mine_and_refine_lead": {
+		"changes": {
+			"lead": {
+				"deltas": [
+					1
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-7
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["mining"]
+	},
+	"purify_silicon": {
+		"changes": {
+			"sand": {
+				"deltas": [
+					-10
+				]
+			},
+			"silicon": {
+				"deltas": [
+					1
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-5
+				]
+			}
+		},
+		"automation_cost": {
+			"steel": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["mining"]
+	},
+	"manufacture_basic_circuit": {
+		"changes": {
+			"basic_circuit": {
+				"deltas": [
+					1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-2
+				]
+			},
+			"copper_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"adaptable_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_basic_board": {
+		"changes": {
+			"basic_circuit": {
+				"deltas": [
+					-10
+				]
+			},
+			"basic_board": {
+				"deltas": [
+					1
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"adaptable_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_basic_computer": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-10
+				]
+			},
+			"basic_computer": {
+				"deltas": [
+					1
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"adaptable_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_type_a_circuit": {
+		"changes": {
+			"type_a_circuit": {
+				"deltas": [
+					1
+				]
+			},
+			"copper_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silver": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_type_b_circuit": {
+		"changes": {
+			"type_b_circuit": {
+				"deltas": [
+					1
+				]
+			},
+			"tin": {
+				"deltas": [
+					-1
+				]
+			},
+			"gold_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_type_c_circuit": {
+		"changes": {
+			"type_c_circuit": {
+				"deltas": [
+					1
+				]
+			},
+			"copper_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silver": {
+				"deltas": [
+					-1
+				]
+			},
+			"lead": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_type_d_circuit": {
+		"changes": {
+			"type_c_circuit": {
+				"deltas": [
+					1
+				]
+			},
+			"tin": {
+				"deltas": [
+					-1
+				]
+			},
+			"silver": {
+				"deltas": [
+					-1
+				]
+			},
+			"gold_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_rad_hard_computer": {
+		"changes": {
+			"rad_hard_computer": {
+				"deltas": [
+					1
+				]
+			},
+			"lead": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_military_controller": {
+		"changes": {
+			"military_controller": {
+				"deltas": [
+					1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_vision_device": {
+		"changes": {
+			"vision_device": {
+				"deltas": [
+					1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_data_storage": {
+		"changes": {
+			"data_storage": {
+				"deltas": [
+					1
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-8
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_adaptable_processor": {
+		"changes": {
+			"adaptable_processor": {
+				"deltas": [
+					1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_communications_controller": {
+		"changes": {
+			"communications_controller": {
+				"deltas": [
+					1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"basic_computer": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_adaptable_computer": {
+		"changes": {
+			"adaptable_computer": {
+				"deltas": [
+					1
+				]
+			},
+			"adaptable_processor": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_cluster_processor": {
+		"changes": {
+			"cluster_processor": {
+				"deltas": [
+					1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_cluster_controller": {
+		"changes": {
+			"cluster_controller": {
+				"deltas": [
+					1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_cluster_memory": {
+		"changes": {
+			"cluster_memory": {
+				"deltas": [
+					1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_modular_computer": {
+		"changes": {
+			"modular_computer": {
+				"deltas": [
+					1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"communications_controller": {
+				"deltas": [
+					-1
+				]
+			},
+			"data_storage": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
+	},
+	"manufacture_processing_subunit": {
+		"changes": {
+			"processing_subunit": {
+				"deltas": [
+					1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"communications_controller": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"automation_cost": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"audio": "crafting",
+		"branches": ["electronics"]
 	}
 }

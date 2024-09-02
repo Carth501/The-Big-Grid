@@ -199,6 +199,50 @@
 			"refine_gold"
 		]
 	},
+	"learn_to_alt_refine_gold": {
+		"changes": {
+			"steel": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"actions": [
+			"alt_refine_gold"
+		]
+	},
+	"learn_cryogenic_condensation": {
+		"changes": {
+			"copper_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-7
+				]
+			}
+		},
+		"actions": [
+			"cryogenic_condensation"
+		]
+	},
 	"learn_to_desalinate": {
 		"changes": {
 			"aluminum_ingot": {

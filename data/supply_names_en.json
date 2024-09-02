@@ -146,5 +146,101 @@
 	"galliantium": {
 		"name": "Galliantium",
 		"description": "A metal empowered by more fundamental undercurrents of the universe."
+	},
+	"tin": {
+		"name": "Tin",
+		"description": "A metal most useful in alloys."
+	},
+	"cassiterite": {
+		"name": "Cassiterite",
+		"description": "The ore mined for its tin."
+	},
+	"silver": {
+		"name": "Silver",
+		"description": "A shiny metal found as a by-product of other metals."
+	},
+	"lead": {
+		"name": "Lead",
+		"description": "A dense, soft metal."
+	},
+	"silicon": {
+		"name": "Silicon",
+		"description": "A metalloid, notable for its uses in electronics."
+	},
+	"basic_circuit": {
+		"name": "Basic Circuit",
+		"description": "The most elementary of circuits."
+	},
+	"basic_board": {
+		"name": "Basic Board",
+		"description": "A combination of basic circuits to handle more tasks."
+	},
+	"basic_computer": {
+		"name": "Basic Computer",
+		"description": "The most simple programmable machine."
+	},
+	"type_a_circuit": {
+		"name": "Type A Circuit",
+		"description": "A specialized circuit."
+	},
+	"type_b_circuit": {
+		"name": "Type B Circuit",
+		"description": "A specialized circuit."
+	},
+	"type_c_circuit": {
+		"name": "Type C Circuit",
+		"description": "A specialized circuit."
+	},
+	"type_d_circuit": {
+		"name": "Type D Circuit",
+		"description": "A specialized circuit."
+	},
+	"rad_hard_computer": {
+		"name": "Rad Hard Computer",
+		"description": "A computer designed to operate in radioactive environs."
+	},
+	"military_controller": {
+		"name": "Military Controller",
+		"description": "A computer designed to operate in agaist EM interference."
+	},
+	"vision_device": {
+		"name": "Vision Device",
+		"description": "A combination camera and computer to process surroundings."
+	},
+	"data_storage": {
+		"name": "Data Storage",
+		"description": "Combination digital storage and security."
+	},
+	"adaptable_processor": {
+		"name": "Adaptable Processor",
+		"description": "A large chip that can be adapted for a wide variaty of purposes."
+	},
+	"communications_controller": {
+		"name": "Communications Controller",
+		"description": "Radio and digital interface package."
+	},
+	"adaptable_computer": {
+		"name": "Adaptable Computer",
+		"description": "A computer to utilize an adaptable processor."
+	},
+	"cluster_processor": {
+		"name": "Cluster Processor",
+		"description": "For when a reasonable number of processors isn't enough."
+	},
+	"cluster_controller": {
+		"name": "Cluster Controller",
+		"description": "Something's gotta direct all those processors."
+	},
+	"cluster_memory": {
+		"name": "Cluster Memory",
+		"description": "Where the data for the cluster stays."
+	},
+	"modular_computer": {
+		"name": "Modular Computer",
+		"description": "A computer designed to handle (nearly) infinite input & output."
+	},
+	"processing_subunit": {
+		"name": "Processing Subunit",
+		"description": "A component to fit a modular computer."
 	}
 }
