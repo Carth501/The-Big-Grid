@@ -512,5 +512,298 @@
 		},
 		"default_index": 32,
 		"icon_path": "res://textures/Supply_Icons/Plastic Pipe.svg"
+	},
+	"cassiterite": {
+		"default_max": 20,
+		"max_increase_increment": 18,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-3
+				]
+			},
+			"steel": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"default_index": 33
+	},
+	"tin": {
+		"default_max": 8,
+		"max_increase_increment": 5,
+		"max_increase_base_cost": {
+			"steel": {
+				"deltas": [
+					-4
+				]
+			}
+		},
+		"default_index": 34
+	},
+	"silver": {
+		"default_max": 12,
+		"max_increase_increment": 6,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-7
+				]
+			}
+		},
+		"default_index": 35
+	},
+	"lead": {
+		"default_max": 7,
+		"max_increase_increment": 4,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"default_index": 36
+	},
+	"silicon": {
+		"default_max": 13,
+		"max_increase_increment": 7,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 37
+	},
+	"basic_circuit": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 38
+	},
+	"basic_board": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 39
+	},
+	"basic_computer": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 40
+	},
+	"type_a_circuit": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 41
+	},
+	"type_b_circuit": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 42
+	},
+	"type_c_circuit": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 43
+	},
+	"type_d_circuit": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 44
+	},
+	"rad_hard_computer": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 45
+	},
+	"military_controller": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 46
+	},
+	"vision_device": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 47
+	},
+	"data_storage": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 48
+	},
+	"adaptable_processor": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 49
+	},
+	"communications_controller": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 50
+	},
+	"adaptable_computer": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 51
+	},
+	"cluster_processor": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 52
+	},
+	"cluster_controller": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 53
+	},
+	"cluster_memory": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 54
+	},
+	"modular_computer": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 55
+	},
+	"processing_subunit": {
+		"default_max": 8,
+		"max_increase_increment": 8,
+		"max_increase_base_cost": {
+			"iron_ingot": {
+				"deltas": [
+					-8
+				]
+			}
+		},
+		"default_index": 56
 	}
 }
