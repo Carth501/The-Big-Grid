@@ -144,6 +144,16 @@
 			]
 		}
 	},
+	"learn_to_alt_refine_gold": {
+		"label": {
+			"text": "Enable Gold and Silver Refining",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to refine gold and silver from native gold.",
+			"supplies": []
+		}
+	},
 	"learn_to_desalinate": {
 		"label": {
 			"text": "Enable Water Desalination",
