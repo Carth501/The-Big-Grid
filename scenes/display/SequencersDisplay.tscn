@@ -26,4 +26,6 @@ column_width = 232
 layout_mode = 2
 text = "Purchase Sequencer"
 
+[connection signal="mouse_entered" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="sequencer_purchase_hover"]
+[connection signal="mouse_exited" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="sequencer_purchase_exit"]
 [connection signal="pressed" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="attempt_sequencer_purchaser"]

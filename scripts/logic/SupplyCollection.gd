@@ -50,8 +50,8 @@ func apply_changes_mult(changes : Dictionary, count : int):
 	if(num > 0):
 		var multiplied_changes = changes.duplicate(true)
 		for supply_id in multiplied_changes:
-			for value in multiplied_changes[supply_id].deltas:
-				value *= num
+			multiplied_changes[supply_id].deltas = multiplied_changes[supply_id].deltas.map(
+				func(value): return value * num)
 		apply_changes(multiplied_changes)
 
 func attempt_purchase(changes : Dictionary) -> bool:

@@ -11,3 +11,9 @@ func add_editor(id : int):
 
 func attempt_sequencer_purchaser():
 	sequencer_manager.create_sequencer()
+
+func sequencer_purchase_hover():
+	sequencer_manager.set_filter()
+
+func sequencer_purchase_exit():
+	sequencer_manager.unset_filter()
