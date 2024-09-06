@@ -3,6 +3,7 @@ class_name Supply_Collection_Display extends HFlowContainer
 @export var supply_collection : Supply_Collection
 @export var options_overseer : Options_Overseer
 @export var supply_label : Supply_Label
+@export var filter_veil : ColorRect
 var supply_display_catalogue := {}
 var supply_display_proto := preload("res://scenes/display/SupplyDisplay.tscn")
 
@@ -18,6 +19,10 @@ func _on_supply_collection_new_supply(id : String):
 			move_child(new_supply_display, supply_data.default_index + 1)
 
 func filter(new_filter : Dictionary):
+	if(!check_filter_complete(new_filter)):
+		filter_veil.visible = true
+	else:
+		filter_veil.visible = false
 	if(new_filter.has("bad_filter") && new_filter.bad_filter):
 		push_error("bad_filter passed to supply collection display")
 		for supply_display_id in supply_display_catalogue:
@@ -43,3 +48,9 @@ func filter(new_filter : Dictionary):
 			else:
 				supply_display.set_in_filter(false)
 				supply_display.clear_delta_display()
+
+func check_filter_complete(new_filter : Dictionary):
+	for id in new_filter:
+		if(!supply_display_catalogue.has(id) || !supply_display_catalogue[id].revealed):
+			return false
+	return true
