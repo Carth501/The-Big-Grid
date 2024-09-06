@@ -120,5 +120,97 @@
 	"mix_gilded_dust": {
 		"name": "Mix Gilded Dust",
 		"supplies": []
+	},
+	"mine_cassiterite": {
+		"name": "Mine Casserite (Tin Ore)",
+		"supplies": []
+	},
+	"refine_tin": {
+		"name": "Refine Tin from Cassiterite",
+		"supplies": []
+	},
+	"mine_and_refine_lead": {
+		"name": "Mine and Refine Lead",
+		"supplies": []
+	},
+	"purify_silicon": {
+		"name": "Refine Silicon from Sand",
+		"supplies": []
+	},
+	"manufacture_basic_circuit": {
+		"name": "Manufacture Basic Circuit",
+		"supplies": []
+	},
+	"manufacture_basic_board": {
+		"name": "Manufacture Basic Board",
+		"supplies": []
+	},
+	"manufacture_basic_computer": {
+		"name": "Manufacture Basic Computer",
+		"supplies": []
+	},
+	"manufacture_type_a_circuit": {
+		"name": "Manufacture Type A Circuit",
+		"supplies": []
+	},
+	"manufacture_type_b_circuit": {
+		"name": "Manufacture Type B Circuit",
+		"supplies": []
+	},
+	"manufacture_type_c_circuit": {
+		"name": "Manufacture Type C Circuit",
+		"supplies": []
+	},
+	"manufacture_type_d_circuit": {
+		"name": "Manufacture Type D Circuit",
+		"supplies": []
+	},
+	"manufacture_rad_hard_computer": {
+		"name": "Manufacture Rad-Hard Computer",
+		"supplies": []
+	},
+	"manufacture_military_controller": {
+		"name": "Manufacture Military Controller",
+		"supplies": []
+	},
+	"manufacture_vision_device": {
+		"name": "Manufacture Visual Processor",
+		"supplies": []
+	},
+	"manufacture_data_storage": {
+		"name": "Manufacture Data Storage",
+		"supplies": []
+	},
+	"manufacture_adaptable_processor": {
+		"name": "Manufacture Adaptable Processor",
+		"supplies": []
+	},
+	"manufacture_communications_controller": {
+		"name": "Manufacture Communications Controller",
+		"supplies": []
+	},
+	"manufacture_adaptable_computer": {
+		"name": "Manufacture Adaptable Computer",
+		"supplies": []
+	},
+	"manufacture_cluster_processor": {
+		"name": "Manufacture Cluster Processor",
+		"supplies": []
+	},
+	"manufacture_cluster_controller": {
+		"name": "Manufacture Cluster Controller",
+		"supplies": []
+	},
+	"manufacture_cluster_memory": {
+		"name": "Manufacture Cluster Memory",
+		"supplies": []
+	},
+	"manufacture_modular_computer": {
+		"name": "Manufacture Modular Computer",
+		"supplies": []
+	},
+	"manufacture_processing_subunit": {
+		"name": "Manufacture Processing Subunit",
+		"supplies": []
 	}
 }

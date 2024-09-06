@@ -43,5 +43,30 @@ var data = {
 				]
 			}
 		}
+	},
+	"electronics":{
+		"access_cost":{
+			"adaptable_computer": {
+				"deltas": [
+					-2
+				]
+			},
+			"communications_controller": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_computer": {
+				"deltas": [
+					-20
+				]
+			},
+			"vision_device": {
+				"deltas": [
+					-1
+				]
+			}
+		}
 	}
+	
 }

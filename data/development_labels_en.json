@@ -144,6 +144,16 @@
 			]
 		}
 	},
+	"learn_to_alt_refine_gold": {
+		"label": {
+			"text": "Enable Gold and Silver Refining",
+			"supplies": []
+		},
+		"description": {
+			"text": "Unlock action to refine gold and silver from native gold.",
+			"supplies": []
+		}
+	},
 	"learn_to_desalinate": {
 		"label": {
 			"text": "Enable Water Desalination",
@@ -301,6 +311,216 @@
 		},
 		"description": {
 			"text": "Pull oxygen and nitrogen from the atmosphere.",
+			"supplies": []
+		}
+	},
+	"learn_cassiterite_mining": {
+		"label": {
+			"text": "Enable Cassiterite Mining",
+			"supplies": []
+		},
+		"description": {
+			"text": "Mine ore rich in tin.",
+			"supplies": []
+		}
+	},
+	"learn_tin_smelting": {
+		"label": {
+			"text": "Enable Tin Smelting",
+			"supplies": []
+		},
+		"description": {
+			"text": "Smelt cassiterite into tin ingots.",
+			"supplies": []
+		}
+	},
+	"learn_to_mine_and_refine_lead": {
+		"label": {
+			"text": "Enable Lead Mining and Refining",
+			"supplies": []
+		},
+		"description": {
+			"text": "Combined mining and smelting process for lead.",
+			"supplies": []
+		}
+	},
+	"learn_to_purify_silicon": {
+		"label": {
+			"text": "Enable Silicon Refining",
+			"supplies": []
+		},
+		"description": {
+			"text": "Refine silicon from sand.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_basic_circuit": {
+		"label": {
+			"text": "Enable Basic Circuit Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Combine circuitry elements to build a basic electronics component.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_basic_board": {
+		"label": {
+			"text": "Enable Basic Circuit Board Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Combine simple circuits to create a generic logic chip.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_basic_computer": {
+		"label": {
+			"text": "Enable Basic Computer Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Combine logic circuits to create a generic, programmable computer.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_type_a_circuit": {
+		"label": {
+			"text": "Enable Specialty Circuits, Type A",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture Type A specialty circuitry.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_type_b_circuit": {
+		"label": {
+			"text": "Enable Specialty Circuits, Type B",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture Type B specialty circuitry.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_type_c_circuit": {
+		"label": {
+			"text": "Enable Specialty Circuits, Type C",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture Type C specialty circuitry.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_type_d_circuit": {
+		"label": {
+			"text": "Enable Specialty Circuits, Type D",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture Type D specialty circuitry.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_rad_hard_computer": {
+		"label": {
+			"text": "Enable Rad-Hard Computer Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture computers built to operate in radioactive environments.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_military_controller": {
+		"label": {
+			"text": "Enable Military Controller Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture computers for military purposes.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_data_storage": {
+		"label": {
+			"text": "Enable Mass Data Storage Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture really big hard drives.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_adaptable_processor": {
+		"label": {
+			"text": "Enable Adaptable Processor Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture processors that can adjust to their circumstances.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_communications_controller": {
+		"label": {
+			"text": "Enable Communications Controller Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture communication devices.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_adaptable_computer": {
+		"label": {
+			"text": "Enable Adaptable Computer Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture computers capable of self-adjusting and optimizing.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_cluster_processor": {
+		"label": {
+			"text": "Enable Cluster Processor Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture devices designed to be coordinated in mass.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_cluster_memory": {
+		"label": {
+			"text": "Enable Cluster Memory Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture memory capable of supporting lots of devices.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_modular_computer": {
+		"label": {
+			"text": "Enable Modular Computer Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture computer systems capable of handling near-infinite input & output.",
+			"supplies": []
+		}
+	},
+	"learn_to_manufacture_processing_subunit": {
+		"label": {
+			"text": "Enable Processing Subunit Manufacturing",
+			"supplies": []
+		},
+		"description": {
+			"text": "Manufacture a processor optimal for expanding a modular computer.",
 			"supplies": []
 		}
 	}

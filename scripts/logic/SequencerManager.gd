@@ -6,6 +6,23 @@ signal cancel_action_request()
 var sequencer_list := {}
 var requesting_sequencer : Sequencer
 @export var action_manager : Action_Manager
+@export var supply_collection : Supply_Collection
+@export var filter_foreman : Filter_Foreman
+var sequencer_cost = {
+			"modular_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		}
+
+func attempt_sequencer_purchase():
+	var success = attempt_purchase()
+	if(success):
+		create_sequencer()
+
+func attempt_purchase() -> bool:
+	return supply_collection.attempt_purchase(sequencer_cost)
 
 func create_sequencer():
 	var id = sequencer_list.keys().size()
@@ -40,3 +57,9 @@ func fufill_request(action : Action):
 
 func end_action_request():
 	cancel_action_request.emit()
+
+func set_filter():
+	filter_foreman.set_primary_filter(sequencer_cost)
+
+func unset_filter():
+	filter_foreman.clear_primary_filter()

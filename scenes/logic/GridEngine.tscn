@@ -46,8 +46,9 @@ supply_collection = NodePath("../SupplyCollection")
 [node name="PauseHandler" type="Node" parent="."]
 script = ExtResource("9_2rlac")
 
-[node name="SequencerManager" type="Node" parent="."]
+[node name="SequencerManager" type="Node" parent="." node_paths=PackedStringArray("filter_foreman")]
 script = ExtResource("9_4ahhb")
+filter_foreman = NodePath("../FilterForeman")
 
 [node name="SupplyCollection" type="Node" parent="." node_paths=PackedStringArray("filter_foreman")]
 script = ExtResource("2_ewbvm")

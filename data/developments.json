@@ -199,6 +199,50 @@
 			"refine_gold"
 		]
 	},
+	"learn_to_alt_refine_gold": {
+		"changes": {
+			"steel": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"actions": [
+			"alt_refine_gold"
+		]
+	},
+	"learn_cryogenic_condensation": {
+		"changes": {
+			"copper_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"steel": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-7
+				]
+			}
+		},
+		"actions": [
+			"cryogenic_condensation"
+		]
+	},
 	"learn_to_desalinate": {
 		"changes": {
 			"aluminum_ingot": {
@@ -534,6 +578,615 @@
 		},
 		"actions": [
 			"cryogenic_condensation"
+		]
+	},
+	"learn_cassiterite_mining": {
+		"changes": {
+			"steel": {
+				"deltas": [
+					-1
+				]
+			},
+			"water": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"actions": [
+			"mine_cassiterite"
+		]
+	},
+	"learn_tin_smelting": {
+		"changes": {
+			"cassiterite": {
+				"deltas": [
+					-4
+				]
+			},
+			"water": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"actions": [
+			"refine_tin"
+		]
+	},
+	"learn_to_mine_and_refine_lead": {
+		"changes": {
+			"iron_ingot": {
+				"deltas": [
+					-4
+				]
+			},
+			"water": {
+				"deltas": [
+					-2
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"actions": [
+			"mine_and_refine_lead"
+		]
+	},
+	"learn_to_purify_silicon": {
+		"changes": {
+			"sand": {
+				"deltas": [
+					-80
+				]
+			},
+			"water": {
+				"deltas": [
+					-20
+				]
+			},
+			"electricity": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"actions": [
+			"purify_silicon"
+		]
+	},
+	"learn_to_manufacture_basic_circuit": {
+		"changes": {
+			"silicon": {
+				"deltas": [
+					-4
+				]
+			},
+			"copper_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"tin": {
+				"deltas": [
+					-2
+				]
+			}
+		},
+		"actions": [
+			"manufacture_basic_circuit"
+		]
+	},
+	"learn_to_manufacture_basic_board": {
+		"changes": {
+			"copper_ingot": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-20
+				]
+			}
+		},
+		"actions": [
+			"manufacture_basic_board"
+		]
+	},
+	"learn_to_manufacture_basic_computer": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-20
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-20
+				]
+			}
+		},
+		"actions": [
+			"manufacture_basic_computer"
+		]
+	},
+	"learn_to_manufacture_type_a_circuit": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"copper_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silver": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_type_a_circuit"
+		]
+	},
+	"learn_to_manufacture_type_b_circuit": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"tin": {
+				"deltas": [
+					-1
+				]
+			},
+			"gold_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_type_b_circuit"
+		]
+	},
+	"learn_to_manufacture_type_c_circuit": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"copper_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silver": {
+				"deltas": [
+					-1
+				]
+			},
+			"lead": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_type_c_circuit"
+		]
+	},
+	"learn_to_manufacture_type_d_circuit": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"tin": {
+				"deltas": [
+					-1
+				]
+			},
+			"silver": {
+				"deltas": [
+					-1
+				]
+			},
+			"gold_ingot": {
+				"deltas": [
+					-1
+				]
+			},
+			"silicon": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_type_d_circuit"
+		]
+	},
+	"learn_to_manufacture_rad_hard_computer": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"lead": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_rad_hard_computer"
+		]
+	},
+	"learn_to_manufacture_rad_hard_computer": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_military_controller"
+		]
+	},
+	"learn_to_manufacture_military_controller": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_military_controller"
+		]
+	},
+	"learn_to_manufacture_data_storage": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_data_storage"
+		]
+	},
+	"learn_to_manufacture_adaptable_processor": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_adaptable_processor"
+		]
+	},
+	"learn_to_manufacture_communications_controller": {
+		"changes": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_board": {
+				"deltas": [
+					-2
+				]
+			},
+			"basic_circuit": {
+				"deltas": [
+					-2
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_communications_controller"
+		]
+	},
+	"learn_to_manufacture_adaptable_computer": {
+		"changes": {
+			"basic_computer": {
+				"deltas": [
+					-1
+				]
+			},
+			"adaptable_processor": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_adaptable_computer"
+		]
+	},
+	"learn_to_manufacture_cluster_processor": {
+		"changes": {
+			"adaptable_processor": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_d_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_cluster_processor"
+		]
+	},
+	"learn_to_manufacture_cluster_memory": {
+		"changes": {
+			"basic_board": {
+				"deltas": [
+					-20
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_cluster_memory"
+		]
+	},
+	"learn_to_manufacture_modular_computer": {
+		"changes": {
+			"basic_computer": {
+				"deltas": [
+					-2
+				]
+			},
+			"adaptable_computer": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"communications_controller": {
+				"deltas": [
+					-1
+				]
+			},
+			"data_storage": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_modular_computer"
+		]
+	},
+	"learn_to_manufacture_processing_subunit": {
+		"changes": {
+			"adaptable_processor": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_a_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_b_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"type_c_circuit": {
+				"deltas": [
+					-1
+				]
+			},
+			"communications_controller": {
+				"deltas": [
+					-1
+				]
+			}
+		},
+		"actions": [
+			"manufacture_processing_subunit"
 		]
 	}
 }
