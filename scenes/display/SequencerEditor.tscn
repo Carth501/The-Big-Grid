@@ -154,7 +154,6 @@ layout_mode = 2
 text = "Purchase Action Slot"
 
 [node name="AddSlotButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
-visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 120.0
@@ -163,7 +162,6 @@ offset_bottom = 151.0
 text = "Add Slot"
 
 [node name="NewPatternButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
-visible = false
 layout_mode = 0
 offset_left = 116.0
 offset_top = 120.0
@@ -172,6 +170,7 @@ offset_bottom = 151.0
 text = "New Pattern"
 
 [node name="PatternButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
+visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 120.0
@@ -180,6 +179,7 @@ offset_bottom = 151.0
 text = "Pattern"
 
 [node name="DisconnectButton" type="Button" parent="Panel/VFlowContainer/ActionSequence"]
+visible = false
 layout_mode = 0
 offset_left = 116.0
 offset_top = 120.0
@@ -206,6 +206,8 @@ theme_override_constants/separation = 45
 [connection signal="pressed" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="attempt_machine_upgrade"]
 [connection signal="toggled" from="Panel/VFlowContainer/ActiveSwitch/CheckButton" to="." method="set_running"]
 [connection signal="value_changed" from="Panel/VFlowContainer/IntervalControl/OperationRateField" to="." method="set_interval"]
+[connection signal="mouse_entered" from="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/PurchaseActionSlotButton" to="." method="set_action_slot_purchase_filter"]
+[connection signal="mouse_exited" from="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/PurchaseActionSlotButton" to="." method="filter_end"]
 [connection signal="pressed" from="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/PurchaseActionSlotButton" to="." method="purchase_action_slot"]
 [connection signal="pressed" from="Panel/VFlowContainer/AddConditionButton" to="." method="request_additional_condition"]
 [connection signal="child_entered_tree" from="Panel/VFlowContainer/ConditionList" to="." method="resize"]

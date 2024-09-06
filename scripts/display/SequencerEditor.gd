@@ -1,5 +1,8 @@
 class_name Sequencer_Editor extends Control
 
+signal set_filter(cost)
+signal unset_filter()
+
 var sequencer : Sequencer
 @export var name_field : LineEdit
 @export var tier_value : Label
@@ -8,6 +11,13 @@ var sequencer : Sequencer
 var sequencer_action_item_prefab = preload("res://scenes/display/SequencerActionItem.tscn")
 @export var item_list : VBoxContainer
 var action_slots : Array = []
+var action_slot_cost := {
+			"modular_computer": {
+				"deltas": [
+					-2
+				]
+			}
+		}
 
 func set_sequencer(new_sequencer : Sequencer):
 	sequencer = new_sequencer
@@ -71,3 +81,9 @@ func clear_index(index : int):
 
 func set_interval(value : float):
 	sequencer.set_interval(value)
+
+func set_action_slot_purchase_filter() -> void:
+	set_filter.emit(action_slot_cost)
+
+func filter_end() -> void:
+	unset_filter.emit()

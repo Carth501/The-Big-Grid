@@ -58,8 +58,11 @@ func fufill_request(action : Action):
 func end_action_request():
 	cancel_action_request.emit()
 
-func set_filter():
+func set_sequencer_cost_filter():
 	filter_foreman.set_primary_filter(sequencer_cost)
+
+func set_filter(cost : Dictionary):
+	filter_foreman.set_primary_filter(cost)
 
 func unset_filter():
 	filter_foreman.clear_primary_filter()
