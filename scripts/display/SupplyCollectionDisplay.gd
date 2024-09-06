@@ -51,6 +51,6 @@ func filter(new_filter : Dictionary):
 
 func check_filter_complete(new_filter : Dictionary):
 	for id in new_filter:
-		if(!supply_display_catalogue.has(id)):
+		if(!supply_display_catalogue.has(id) || !supply_display_catalogue[id].revealed):
 			return false
 	return true
