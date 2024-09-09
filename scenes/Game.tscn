@@ -407,10 +407,12 @@ custom_minimum_size = Vector2(0, 167)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Sequencers" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer" node_paths=PackedStringArray("sequencer_manager") instance=ExtResource("16_p7bp0")]
+[node name="Sequencers" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer" node_paths=PackedStringArray("sequencer_manager", "supply_collection", "options_overseer") instance=ExtResource("16_p7bp0")]
 visible = false
 layout_mode = 2
 sequencer_manager = NodePath("../../../../../../Logic/SequencerManager")
+supply_collection = NodePath("../../../../../../Logic/SupplyCollection")
+options_overseer = NodePath("../../../../../../Logic/OptionsOverseer")
 
 [node name="Panel" type="Panel" parent="Display"]
 layout_mode = 1

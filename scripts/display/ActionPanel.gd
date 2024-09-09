@@ -23,6 +23,8 @@ func build_action_button(id : String):
 	var action_logic = action_manager.full_action_list[id]
 	new_button.connect_logic(action_logic)
 	new_button.select.connect(select)
+	new_button.selection_hover.connect(selection_hover)
+	new_button.end_selection_hover.connect(end_selection_hover)
 
 func filter_actions(id_list : Array):
 	for id in action_buttons:
@@ -42,3 +44,9 @@ func exit_selection_mode():
 func select(action: Action):
 	sequencer_manager.fufill_request(action)
 	exit_selection_mode()
+
+func selection_hover(action: Action):
+	sequencer_manager.set_selection_hover(action)
+
+func end_selection_hover():
+	sequencer_manager.end_selection_hover()

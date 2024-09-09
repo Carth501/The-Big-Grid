@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/display/SequencerEditor.gd" id="1_i4ida"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_7spwc"]
 
-[node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "interval_field", "item_list")]
+[node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "interval_field", "item_list", "branch_purchase_veil")]
 custom_minimum_size = Vector2(232, 144)
 layout_mode = 3
 anchors_preset = 0
@@ -16,6 +16,7 @@ tier_value = NodePath("Panel/VFlowContainer/Control/TierNumberLabel")
 active_switch = NodePath("Panel/VFlowContainer/ActiveSwitch/CheckButton")
 interval_field = NodePath("Panel/VFlowContainer/IntervalControl/OperationRateField")
 item_list = NodePath("Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer")
+branch_purchase_veil = NodePath("Panel/BranchPurchaseVeil")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -196,6 +197,54 @@ text = "Add condition"
 [node name="ConditionList" type="VBoxContainer" parent="Panel/VFlowContainer"]
 layout_mode = 2
 theme_override_constants/separation = 45
+
+[node name="BranchPurchaseVeil" type="ColorRect" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.105882, 0.105882, 0.85098)
+
+[node name="Label" type="Label" parent="Panel/BranchPurchaseVeil"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This sequencer does not have branch access for this action. Select action to purchase access for its branch."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ActionUnavailableVeil" type="ColorRect" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.105882, 0.105882, 0.85098)
+
+[node name="Label" type="Label" parent="Panel/ActionUnavailableVeil"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This action is not available for automation with sequencers."
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="mouse_entered" from="Panel" to="." method="enter_hovering"]
 [connection signal="mouse_exited" from="Panel" to="." method="exit_hovering"]

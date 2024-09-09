@@ -27,6 +27,7 @@ func attempt_purchase() -> bool:
 func create_sequencer():
 	var id = sequencer_list.keys().size()
 	var sequencer = Sequencer.new()
+	sequencer.setup(supply_collection)
 	add_child(sequencer)
 	sequencer_list[id] = sequencer
 	new_sequencer.emit(id)
@@ -35,6 +36,7 @@ func create_sequencer():
 func load_sequencers(new_sequencers : Dictionary):
 	for id in new_sequencers:
 		var sequencer = Sequencer.new()
+		sequencer.setup(supply_collection)
 		add_child(sequencer)
 		sequencer_list[id] = sequencer
 		var pattern = new_sequencers[id].pattern
@@ -66,3 +68,9 @@ func set_filter(cost : Dictionary):
 
 func unset_filter():
 	filter_foreman.clear_primary_filter()
+
+func set_selection_hover(action : Action):
+	requesting_sequencer.set_selection_hover(action)
+
+func end_selection_hover():
+	requesting_sequencer.end_selection_hover()
