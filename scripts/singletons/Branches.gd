@@ -13,7 +13,7 @@ var data = {
 					-1
 				]
 			},
-			"corrupted_dust": {
+			"salt": {
 				"deltas": [
 					-1
 				]

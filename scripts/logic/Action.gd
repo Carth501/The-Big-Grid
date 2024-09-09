@@ -22,6 +22,7 @@ var automation_hover := true
 var automation_focus := false
 var tags : Array[String] = []
 var audio : String
+var branches : Array
 
 func setup(package : Dictionary):
 	if(!package.has("id")):
@@ -49,6 +50,8 @@ func setup(package : Dictionary):
 	string_data = ActionTranslatorSingle.data[id]
 	write_translation_text()
 	SupplyTranslatorSingle.new_override.connect(decide_if_name_update_needed)
+	if(ActionsSingle.data[id].has("branches")):
+		branches = ActionsSingle.data[id].branches
 
 func apply():
 	supply_collection.apply_changes(changes)

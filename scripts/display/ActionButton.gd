@@ -3,6 +3,8 @@ class_name Action_Button extends Dual_Button
 signal trigger
 signal open_action_menu
 signal select(action)
+signal selection_hover(action)
+signal end_selection_hover
 
 var id : String
 var action : Action
@@ -70,12 +72,16 @@ func set_filter():
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel
 	if(controls_display != null):
 		controls_display.update_text("LMB: Activate, RMB: Open action menu")
+	if(selection_mode):
+		selection_hover.emit(action)
 
 func unset_filter():
 	action.unset_filter()
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel
 	if(controls_display != null):
 		controls_display.clear_text()
+	if(selection_mode):
+		end_selection_hover.emit()
 
 func gain_focus():
 	action.gain_focus()

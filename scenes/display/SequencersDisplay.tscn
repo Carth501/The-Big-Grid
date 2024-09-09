@@ -3,10 +3,12 @@
 [ext_resource type="Script" path="res://scripts/SequencersDisplay.gd" id="1_ulqi8"]
 [ext_resource type="Script" path="res://scripts/WaterfallContainer.gd" id="2_wla42"]
 
-[node name="Sequencers" type="ColorRect" node_paths=PackedStringArray("editor_container")]
+[node name="Sequencers" type="ColorRect" node_paths=PackedStringArray("editor_container", "branch_access_prompt", "supply_list_container")]
 color = Color(0.0431373, 0.0431373, 0.0431373, 0)
 script = ExtResource("1_ulqi8")
 editor_container = NodePath("ScrollContainer/WaterfallContainer")
+branch_access_prompt = NodePath("BranchAccessPrompt")
+supply_list_container = NodePath("BranchAccessPrompt/HFlowContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -26,6 +28,75 @@ column_width = 232
 layout_mode = 2
 text = "Purchase Sequencer"
 
+[node name="BranchAccessPrompt" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 0.670588)
+
+[node name="Header" type="Label" parent="BranchAccessPrompt"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Purchase Branch Access"
+horizontal_alignment = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="BranchAccessPrompt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BranchAccessPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 36.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Accept" type="Button" parent="BranchAccessPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -31.0
+offset_right = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Accept
+"
+
+[node name="Decline" type="Button" parent="BranchAccessPrompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -31.0
+offset_right = 93.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Decline
+"
+
 [connection signal="mouse_entered" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="sequencer_purchase_hover"]
 [connection signal="mouse_exited" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="sequencer_purchase_exit"]
 [connection signal="pressed" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="attempt_sequencer_purchaser"]
+[connection signal="pressed" from="BranchAccessPrompt/Accept" to="." method="accept_branch_access_prompt"]
+[connection signal="pressed" from="BranchAccessPrompt/Decline" to="." method="close_branch_access_prompt"]

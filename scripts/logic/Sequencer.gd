@@ -6,6 +6,9 @@ signal update_active(setting)
 signal add_action(index, action)
 signal remove_action(index)
 signal request_action(sequencer)
+signal purchase_branch_access_hover(cost)
+signal end_purchase_hover()
+signal open_branch_access_prompt(sequencer)
 
 var pattern = []
 var timer : Timer
@@ -13,6 +16,9 @@ var conditionals := []
 var tier := 1
 var current_index := 0
 var request_index := 0
+var branch_access := []
+var action_decision : Action
+var supply_collection : Supply_Collection
 
 func _ready():
 	timer = Timer.new()
@@ -20,6 +26,9 @@ func _ready():
 	timer.timeout.connect(check_conditions)
 	timer.wait_time = 1
 	timer.start()
+
+func setup(new_supply_collection : Supply_Collection):
+	supply_collection = new_supply_collection
 
 func set_sequencer_name(new_name : String):
 	name = new_name
@@ -82,8 +91,15 @@ func begin_slot_fill(index : int):
 	request_action.emit(self)
 
 func fufill_request(action: Action):
-	pattern[request_index] = action
-	add_action.emit(request_index, action)
+	var access = check_branch_access(action.branches)
+	if(access):
+		pattern[request_index] = action
+		add_action.emit(request_index, action)
+		end_purchase_hover.emit()
+	else:
+		action_decision = action
+		open_branch_access_prompt.emit(self)
+		end_purchase_hover.emit()
 
 func add_slot():
 	pattern.push_back(null)
@@ -98,3 +114,30 @@ func set_interval(value : float):
 func set_last_slot(action : Action):
 	if(pattern.size() > 0):
 		pattern[pattern.size() - 1] = action
+
+func set_selection_hover(action : Action):
+	if(action.branches.size() == 0):
+		return
+	var access = check_branch_access(action.branches)
+	if(!access):
+		var branch_id = action.branches[0]
+		var branch_access_cost = BranchesSingle.data[branch_id]
+		purchase_branch_access_hover.emit(branch_access_cost)
+
+func end_selection_hover():
+	end_purchase_hover.emit()
+
+func check_branch_access(branches: Array):
+	for branch in branches:
+		if(branch_access.has(branch)):
+			return true
+	return false
+
+func purchase_branch_access():
+	if(action_decision.branches.size() > 0):
+		var branch = action_decision.branches[0]
+		var branch_cost = BranchesSingle.data[branch].access_cost
+		var success = supply_collection.attempt_purchase(branch_cost)
+		if(success):
+			branch_access.append(branch)
+			fufill_request(action_decision)

@@ -22,7 +22,7 @@ var supply_description : String
 func setup(id : String, 
 supply_collection : Supply_Collection, 
 options_overseer : Options_Overseer):
-	supply = supply_collection.get_supply(id)
+	supply = supply_collection.get_or_create_supply(id)
 	supply.reveal_this.connect(reveal)
 	value_label.text = center(str("%.1f" % supply.value)) 
 	supply.update_value.connect(set_value_display)
@@ -123,6 +123,8 @@ func unset_objective():
 	objective_star.visible = false
 
 func show_label():
+	if(supply_label == null):
+		supply_label = get_node("/root/Game/SupplyLabel")
 	supply_label.show_name(supply_name)
 	supply_label.move_to_supply_rect(get_global_rect())
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel

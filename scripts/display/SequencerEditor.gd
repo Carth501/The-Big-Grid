@@ -18,6 +18,7 @@ var action_slot_cost := {
 				]
 			}
 		}
+@export var branch_purchase_veil : ColorRect
 
 func set_sequencer(new_sequencer : Sequencer):
 	sequencer = new_sequencer
@@ -31,6 +32,8 @@ func set_sequencer(new_sequencer : Sequencer):
 	sequencer.add_action.connect(change_action)
 	sequencer.remove_action.connect(clear_action)
 	interval_field.value = sequencer.timer.wait_time
+	sequencer.purchase_branch_access_hover.connect(show_branch_access_veil)
+	sequencer.end_purchase_hover.connect(hide_branch_access_veil)
 
 func set_sequencer_name_display(new_string : String):
 	name_field.text = new_string
@@ -87,3 +90,9 @@ func set_action_slot_purchase_filter() -> void:
 
 func filter_end() -> void:
 	unset_filter.emit()
+
+func show_branch_access_veil(cost : Dictionary):
+	branch_purchase_veil.visible = true
+
+func hide_branch_access_veil():
+	branch_purchase_veil.visible = false
