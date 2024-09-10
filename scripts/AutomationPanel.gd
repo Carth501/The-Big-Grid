@@ -27,3 +27,9 @@ func _on_visibility_changed() -> void:
 
 func _on_scroll_container_resized() -> void:
 	recalculate_all.emit()
+
+func machine_mass_pause():
+	machine_factory.mass_pause()
+
+func machine_mass_resume():
+	machine_factory.mass_resume()

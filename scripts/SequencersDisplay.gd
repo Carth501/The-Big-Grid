@@ -58,3 +58,9 @@ func close_branch_access_prompt():
 		display.queue_free()
 	supply_displays.clear()
 	branch_access_prompt.visible = false
+
+func sequencer_mass_pause():
+	sequencer_manager.mass_pause()
+
+func sequencer_mass_resume():
+	sequencer_manager.mass_resume()

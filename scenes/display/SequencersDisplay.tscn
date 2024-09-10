@@ -28,6 +28,35 @@ column_width = 232
 layout_mode = 2
 text = "Purchase Sequencer"
 
+[node name="Control" type="Control" parent="ScrollContainer/WaterfallContainer"]
+custom_minimum_size = Vector2(232, 40)
+layout_mode = 2
+
+[node name="MassPause" type="Button" parent="ScrollContainer/WaterfallContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 99.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "Mass Pause"
+
+[node name="MassResume" type="Button" parent="ScrollContainer/WaterfallContainer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Mass Resume"
+
 [node name="BranchAccessPrompt" type="ColorRect" parent="."]
 visible = false
 layout_mode = 1
@@ -98,5 +127,7 @@ text = "Decline
 [connection signal="mouse_entered" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="sequencer_purchase_hover"]
 [connection signal="mouse_exited" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="sequencer_purchase_exit"]
 [connection signal="pressed" from="ScrollContainer/WaterfallContainer/PurchaseSequencer" to="." method="attempt_sequencer_purchaser"]
+[connection signal="pressed" from="ScrollContainer/WaterfallContainer/Control/MassPause" to="." method="sequencer_mass_pause"]
+[connection signal="pressed" from="ScrollContainer/WaterfallContainer/Control/MassResume" to="." method="sequencer_mass_resume"]
 [connection signal="pressed" from="BranchAccessPrompt/Accept" to="." method="accept_branch_access_prompt"]
 [connection signal="pressed" from="BranchAccessPrompt/Decline" to="." method="close_branch_access_prompt"]
