@@ -4,6 +4,7 @@ signal new_machine_built(machine : Machine)
 @export var supply_collection : Supply_Collection
 @export var copy_handler : Copy_Handler
 var machine_registry : Dictionary
+var mass_paused := []
 
 func build_machine(action : Action) -> Machine:
 	var new_machine = Machine.new()
@@ -29,3 +30,15 @@ func get_machine_count_by_id(id : String) -> int:
 	if(machine_registry.has(id)):
 		return machine_registry[id].size()
 	return 0
+
+func mass_pause():
+	for action_id in machine_registry:
+		for machine in machine_registry[action_id]:
+			if(machine.get_running()):
+				mass_paused.append(machine)
+				machine.set_running(false)
+
+func mass_resume():
+	for machine in mass_paused:
+		machine.set_running(true)
+	mass_paused.clear()

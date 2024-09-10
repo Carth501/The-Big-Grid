@@ -15,6 +15,7 @@ var sequencer_cost = {
 				]
 			}
 		}
+var mass_paused := []
 
 func attempt_sequencer_purchase():
 	var success = attempt_purchase()
@@ -74,3 +75,15 @@ func set_selection_hover(action : Action):
 
 func end_selection_hover():
 	requesting_sequencer.end_selection_hover()
+
+func mass_pause():
+	for sequencer_id in sequencer_list:
+		var sequencer : Sequencer = sequencer_list[sequencer_id]
+		if(sequencer.get_running()):
+			mass_paused.append(sequencer)
+			sequencer.set_running(false)
+
+func mass_resume():
+	for sequencer in mass_paused:
+		sequencer.set_running(true)
+	mass_paused.clear()

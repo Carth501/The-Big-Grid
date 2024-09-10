@@ -407,6 +407,18 @@ custom_minimum_size = Vector2(0, 167)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Control" type="HFlowContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer"]
+custom_minimum_size = Vector2(232, 40)
+layout_mode = 2
+
+[node name="MassPause" type="Button" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer/Control"]
+layout_mode = 2
+text = "Mass Pause"
+
+[node name="MassResume" type="Button" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer/Control"]
+layout_mode = 2
+text = "Mass Resume"
+
 [node name="Sequencers" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer" node_paths=PackedStringArray("sequencer_manager", "supply_collection", "options_overseer") instance=ExtResource("16_p7bp0")]
 visible = false
 layout_mode = 2
@@ -688,6 +700,8 @@ layout_mode = 2
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="visibility_changed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_visibility_changed"]
 [connection signal="resized" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_scroll_container_resized"]
+[connection signal="pressed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer/Control/MassPause" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="machine_mass_pause"]
+[connection signal="pressed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer/Control/MassResume" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="machine_mass_resume"]
 [connection signal="pressed" from="Display/Panel/Button" to="PauseMenu" method="pause_or_unpause"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIndustrial" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIntermediate" to="Display/MusicSystem" method="next_track"]
