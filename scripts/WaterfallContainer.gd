@@ -22,21 +22,29 @@ func organize_children():
 	for x in column_count:
 		column_depths.push_front(0)
 	for c in get_children():
-		var column_index = get_shortest_column(column_depths, column_count)
+		var column_index = get_shortest_column(column_depths)
 		c.position = Vector2(
 			column_index * (column_width + spacing), 
 			column_depths[column_index]
 			)
 		column_depths[column_index] += c.size.y
+	var longest_index = get_longest_column(column_depths)
+	set_custom_minimum_size(Vector2(get_minimum_size().x, column_depths[longest_index]))
 
-func get_shortest_column(columns : Array, column_count : int) -> int:
+func get_shortest_column(columns : Array) -> int:
 	var shortest_index := 0
-	if(columns.size() < column_count):
-		return columns.size()
 	var index := 0
 	for column in columns:
 		if(column < columns[shortest_index]):
 			shortest_index = index
 		index += 1
 	return shortest_index
-	
+
+func get_longest_column(columns : Array) -> int:
+	var longest_index := 0
+	var index := 0
+	for column in columns:
+		if(column > columns[longest_index]):
+			longest_index = index
+		index += 1
+	return longest_index	
