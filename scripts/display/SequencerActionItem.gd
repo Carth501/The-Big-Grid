@@ -11,16 +11,18 @@ var action : Action
 var index : int
 
 func set_action(new_action : Action):
-	action = new_action
-	if(action == null):
+	if(new_action == null):
 		empty_button.visible = true
 		action_controls.visible = false
+		if(action != null):
+			action_button.disconnect_action()
 		return
 	else:
 		empty_button.visible = false
 		action_controls.visible = true
-		action_button.set_id(action.id)
-		action_button.connect_logic(action)
+		action_button.set_id(new_action.id)
+		action_button.connect_logic(new_action)
+	action = new_action
 
 func set_index(value : int):
 	index = value
