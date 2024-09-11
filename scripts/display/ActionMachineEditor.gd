@@ -8,6 +8,9 @@ class_name Action_Machine_Editor extends Control
 @onready var condition_bar_prefab := preload("res://scenes/ConditionBar.tscn")
 var machine : Machine
 var hovering := false
+@export var progress_bar : ProgressBar
+var progressing := true
+var progress_value := 0.0
 
 func _input(event: InputEvent) -> void:
 	if(hovering):
@@ -30,6 +33,8 @@ func set_machine(new_machine : Machine):
 	machine.new_conditional.connect(add_conditional)
 	update_tier_value(machine.tier)
 	machine.update_tier.connect(update_tier_value)
+	machine.next_time.connect(set_progress_bar)
+	machine.update_interval.connect(change_progress_bar_time)
 
 func _ready() -> void:
 	resize(null)
@@ -40,6 +45,8 @@ func close():
 	machine.update_active.disconnect(update_running)
 	machine.update_name.disconnect(update_machine_name)
 	machine.update_tier.disconnect(update_tier_value)
+	machine.next_time.disconnect(set_progress_bar)
+	machine.update_name.disconnect(change_progress_bar_time)
 
 func set_interval(value : float):
 	machine.set_interval(value)
@@ -70,12 +77,12 @@ func add_conditional(new_conditional : Conditional_Expression):
 
 func resize(_node):
 	var condition_count = condition_list_container.get_child_count()
-	var vertical_length = 167 + condition_count * 49
+	var vertical_length = 200 + condition_count * 49
 	custom_minimum_size.y = vertical_length
 
 func resize_minus_one(_node):
 	var condition_count = condition_list_container.get_child_count() - 1
-	var vertical_length = 167 + condition_count * 49
+	var vertical_length = 200 + condition_count * 49
 	custom_minimum_size.y = vertical_length
 
 func hover_upgrade():
@@ -107,3 +114,15 @@ func exit_hovering():
 	if(controls_display != null):
 		controls_display.clear_text()
 	hovering = false
+
+func _process(delta: float) -> void:
+	if(progressing):
+		progress_value += delta
+		progress_bar.value = progress_value
+
+func set_progress_bar(duration):
+	progress_bar.max_value = duration
+	progress_value = 0
+
+func change_progress_bar_time(duration):
+	progress_bar.max_value = duration

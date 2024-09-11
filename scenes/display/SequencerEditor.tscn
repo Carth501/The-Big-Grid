@@ -3,20 +3,21 @@
 [ext_resource type="Script" path="res://scripts/display/SequencerEditor.gd" id="1_i4ida"]
 [ext_resource type="PackedScene" uid="uid://ciae7vjp2rl2u" path="res://scenes/display/DropdownArrow.tscn" id="2_7spwc"]
 
-[node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "interval_field", "item_list", "branch_purchase_veil")]
+[node name="SequencerEditor" type="Control" node_paths=PackedStringArray("name_field", "tier_value", "active_switch", "interval_field", "item_list", "branch_purchase_veil", "progress_bar")]
 custom_minimum_size = Vector2(232, 144)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 232.0
-offset_bottom = 325.0
+offset_bottom = 352.0
 size_flags_vertical = 3
 script = ExtResource("1_i4ida")
 name_field = NodePath("Panel/VFlowContainer/Header/LineEdit")
-tier_value = NodePath("Panel/VFlowContainer/Control/TierNumberLabel")
+tier_value = NodePath("Panel/VFlowContainer/TierControl/TierNumberLabel")
 active_switch = NodePath("Panel/VFlowContainer/ActiveSwitch/CheckButton")
 interval_field = NodePath("Panel/VFlowContainer/IntervalControl/OperationRateField")
 item_list = NodePath("Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer")
 branch_purchase_veil = NodePath("Panel/BranchPurchaseVeil")
+progress_bar = NodePath("Panel/VFlowContainer/ProgressBar/ProgressBar")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -56,12 +57,26 @@ offset_bottom = 31.0
 placeholder_text = "Sequencer Name"
 max_length = 20
 
-[node name="Control" type="Control" parent="Panel/VFlowContainer"]
+[node name="ProgressBar" type="Control" parent="Panel/VFlowContainer"]
 custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="Panel/VFlowContainer/Control"]
+[node name="ProgressBar" type="ProgressBar" parent="Panel/VFlowContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+
+[node name="TierControl" type="Control" parent="Panel/VFlowContainer"]
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Panel/VFlowContainer/TierControl"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 3.0
@@ -69,7 +84,7 @@ offset_right = 43.0
 offset_bottom = 26.0
 text = "Tier"
 
-[node name="TierNumberLabel" type="Label" parent="Panel/VFlowContainer/Control"]
+[node name="TierNumberLabel" type="Label" parent="Panel/VFlowContainer/TierControl"]
 layout_mode = 0
 offset_left = 49.0
 offset_top = 3.0
@@ -79,7 +94,7 @@ text = "0
 "
 horizontal_alignment = 1
 
-[node name="UpgradeButton" type="Button" parent="Panel/VFlowContainer/Control"]
+[node name="UpgradeButton" type="Button" parent="Panel/VFlowContainer/TierControl"]
 layout_mode = 0
 offset_left = 130.0
 offset_top = -1.0
@@ -250,9 +265,9 @@ autowrap_mode = 3
 [connection signal="mouse_exited" from="Panel" to="." method="exit_hovering"]
 [connection signal="focus_exited" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
 [connection signal="text_submitted" from="Panel/VFlowContainer/Header/LineEdit" to="." method="set_machine_name"]
-[connection signal="mouse_entered" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="hover_upgrade"]
-[connection signal="mouse_exited" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="leave_upgrade"]
-[connection signal="pressed" from="Panel/VFlowContainer/Control/UpgradeButton" to="." method="attempt_machine_upgrade"]
+[connection signal="mouse_entered" from="Panel/VFlowContainer/TierControl/UpgradeButton" to="." method="hover_upgrade"]
+[connection signal="mouse_exited" from="Panel/VFlowContainer/TierControl/UpgradeButton" to="." method="leave_upgrade"]
+[connection signal="pressed" from="Panel/VFlowContainer/TierControl/UpgradeButton" to="." method="attempt_machine_upgrade"]
 [connection signal="toggled" from="Panel/VFlowContainer/ActiveSwitch/CheckButton" to="." method="set_running"]
 [connection signal="value_changed" from="Panel/VFlowContainer/IntervalControl/OperationRateField" to="." method="set_interval"]
 [connection signal="mouse_entered" from="Panel/VFlowContainer/ActionSequence/ScrollContainer/VBoxContainer/PurchaseActionSlotButton" to="." method="set_action_slot_purchase_filter"]

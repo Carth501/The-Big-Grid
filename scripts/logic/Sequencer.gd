@@ -10,6 +10,8 @@ signal request_action(sequencer)
 signal purchase_branch_access_hover(cost)
 signal end_purchase_hover()
 signal open_branch_access_prompt(sequencer)
+signal next_time(wait_time)
+signal change_time(wait_time)
 
 var pattern = []
 var timer : Timer
@@ -34,6 +36,7 @@ func _ready():
 	timer.timeout.connect(check_conditions)
 	timer.wait_time = 1
 	timer.start()
+	next_time.emit(timer.wait_time)
 
 func setup(new_supply_collection : Supply_Collection):
 	supply_collection = new_supply_collection
@@ -54,6 +57,7 @@ func check_conditions():
 
 func proceed():
 	var count := 0
+	next_time.emit(timer.wait_time)
 	while(count < tier):
 		var action = get_next_action()
 		if(action == null):
@@ -71,7 +75,8 @@ func get_next_action():
 	while(next_action == null):
 		current_index = (current_index + 1) % pattern.size()
 		next_action = pattern[current_index]
-		if(current_index == start):
+		if(current_index == start && next_action == null):
+			set_running(false)
 			return null
 	return next_action
 
@@ -115,6 +120,7 @@ func clear_slot(index : int):
 
 func set_interval(value : float):
 	timer.wait_time = clampf(value, 1, 10)
+	change_time.emit(timer.wait_time)
 
 func set_last_slot(action : Action):
 	if(pattern.size() > 0):

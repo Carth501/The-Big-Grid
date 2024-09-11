@@ -19,6 +19,9 @@ var action_slot_cost := {
 			}
 		}
 @export var branch_purchase_veil : ColorRect
+@export var progress_bar : ProgressBar
+var progressing := true
+var progress_value := 0.0
 
 func set_sequencer(new_sequencer : Sequencer):
 	sequencer = new_sequencer
@@ -35,6 +38,8 @@ func set_sequencer(new_sequencer : Sequencer):
 	sequencer.purchase_branch_access_hover.connect(show_branch_access_veil)
 	sequencer.end_purchase_hover.connect(hide_branch_access_veil)
 	sequencer.add_action_slot.connect(add_action_slot)
+	sequencer.next_time.connect(set_progress_bar)
+	sequencer.change_time.connect(change_progress_bar_time)
 
 func set_sequencer_name_display(new_string : String):
 	name_field.text = new_string
@@ -44,6 +49,7 @@ func set_sequencer_tier_display(new_value : int):
 
 func set_sequencer_active_display(new_value : bool):
 	active_switch.set_pressed_no_signal(new_value)
+	progressing = new_value
 
 func set_pattern(pattern : Array):
 	var index = 0
@@ -96,3 +102,15 @@ func show_branch_access_veil(cost : Dictionary):
 
 func hide_branch_access_veil():
 	branch_purchase_veil.visible = false
+
+func _process(delta: float) -> void:
+	if(progressing):
+		progress_value += delta
+		progress_bar.value = progress_value
+
+func set_progress_bar(duration):
+	progress_bar.max_value = duration
+	progress_value = 0
+
+func change_progress_bar_time(duration):
+	progress_bar.max_value = duration
