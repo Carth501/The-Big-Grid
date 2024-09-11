@@ -99,7 +99,8 @@ func get_sequencer_data(sequencer : Sequencer) -> Dictionary:
 		"active": sequencer.get_running(),
 		"interval": sequencer.timer.wait_time,
 		"tier": sequencer.tier,
-		"pattern": pattern
+		"pattern": pattern,
+		"branch_access": sequencer.branch_access
 	}
 
 func _input(event):

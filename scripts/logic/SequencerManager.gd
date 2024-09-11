@@ -48,6 +48,8 @@ func load_sequencers(new_sequencers : Dictionary):
 				sequencer.set_last_slot(action)
 		sequencer.set_running(new_sequencers[id].active)
 		sequencer.change_tier(new_sequencers[id].tier)
+		if(new_sequencers[id].has("branch_access")):
+			sequencer.branch_access = new_sequencers[id].branch_access
 		new_sequencer.emit(id)
 		sequencer.request_action.connect(begin_action_request)
 
