@@ -55,7 +55,7 @@ func set_hover():
 		development.set_filter()
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel
 	if(controls_display != null):
-		controls_display.update_text("LMB: Activate, RMB: Open action menu")
+		controls_display.update_text("LMB: Activate, RMB: Hide Development")
 	if(description.text != null && description.text != ""):
 		description_popup.visible = true
 
