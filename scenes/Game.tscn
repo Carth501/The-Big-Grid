@@ -356,19 +356,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 1
 
 [node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer"]
-visible = false
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 0)
 
 [node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 follow_focus = true
@@ -386,7 +385,14 @@ layout_mode = 2
 script = ExtResource("4_p32ci")
 development_handler = NodePath("../../../../../../../../../Logic/DevelopmentHandler")
 
+[node name="UnhideDevelopments" type="Button" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Unhide all"
+
 [node name="Machines" type="ColorRect" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer" node_paths=PackedStringArray("action_section_container", "machine_factory")]
+visible = false
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 0)
 script = ExtResource("11_3l4m0")
@@ -698,6 +704,7 @@ layout_mode = 2
 [connection signal="resized" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_resized"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
+[connection signal="pressed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments/UnhideDevelopments" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments/DevScrollContainer/MarginContainer/HFlowContainer" method="show_all_developments"]
 [connection signal="visibility_changed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_visibility_changed"]
 [connection signal="resized" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_scroll_container_resized"]
 [connection signal="pressed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer/Control/MassPause" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="machine_mass_pause"]

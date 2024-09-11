@@ -24,6 +24,7 @@ text = "THIS IS A TEST"
 
 [connection signal="focus_entered" from="." to="." method="gain_focus"]
 [connection signal="focus_exited" from="." to="." method="lose_focus"]
+[connection signal="left_click" from="." to="." method="trigger"]
 [connection signal="mouse_entered" from="." to="." method="set_hover"]
 [connection signal="mouse_exited" from="." to="." method="unset_hover"]
-[connection signal="pressed" from="." to="." method="trigger"]
+[connection signal="right_click" from="." to="." method="hide_temporarily"]
