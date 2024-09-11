@@ -5,6 +5,7 @@ signal tier_changed(new_teir)
 signal update_active(setting)
 signal add_action(index, action)
 signal remove_action(index)
+signal add_action_slot
 signal request_action(sequencer)
 signal purchase_branch_access_hover(cost)
 signal end_purchase_hover()
@@ -19,6 +20,13 @@ var request_index := 0
 var branch_access := []
 var action_decision : Action
 var supply_collection : Supply_Collection
+var action_slot_cost = {
+			"processing_subunit": {
+				"deltas": [
+					-2
+				]
+			}
+		}
 
 func _ready():
 	timer = Timer.new()
@@ -101,9 +109,6 @@ func fufill_request(action: Action):
 		open_branch_access_prompt.emit(self)
 		end_purchase_hover.emit()
 
-func add_slot():
-	pattern.push_back(null)
-
 func clear_slot(index : int):
 	pattern[index] = null
 	remove_action.emit(index)
@@ -141,3 +146,12 @@ func purchase_branch_access():
 		if(success):
 			branch_access.append(branch)
 			fufill_request(action_decision)
+
+func add_slot():
+	pattern.push_back(null)
+
+func purchase_action_slot():
+	var success = supply_collection.attempt_purchase(action_slot_cost)
+	if(success):
+		pattern.push_back(null)
+		add_action_slot.emit()
