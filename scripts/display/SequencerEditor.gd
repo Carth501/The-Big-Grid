@@ -34,6 +34,7 @@ func set_sequencer(new_sequencer : Sequencer):
 	interval_field.value = sequencer.timer.wait_time
 	sequencer.purchase_branch_access_hover.connect(show_branch_access_veil)
 	sequencer.end_purchase_hover.connect(hide_branch_access_veil)
+	sequencer.add_action_slot.connect(add_action_slot)
 
 func set_sequencer_name_display(new_string : String):
 	name_field.text = new_string
@@ -67,8 +68,7 @@ func add_action_slot():
 	new_item.remove.connect(clear_index)
 
 func purchase_action_slot():
-	add_action_slot()
-	sequencer.add_slot()
+	sequencer.purchase_action_slot()
 
 func begin_add_action(index : int):
 	sequencer.begin_slot_fill(index)
