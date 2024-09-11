@@ -10,6 +10,7 @@ signal game_setup_ready
 @export var sequencer_manager : Sequencer_Manager
 @export var save_file_panel : Button
 @export var save_file_name : LineEdit
+@export var development_display : Development_Display
 var save_name : String
 
 func _ready():
@@ -50,6 +51,7 @@ func save(new_save_name : String) -> bool:
 		var sequencer = sequencer_manager.sequencer_list[sequencer_id]
 		sequencer_data[sequencer_id] = get_sequencer_data(sequencer)
 	archive["sequencers"] = sequencer_data
+	archive["development_display"] = development_display.get_hidden_list()
 	Save_Handler_Single.write_save(archive)
 	Save_Handler_Single.index_saves()
 	return true
@@ -157,6 +159,8 @@ func load_save():
 		development_handler.set_completed_developments(devs)
 	if(active_save.has("sequencers")):
 		sequencer_manager.load_sequencers(active_save.sequencers)
+	if(active_save.has("development_display")):
+		development_display.load_hidden_list(active_save.development_display)
 
 func autosave():
 	save("autoSave")
