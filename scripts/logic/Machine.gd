@@ -5,6 +5,7 @@ signal update_name(String)
 signal update_tier(tier : int)
 signal update_active(bool)
 signal update_interval(float)
+signal next_time(wait_time)
 
 var action : Action
 var timer : Timer
@@ -21,6 +22,7 @@ func _ready():
 	timer.timeout.connect(check_conditions)
 	timer.wait_time = 1
 	timer.start()
+	next_time.emit(timer.wait_time)
 
 func check_conditions():
 	for condition in conditionals:
@@ -30,6 +32,7 @@ func check_conditions():
 
 func apply_changes():
 	action.apply_multiple(tier)
+	next_time.emit(timer.wait_time)
 
 func set_interval(interval : float):
 	if(interval > 10):
