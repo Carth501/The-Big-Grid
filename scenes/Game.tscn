@@ -442,7 +442,7 @@ anchor_bottom = 1.0
 offset_top = -30.0
 grow_horizontal = 2
 
-[node name="Button" type="Button" parent="Display/Panel"]
+[node name="PauseButton" type="Button" parent="Display/Panel"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -710,7 +710,7 @@ layout_mode = 2
 [connection signal="resized" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="_on_scroll_container_resized"]
 [connection signal="pressed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer/Control/MassPause" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="machine_mass_pause"]
 [connection signal="pressed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines/ScrollContainer/ActionSectionContainer/Control/MassResume" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines" method="machine_mass_resume"]
-[connection signal="pressed" from="Display/Panel/Button" to="PauseMenu" method="pause_or_unpause"]
+[connection signal="pressed" from="Display/Panel/PauseButton" to="PauseMenu" method="pause"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIndustrial" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceIntermediate" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/OrcDanceOrchestral" to="Display/MusicSystem" method="next_track"]

@@ -5,7 +5,10 @@ class_name Pause_Menu extends Control
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
-		pause_handler.pause_or_unpause()
+		pause()
+
+func pause():
+	pause_handler.pause_or_unpause()
 
 func toggle_pause(show_menu : bool):
 	if(show_menu):
