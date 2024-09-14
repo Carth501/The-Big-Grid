@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1a6y8skg7kii"]
+[gd_scene load_steps=7 format=3 uid="uid://d1a6y8skg7kii"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_1qd6f"]
 [ext_resource type="AudioStream" uid="uid://rimplcys6c2t" path="res://sound/music/_Main Menu_ The Big Grid, Pirate Software Gamejam 15.ogg" id="2_fi6st"]
+[ext_resource type="Script" path="res://scripts/MainMenuBackground.gd" id="2_jbrki"]
 [ext_resource type="Texture2D" uid="uid://cry7435ybhp8t" path="res://textures/ui/BigGrid_TitleScreen_003.png" id="2_u2meb"]
 [ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="3_8lr38"]
 [ext_resource type="Theme" uid="uid://cps7x1u8q74lh" path="res://themes/main_menu.tres" id="3_b3b6f"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("continue_button", "load_panel", "load_buttons_container")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("continue_button", "exit_button", "load_panel", "load_buttons_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,10 +16,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1qd6f")
 continue_button = NodePath("TextureRect/CenterContainer/CenterContainer/VBoxContainer/ContinueButton")
+exit_button = NodePath("TextureRect/CenterContainer/CenterContainer/VBoxContainer/QuitButton")
 load_panel = NodePath("LoadGameSelection")
 load_buttons_container = NodePath("LoadGameSelection/MarginContainer/VBoxContainer")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Supplies" type="ColorRect" parent="." node_paths=PackedStringArray("icon_container")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +28,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+script = ExtResource("2_jbrki")
+icon_container = NodePath("HFlowContainer")
+icon_list = Array[String](["res://textures/Supply_Icons/Aluminium_Ingot.PNG", "res://textures/Supply_Icons/Arcane_Dust.PNG", "res://textures/Supply_Icons/Bauxite.PNG", "res://textures/Supply_Icons/BG_Mats_Electricity.png", "res://textures/Supply_Icons/Bornite.PNG", "res://textures/Supply_Icons/Coal.PNG", "res://textures/Supply_Icons/Copper_Ingot.PNG", "res://textures/Supply_Icons/Corrupted_Dust.PNG", "res://textures/Supply_Icons/Crank.PNG", "res://textures/Supply_Icons/Gilded_Dust.PNG", "res://textures/Supply_Icons/Gold Ingot.svg", "res://textures/Supply_Icons/Heavy_Dust.PNG", "res://textures/Supply_Icons/HellSteel.PNG", "res://textures/Supply_Icons/Hematite.PNG", "res://textures/Supply_Icons/Holy_Water.PNG", "res://textures/Supply_Icons/Iron_Gear.PNG", "res://textures/Supply_Icons/Magnitite.PNG", "res://textures/Supply_Icons/Native_Gold.PNG", "res://textures/Supply_Icons/Plastic Pipe.svg", "res://textures/Supply_Icons/Power.PNG", "res://textures/Supply_Icons/Profane_Ingot.PNG", "res://textures/Supply_Icons/Pure_Dust.PNG", "res://textures/Supply_Icons/Purified_Water.PNG", "res://textures/Supply_Icons/Salt.PNG", "res://textures/Supply_Icons/Sanctified_Gold.PNG", "res://textures/Supply_Icons/Sand.PNG", "res://textures/Supply_Icons/Starglass.PNG", "res://textures/Supply_Icons/Starglass.PNG", "res://textures/Supply_Icons/Steel_Gear.PNG", "res://textures/Supply_Icons/Steel_Ingot.PNG", "res://textures/Supply_Icons/Tonteu.svg", "res://textures/Supply_Icons/Water.PNG", "res://textures/Supply_Icons/Zabdail.svg"])
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Supplies"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -284,6 +299,8 @@ bus = &"Music"
 visible = false
 layout_mode = 1
 
+[connection signal="resized" from="." to="Supplies" method="_on_resized"]
+[connection signal="ready" from="Supplies" to="Supplies" method="_on_resized"]
 [connection signal="button_down" from="TextureRect/CenterContainer/CenterContainer/VBoxContainer/ContinueButton" to="TextureRect/CenterContainer/CenterContainer/VBoxContainer/ContinueButton/UnpressedLabel" method="hide"]
 [connection signal="button_down" from="TextureRect/CenterContainer/CenterContainer/VBoxContainer/ContinueButton" to="TextureRect/CenterContainer/CenterContainer/VBoxContainer/ContinueButton/PressedLabel" method="show"]
 [connection signal="button_up" from="TextureRect/CenterContainer/CenterContainer/VBoxContainer/ContinueButton" to="TextureRect/CenterContainer/CenterContainer/VBoxContainer/ContinueButton/UnpressedLabel" method="show"]
