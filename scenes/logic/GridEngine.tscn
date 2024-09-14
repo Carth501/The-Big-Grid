@@ -39,9 +39,10 @@ copy_handler = NodePath("../CopyHandler")
 [node name="OptionsOverseer" type="Node" parent="."]
 script = ExtResource("6_gsxxp")
 
-[node name="ObjectiveSystem" type="Node" parent="." node_paths=PackedStringArray("supply_collection")]
+[node name="ObjectiveSystem" type="Node" parent="." node_paths=PackedStringArray("supply_collection", "machine_factory")]
 script = ExtResource("7_udl0h")
 supply_collection = NodePath("../SupplyCollection")
+machine_factory = NodePath("../MachineFactory")
 
 [node name="PauseHandler" type="Node" parent="."]
 script = ExtResource("9_2rlac")

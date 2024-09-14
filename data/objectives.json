@@ -2,43 +2,63 @@
 	"test": [
 		{
 			"stepId": "first_step",
-			"native_gold": [
-				{
+			"machines": {
+				"burn_coal": {
+					"greater_than": {
+						"const": 0
+					}
+				},
+				"pump_water": {
+					"greater_than": {
+						"const": 0
+					}
+				},
+				"extract_coal": {
+					"greater_than": {
+						"const": 0
+					}
+				}
+			}
+		},
+		{
+			"stepId": "gold_in_hills",
+			"supplies": {
+				"native_gold": {
 					"greater_than": {
 						"const": 4
 					}
 				}
-			]
+			}
 		},
 		{
 			"stepId": "make_hellsteel",
-			"hellsteel": [
-				{
+			"supplies": {
+				"hellsteel": {
 					"greater_than": {
 						"const": 1
 					}
 				}
-			]
+			}
 		},
 		{
 			"stepId": "make_galliantium",
-			"galliantium": [
-				{
+			"supplies": {
+				"galliantium": {
 					"greater_than": {
 						"const": 0
 					}
 				}
-			]
+			}
 		},
 		{
 			"stepId": "make_arcane_dust",
-			"gilded_dust": [
-				{
+			"supplies": {
+				"gilded_dust": {
 					"greater_than": {
 						"const": 0
 					}
 				}
-			]
+			}
 		}
 	]
 }

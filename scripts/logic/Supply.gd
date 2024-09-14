@@ -6,7 +6,7 @@ signal update_max(v_max : float)
 signal update_active
 signal open_menu(Supply)
 signal select(String)
-signal set_obj(Array)
+signal set_obj(objectives)
 signal unset_obj()
 signal tag_added(String)
 signal tag_removed(String)
@@ -151,7 +151,7 @@ func load_values(values : Dictionary):
 	if(values.has("tags")):
 		set_tags(values["tags"])
 
-func set_objective(obj_def: Array):
+func set_objective(obj_def: Dictionary):
 	set_obj.emit(obj_def)
 
 func unset_objective():

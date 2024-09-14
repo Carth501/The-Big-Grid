@@ -46,7 +46,7 @@ func close():
 	machine.update_name.disconnect(update_machine_name)
 	machine.update_tier.disconnect(update_tier_value)
 	machine.next_time.disconnect(set_progress_bar)
-	machine.update_name.disconnect(change_progress_bar_time)
+	machine.update_interval.disconnect(change_progress_bar_time)
 
 func set_interval(value : float):
 	machine.set_interval(value)

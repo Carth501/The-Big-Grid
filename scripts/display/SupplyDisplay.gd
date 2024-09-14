@@ -115,7 +115,7 @@ func open_menu():
 	opening_menu.emit()
 	supply.open()
 
-func set_objective(obj_def : Array):
+func set_objective(obj_def : Dictionary):
 	objective_star.visible = true
 	objective_star.set_objective_conditions(obj_def)
 
