@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1a6y8skg7kii"]
+[gd_scene load_steps=9 format=3 uid="uid://d1a6y8skg7kii"]
 
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_1qd6f"]
 [ext_resource type="AudioStream" uid="uid://rimplcys6c2t" path="res://sound/music/_Main Menu_ The Big Grid, Pirate Software Gamejam 15.ogg" id="2_fi6st"]
 [ext_resource type="Script" path="res://scripts/MainMenuBackground.gd" id="2_jbrki"]
 [ext_resource type="Texture2D" uid="uid://cry7435ybhp8t" path="res://textures/ui/BigGrid_TitleScreen_003.png" id="2_u2meb"]
 [ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="3_8lr38"]
+[ext_resource type="Shader" path="res://shaders/main_menu_background.gdshader" id="3_aqas1"]
 [ext_resource type="Theme" uid="uid://cps7x1u8q74lh" path="res://themes/main_menu.tres" id="3_b3b6f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05oax"]
+shader = ExtResource("3_aqas1")
+shader_parameter/crt_curve = 0.0
+shader_parameter/crt_scan_line_color = 0.276
+shader_parameter/aperture_grille_rate = 0.0
+shader_parameter/rf_switch_esque_blur = 0.644
+shader_parameter/white_noise_rate = 0.196
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("continue_button", "exit_button", "load_panel", "load_buttons_container")]
 layout_mode = 3
@@ -41,6 +50,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_05oax")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0784314, 0.0784314, 0.196078, 0.498039)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
