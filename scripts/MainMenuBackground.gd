@@ -3,10 +3,17 @@ extends ColorRect
 var icon_prefab = preload("res://scenes/MainMenu/FakeSupplyDisplay.tscn")
 @export var icon_container : HFlowContainer
 @export var icon_list : Array[String]
+var previous_mode
+
+func _process(delta: float) -> void:
+	if(previous_mode != null):
+		if(previous_mode != DisplayServer.window_get_mode()):
+			_on_resized()
+	previous_mode = DisplayServer.window_get_mode()
 
 func _on_resized() -> void:
-	var rows = roundi(size.y / 64)
-	var columns = roundi(size.x / 64)
+	var rows = roundi(size.y / 64) + 2
+	var columns = roundi(size.x / 64) + 2
 	var count = rows * columns
 	var difference = count - icon_container.get_child_count()
 	while (difference > 0):

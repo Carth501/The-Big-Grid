@@ -31,9 +31,13 @@ load_buttons_container = NodePath("LoadGameSelection/MarginContainer/VBoxContain
 
 [node name="Supplies" type="ColorRect" parent="." node_paths=PackedStringArray("icon_container")]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -50,6 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
+alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_05oax")
