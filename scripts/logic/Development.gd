@@ -14,6 +14,7 @@ var action_unlocks : Array
 var filter_foreman : Filter_Foreman
 var translation_data : Dictionary
 var translated_strings : Dictionary
+var revealed := false
 
 func setup(new_id : String, supply_collection : Supply_Collection):
 	id = new_id
@@ -97,7 +98,9 @@ func lose_focus():
 	filter_foreman.clear_primary_filter()
 
 func check_supplies():
-	for supply_id in supplies:
-		if(!supplies[supply_id].revealed):
-			return
-	reveal.emit()
+	if(!revealed):
+		for supply_id in supplies:
+			if(!supplies[supply_id].revealed):
+				return
+		reveal.emit()
+		revealed = true
