@@ -47,6 +47,9 @@ options_overseer : Options_Overseer):
 func set_icon_display():
 	if(supply.supply_icon_path != null && supply.supply_icon_path != ""):
 		supply_icon_display.set_image_by_path(supply.supply_icon_path)
+	else:
+		var unknown = "res://textures/Supply_Icons/Unknown.png"
+		supply_icon_display.set_image_by_path(unknown)
 	var localization = supply.get_translation()
 	supply_name = localization.name
 	supply_description = localization.description
