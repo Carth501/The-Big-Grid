@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://durgfyetb6d3p"]
+[gd_scene load_steps=12 format=3 uid="uid://durgfyetb6d3p"]
 
 [ext_resource type="Script" path="res://scripts/logic/MachineFactory.gd" id="1_2654x"]
 [ext_resource type="Script" path="res://scripts/logic/SupplyCollection.gd" id="2_ewbvm"]
 [ext_resource type="Script" path="res://scripts/logic/ActionManager.gd" id="3_6gquc"]
 [ext_resource type="Script" path="res://scripts/logic/DevelopmentHandler.gd" id="4_v6rhi"]
+[ext_resource type="Script" path="res://scripts/logic/HotkeyController.gd" id="5_n81p4"]
 [ext_resource type="PackedScene" uid="uid://ccwb8ttiqyrku" path="res://scenes/display/FilterForeman.tscn" id="5_owboe"]
 [ext_resource type="Script" path="res://scripts/logic/OptionsOverseer.gd" id="6_gsxxp"]
 [ext_resource type="Script" path="res://scripts/logic/ObjectiveSystem.gd" id="7_udl0h"]
@@ -30,6 +31,10 @@ filter_foreman = NodePath("../FilterForeman")
 
 [node name="FilterForeman" parent="." node_paths=PackedStringArray("supply_collection") instance=ExtResource("5_owboe")]
 supply_collection = NodePath("../SupplyCollection")
+
+[node name="Hotkey_Controller" type="Node" parent="." node_paths=PackedStringArray("action_manager")]
+script = ExtResource("5_n81p4")
+action_manager = NodePath("../ActionManager")
 
 [node name="MachineFactory" type="Node" parent="." node_paths=PackedStringArray("supply_collection", "copy_handler")]
 script = ExtResource("1_2654x")

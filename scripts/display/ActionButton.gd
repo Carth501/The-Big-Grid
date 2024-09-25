@@ -88,3 +88,9 @@ func gain_focus():
 
 func lose_focus():
 	action.lose_focus()
+
+func hover_action():
+	action.set_designated_action()
+
+func unhover_action():
+	action.release_designated_action()
