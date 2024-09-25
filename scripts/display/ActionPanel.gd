@@ -4,6 +4,7 @@ class_name Action_Panel extends Control
 @export var action_manager : Action_Manager
 @export var supply_collection : Supply_Collection
 @export var sequencer_manager : Sequencer_Manager
+@export var hotkey_controller : Hotkey_Controller
 var action_buttons := {}
 
 func build_action_button(id : String):
@@ -25,6 +26,7 @@ func build_action_button(id : String):
 	new_button.select.connect(select)
 	new_button.selection_hover.connect(selection_hover)
 	new_button.end_selection_hover.connect(end_selection_hover)
+	new_button.register_hotkey_controller(hotkey_controller)
 
 func filter_actions(id_list : Array):
 	for id in action_buttons:

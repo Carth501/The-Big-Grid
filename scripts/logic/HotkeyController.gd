@@ -1,5 +1,7 @@
 class_name Hotkey_Controller extends Node
 
+signal update_to(id)
+
 @export var action_manager: Action_Manager
 var shift := false
 var ctrl := false
@@ -31,57 +33,57 @@ func _input(event):
 		alt = false
 		return
 	elif event.is_action_pressed("a"):
-		operation_string += "a"
+		operation_string += "A"
 	elif event.is_action_pressed("b"):
-		operation_string += "b"
+		operation_string += "B"
 	elif event.is_action_pressed("c"):
-		operation_string += "c"
+		operation_string += "C"
 	elif event.is_action_pressed("d"):
-		operation_string += "d"
+		operation_string += "D"
 	elif event.is_action_pressed("e"):
-		operation_string += "e"
+		operation_string += "E"
 	elif event.is_action_pressed("f"):
-		operation_string += "f"
+		operation_string += "F"
 	elif event.is_action_pressed("g"):
-		operation_string += "g"
+		operation_string += "G"
 	elif event.is_action_pressed("h"):
-		operation_string += "h"
+		operation_string += "H"
 	elif event.is_action_pressed("i"):
-		operation_string += "i"
+		operation_string += "I"
 	elif event.is_action_pressed("j"):
-		operation_string += "j"
+		operation_string += "J"
 	elif event.is_action_pressed("k"):
-		operation_string += "k"
+		operation_string += "K"
 	elif event.is_action_pressed("l"):
-		operation_string += "l"
+		operation_string += "J"
 	elif event.is_action_pressed("m"):
-		operation_string += "m"
+		operation_string += "M"
 	elif event.is_action_pressed("n"):
-		operation_string += "n"
+		operation_string += "N"
 	elif event.is_action_pressed("o"):
-		operation_string += "o"
+		operation_string += "O"
 	elif event.is_action_pressed("p"):
-		operation_string += "p"
+		operation_string += "P"
 	elif event.is_action_pressed("q"):
-		operation_string += "q"
+		operation_string += "Q"
 	elif event.is_action_pressed("r"):
-		operation_string += "r"
+		operation_string += "R"
 	elif event.is_action_pressed("s"):
-		operation_string += "s"
+		operation_string += "S"
 	elif event.is_action_pressed("t"):
-		operation_string += "t"
+		operation_string += "T"
 	elif event.is_action_pressed("u"):
-		operation_string += "u"
+		operation_string += "U"
 	elif event.is_action_pressed("v"):
-		operation_string += "v"
+		operation_string += "V"
 	elif event.is_action_pressed("w"):
-		operation_string += "w"
+		operation_string += "W"
 	elif event.is_action_pressed("x"):
-		operation_string += "x"
+		operation_string += "X"
 	elif event.is_action_pressed("y"):
-		operation_string += "y"
+		operation_string += "Y"
 	elif event.is_action_pressed("z"):
-		operation_string += "z"
+		operation_string += "Z"
 	elif event.is_action_pressed("1"):
 		operation_string += "1"
 	elif event.is_action_pressed("2"):
@@ -110,13 +112,26 @@ func _input(event):
 		trigger(operation_string)
 
 func reassign(operation_string):
-	if(action_manager.designated_action_id != ""):
+	var id = action_manager.designated_action_id
+	if(id != ""):
 		for key in hotkey_map:
-			if(hotkey_map[key] == action_manager.designated_action_id):
+			if(hotkey_map[key] == id):
 				hotkey_map.erase(key)
-		hotkey_map[operation_string] = action_manager.designated_action_id
+		hotkey_map[operation_string] = id
+		update_to.emit(id)
 
 func trigger(operation_string):
 	if(hotkey_map.has(operation_string)):
 		var action_id = hotkey_map[operation_string]
 		action_manager.full_action_list[action_id].apply()
+
+func map_has_value(action_id : String):
+	for key in hotkey_map:
+		if(hotkey_map[key] == action_id):
+			return true
+	return false
+
+func get_key(action_id : String):
+	for key in hotkey_map:
+		if(hotkey_map[key] == action_id):
+			return key

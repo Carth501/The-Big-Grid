@@ -11,12 +11,15 @@ var action : Action
 var audio_stream : Sound_Effect
 var action_press_sound : Sound_Effect
 var selection_mode := false
+var hotkey_controller : Hotkey_Controller
+var hotkey_popup : Hotkey_Popup
 
 func _ready() -> void:
 	super._ready()
 	var directory = AudioEffectControllerSingle.directory
 	if(directory.has("button_press")):
 		action_press_sound = directory["button_press"]
+	hotkey_popup = get_node("/root/Game/HotkeyPopup")
 
 func set_id(new_id : String):
 	id = new_id
@@ -36,6 +39,9 @@ func connect_logic(new_action : Action):
 			if(directory.has("button_press")):
 				action_press_sound = directory["button_press"]
 			trigger.connect(action_press_sound.play)
+
+func register_hotkey_controller(new_hotkey_controller : Hotkey_Controller):
+	hotkey_controller = new_hotkey_controller
 
 func disconnect_action():
 	action.update_availability.disconnect(set_enabled)
@@ -71,7 +77,7 @@ func set_filter():
 	action.set_filter()
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel
 	if(controls_display != null):
-		controls_display.update_text("LMB: Activate, RMB: Open action menu")
+		controls_display.update_text("LMB: Activate, RMB: Open action menu, CTRL+Hotkey: set hotkey")
 	if(selection_mode):
 		selection_hover.emit(action)
 
@@ -91,6 +97,24 @@ func lose_focus():
 
 func hover_action():
 	action.set_designated_action()
+	var has_hotkey = hotkey_controller.map_has_value(id)
+	if(has_hotkey):
+		var hotkey_text = hotkey_controller.get_key(id)
+		hotkey_popup.open(hotkey_text)
+		set_popup_pos()
+	hotkey_controller.update_to.connect(update_hotkey_popup)
 
 func unhover_action():
 	action.release_designated_action()
+	hotkey_popup.close()
+	hotkey_controller.update_to.disconnect(update_hotkey_popup)
+
+func update_hotkey_popup(update_id : String):
+	if(id == update_id):
+		var hotkey_text = hotkey_controller.get_key(id)
+		hotkey_popup.change_text(hotkey_text)
+		set_popup_pos()
+
+func set_popup_pos():
+	var x_adjust = size.x / 2 - hotkey_popup.size.x / 2
+	hotkey_popup.position = global_position + Vector2(x_adjust, -39)
