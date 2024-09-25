@@ -11,6 +11,7 @@ signal game_setup_ready
 @export var save_file_panel : Button
 @export var save_file_name : LineEdit
 @export var development_display : Development_Display
+@export var hotkey_controller : Hotkey_Controller
 var save_name : String
 
 func _ready():
@@ -52,6 +53,7 @@ func save(new_save_name : String) -> bool:
 		sequencer_data[sequencer_id] = get_sequencer_data(sequencer)
 	archive["sequencers"] = sequencer_data
 	archive["development_display"] = development_display.get_hidden_list()
+	archive["hotkey_map"] = hotkey_controller.hotkey_map
 	Save_Handler_Single.write_save(archive)
 	Save_Handler_Single.index_saves()
 	return true
@@ -162,6 +164,8 @@ func load_save():
 		sequencer_manager.load_sequencers(active_save.sequencers)
 	if(active_save.has("development_display")):
 		development_display.load_hidden_list(active_save.development_display)
+	if(active_save.has("hotkey_map")):
+		hotkey_controller.hotkey_map = active_save.hotkey_map
 
 func autosave():
 	save("autoSave")

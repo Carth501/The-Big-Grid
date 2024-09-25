@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://brv0nvrfcfotn" path="res://scenes/tutorial_pop_up.tscn" id="37_anvfk"]
 [ext_resource type="Script" path="res://scripts/SupplyLabel.gd" id="40_lks8k"]
 
-[node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "sequencer_manager", "save_file_panel", "save_file_name", "development_display")]
+[node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "sequencer_manager", "save_file_panel", "save_file_name", "development_display", "hotkey_controller")]
 script = ExtResource("1_kvsp4")
 supply_collection = NodePath("Logic/SupplyCollection")
 action_manager = NodePath("Logic/ActionManager")
@@ -49,6 +49,7 @@ sequencer_manager = NodePath("Logic/SequencerManager")
 save_file_panel = NodePath("SaveFilePanel")
 save_file_name = NodePath("SaveFilePanel/ColorRect/Panel/TextEdit")
 development_display = NodePath("Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments/DevScrollContainer/MarginContainer/HFlowContainer")
+hotkey_controller = NodePath("Logic/Hotkey_Controller")
 
 [node name="Display" type="ColorRect" parent="."]
 anchors_preset = 15
