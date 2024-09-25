@@ -6,6 +6,8 @@ signal new_machine(machine : Machine)
 signal update_action_name(new_name : String)
 signal tag_added(String)
 signal tag_removed(String)
+signal designate_action(id)
+signal undesignate_action()
 
 var id : String
 var changes : Dictionary
@@ -160,3 +162,9 @@ func remove_tag(tag : String):
 func set_tags(new_tags : Array):
 	for tag in new_tags:
 		add_tag(tag)
+
+func set_designated_action():
+	designate_action.emit(id)
+
+func release_designated_action():
+	undesignate_action.emit()

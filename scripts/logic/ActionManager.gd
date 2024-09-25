@@ -9,6 +9,7 @@ signal reveal_supply(String)
 @export var filter_foreman : Filter_Foreman
 @export var machine_factory : Machine_Factory
 var full_action_list : Dictionary = {}
+var designated_action_id := ""
 
 func create_action(id : String):
 	var new_action_logic = Action.new()
@@ -23,6 +24,8 @@ func create_action(id : String):
 	new_action_logic.set_filter_foreman(filter_foreman)
 	new_action.emit(id)
 	new_action_logic.open_menu.connect(open_action_menu)
+	new_action_logic.designate_action.connect(set_designated_action)
+	new_action_logic.undesignate_action.connect(release_designated_action)
 	var changes = ActionsSingle.data[id].changes
 	for change in changes:
 		reveal_supply.emit(change)
@@ -52,3 +55,9 @@ func get_actions_with_supply(supply_id : String) -> Array:
 		if(full_action_list[action_id].supplies.has(supply_id)):
 			id_list.append(action_id)
 	return id_list
+
+func set_designated_action(id : String):
+	designated_action_id = id
+
+func release_designated_action():
+	designated_action_id = ""
