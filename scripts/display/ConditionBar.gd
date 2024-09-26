@@ -7,9 +7,12 @@ var conditional_expression : Conditional_Expression
 @export var operation : OptionButton
 @export var right_member : Button
 @export var right_member_icon : Supply_Icon_Display
+var supply_label : Supply_Label
 
 func _ready():
 	supply_collection = Logic_Directory_Single.get_object("Supply_Collection")
+	left_member_icon.index = 0
+	right_member_icon.index = 1
 
 func set_expression(new_conditional : Conditional_Expression):
 	conditional_expression = new_conditional
@@ -109,3 +112,35 @@ func hide_control_instructions():
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel
 	if(controls_display != null):
 		controls_display.clear_priority_text()
+
+func show_label(index : int):
+	if(supply_label == null):
+		supply_label = get_node("/root/Game/SupplyLabel")
+	var supply_id : String
+	var config = conditional_expression.configuration
+	if(index == 0):
+		if(config.has("left")):
+			if(config.left.has("variable")):
+				supply_id = config.left.variable
+			else:
+				return
+			var member_rect = left_member_icon.get_global_rect()
+			supply_label.move_to_supply_rect(member_rect)
+		else:
+			return
+	elif(index == 1):
+		if(config.has("right")):
+			if(config.right.has("variable")):
+				supply_id = config.right.variable
+			else:
+				return
+			var member_rect = right_member_icon.get_global_rect()
+			supply_label.move_to_supply_rect(member_rect)
+		else:
+			return
+	var supply = supply_collection.get_supply(supply_id)
+	var localization = supply.get_translation()
+	supply_label.show_name(localization.name)
+
+func hide_label():
+	supply_label.hide_name()
