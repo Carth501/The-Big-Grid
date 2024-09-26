@@ -16,6 +16,7 @@ func open(keystroke: String):
 	closing = false
 	is_open = true
 	size = get_minimum_size()
+	show()
 
 func change_text(keystroke: String):
 	if(!is_open):
@@ -38,3 +39,4 @@ func _process(delta: float) -> void:
 		scale = lerp(scale, closed_vector, delta*scale_magnitude)
 		if(scale.is_equal_approx(closed_vector)):
 			closing = false
+			hide()

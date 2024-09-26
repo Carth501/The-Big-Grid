@@ -703,7 +703,7 @@ visible = false
 layout_mode = 2
 
 [node name="HotkeyPopup" parent="." instance=ExtResource("37_4fkkb")]
-anchors_preset = 7
+visible = false
 
 [connection signal="dragged" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_resized"]
