@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2tl0aohgfoqu"]
+
+[ext_resource type="Script" path="res://scripts/display/ConstantConfigPopup.gd" id="1_4uwky"]
+
+[node name="ConstantConfigPopup" type="Panel" node_paths=PackedStringArray("slider", "spin_box", "disabled_curtain")]
+self_modulate = Color(0.0627451, 0.0627451, 0.0627451, 1)
+top_level = true
+custom_minimum_size = Vector2(346, 56)
+offset_top = -56.0
+offset_right = 346.0
+script = ExtResource("1_4uwky")
+slider = NodePath("HSlider")
+spin_box = NodePath("SpinBox")
+disabled_curtain = NodePath("DisabledCurtain")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 36.0
+text = "C"
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 4.0
+offset_right = 255.0
+offset_bottom = 36.0
+max_value = 0.0
+rounded = true
+
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 4.0
+offset_right = 342.063
+offset_bottom = 35.0
+rounded = true
+update_on_text_changed = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 35.0
+offset_right = 336.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 12
+text = "Negative values are relative to supply max"
+horizontal_alignment = 2
+
+[node name="DisabledCurtain" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Button" to="." method="set_constant"]
+[connection signal="value_changed" from="HSlider" to="." method="slider_set_value"]
+[connection signal="value_changed" from="SpinBox" to="." method="spin_box_set_value"]

@@ -3,15 +3,17 @@
 [ext_resource type="Script" path="res://scripts/display/ConditionBar.gd" id="1_kciva"]
 [ext_resource type="PackedScene" uid="uid://b7qkoq5nu3bew" path="res://scenes/display/SupplyIconDisplay.tscn" id="2_80fuh"]
 
-[node name="ConditionBar" type="Control" node_paths=PackedStringArray("left_member", "left_member_icon", "operation", "right_member", "right_member_icon")]
+[node name="ConditionBar" type="Control" node_paths=PackedStringArray("left_member", "left_member_icon", "left_member_const", "operation", "right_member", "right_member_icon", "right_member_const")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_kciva")
 left_member = NodePath("Condition/LeftMember")
 left_member_icon = NodePath("Condition/LeftMember/LeftSupplyIconDisplay")
+left_member_const = NodePath("Condition/LeftMember/Label")
 operation = NodePath("Condition/OptionButton")
 right_member = NodePath("Condition/RightMember")
 right_member_icon = NodePath("Condition/RightMember/RightSupplyIconDisplay")
+right_member_const = NodePath("Condition/RightMember/Label")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -37,6 +39,18 @@ offset_bottom = 40.0
 
 [node name="LeftSupplyIconDisplay" parent="Condition/LeftMember" instance=ExtResource("2_80fuh")]
 
+[node name="Label" type="Label" parent="Condition/LeftMember"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="OptionButton" type="OptionButton" parent="Condition"]
 layout_mode = 0
 offset_left = 48.0
@@ -60,11 +74,23 @@ offset_bottom = 40.0
 
 [node name="RightSupplyIconDisplay" parent="Condition/RightMember" instance=ExtResource("2_80fuh")]
 
+[node name="Label" type="Label" parent="Condition/RightMember"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Button" to="." method="delete"]
+[connection signal="mouse_entered" from="Condition/LeftMember" to="." method="show_left_popup"]
+[connection signal="mouse_exited" from="Condition/LeftMember" to="." method="hide_label"]
 [connection signal="pressed" from="Condition/LeftMember" to="." method="request_left_selection"]
-[connection signal="being_hovered" from="Condition/LeftMember/LeftSupplyIconDisplay" to="." method="show_label"]
-[connection signal="end_hovered" from="Condition/LeftMember/LeftSupplyIconDisplay" to="." method="hide_label"]
 [connection signal="item_selected" from="Condition/OptionButton" to="." method="set_comparator"]
+[connection signal="mouse_entered" from="Condition/RightMember" to="." method="show_right_popup"]
+[connection signal="mouse_exited" from="Condition/RightMember" to="." method="hide_label"]
 [connection signal="pressed" from="Condition/RightMember" to="." method="request_right_selection"]
-[connection signal="being_hovered" from="Condition/RightMember/RightSupplyIconDisplay" to="." method="show_label"]
-[connection signal="end_hovered" from="Condition/RightMember/RightSupplyIconDisplay" to="." method="hide_label"]

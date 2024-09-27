@@ -47,7 +47,7 @@ func get_left_value() -> float:
 	if(configuration.has("left")):
 		var left = configuration["left"]
 		if(left.has("constant")):
-			return configuration.constant
+			return left.constant
 		elif(left.has("variable")):
 			var supply = supply_collection.get_supply(left.variable)
 			return supply.value
@@ -57,13 +57,13 @@ func get_right_value() -> float:
 	if(configuration.has("right")):
 		var right = configuration["right"]
 		if(right.has("constant")):
-			return configuration.constant
+			return right.constant
 		elif(right.has("variable")):
 			var supply = supply_collection.get_supply(right.variable)
 			return supply.value
 	return -1
 
-func set_left_constant(value : float):
+func set_left_constant(value : int):
 	disconnect_old_left_variable()
 	configuration["left"] = {"constant": value}
 	config_change.emit()
@@ -79,7 +79,7 @@ func set_left_variable(id : String):
 	supply.update_value.connect(handle_variable_update)
 	reset_editing()
 
-func set_right_constant(value : float):
+func set_right_constant(value : int):
 	disconnect_old_right_variable()
 	configuration["right"] = {"constant": value}
 	config_change.emit()

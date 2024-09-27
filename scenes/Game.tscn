@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=39 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://b8nv4l0ge2fi4" path="res://scenes/display/HotkeyPopup.tscn" id="37_4fkkb"]
 [ext_resource type="PackedScene" uid="uid://durgfyetb6d3p" path="res://scenes/logic/GridEngine.tscn" id="37_08wen"]
 [ext_resource type="PackedScene" uid="uid://brv0nvrfcfotn" path="res://scenes/tutorial_pop_up.tscn" id="37_anvfk"]
+[ext_resource type="PackedScene" uid="uid://b2tl0aohgfoqu" path="res://scenes/display/ConstantConfigPopup.tscn" id="38_nyqal"]
 [ext_resource type="Script" path="res://scripts/SupplyLabel.gd" id="40_lks8k"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "sequencer_manager", "save_file_panel", "save_file_name", "development_display", "hotkey_controller")]
@@ -703,6 +704,9 @@ visible = false
 layout_mode = 2
 
 [node name="HotkeyPopup" parent="." instance=ExtResource("37_4fkkb")]
+visible = false
+
+[node name="ConstantConfigPopup" parent="." instance=ExtResource("38_nyqal")]
 visible = false
 
 [connection signal="dragged" from="Display/MiddleSplit" to="Display/MiddleSplit" method="_on_dragged"]
