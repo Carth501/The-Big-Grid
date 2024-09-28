@@ -205,3 +205,9 @@ func set_popup_pos(button : Button):
 	var x_adjust = button_width / 2 - popup_width / 2
 	var offset = Vector2(x_adjust, -56)
 	constant_config_popup.position = button.global_position + offset
+
+func toggle_suspend():
+	conditional_expression.toggle_suspension()
+
+func copy():
+	conditional_expression.attempt_copy()

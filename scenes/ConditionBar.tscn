@@ -15,27 +15,17 @@ right_member = NodePath("Condition/RightMember")
 right_member_icon = NodePath("Condition/RightMember/RightSupplyIconDisplay")
 right_member_const = NodePath("Condition/RightMember/Label")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 165.0
-offset_top = 11.0
-offset_right = 183.0
-offset_bottom = 42.0
-text = "X"
-
 [node name="Condition" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 3.0
-offset_right = 159.0
-offset_bottom = 49.0
+offset_right = 189.0
+offset_bottom = 96.0
 
 [node name="LeftMember" type="Button" parent="Condition"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = 4.0
 offset_top = 4.0
-offset_right = 41.0
-offset_bottom = 40.0
+offset_right = 56.0
+offset_bottom = 56.0
 
 [node name="LeftSupplyIconDisplay" parent="Condition/LeftMember" instance=ExtResource("2_80fuh")]
 
@@ -53,10 +43,10 @@ vertical_alignment = 1
 
 [node name="OptionButton" type="OptionButton" parent="Condition"]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 6.0
-offset_right = 103.0
-offset_bottom = 37.0
+offset_left = 67.0
+offset_top = 16.0
+offset_right = 122.0
+offset_bottom = 47.0
 item_count = 3
 popup/item_0/text = ">"
 popup/item_0/id = 0
@@ -67,10 +57,10 @@ popup/item_2/id = 2
 
 [node name="RightMember" type="Button" parent="Condition"]
 layout_mode = 0
-offset_left = 110.0
+offset_left = 131.0
 offset_top = 4.0
-offset_right = 146.0
-offset_bottom = 40.0
+offset_right = 183.0
+offset_bottom = 56.0
 
 [node name="RightSupplyIconDisplay" parent="Condition/RightMember" instance=ExtResource("2_80fuh")]
 
@@ -86,7 +76,30 @@ text = "C"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="delete"]
+[node name="Delete" type="Button" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 61.0
+offset_right = 183.0
+offset_bottom = 92.0
+text = "X"
+
+[node name="Suspend" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 61.0
+offset_right = 152.0
+offset_bottom = 92.0
+text = "Suspend"
+
+[node name="Copy" type="Button" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 61.0
+offset_right = 59.0
+offset_bottom = 92.0
+text = "Copy"
+
 [connection signal="mouse_entered" from="Condition/LeftMember" to="." method="show_left_popup"]
 [connection signal="mouse_exited" from="Condition/LeftMember" to="." method="hide_label"]
 [connection signal="pressed" from="Condition/LeftMember" to="." method="request_left_selection"]
@@ -94,3 +107,6 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="Condition/RightMember" to="." method="show_right_popup"]
 [connection signal="mouse_exited" from="Condition/RightMember" to="." method="hide_label"]
 [connection signal="pressed" from="Condition/RightMember" to="." method="request_right_selection"]
+[connection signal="pressed" from="Delete" to="." method="delete"]
+[connection signal="pressed" from="Suspend" to="." method="toggle_suspend"]
+[connection signal="pressed" from="Copy" to="." method="copy"]

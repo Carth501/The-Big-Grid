@@ -22,3 +22,11 @@ func paste_machine(target_machine : Machine):
 		target_machine.load_conditions(memory["conditionals"])
 		target_machine.set_running(memory["active"])
 		target_machine.set_interval(memory["interval"])
+
+func copy_conditional(conditional_expression : Conditional_Expression):
+	var settings = {"type": "conditional"}
+	settings["configuration"] = conditional_expression.configuration
+	memory = settings
+
+func get_memory() -> Dictionary:
+	return memory

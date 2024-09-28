@@ -77,12 +77,12 @@ func add_conditional(new_conditional : Conditional_Expression):
 
 func resize(_node):
 	var condition_count = condition_list_container.get_child_count()
-	var vertical_length = 200 + condition_count * 49
+	var vertical_length = 200 + condition_count * 96
 	custom_minimum_size.y = vertical_length
 
 func resize_minus_one(_node):
 	var condition_count = condition_list_container.get_child_count() - 1
-	var vertical_length = 200 + condition_count * 49
+	var vertical_length = 200 + condition_count * 96
 	custom_minimum_size.y = vertical_length
 
 func hover_upgrade():

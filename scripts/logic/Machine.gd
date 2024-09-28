@@ -67,6 +67,16 @@ func add_conditional():
 	new_conditional.emit(conditional_instance)
 	conditional_instance.delete_this.connect(remove_conditional)
 
+func duplicate_conditional():
+	var memory = copy_handler.get_memory()
+	if(memory.has("type") && memory.type == "machine"):
+		var conditional_instance = Conditional_Expression.new()
+		add_child(conditional_instance)
+		conditional_instance.configuration = memory.configuration
+		conditionals.append(conditional_instance)
+		new_conditional.emit(conditional_instance)
+		conditional_instance.delete_this.connect(remove_conditional)
+
 func remove_conditional(conditional : Conditional_Expression):
 	var index = conditionals.find(conditional)
 	if(index >= 0):

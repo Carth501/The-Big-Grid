@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/display/SupplyIconDisplay.gd" id="1_8gr0y"]
 
 [node name="SupplyIconDisplay" type="Control" node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(52, 52)
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
