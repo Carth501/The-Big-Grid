@@ -5,6 +5,7 @@ signal variable_selection(id : String)
 signal new_supply(id : String)
 signal open_supply(supply : Supply)
 signal action_multi(num : int)
+signal request_empty_confirmation(supply)
 var supplies := {}
 var selection_mode := false
 @export var filter_foreman : Filter_Foreman
@@ -123,3 +124,6 @@ func delist():
 func reveal_supply(id : String):
 	if(supplies.has(id)):
 		supplies[id].reveal()
+
+func open_empty_confirmation(supply : Supply):
+	request_empty_confirmation.emit(supply)

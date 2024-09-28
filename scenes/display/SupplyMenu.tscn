@@ -39,6 +39,14 @@ offset_bottom = 40.0
 placeholder_text = "Supply Name"
 editable = false
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 10.0
+offset_right = 417.0
+offset_bottom = 41.0
+text = "Empty"
+
 [node name="MaxControls" type="Panel" parent="."]
 layout_mode = 1
 offset_left = 8.0
@@ -124,6 +132,7 @@ offset_bottom = 50.0
 
 [connection signal="pressed" from="Close" to="." method="close"]
 [connection signal="text_changed" from="LineEdit" to="." method="change_supply_name"]
+[connection signal="pressed" from="Button" to="." method="empty"]
 [connection signal="focus_entered" from="MaxControls/UpgradeMaxButton" to="." method="upgrade_focus"]
 [connection signal="focus_exited" from="MaxControls/UpgradeMaxButton" to="." method="upgrade_unfocus"]
 [connection signal="mouse_entered" from="MaxControls/UpgradeMaxButton" to="." method="upgrade_enter"]

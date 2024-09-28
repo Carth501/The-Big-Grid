@@ -109,3 +109,6 @@ func create_action_net_delta(deltas : Array) -> Label:
 	var new_label : Colored_Number_Display = colored_number.instantiate()
 	new_label.set_number(net)
 	return new_label
+
+func empty():
+	supply.open_empty_confirmation()

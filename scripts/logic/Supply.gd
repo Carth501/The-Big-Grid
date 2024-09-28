@@ -181,3 +181,10 @@ func set_tags(new_tags : Array):
 func reveal():
 	revealed = true
 	reveal_this.emit()
+
+func open_empty_confirmation():
+	supply_collection.open_empty_confirmation(self)
+
+func empty():
+	value = 0
+	update_value.emit(value)
