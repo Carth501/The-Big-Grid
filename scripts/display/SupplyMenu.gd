@@ -92,6 +92,8 @@ func add_action_to_list(id : String):
 		return
 	var action_logic = action_manager.full_action_list[id]
 	new_button.connect_logic(action_logic)
+	var hotkey_controller = Logic_Directory_Single.get_object("Hotkey_Controller")
+	new_button.register_hotkey_controller(hotkey_controller)
 	var deltas = action_logic.changes[supply.id].deltas
 	var new_label = create_action_net_delta(deltas)
 	new_row.add_child(new_label)

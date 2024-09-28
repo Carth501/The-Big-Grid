@@ -8,6 +8,9 @@ var ctrl := false
 var alt := false
 var hotkey_map := {}
 
+func _ready() -> void:
+	Logic_Directory_Single.index_object("Hotkey_Controller", self)
+
 func _input(event):
 	var operation_string = ""
 	if(shift):

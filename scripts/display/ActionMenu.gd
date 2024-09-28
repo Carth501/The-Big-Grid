@@ -32,6 +32,8 @@ func set_action(new_action : Action):
 	
 	action_button.set_id(action.id)
 	action_button.connect_logic(action)
+	var hotkey_controller = Logic_Directory_Single.get_object("Hotkey_Controller")
+	action_button.register_hotkey_controller(hotkey_controller)
 	action_button.change_label(ActionTranslatorSingle.data[action.id].name)
 	
 	for id in action.supplies:

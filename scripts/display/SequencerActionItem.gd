@@ -21,7 +21,8 @@ func set_action(new_action : Action):
 		empty_button.visible = false
 		action_controls.visible = true
 		action_button.set_id(new_action.id)
-		action_button.connect_logic(new_action)
+		var hotkey_controller = Logic_Directory_Single.get_object("Hotkey_Controller")
+		action_button.register_hotkey_controller(hotkey_controller)
 	action = new_action
 
 func set_index(value : int):
