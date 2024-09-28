@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=41 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -32,6 +32,8 @@
 [ext_resource type="AudioStream" uid="uid://ka1de74am3ri" path="res://sound/effects/Cutting - The Big Grid.ogg" id="22_2sucg"]
 [ext_resource type="AudioStream" uid="uid://brwsjg35lmntm" path="res://sound/music/_Victor's Paycheck_ The Big Grid, Pirate Software Gamejam 15.ogg" id="22_xm5k0"]
 [ext_resource type="AudioStream" uid="uid://c1thhfqko4fve" path="res://sound/effects/Development - The Big Grid.ogg" id="29_lmw6t"]
+[ext_resource type="Script" path="res://scripts/ConfirmationCurtain.gd" id="32_dt4bi"]
+[ext_resource type="PackedScene" uid="uid://dogpp8mey0he7" path="res://scenes/display/SupplyDisplay.tscn" id="32_i02po"]
 [ext_resource type="PackedScene" uid="uid://chr83yjksir7q" path="res://scenes/OptionsMenu/options_menu.tscn" id="33_ttcp7"]
 [ext_resource type="PackedScene" uid="uid://b8nv4l0ge2fi4" path="res://scenes/display/HotkeyPopup.tscn" id="37_4fkkb"]
 [ext_resource type="PackedScene" uid="uid://durgfyetb6d3p" path="res://scenes/logic/GridEngine.tscn" id="37_08wen"]
@@ -546,6 +548,71 @@ bus = &"Effects"
 script = ExtResource("18_m7ho0")
 id = "development"
 
+[node name="ConfirmationCurtain" type="Panel" parent="Display" node_paths=PackedStringArray("supply_display", "supply_collection", "options_overseer")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("32_dt4bi")
+supply_display = NodePath("Control/SupplyDisplay")
+supply_collection = NodePath("../../Logic/SupplyCollection")
+options_overseer = NodePath("../../Logic/OptionsOverseer")
+
+[node name="Control" type="Control" parent="Display/ConfirmationCurtain"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Display/ConfirmationCurtain/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_top = -65.0
+offset_right = 121.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Are you sure that you want to lose everything in this supply?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SupplyDisplay" parent="Display/ConfirmationCurtain/Control" node_paths=PackedStringArray("supply_label") instance=ExtResource("32_i02po")]
+offset_left = -110.0
+offset_right = 106.0
+supply_label = NodePath("../../../../SupplyLabel")
+
+[node name="Confirm" type="Button" parent="Display/ConfirmationCurtain/Control"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 76.0
+offset_right = -13.0
+offset_bottom = 107.0
+text = "Confirm"
+
+[node name="Cancel" type="Button" parent="Display/ConfirmationCurtain/Control"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 76.0
+offset_right = 88.0
+offset_bottom = 107.0
+text = "Cancel"
+
 [node name="Logic" parent="." instance=ExtResource("37_08wen")]
 
 [node name="SequencerManager" parent="Logic" index="9" node_paths=PackedStringArray("action_manager", "supply_collection")]
@@ -729,6 +796,8 @@ visible = false
 [connection signal="finished" from="Display/MusicSystem/WorkersDelight" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/Melded" to="Display/MusicSystem" method="next_track"]
 [connection signal="finished" from="Display/MusicSystem/Tireless" to="Display/MusicSystem" method="next_track"]
+[connection signal="pressed" from="Display/ConfirmationCurtain/Control/Confirm" to="Display/ConfirmationCurtain" method="confirm"]
+[connection signal="pressed" from="Display/ConfirmationCurtain/Control/Cancel" to="Display/ConfirmationCurtain" method="close"]
 [connection signal="action_search_filter" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="filter_actions"]
 [connection signal="new_action" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="build_action_button"]
 [connection signal="open_menu" from="Logic/ActionManager" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_menu"]
@@ -743,6 +812,7 @@ visible = false
 [connection signal="request_action" from="Logic/SequencerManager" to="Display/MiddleSplit/RightSplit/ActionBackground/ActionScrollContainer/MarginContainer/HFlowContainer" method="enter_selection_mode"]
 [connection signal="new_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/SupplyBackground/SupplyScrollContainer/MarginContainer/HFlowContainer" method="_on_supply_collection_new_supply"]
 [connection signal="open_supply" from="Logic/SupplyCollection" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_supply_menu"]
+[connection signal="request_empty_confirmation" from="Logic/SupplyCollection" to="Display/ConfirmationCurtain" method="open"]
 [connection signal="timeout" from="Logic/AutosaveTimer" to="." method="autosave"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="pause"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Save game" to="." method="SaveButton"]

@@ -22,6 +22,11 @@ var supply_description : String
 func setup(id : String, 
 supply_collection : Supply_Collection, 
 options_overseer : Options_Overseer):
+	if(supply != null):
+		if(supply.id == id):
+			return
+		else:
+			disconnect_everything()
 	supply = supply_collection.get_or_create_supply(id)
 	supply.reveal_this.connect(reveal)
 	value_label.text = center(str("%.1f" % supply.value)) 
@@ -149,3 +154,11 @@ func hide_description():
 
 func set_label(new_supply_label : Supply_Label):
 	supply_label = new_supply_label
+
+func disconnect_everything():
+	supply.reveal_this.disconnect(reveal)
+	supply.update_value.disconnect(set_value_display)
+	supply.new_delta.disconnect(add_new_delta)
+	supply.update_max.disconnect(set_max_display)
+	supply.set_obj.disconnect(set_objective)
+	supply.unset_obj.disconnect(unset_objective)
