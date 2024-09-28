@@ -16,6 +16,8 @@ var supply : Supply
 var action_rows := {}
 
 func open(new_supply : Supply):
+	if(supply != null && supply.update_max.is_connected(update_max_upgrade_value)):
+		supply.update_max.disconnect(update_max_upgrade_value)
 	tag_list_display.close()
 	supply = new_supply
 	update_max_upgrade_value(supply.v_max)
