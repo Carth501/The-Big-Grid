@@ -26,6 +26,8 @@ func build_action_button(id : String):
 	new_button.select.connect(select)
 	new_button.selection_hover.connect(selection_hover)
 	new_button.end_selection_hover.connect(end_selection_hover)
+	if(hotkey_controller == null):
+		hotkey_controller = Logic_Directory_Single.get_object("")
 	new_button.register_hotkey_controller(hotkey_controller)
 
 func filter_actions(id_list : Array):
