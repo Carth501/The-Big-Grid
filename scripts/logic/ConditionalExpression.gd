@@ -10,6 +10,7 @@ signal update_value(float)
 signal config_change
 signal delete_this(Conditional_Expression)
 signal end_changing
+signal update_suspension(value)
 
 var configuration : Dictionary
 var supply_collection : Supply_Collection
@@ -47,7 +48,15 @@ func get_left_value() -> float:
 	if(configuration.has("left")):
 		var left = configuration["left"]
 		if(left.has("constant")):
-			return left.constant
+			var constant = left.constant
+			if(constant >= 0):
+				return constant
+			var right = configuration["right"]
+			if(right.has("variable")):
+				var supply = supply_collection.get_supply(right.variable)
+				return supply.v_max + constant
+			else:
+				push_error(str("left is a constant and right is not a variable"))
 		elif(left.has("variable")):
 			var supply = supply_collection.get_supply(left.variable)
 			return supply.value
@@ -57,7 +66,15 @@ func get_right_value() -> float:
 	if(configuration.has("right")):
 		var right = configuration["right"]
 		if(right.has("constant")):
-			return right.constant
+			var constant = right.constant
+			if(constant >= 0):
+				return constant
+			var left = configuration["left"]
+			if(left.has("variable")):
+				var supply = supply_collection.get_supply(left.variable)
+				return supply.v_max + constant
+			else:
+				push_error(str("left is a constant and right is not a variable"))
 		elif(right.has("variable")):
 			var supply = supply_collection.get_supply(right.variable)
 			return supply.value
@@ -150,6 +167,8 @@ func set_comparator(new_comparator : Comparators):
 	comparator = new_comparator
 
 func evaluate():
+	if(configuration.has("suspended") && configuration.suspended): 
+		return true
 	var left = get_left_value()
 	var right = get_right_value()
 
@@ -173,3 +192,13 @@ func delete():
 func load_config(config : Dictionary):
 	configuration = config
 	config_change.emit()
+
+func toggle_suspension():
+	if(configuration.has("suspended")):
+		configuration["suspended"] = !configuration["suspended"]
+	else:
+		configuration["suspended"] = true
+
+func attempt_copy():
+	var copy_handler = Logic_Directory_Single.get_object("Copy_Handler")
+	copy_handler.copy_conditional(self)

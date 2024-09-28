@@ -151,7 +151,7 @@ text = "Add condition"
 
 [node name="ConditionList" type="VBoxContainer" parent="VFlowContainer"]
 layout_mode = 2
-theme_override_constants/separation = 45
+theme_override_constants/separation = 98
 
 [connection signal="mouse_entered" from="Panel" to="." method="enter_hovering"]
 [connection signal="mouse_exited" from="Panel" to="." method="exit_hovering"]
