@@ -18,6 +18,7 @@ var in_filter := true
 var static_position := true
 var supply_name : String
 var supply_description : String
+var hovering := false
 
 func setup(id : String, 
 supply_collection : Supply_Collection, 
@@ -48,6 +49,12 @@ options_overseer : Options_Overseer):
 		var warning_text = str("This resource degrades ", warning_num, "%.")
 		supply_warning.add_text(warning_text)
 	visible = revealed
+
+func _input(event: InputEvent) -> void:
+	if(!hovering):
+		return
+	if event.is_action_pressed("delete"):
+		supply.open_empty_confirmation()
 
 func set_icon_display():
 	if(supply.supply_icon_path != null && supply.supply_icon_path != ""):
@@ -131,6 +138,7 @@ func unset_objective():
 	objective_star.visible = false
 
 func show_label():
+	hovering = true
 	if(supply_label == null):
 		supply_label = get_node("/root/Game/SupplyLabel")
 	supply_label.show_name(supply_name)
@@ -140,6 +148,7 @@ func show_label():
 		controls_display.update_text("RMB: Open supply menu")
 
 func hide_label():
+	hovering = false
 	supply_label.hide_name()
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel
 	if(controls_display != null):
