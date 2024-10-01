@@ -145,7 +145,7 @@ func show_label():
 	supply_label.move_to_supply_rect(get_global_rect())
 	var controls_display = $/root/Game/Display/Panel/ControlsLabel
 	if(controls_display != null):
-		controls_display.update_text("RMB: Open supply menu")
+		controls_display.update_text("RMB: Open supply menu, Delete: dump supply")
 
 func hide_label():
 	hovering = false
