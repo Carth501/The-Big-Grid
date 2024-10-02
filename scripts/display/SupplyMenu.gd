@@ -40,9 +40,6 @@ func open(new_supply : Supply):
 	update_supply_name(SupplyTranslatorSingle.get_supply_name(supply.id))
 
 func close():
-	for action in action_rows:
-		if(action_rows[action].button.open_action_menu.is_connnected(close)):
-			action_rows[action].button.open_action_menu.disconnect(close)
 	supply.update_max.disconnect(update_max_upgrade_value)
 	close_supply_menu.emit()
 	tag_list_display.close()
