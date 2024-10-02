@@ -363,11 +363,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
+current_tab = 0
 
 [node name="Developments" type="ColorRect" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer"]
 clip_contents = true
 layout_mode = 2
 color = Color(0.0431373, 0.0431373, 0.0431373, 0)
+metadata/_tab_index = 0
 
 [node name="DevScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments"]
 layout_mode = 1
@@ -405,6 +407,7 @@ color = Color(0.0431373, 0.0431373, 0.0431373, 0)
 script = ExtResource("11_3l4m0")
 action_section_container = NodePath("ScrollContainer/ActionSectionContainer")
 machine_factory = NodePath("../../../../../../Logic/MachineFactory")
+metadata/_tab_index = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Machines"]
 layout_mode = 1
@@ -438,6 +441,7 @@ layout_mode = 2
 sequencer_manager = NodePath("../../../../../../Logic/SequencerManager")
 supply_collection = NodePath("../../../../../../Logic/SupplyCollection")
 options_overseer = NodePath("../../../../../../Logic/OptionsOverseer")
+metadata/_tab_index = 2
 
 [node name="Panel" type="Panel" parent="Display"]
 layout_mode = 1

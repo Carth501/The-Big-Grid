@@ -41,7 +41,8 @@ func open(new_supply : Supply):
 
 func close():
 	for action in action_rows:
-		action_rows[action].button.open_action_menu.disconnect(close)
+		if(action_rows[action].button.open_action_menu.is_connnected(close)):
+			action_rows[action].button.open_action_menu.disconnect(close)
 	supply.update_max.disconnect(update_max_upgrade_value)
 	close_supply_menu.emit()
 	tag_list_display.close()

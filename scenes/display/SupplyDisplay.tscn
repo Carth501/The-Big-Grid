@@ -10,14 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://bismbh0tk8iw0" path="res://textures/symbols/Supply Warning.png" id="7_qetdo"]
 [ext_resource type="Script" path="res://scripts/display/SupplyWarning.gd" id="8_0ypd4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0e2l"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daq2x"]
 bg_color = Color(0.121569, 0.121569, 0.121569, 0.580392)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0e2l"]
 
 [node name="SupplyDisplay" type="Control" node_paths=PackedStringArray("supply_icon_display", "value_label", "max_label", "delta_label", "supply_button", "supply_change_feedback", "supply_curtain", "objective_star", "supply_warning")]
 custom_minimum_size = Vector2(216, 64)
@@ -43,8 +43,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_x0e2l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_daq2x")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x0e2l")
 icon = ExtResource("2_ljcvu")
 vertical_icon_alignment = 0
 expand_icon = true
