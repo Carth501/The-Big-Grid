@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c7robvmy3qjic"]
+[gd_scene load_steps=42 format=3 uid="uid://c7robvmy3qjic"]
 
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_kvsp4"]
 [ext_resource type="Script" path="res://scripts/display/HorizontalPercentSplit.gd" id="2_1k5o2"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://l4e311vb2rjt" path="res://scenes/display/ActionMenu.tscn" id="5_rdn8f"]
 [ext_resource type="Script" path="res://scripts/display/VerticalPercentSplit.gd" id="5_vo8pe"]
 [ext_resource type="PackedScene" uid="uid://cxnswwxbpknq4" path="res://scenes/display/SupplyMenu.tscn" id="6_2gdos"]
-[ext_resource type="Texture2D" uid="uid://f3n32mmtluxq" path="res://textures/ui/Actions Menu.svg" id="7_cggcs"]
+[ext_resource type="Shader" path="res://shaders/ActionBackground.gdshader" id="7_2a4y8"]
 [ext_resource type="AudioStream" uid="uid://nqca84fbhaxg" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Intermediate_.ogg" id="9_v5ac6"]
 [ext_resource type="Script" path="res://scripts/MusicSystem.gd" id="9_vk0jb"]
 [ext_resource type="AudioStream" uid="uid://dcdic5mi1gpr1" path="res://sound/music/Pirate Software Gamejam 15, The Big Grid, _ Orc Dance Orchestral_.ogg" id="10_agjpm"]
@@ -40,6 +40,15 @@
 [ext_resource type="PackedScene" uid="uid://brv0nvrfcfotn" path="res://scenes/tutorial_pop_up.tscn" id="37_anvfk"]
 [ext_resource type="PackedScene" uid="uid://b2tl0aohgfoqu" path="res://scenes/display/ConstantConfigPopup.tscn" id="38_nyqal"]
 [ext_resource type="Script" path="res://scripts/SupplyLabel.gd" id="40_lks8k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ql2q5"]
+shader = ExtResource("7_2a4y8")
+shader_parameter/resolution = Vector2(680, 400)
+shader_parameter/line_color = Color(0.2, 0.3, 0.5, 1)
+shader_parameter/min_brightness = 0.7
+shader_parameter/brightness_range = 0.02
+shader_parameter/cycle_speed = 0.65
+shader_parameter/thickness = 0.37
 
 [node name="Game" type="Node" node_paths=PackedStringArray("supply_collection", "action_manager", "machine_factory", "development_handler", "sequencer_manager", "save_file_panel", "save_file_name", "development_display", "hotkey_controller")]
 script = ExtResource("1_kvsp4")
@@ -191,14 +200,11 @@ split_offset = 300
 script = ExtResource("5_vo8pe")
 split = 0.7
 
-[node name="ActionBackground" type="NinePatchRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu", "supply_menu_container", "supply_menu")]
+[node name="ActionBackground" type="ColorRect" parent="Display/MiddleSplit/RightSplit" node_paths=PackedStringArray("actions_display", "action_menu", "supply_menu_container", "supply_menu")]
+material = SubResource("ShaderMaterial_ql2q5")
 clip_contents = true
 layout_mode = 2
-texture = ExtResource("7_cggcs")
-patch_margin_left = 127
-patch_margin_top = 129
-patch_margin_right = 128
-patch_margin_bottom = 89
+color = Color(0, 0, 0, 1)
 script = ExtResource("3_y50x7")
 actions_display = NodePath("ActionScrollContainer")
 action_menu = NodePath("ActionMenu")
@@ -786,6 +792,7 @@ visible = false
 [connection signal="pressed" from="Display/MiddleSplit/SupplyBackground/HFlowContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="dragged" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_dragged"]
 [connection signal="resized" from="Display/MiddleSplit/RightSplit" to="Display/MiddleSplit/RightSplit" method="_on_resized"]
+[connection signal="resized" from="Display/MiddleSplit/RightSplit/ActionBackground" to="Display/MiddleSplit/RightSplit/ActionBackground" method="update_shader_resolution"]
 [connection signal="close_action_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/ActionMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="close_supply_menu" from="Display/MiddleSplit/RightSplit/ActionBackground/SupplyMenuScrollContainer/MarginContainer/SupplyMenu" to="Display/MiddleSplit/RightSplit/ActionBackground" method="open_actions_display"]
 [connection signal="pressed" from="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments/UnhideDevelopments" to="Display/MiddleSplit/RightSplit/NinePatchRect/TabContainer/Developments/DevScrollContainer/MarginContainer/HFlowContainer" method="show_all_developments"]

@@ -1,4 +1,4 @@
-class_name Action_View extends NinePatchRect
+class_name Action_View extends Control
 
 @export var actions_display : ScrollContainer
 @export var action_menu : Action_Menu
@@ -23,3 +23,6 @@ func open_actions_display():
 	actions_display.visible = true
 	action_menu.visible = false
 	supply_menu_container.visible = false
+
+func update_shader_resolution():
+	material.set_shader_parameter("resolution", size)
